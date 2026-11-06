@@ -61,7 +61,7 @@ are also served at `/en/<slug>`.
 
 ## 4. Rival comparison — Messi (from `public/data/messi.json`)
 
-936 goals · 1,181 appearances · 408 assists · 109 penalties (149 attempts) ·
+937 goals · 1,184 appearances · 409 assists · 110 penalties (150 attempts) ·
 67 direct free kicks · 62 hat-tricks · 129 Champions League goals ·
 40 Champions League assists · 125 international goals in 207 caps ·
 21 World Cup goals · 46 senior team trophies · 8 Ballons d'Or ·

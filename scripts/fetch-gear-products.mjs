@@ -108,8 +108,19 @@ async function pageFor(asin) {
   return { title, image, price: apex.replace(/,/g, "") };
 }
 
+let existingProducts = [];
+const DATA_FILE = path.join(ROOT, "public/data/gear-products.json");
+try {
+  const existing = JSON.parse(fs.readFileSync(DATA_FILE, "utf8"));
+  existingProducts = existing.products || [];
+} catch (e) {}
+const existingByFile = new Map(existingProducts.map((p) => [p.file, p]));
+
 const out = [];
 for (const [file, pinned] of Object.entries(KEEP)) {
+  const localImgPath = path.join(ROOT, "public/img/gear", file);
+  const localImgExists = fs.existsSync(localImgPath) && fs.statSync(localImgPath).size > 4000;
+
   const card = await cardFor(pinned.asin, pinned.query);
   await new Promise((r) => setTimeout(r, 1600));
   // the listing's own page carries the product picture (the search card can
@@ -126,7 +137,14 @@ for (const [file, pinned] of Object.entries(KEEP)) {
   };
   if (!/^\d+(\.\d{2})?$/.test(data.price)) data.price = "";
 
-  if (!data.image) { console.log("  " + file + ": no picture found"); continue; }
+  if (!data.image) {
+    console.log("  " + file + ": no picture found on Amazon");
+    if (existingByFile.has(file) && localImgExists) {
+      out.push(existingByFile.get(file));
+      console.log("    -> preserved cached listing for " + file);
+    }
+    continue;
+  }
 
   // the full-size catalogue image
   let saved = false;
@@ -144,16 +162,30 @@ for (const [file, pinned] of Object.entries(KEEP)) {
       if (!r.ok) continue;
       const buf = Buffer.from(await r.arrayBuffer());
       if (buf.length < 4000) continue;
-      fs.writeFileSync(path.join(ROOT, "public/img/gear", file), buf);
+      fs.writeFileSync(localImgPath, buf);
       saved = true;
       data.image = u;
       break;
     } catch (e) { /* next */ }
   }
-  if (!saved) { console.log("  " + file + ": the image could not be downloaded (" + data.image + ")"); continue; }
+  if (!saved) {
+    console.log("  " + file + ": the image could not be downloaded (" + data.image + ")");
+    if (existingByFile.has(file) && localImgExists) {
+      out.push(existingByFile.get(file));
+      console.log("    -> preserved cached listing for " + file);
+    }
+    continue;
+  }
 
   out.push({ file, asin: data.asin, amazonTitle: data.title, price: data.price, rating: data.rating, reviews: data.reviews, image: data.image, url: "https://www.amazon.com/dp/" + data.asin + "?tag=" + TAG });
   console.log("  " + file.padEnd(24) + data.asin + "  $" + (data.price || "?").padStart(7) + "  " + (data.rating || "-") + "★  " + (data.reviews || "-").padStart(5) + " reviews  " + data.title.slice(0, 44));
+}
+
+for (const file of Object.keys(KEEP)) {
+  if (!out.some((p) => p.file === file) && existingByFile.has(file)) {
+    out.push(existingByFile.get(file));
+    console.log("  " + file + ": restored from cached listing");
+  }
 }
 
 fs.writeFileSync(path.join(ROOT, "public/data/gear-products.json"), JSON.stringify({ retrieved: new Date().toISOString().slice(0, 10), source: "amazon.com", note: "Prices and ratings are read from the listing on the retrieval date and change; the card says so.", products: out }, null, 1), "utf8");

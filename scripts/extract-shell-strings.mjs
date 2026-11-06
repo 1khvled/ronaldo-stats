@@ -77,6 +77,24 @@ for (const page of PAGES) {
   }
 }
 
+// Register translatable strings from scripts/gear-copy.json so that conditionally
+// rendered strings (e.g. priceNoteNoPrice when all items currently have prices)
+// are always retained in en.json and the shell dictionaries.
+try {
+  const gearCopyFile = path.join(ROOT, "scripts", "gear-copy.json");
+  if (fs.existsSync(gearCopyFile)) {
+    const gearCopy = JSON.parse(fs.readFileSync(gearCopyFile, "utf8"));
+    if (gearCopy.priceNote) record(gearCopy.priceNote, "gear", "[gear copy priceNote]");
+    if (gearCopy.priceNoteNoPrice) record(gearCopy.priceNoteNoPrice, "gear", "[gear copy priceNoteNoPrice]");
+    if (gearCopy.reviewWord) record(gearCopy.reviewWord, "gear", "[gear copy reviewWord]");
+    if (Array.isArray(gearCopy.bullets)) {
+      for (const b of gearCopy.bullets) record(b, "gear", "[gear copy bullet]");
+    }
+  }
+} catch (e) {
+  // ignore
+}
+
 const out = {};
 for (const key of [...found.keys()].sort()) {
   const e = found.get(key);

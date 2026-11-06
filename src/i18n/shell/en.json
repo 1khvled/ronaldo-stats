@@ -111,28 +111,28 @@
   "pages": [
    "index"
   ],
-  "ctx": "985 goals and 261 assists in 1,343 appearances  [(0.73 goals per game); Lionel Messi has] 936 goals and 408 assists in 1,181 appearances"
+  "ctx": "985 goals and 261 assists in 1,343 appearances  [(0.73 goals per game); Lionel Messi has] 937 goals and 409 assists in 1,184 appearances"
  },
- "(0.79 per game). Ronaldo leads on goals (985 to 936), penalties (184 to 109), Champions League goals (140 to 129) and hat-tricks (66 to 62); Messi leads on assists (408 to 261), trophies (46 to 35), Ballons d'Or (8 to 5) and free kicks (67 to 66). They have met 36 times in club football: Messi's teams won 16, Ronaldo's 11, with 9 draws. Compare the full records on our": {
+ "(0.79 per game). Ronaldo leads on goals (985 to 937), penalties (184 to 110), Champions League goals (140 to 129) and hat-tricks (67 to 62); Messi leads on assists (409 to 261), trophies (46 to 35), Ballons d'Or (8 to 5) and free kicks (67 to 66). They have met 36 times in club football: Messi's teams won 16, Ronaldo's 11, with 9 draws. Compare the full records on our": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "936 goals and 408 assists in 1,181 appearances  [(0.79 per game). Ronaldo leads on goals (985 to 936), penalties (184 to 109), Champions League goals (140 to 129) and hat-tricks (66 to 62); Messi leads on assists (408 to 261), trophies (46 to 35), Ballons d'Or (8 to 5) and free kicks (67 to 66). The"
+  "ctx": "937 goals and 409 assists in 1,184 appearances  [(0.79 per game). Ronaldo leads on goals (985 to 937), penalties (184 to 110), Champions League goals (140 to 129) and hat-tricks (67 to 62); Messi leads on assists (409 to 261), trophies (46 to 35), Ballons d'Or (8 to 5) and free kicks (67 to 66). The"
  },
  "(0.93 goal contributions per match), while": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "Cristiano Ronaldo has scored 981 goals and provided 261 assists in 1,342 appearances  [(0.93 goal contributions per match), while] Lionel Messi has scored 936 goals and provided 408 assists in 1,181 appearances"
+  "ctx": "Cristiano Ronaldo has scored 985 goals and provided 261 assists in 1,343 appearances  [(0.93 goal contributions per match), while] Lionel Messi has scored 937 goals and provided 409 assists in 1,184 appearances"
  },
  "(1.14 contributions per match). Ronaldo leads the all-time goal tally (": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "Lionel Messi has scored 936 goals and provided 408 assists in 1,181 appearances  [(1.14 contributions per match). Ronaldo leads the all-time goal tally (] 983 vs 936"
+  "ctx": "Lionel Messi has scored 937 goals and provided 409 assists in 1,184 appearances  [(1.14 contributions per match). Ronaldo leads the all-time goal tally (] 985 vs 937"
  },
  "(2008, 2013, 2014, 2016, 2017) and 4 European Golden Shoes. See": {
   "count": 1,
@@ -188,7 +188,7 @@
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "66 vs 62  [) and Champions League goals (] 140 vs 129"
+  "ctx": "67 vs 62  [) and Champions League goals (] 140 vs 129"
  },
  ") in 1,343 appearances —": {
   "count": 1,
@@ -202,28 +202,28 @@
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "184 vs 109  [), hat-tricks (] 66 vs 62"
+  "ctx": "184 vs 110  [), hat-tricks (] 67 vs 62"
  },
  "), penalties (": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "1,340 vs 1,181  [), penalties (] 184 vs 109"
+  "ctx": "1,343 vs 1,184  [), penalties (] 184 vs 110"
  },
  "), the appearance count (": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "983 vs 936  [), the appearance count (] 1,340 vs 1,181"
+  "ctx": "985 vs 937  [), the appearance count (] 1,343 vs 1,184"
  },
  "). Messi leads in": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "140 vs 129  [). Messi leads in] assists (408 vs 261)"
+  "ctx": "140 vs 129  [). Messi leads in] assists (409 vs 261)"
  },
  "* 2026 season in progress &mdash; refreshes after each appearance.": {
   "count": 1,
@@ -502,13 +502,6 @@
   ],
   "ctx": "and  [1,244 goal contributions (G+A), 0.93 per match] ."
  },
- "1,340 vs 1,181": {
-  "count": 1,
-  "pages": [
-   "ronaldo-vs-messi"
-  ],
-  "ctx": "), the appearance count (  [1,340 vs 1,181] ), penalties ("
- },
  "1,342 senior appearances": {
   "count": 1,
   "pages": [
@@ -529,6 +522,13 @@
    "index"
   ],
   "ctx": "in  [1,343 senior appearances] (0.73 goals per game), 35 trophies, and 5 Ballons d'Or across Sporting CP, Manchester United, Real Madrid, Juventus, Al Nassr and Portugal. Explore every"
+ },
+ "1,343 vs 1,184": {
+  "count": 1,
+  "pages": [
+   "ronaldo-vs-messi"
+  ],
+  "ctx": "), the appearance count (  [1,343 vs 1,184] ), penalties ("
  },
  "10 Jul 2016": {
   "count": 1,
@@ -873,12 +873,12 @@
   ],
   "ctx": "Ronaldo has scored  [184 penalty goals] from 220 attempts across club and country (83.6% conversion)."
  },
- "184 vs 109": {
+ "184 vs 110": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "), penalties (  [184 vs 109] ), hat-tricks ("
+  "ctx": "), penalties (  [184 vs 110] ), hat-tricks ("
  },
  "19 October 2026": {
   "count": 1,
@@ -1596,12 +1596,12 @@
   ],
   "ctx": "Cristiano Ronaldo has scored  [66 direct free-kick goals] in senior football. The figure comes from a widely published compiled tally and stays provisional until a match-by-match hand count is finished."
  },
- "66 vs 62": {
+ "67 vs 62": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "), hat-tricks (  [66 vs 62] ) and Champions League goals ("
+  "ctx": "), hat-tricks (  [67 vs 62] ) and Champions League goals ("
  },
  "69 /yr": {
   "count": 2,
@@ -1766,19 +1766,19 @@
   ],
   "ctx": "His  [900th career goal] came on"
  },
- "936 Goals · 46 Trophies · 8 Ballons d'Or · 408 Assists": {
+ "937 Goals · 46 Trophies · 8 Ballons d'Or · 409 Assists": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "Lionel Messi  [936 Goals · 46 Trophies · 8 Ballons d'Or · 408 Assists] Vote Messi →"
+  "ctx": "Lionel Messi  [937 Goals · 46 Trophies · 8 Ballons d'Or · 409 Assists] Vote Messi →"
  },
- "936 goals and 408 assists in 1,181 appearances": {
+ "937 goals and 409 assists in 1,184 appearances": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "(0.73 goals per game); Lionel Messi has  [936 goals and 408 assists in 1,181 appearances] (0.79 per game). Ronaldo leads on goals (985 to 936), penalties (184 to 109), Champions League goals (140 to 129) and hat-tricks (66 to 62); Messi leads on assists (408 to 261), trophies (46 to 35), Ballons d'O"
+  "ctx": "(0.73 goals per game); Lionel Messi has  [937 goals and 409 assists in 1,184 appearances] (0.79 per game). Ronaldo leads on goals (985 to 937), penalties (184 to 110), Champions League goals (140 to 129) and hat-tricks (67 to 62); Messi leads on assists (409 to 261), trophies (46 to 35), Ballons d'O"
  },
  "981 Official Career Goals": {
   "count": 1,
@@ -1822,13 +1822,6 @@
    "index"
   ],
   "ctx": "has recorded  [983 official goals] and"
- },
- "983 vs 936": {
-  "count": 1,
-  "pages": [
-   "ronaldo-vs-messi"
-  ],
-  "ctx": "(1.14 contributions per match). Ronaldo leads the all-time goal tally (  [983 vs 936] ), the appearance count ("
  },
  "983G": {
   "count": 1,
@@ -1878,6 +1871,13 @@
    "index"
   ],
   "ctx": "[attr aria-label]"
+ },
+ "985 vs 937": {
+  "count": 1,
+  "pages": [
+   "ronaldo-vs-messi"
+  ],
+  "ctx": "(1.14 contributions per match). Ronaldo leads the all-time goal tally (  [985 vs 937] ), the appearance count ("
  },
  ": 10 for Portugal — a world record — plus the outright international goalscoring record he took from Ali Daei on 1 September 2021.": {
   "count": 1,
@@ -2047,12 +2047,12 @@
   ],
   "ctx": "Individual Honours  [: Ronaldo has 5 Ballons d'Or and 4 European Golden Shoes; Messi has 8 Ballons d'Or.] Set Pieces &amp; Records"
  },
- ": Ronaldo has 983 goals in 1,342 senior games (0.73 per game); Messi has 936 goals in 1,181 games (0.79 per game).": {
+ ": Ronaldo has 985 goals in 1,343 senior games (0.73 per game); Messi has 937 goals in 1,184 games (0.79 per game).": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "Career Goals &amp; Efficiency  [: Ronaldo has 983 goals in 1,342 senior games (0.73 per game); Messi has 936 goals in 1,181 games (0.79 per game).] Playmaking &amp; Assists"
+  "ctx": "Career Goals &amp; Efficiency  [: Ronaldo has 985 goals in 1,343 senior games (0.73 per game); Messi has 937 goals in 1,184 games (0.79 per game).] Playmaking &amp; Assists"
  },
  ": Ronaldo has won 35 senior team titles (32 club and 3 Portugal); Messi has 46. Check": {
   "count": 1,
@@ -2208,7 +2208,7 @@
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "Who has better all-time career statistics: Ronaldo or Messi?  [Across all official senior matches,] Cristiano Ronaldo has scored 981 goals and provided 261 assists in 1,342 appearances"
+  "ctx": "Who has better all-time career statistics: Ronaldo or Messi?  [Across all official senior matches,] Cristiano Ronaldo has scored 985 goals and provided 261 assists in 1,343 appearances"
  },
  "Across his senior career (2002–2026),": {
   "count": 1,
@@ -2623,7 +2623,7 @@
   "ctx": "Check on Amazon ↗  [Amazon Associates &amp; FTC Disclosure:] RonaldoStats is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. When you purchase throug"
  },
  "Amazon prices and stock change, so the listing always shows the live price": {
-  "count": 8,
+  "count": 9,
   "pages": [
    "gear"
   ],
@@ -2831,12 +2831,12 @@
   ],
   "ctx": "Current career total: 981 goals  [Bars: goals that year (peak 69, 2013). Line: cumulative career climb to 981.] Goals, running career total and age for every calendar year since Ronaldo's 2002 debut."
  },
- "Because the two careers distribute their output differently. Ronaldo leads on total goals (983 to 936), penalties (184 to 109), hat-tricks (66 to 62) and Champions League goals (140 to 129). Messi leads on assists (408 to 261), senior team trophies (46 to 35), Ballons d'Or (8 to 5), goals per match (0.73 to 0.79) and free kicks (67 to 66). Every row of the tables above is a fact; the conclusion belongs to the reader.": {
+ "Because the two careers distribute their output differently. Ronaldo leads on total goals (985 to 937), penalties (184 to 110), hat-tricks (67 to 62) and Champions League goals (140 to 129). Messi leads on assists (409 to 261), senior team trophies (46 to 35), Ballons d'Or (8 to 5), goals per match (0.73 to 0.79) and free kicks (67 to 66). Every row of the tables above is a fact; the conclusion belongs to the reader.": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "▾  [Because the two careers distribute their output differently. Ronaldo leads on total goals (983 to 936), penalties (184 to 109), hat-tricks (66 to 62) and Champions League goals (140 to 129). Messi leads on assists (408 to 261), senior team trophies (46 to 35), Ballons d'Or (8 to 5), goals per ma"
+  "ctx": "▾  [Because the two careers distribute their output differently. Ronaldo leads on total goals (985 to 937), penalties (184 to 110), hat-tricks (67 to 62) and Champions League goals (140 to 129). Messi leads on assists (409 to 261), senior team trophies (46 to 35), Ballons d'Or (8 to 5), goals per ma"
  },
  "Behind it come 2011/12 (60) and 2012/13 (55), while nine Real Madrid seasons brought 450 goals and never fewer than 33 in a campaign. Decades later, 2023/24 with Al Nassr (50) included a record 35 goals in a single Saudi league season.": {
   "count": 1,
@@ -2927,7 +2927,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "🐐 Cristiano Ronaldo vs Lionel Messi Comparison  [Career Goals &amp; Efficiency] : Ronaldo has 983 goals in 1,342 senior games (0.73 per game); Messi has 936 goals in 1,181 games (0.79 per game)."
+  "ctx": "🐐 Cristiano Ronaldo vs Lionel Messi Comparison  [Career Goals &amp; Efficiency] : Ronaldo has 985 goals in 1,343 senior games (0.73 per game); Messi has 937 goals in 1,184 games (0.79 per game)."
  },
  "Career Goals for Every Team: Real Madrid, Manchester United, Juventus, Al Nassr, Sporting CP &amp; Portugal": {
   "count": 1,
@@ -3137,7 +3137,7 @@
   "ctx": "Price checked on Amazon  [Check on Amazon ↗] ⭐ Tournament Kit"
  },
  "Check the listing for the price": {
-  "count": 1,
+  "count": 2,
   "pages": [
    "gear"
   ],
@@ -3598,12 +3598,12 @@
   ],
   "ctx": "[attr aria-label]"
  },
- "Cristiano Ronaldo has 261 career assists, or 291 on Transfermarkt's wider criteria. Lionel Messi has 408, or 450 on the same criteria. Messi leads by 147 on the published senior tally.": {
+ "Cristiano Ronaldo has 261 career assists, or 291 on Transfermarkt's wider criteria. Lionel Messi has 409, or 451 on the same criteria. Messi leads by 148 on the published senior tally.": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "▾  [Cristiano Ronaldo has 261 career assists, or 291 on Transfermarkt's wider criteria. Lionel Messi has 408, or 450 on the same criteria. Messi leads by 147 on the published senior tally.] Who has scored more penalties, and what are their conversion rates?"
+  "ctx": "▾  [Cristiano Ronaldo has 261 career assists, or 291 on Transfermarkt's wider criteria. Lionel Messi has 409, or 451 on the same criteria. Messi leads by 148 on the published senior tally.] Who has scored more penalties, and what are their conversion rates?"
  },
  "Cristiano Ronaldo has recorded": {
   "count": 1,
@@ -3619,12 +3619,12 @@
   ],
   "ctx": "▾  [Cristiano Ronaldo has scored] 66 direct free-kick goals"
  },
- "Cristiano Ronaldo has scored 184 penalties from 220 attempts, an 83.6% conversion rate. Lionel Messi has scored 109 from 149 attempts, a 73.2% rate. Ronaldo leads by 75 penalties.": {
+ "Cristiano Ronaldo has scored 184 penalties from 221 attempts, an 83.3% conversion rate. Lionel Messi has scored 110 from 150 attempts, a 73.3% rate. Ronaldo leads by 74 penalties.": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "▾  [Cristiano Ronaldo has scored 184 penalties from 220 attempts, an 83.6% conversion rate. Lionel Messi has scored 109 from 149 attempts, a 73.2% rate. Ronaldo leads by 75 penalties.] Who has more career hat-tricks: Ronaldo or Messi?"
+  "ctx": "▾  [Cristiano Ronaldo has scored 184 penalties from 221 attempts, an 83.3% conversion rate. Lionel Messi has scored 110 from 150 attempts, a 73.3% rate. Ronaldo leads by 74 penalties.] Who has more career hat-tricks: Ronaldo or Messi?"
  },
  "Cristiano Ronaldo has scored 66 career hat-tricks, ten of them for Portugal, which is a world record. Lionel Messi has scored 62. Ronaldo leads by four.": {
   "count": 1,
@@ -3633,26 +3633,26 @@
   ],
   "ctx": "▾  [Cristiano Ronaldo has scored 66 career hat-tricks, ten of them for Portugal, which is a world record. Lionel Messi has scored 62. Ronaldo leads by four.] Who performed better at the FIFA World Cup: Ronaldo or Messi?"
  },
- "Cristiano Ronaldo has scored 797 non-penalty goals. Messi's 936 goals include 109 penalties, which leaves 797 non-penalty goals. Messi leads on this measure, and because the set-piece splits behind both figures are published tallies rather than hand counts, the margin is given as two totals rather than as a difference.": {
+ "Cristiano Ronaldo has scored 801 non-penalty goals. Messi's 937 goals include 110 penalties, which leaves 827 non-penalty goals. Messi leads on this measure, and because the set-piece splits behind both figures are published tallies rather than hand counts, the margin is given as two totals rather than as a difference.": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "▾  [Cristiano Ronaldo has scored 797 non-penalty goals. Messi's 936 goals include 109 penalties, which leaves 797 non-penalty goals. Messi leads on this measure, and because the set-piece splits behind both figures are published tallies rather than hand counts, the margin is given as two totals rath"
+  "ctx": "▾  [Cristiano Ronaldo has scored 801 non-penalty goals. Messi's 937 goals include 110 penalties, which leaves 827 non-penalty goals. Messi leads on this measure, and because the set-piece splits behind both figures are published tallies rather than hand counts, the margin is given as two totals rath"
  },
- "Cristiano Ronaldo has scored 981 goals and provided 261 assists in 1,342 appearances": {
+ "Cristiano Ronaldo has scored 985 goals and provided 261 assists in 1,343 appearances": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "Across all official senior matches,  [Cristiano Ronaldo has scored 981 goals and provided 261 assists in 1,342 appearances] (0.93 goal contributions per match), while"
+  "ctx": "Across all official senior matches,  [Cristiano Ronaldo has scored 985 goals and provided 261 assists in 1,343 appearances] (0.93 goal contributions per match), while"
  },
- "Cristiano Ronaldo has scored 983 senior goals in 1,342 appearances, a rate of 0.73 per match. Lionel Messi has 936 goals in 1,181 appearances, a rate of 0.79 per match. Ronaldo leads the total by 47 goals and has played 161 more matches; Messi leads the ratio by 0.06.": {
+ "Cristiano Ronaldo has scored 985 senior goals in 1,343 appearances, a rate of 0.73 per match. Lionel Messi has 937 goals in 1,184 appearances, a rate of 0.79 per match. Ronaldo leads the total by 48 goals and has played 159 more matches; Messi leads the ratio by 0.06.": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "▾  [Cristiano Ronaldo has scored 983 senior goals in 1,342 appearances, a rate of 0.73 per match. Lionel Messi has 936 goals in 1,181 appearances, a rate of 0.79 per match. Ronaldo leads the total by 47 goals and has played 161 more matches; Messi leads the ratio by 0.06.] Who has more non-penalty g"
+  "ctx": "▾  [Cristiano Ronaldo has scored 985 senior goals in 1,343 appearances, a rate of 0.73 per match. Lionel Messi has 937 goals in 1,184 appearances, a rate of 0.79 per match. Ronaldo leads the total by 48 goals and has played 159 more matches; Messi leads the ratio by 0.06.] Who has more non-penalty g"
  },
  "Cristiano Ronaldo has won": {
   "count": 1,
@@ -3794,7 +3794,7 @@
   ],
   "ctx": "[attr content]"
  },
- "Cristiano Ronaldo vs Lionel Messi: 981 goals vs 936, 261 assists vs 408, 66 hat-tricks vs 62, 140 Champions League goals vs 129, 35 trophies vs 46, 5 Ballons d'Or vs 8. Every figure sourced.": {
+ "Cristiano Ronaldo vs Lionel Messi: 985 goals vs 937, 261 assists vs 409, 67 hat-tricks vs 62, 140 Champions League goals vs 129, 35 trophies vs 46, 5 Ballons d'Or vs 8. Every figure sourced.": {
   "count": 3,
   "pages": [
    "ronaldo-vs-messi"
@@ -5195,7 +5195,7 @@
   ],
   "ctx": "Ronaldo &amp; Messi  [Head-to-Head &amp; Complete Career Comparison] Ronaldo vs Messi"
  },
- "Head-to-head career stats: 983 vs 936 goals, 35 vs 46 trophies, 5 vs 8 Ballons d'Or.": {
+ "Head-to-head career stats: 985 vs 937 goals, 35 vs 46 trophies, 5 vs 8 Ballons d'Or.": {
   "count": 6,
   "pages": [
    "dashboard",
@@ -5205,7 +5205,7 @@
    "timeline",
    "trophies"
   ],
-  "ctx": "🐐 Ronaldo vs Messi All-Time  [Head-to-head career stats: 983 vs 936 goals, 35 vs 46 trophies, 5 vs 8 Ballons d'Or.] 🏟️ Ronaldo at Real Madrid"
+  "ctx": "🐐 Ronaldo vs Messi All-Time  [Head-to-head career stats: 985 vs 937 goals, 35 vs 46 trophies, 5 vs 8 Ballons d'Or.] 🏟️ Ronaldo at Real Madrid"
  },
  "His": {
   "count": 1,
@@ -5902,12 +5902,12 @@
   ],
   "ctx": "▾  [Lionel Messi has scored 67 direct free-kick goals; Cristiano Ronaldo has 66. Messi leads by one. Ronaldo's free kicks came for Real Madrid, Manchester United, Juventus, Al Nassr and Portugal, and the set-piece tally is a widely published one that stays provisional until the match-by-match hand c"
  },
- "Lionel Messi has scored 936 goals and provided 408 assists in 1,181 appearances": {
+ "Lionel Messi has scored 937 goals and provided 409 assists in 1,184 appearances": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "(0.93 goal contributions per match), while  [Lionel Messi has scored 936 goals and provided 408 assists in 1,181 appearances] (1.14 contributions per match). Ronaldo leads the all-time goal tally ("
+  "ctx": "(0.93 goal contributions per match), while  [Lionel Messi has scored 937 goals and provided 409 assists in 1,184 appearances] (1.14 contributions per match). Ronaldo leads the all-time goal tally ("
  },
  "Live Match Streams &amp; Partners": {
   "count": 1,
@@ -6397,7 +6397,7 @@
   "pages": [
    "index"
   ],
-  "ctx": ": Ronaldo has 983 goals in 1,342 senior games (0.73 per game); Messi has 936 goals in 1,181 games (0.79 per game).  [Playmaking &amp; Assists] : Ronaldo has 261 official career assists (291 under Transfermarkt criteria) to Messi's 408."
+  "ctx": ": Ronaldo has 985 goals in 1,343 senior games (0.73 per game); Messi has 937 goals in 1,184 games (0.79 per game).  [Playmaking &amp; Assists] : Ronaldo has 261 official career assists (291 under Transfermarkt criteria) to Messi's 408."
  },
  "Playmaking, Creativity &amp; Offensive Influence": {
   "count": 1,
@@ -6468,7 +6468,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "Official Matchwear  [Portugal National Team Shirt] ★★★★★"
+  "ctx": "Official Matchwear  [Portugal National Team Shirt] The photograph is the listing's own image on Amazon"
  },
  "Portugal crest": {
   "count": 2,
@@ -6582,7 +6582,7 @@
   "ctx": "3  [Premier League title; United reached the final] 2007/08"
  },
  "Price checked on Amazon": {
-  "count": 7,
+  "count": 8,
   "pages": [
    "gear"
   ],
@@ -7156,7 +7156,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "(0.79 per game). Ronaldo leads on goals (985 to 936), penalties (184 to 109), Champions League goals (140 to 129) and hat-tricks (66 to 62); Messi leads on assists (408 to 261), trophies (46 to 35), Ballons d'Or (8 to 5) and free kicks (67 to 66). They have met 36 times in club football: Messi's tea"
+  "ctx": "(0.79 per game). Ronaldo leads on goals (985 to 937), penalties (184 to 110), Champions League goals (140 to 129) and hat-tricks (67 to 62); Messi leads on assists (409 to 261), trophies (46 to 35), Ballons d'Or (8 to 5) and free kicks (67 to 66). They have met 36 times in club football: Messi's tea"
  },
  "Ronaldo vs Messi stats tracker": {
   "count": 1,
@@ -7991,7 +7991,7 @@
   "ctx": "La Décima  [The last-gasp extra-time penalty against Atlético in Lisbon, a record 17 Champions League goals in that season, and the first of the four European crowns he won at Real Madrid.] Watch the Penalty ⚽"
  },
  "The photograph is the listing's own image on Amazon": {
-  "count": 8,
+  "count": 9,
   "pages": [
    "gear"
   ],
@@ -8416,7 +8416,7 @@
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "936 Goals · 46 Trophies · 8 Ballons d'Or · 408 Assists  [Vote Messi →] All-Time Senior Career Totals"
+  "ctx": "937 Goals · 46 Trophies · 8 Ballons d'Or · 409 Assists  [Vote Messi →] All-Time Senior Career Totals"
  },
  "Vote Ronaldo →": {
   "count": 1,
@@ -8619,14 +8619,14 @@
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "Cristiano Ronaldo has scored 184 penalties from 220 attempts, an 83.6% conversion rate. Lionel Messi has scored 109 from 149 attempts, a 73.2% rate. Ronaldo leads by 75 penalties.  [Who has more career hat-tricks: Ronaldo or Messi?] ▾"
+  "ctx": "Cristiano Ronaldo has scored 184 penalties from 221 attempts, an 83.3% conversion rate. Lionel Messi has scored 110 from 150 attempts, a 73.3% rate. Ronaldo leads by 74 penalties.  [Who has more career hat-tricks: Ronaldo or Messi?] ▾"
  },
  "Who has more non-penalty goals: Ronaldo or Messi?": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "Cristiano Ronaldo has scored 983 senior goals in 1,342 appearances, a rate of 0.73 per match. Lionel Messi has 936 goals in 1,181 appearances, a rate of 0.79 per match. Ronaldo leads the total by 47 goals and has played 161 more matches; Messi leads the ratio by 0.06.  [Who has more non-penalty goal"
+  "ctx": "Cristiano Ronaldo has scored 985 senior goals in 1,343 appearances, a rate of 0.73 per match. Lionel Messi has 937 goals in 1,184 appearances, a rate of 0.79 per match. Ronaldo leads the total by 48 goals and has played 159 more matches; Messi leads the ratio by 0.06.  [Who has more non-penalty goal"
  },
  "Who has more total career goals: Ronaldo or Messi?": {
   "count": 1,
@@ -8640,14 +8640,14 @@
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "Cristiano Ronaldo has scored 797 non-penalty goals. Messi's 936 goals include 109 penalties, which leaves 797 non-penalty goals. Messi leads on this measure, and because the set-piece splits behind both figures are published tallies rather than hand counts, the margin is given as two totals rather t"
+  "ctx": "Cristiano Ronaldo has scored 801 non-penalty goals. Messi's 937 goals include 110 penalties, which leaves 827 non-penalty goals. Messi leads on this measure, and because the set-piece splits behind both figures are published tallies rather than hand counts, the margin is given as two totals rather t"
  },
  "Who has scored more penalties, and what are their conversion rates?": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "Cristiano Ronaldo has 261 career assists, or 291 on Transfermarkt's wider criteria. Lionel Messi has 408, or 450 on the same criteria. Messi leads by 147 on the published senior tally.  [Who has scored more penalties, and what are their conversion rates?] ▾"
+  "ctx": "Cristiano Ronaldo has 261 career assists, or 291 on Transfermarkt's wider criteria. Lionel Messi has 409, or 451 on the same criteria. Messi leads by 148 on the published senior tally.  [Who has scored more penalties, and what are their conversion rates?] ▾"
  },
  "Who has won more trophies and Ballons d'Or?": {
   "count": 1,
@@ -8822,12 +8822,12 @@
   ],
   "ctx": "42  [assists] —"
  },
- "assists (408 vs 261)": {
+ "assists (409 vs 261)": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "). Messi leads in  [assists (408 vs 261)] ,"
+  "ctx": "). Messi leads in  [assists (409 vs 261)] ,"
  },
  "at 23, named on 77 of 96 ballots, with the Champions League and the FIFA Club World Cup.": {
   "count": 1,
@@ -8986,12 +8986,12 @@
   ],
   "ctx": "450  [goals] 438"
  },
- "goals per match (0.79 vs 0.79)": {
+ "goals per match (0.73 vs 0.79)": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": ",  [goals per match (0.79 vs 0.79)] and"
+  "ctx": ",  [goals per match (0.73 vs 0.79)] and"
  },
  "google07f67a37d7a48a18": {
   "count": 2,
@@ -10054,7 +10054,7 @@
    "timeline",
    "trophies"
   ],
-  "ctx": "Head-to-head career stats: 983 vs 936 goals, 35 vs 46 trophies, 5 vs 8 Ballons d'Or.  [🏟️ Ronaldo at Real Madrid] Every meeting with Real Madrid, the goal log and video clips."
+  "ctx": "Head-to-head career stats: 985 vs 937 goals, 35 vs 46 trophies, 5 vs 8 Ballons d'Or.  [🏟️ Ronaldo at Real Madrid] Every meeting with Real Madrid, the goal log and video clips."
  },
  "🐂 Juventus (2)": {
   "count": 1,
@@ -10107,7 +10107,7 @@
    "timeline",
    "trophies"
   ],
-  "ctx": "Choose a category to explore deep statistics, match video replays and career milestones — from 27 club seasons to a best calendar year of 69 goals in 2013:  [🐐 Ronaldo vs Messi All-Time] Head-to-head career stats: 983 vs 936 goals, 35 vs 46 trophies, 5 vs 8 Ballons d'Or."
+  "ctx": "Choose a category to explore deep statistics, match video replays and career milestones — from 27 club seasons to a best calendar year of 69 goals in 2013:  [🐐 Ronaldo vs Messi All-Time] Head-to-head career stats: 985 vs 937 goals, 35 vs 46 trophies, 5 vs 8 Ballons d'Or."
  },
  "🐐 vs Messi": {
   "count": 1,

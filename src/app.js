@@ -1357,7 +1357,7 @@ function initGlobalGoatPoll() {
           </div>
           <div class="goat-vote-meta">
             <span class="vote-confirmed-tag">✓ Your vote was recorded! (${total.toLocaleString()} total community votes)</span>
-            <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I just voted in the Cristiano Ronaldo vs Lionel Messi GOAT poll on RonaldoStats! Compare their official 985 vs 936 career stats:`)}&url=${encodeURIComponent(window.location.href)}" target="_blank" rel="noopener noreferrer" class="btn-share-poll-vote">
+            <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I just voted in the Cristiano Ronaldo vs Lionel Messi GOAT poll on RonaldoStats! Compare their official 985 vs 937 career stats:`)}&url=${encodeURIComponent(window.location.href)}" target="_blank" rel="noopener noreferrer" class="btn-share-poll-vote">
               <span>🐦 Share Verdict</span>
             </a>
           </div>
@@ -2119,8 +2119,8 @@ const LIVE = {
   goals: 985, apps: 1343, clubGoals: 839, argGoals: 146, argCaps: 234,
   assists: 261, tmAssists: 291, ga: 1246, tmGa: 1276,
   trophies: 35, rTrophies: 46, tReal: 15, tManUtd: 9, tJuve: 5, tAlNassr: 2, tSporting: 1, tPortugal: 3,
-  gap: -49, fewer: 162, road: 15,
-  rGoals: 936, rApps: 1181, rAssists: 408, rGpg: "0.79", rGa: 1344, astLead: -147,
+  gap: -48, fewer: 159, road: 15,
+  rGoals: 937, rApps: 1184, rAssists: 409, rGpg: "0.79", rGa: 1346, astLead: -148,
   npg: 801, npgR: 827, npgLead: -26,
   alnassrGoals: 138, alnassrApps: 160,
   abtReal: 152, abtPortugal: 14, abtAlNassr: 9, abtJuve: 20, abtManUtd: 66,
@@ -2307,8 +2307,8 @@ function normalize(d) {
       if (x.team === "Individual") return;
       tByTeam[x.team] = (tByTeam[x.team] || 0) + (x.years ? x.years.length : 0);
     });
-    const rGoals = R.goals ?? 936;
-    const rApps = R.appearances ?? 1181;
+    const rGoals = R.goals ?? 937;
+    const rApps = R.appearances ?? 1184;
     const goals = t.goals, apps = t.apps;
     const assists = t.assists.official, tmAssists = t.assists.transfermarkt;
     Object.assign(LIVE, {
@@ -2326,13 +2326,13 @@ function normalize(d) {
       tPortugal: tByTeam["Portugal"] ?? LIVE.tPortugal,
       gap: rGoals - goals, fewer: apps - rApps, road: 1000 - goals,
       rGoals, rApps,
-      rAssists: R.assists ?? 408,
+      rAssists: R.assists ?? 409,
       rGpg: rApps ? (rGoals / rApps).toFixed(2) : "0.79",
-      rGa: rGoals + (R.assists ?? 408),
-      astLead: assists - (R.assists ?? 408),
+      rGa: rGoals + (R.assists ?? 409),
+      astLead: assists - (R.assists ?? 409),
       npg: goals - d.byFinish.penalties,
-      npgR: rGoals - (R.penalties ?? 109),
-      npgLead: (goals - d.byFinish.penalties) - (rGoals - (R.penalties ?? 109)),
+      npgR: rGoals - (R.penalties ?? 110),
+      npgLead: (goals - d.byFinish.penalties) - (rGoals - (R.penalties ?? 110)),
       alnassrGoals: LGT.alnassrGoals ?? LIVE.alnassrGoals,
       alnassrApps: t.assists.byTeam?.al_nassr?.appearances ?? LIVE.alnassrApps,
       abtReal: t.assists.byTeam?.real_madrid?.official ?? 152,

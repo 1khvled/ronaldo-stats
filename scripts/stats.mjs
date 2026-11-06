@@ -83,9 +83,9 @@ const finals = ronaldo.splits?.finals || {};
 const continental = ronaldo.splits?.continental || { messi: 3 };
 
 // ---- Messi baseline (the rival) ---------------------------------------------
-const rGoals = messi?.goals ?? 936;
-const rApps = messi?.appearances ?? 1181;
-const rAssists = messi?.assists ?? 408;
+const rGoals = messi?.goals ?? 937;
+const rApps = messi?.appearances ?? 1184;
+const rAssists = messi?.assists ?? 409;
 
 // ---- latest goal ------------------------------------------------------------
 const latestGoal = latest.latestGoal || {};
@@ -99,7 +99,7 @@ const rGpg = rApps ? +(rGoals / rApps).toFixed(2) : 0.79;
 const rGa = rGoals + rAssists;
 const astLead = assists - rAssists;  // Messi leads on assists
 const penRonaldo = byFinish.penalties;
-const penMessi = messi?.penalties ?? 109;
+const penMessi = messi?.penalties ?? 110;
 const npg = goals - penRonaldo;
 const npgR = rGoals - penMessi;
 const npgLead = npg - npgR;

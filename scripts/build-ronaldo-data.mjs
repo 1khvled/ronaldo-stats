@@ -488,7 +488,7 @@ const data = {
   calendarYears,
   hatTricks: 67,
   splits: {
-    _note: "Rivalry comparison splits, verified 2026-10-30. Ronaldo: 985 goals, 1,343 appearances, 261 assists, 184 penalties (from 221), 66 direct free kicks, 67 hat-tricks, 35 senior team trophies, 5 Ballons d'Or, 140 Champions League goals (all-time record), 42 Champions League assists (all-time record), 146 goals in 234 caps for Portugal (both all-time records). Messi: 936 goals, 1,181 appearances, 408 assists, 109 penalties, 67 direct free kicks, 62 hat-tricks, 46 senior team trophies, 8 Ballons d'Or, 129 Champions League goals, 21 World Cup goals.",
+    _note: "Rivalry comparison splits, verified 2026-10-30. Ronaldo: 985 goals, 1,343 appearances, 261 assists, 184 penalties (from 221), 66 direct free kicks, 67 hat-tricks, 35 senior team trophies, 5 Ballons d'Or, 140 Champions League goals (all-time record), 42 Champions League assists (all-time record), 146 goals in 234 caps for Portugal (both all-time records). Messi: 937 goals, 1,184 appearances, 409 assists, 110 penalties, 67 direct free kicks, 62 hat-tricks, 46 senior team trophies, 8 Ballons d'Or, 129 Champions League goals, 21 World Cup goals.",
     ronaldo: {
       worldCup: { goals: 11, apps: 27, koGoals: 1, koAssists: 0 },
       finals: { goals: 24, apps: 41 },
