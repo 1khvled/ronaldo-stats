@@ -11975,3 +11975,444 @@ body.mst-toast-open .back-to-top-btn {
   }
 }
 
+/* ==========================================================================
+   Cristiano Ronaldo - Portugal Farewell Tribute (2003-2026) Modal & Banner
+   ========================================================================== */
+
+.portugal-farewell-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(135deg, #132418 0%, #3e0c14 55%, #181926 100%);
+  color: #fff;
+  border: 1px solid rgba(234, 179, 8, 0.45);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 16px 0 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: farewellFadeIn 0.35s ease-out;
+}
+.portugal-farewell-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 5px;
+  background: linear-gradient(to bottom, #16a34a, #dc2626, #eab308);
+}
+.farewell-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+.farewell-banner-crest {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+.farewell-banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.farewell-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #facc15;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.farewell-banner-title {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+}
+.farewell-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.btn-farewell-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #facc15;
+  color: #1a1a1a !important;
+  font-size: 0.84rem;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 8px rgba(250, 204, 21, 0.35);
+  white-space: nowrap;
+}
+.btn-farewell-trigger:hover {
+  background: #fde047;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.5);
+}
+.btn-farewell-banner-close {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+.btn-farewell-banner-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Modal Backdrop */
+.farewell-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10070;
+  background: rgba(5, 5, 8, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: farewellFadeIn 0.25s ease-out forwards;
+}
+.farewell-modal-backdrop[hidden] {
+  display: none !important;
+}
+@keyframes farewellFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes farewellFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.farewell-modal-sheet {
+  width: 100%;
+  max-width: 620px;
+  max-height: 92vh;
+  background: var(--card, #ffffff);
+  border: 1px solid rgba(234, 179, 8, 0.45);
+  border-radius: 18px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(234, 179, 8, 0.25);
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: farewellScaleUp 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes farewellScaleUp {
+  from { transform: scale(0.94) translateY(18px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Hero Media in Modal */
+.farewell-modal-hero {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: #0f1411;
+  overflow: hidden;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+}
+.farewell-modal-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+.farewell-modal-hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--card, #ffffff) 0%, rgba(10, 10, 12, 0.6) 60%, rgba(10, 10, 12, 0.25) 100%);
+}
+.farewell-modal-hero-tags {
+  position: absolute;
+  bottom: 12px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 2;
+}
+.farewell-modal-hero-crest {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
+}
+.farewell-modal-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #facc15;
+  border: 1px solid rgba(234, 179, 8, 0.6);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.farewell-modal-close-x {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.15s ease;
+}
+.farewell-modal-close-x:hover {
+  background: rgba(0, 0, 0, 0.85);
+  transform: scale(1.08);
+}
+
+/* Modal Body */
+.farewell-modal-body {
+  padding: 18px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.farewell-modal-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.farewell-modal-h2 {
+  font-size: 1.68rem;
+  font-weight: 900;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.farewell-modal-sub {
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #b45309;
+  margin: 0;
+  line-height: 1.35;
+}
+[data-theme="dark"] .farewell-modal-sub {
+  color: #facc15;
+}
+
+.farewell-modal-prose {
+  font-size: 0.92rem;
+  line-height: 1.62;
+  color: var(--ink-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+}
+.farewell-modal-prose p {
+  margin: 0;
+}
+
+.farewell-quote-card {
+  background: rgba(220, 38, 38, 0.07);
+  border-left: 3px solid #dc2626;
+  border-radius: 0 10px 10px 0;
+  padding: 12px 16px;
+  font-style: italic;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+/* Stats Matrix in Modal */
+.farewell-stats-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 2px;
+}
+.farewell-stat-box {
+  background: var(--surface-solid, rgba(0, 0, 0, 0.03));
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 10px 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+.farewell-stat-box:hover {
+  transform: translateY(-2px);
+  border-color: rgba(234, 179, 8, 0.5);
+}
+.farewell-stat-num {
+  font-size: 1.38rem;
+  font-weight: 900;
+  color: #dc2626;
+  line-height: 1;
+}
+[data-theme="dark"] .farewell-stat-num {
+  color: #f87171;
+}
+.farewell-stat-lbl {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 4px;
+}
+.farewell-stat-sub {
+  font-size: 0.67rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Modal Actions */
+.farewell-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+.btn-farewell-share {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #0f1419;
+  color: #ffffff !important;
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 12px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+.btn-farewell-share:hover {
+  background: #272c30;
+  transform: translateY(-1px);
+}
+[data-theme="dark"] .btn-farewell-share {
+  background: #1d9bf0;
+  box-shadow: 0 4px 14px rgba(29, 155, 240, 0.35);
+}
+[data-theme="dark"] .btn-farewell-share:hover {
+  background: #38bdf8;
+}
+
+.farewell-modal-subactions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-farewell-history {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626 !important;
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  font-size: 0.86rem;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+.btn-farewell-history:hover {
+  background: rgba(220, 38, 38, 0.18);
+  border-color: #dc2626;
+}
+[data-theme="dark"] .btn-farewell-history {
+  color: #f87171 !important;
+}
+
+.btn-farewell-continue {
+  flex: 1;
+  background: var(--surface-solid, #f1f3f5);
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  font-size: 0.86rem;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-farewell-continue:hover {
+  background: var(--line-soft);
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .portugal-farewell-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px;
+    gap: 12px;
+  }
+  .farewell-banner-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .farewell-modal-hero {
+    height: 180px;
+  }
+  .farewell-modal-body {
+    padding: 16px;
+  }
+  .farewell-modal-h2 {
+    font-size: 1.4rem;
+  }
+  .farewell-stats-matrix {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .farewell-modal-subactions {
+    flex-direction: column;
+  }
+  .btn-farewell-history,
+  .btn-farewell-continue {
+    width: 100%;
+  }
+}

@@ -938,6 +938,286 @@ function showDonationPopup() {
   }
 }
 
+/* ================= PORTUGAL FAREWELL TRIBUTE (2003-2026) ================= */
+
+function initPortugalFarewellTribute() {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+  if (document.getElementById("portugal-farewell-modal")) return;
+
+  const TRIBUTE_COPY = {
+    en: {
+      bannerBadge: "🇵🇹 SELEÇÃO FAREWELL (2003–2026)",
+      bannerTitle: "Obrigado, Capitão: Cristiano Ronaldo concludes his historic 23-year Portugal journey.",
+      bannerBtn: "🕊️ Read Tribute",
+      modalBadge: "🕊️ The End of an Immortal Era • 2003–2026",
+      modalTitle: "Obrigado, Capitão: 2003–2026",
+      modalSub: "Cristiano Ronaldo bids farewell to the Seleção das Quinas after 23 legendary years",
+      p1: "On 20 August 2003 in Chaves, an 18-year-old boy wearing number 16 stepped onto the pitch to replace Luís Figo against Kazakhstan. That day marked the beginning of the most storied international career the world of football has ever witnessed.",
+      p2: "Across 234 matches and 146 goals — both all-time world records that will stand for generations — Cristiano carried Portugal to heights once thought impossible. From lifting the UEFA Euro 2016 trophy in Paris to claiming the inaugural UEFA Nations League in 2019, he gave an entire nation belief, dignity, and glory.",
+      p3: "10 hat-tricks, goals across 6 consecutive World Cups, and unforgettable nights in Lisbon, Stockholm, Sochi, and beyond. Words will never suffice. Obrigado por tudo, Cristiano. Eterno Capitão.",
+      quote: "Vestir esta camisola foi a maior honra da minha vida. O meu amor por Portugal é eterno.",
+      stats: [
+        { num: "234", lbl: "Caps", sub: "All-time World Record" },
+        { num: "146", lbl: "Goals", sub: "All-time Top Scorer" },
+        { num: "10", lbl: "Hat-Tricks", sub: "World Record" },
+        { num: "2", lbl: "Trophies", sub: "Euro '16 & Nations League '19" },
+        { num: "6", lbl: "World Cups", sub: "2006 – 2026 Editions" },
+        { num: "23", lbl: "Years", sub: "2003 – 2026 Legacy" },
+      ],
+      shareBtn: "Share on X / Twitter",
+      shareText: "Obrigado, Capitão! 🇵🇹 234 caps, 146 goals, 2 trophies, and 23 years of sheer immortality with Portugal. Forever the greatest: https://ronaldostats.app #ObrigadoCristiano #CR7 #Portugal",
+      historyBtn: "🇵🇹 Explore Career Milestones",
+      continueBtn: "Salute & Continue Browsing"
+    },
+    pt: {
+      bannerBadge: "🇵🇹 DESPEDIDA DA SELEÇÃO (2003–2026)",
+      bannerTitle: "Obrigado, Capitão: Cristiano Ronaldo encerra o seu histórico percurso de 23 anos por Portugal.",
+      bannerBtn: "🕊️ Ler Homenagem",
+      modalBadge: "🕊️ O Fim de Uma Era Imortal • 2003–2026",
+      modalTitle: "Obrigado, Capitão: 2003–2026",
+      modalSub: "Cristiano Ronaldo despede-se da Seleção das Quinas após 23 anos lendários",
+      p1: "A 20 de agosto de 2003 em Chaves, um jovem de 18 anos com o dorsal 16 entrava em campo para substituir Luís Figo frente ao Cazaquistão. Começava ali a carreira internacional mais extraordinária que a história do futebol alguma vez conheceu.",
+      p2: "Ao longo de 234 jogos e 146 golos — ambos recordes mundiais absolutos que perdurarão para sempre — Cristiano levou Portugal a patamares antes inimagináveis. Da glória no Euro 2016 em Paris à conquista da Liga das Nações em 2019, ensinou todo um povo a acreditar e a vencer.",
+      p3: "10 hat-tricks, golos em 6 Mundiais e noites eternas em Lisboa, Estocolmo, Sochi e pelo mundo fora. Nenhuma palavra é suficiente. Obrigado por tudo, Cristiano. Eterno Capitão.",
+      quote: "Vestir esta camisola foi a maior honra da minha vida. O meu amor por Portugal é eterno.",
+      stats: [
+        { num: "234", lbl: "Jogos", sub: "Recorde Mundial Absoluto" },
+        { num: "146", lbl: "Golos", sub: "Melhor Marcador de Seleções" },
+        { num: "10", lbl: "Hat-Tricks", sub: "Recorde Internacional" },
+        { num: "2", lbl: "Troféus", sub: "Euro 2016 e Liga das Nações" },
+        { num: "6", lbl: "Mundiais", sub: "Edições 2006 a 2026" },
+        { num: "23", lbl: "Anos", sub: "2003 – 2026 pela Seleção" },
+      ],
+      shareBtn: "Partilhar no X / Twitter",
+      shareText: "Obrigado, Capitão! 🇵🇹 234 jogos, 146 golos, 2 títulos e 23 anos de imortalidade com a camisola das Quinas. Para sempre uma lenda: https://ronaldostats.app #ObrigadoCristiano #CR7 #Portugal",
+      historyBtn: "🇵🇹 Explorar Marcos da Carreira",
+      continueBtn: "Prestar Homenagem & Continuar"
+    },
+    es: {
+      bannerBadge: "🇵🇹 DESPEDIDA DE PORTUGAL (2003–2026)",
+      bannerTitle: "Obrigado, Capitão: Cristiano Ronaldo concluye su legendaria etapa de 23 años con Portugal.",
+      bannerBtn: "🕊️ Leer Homenaje",
+      modalBadge: "🕊️ El Fin de Una Era Inmortal • 2003–2026",
+      modalTitle: "Obrigado, Capitão: 2003–2026",
+      modalSub: "Cristiano Ronaldo se despide de la Selección de Portugal tras 23 años legendarios",
+      p1: "El 20 de agosto de 2003 en Chaves, un joven de 18 años con el dorsal 16 saltaba al campo para sustituir a Luís Figo contra Kazajistán. Ese día comenzó la carrera internacional más asombrosa que el fútbol jamás haya visto.",
+      p2: "A lo largo de 234 partidos y 146 goles —ambos récords mundiales absolutos que perdurarán por generaciones— Cristiano llevó a Portugal a cimas que parecían inalcanzables. Desde levantar la Eurocopa 2016 en París hasta ganar la Nations League 2019, llenó de orgullo a todo un país.",
+      p3: "10 hat-tricks, goles en 6 Copas del Mundo y noches mágicas en Lisboa, Estocolmo, Sochi y en todo el planeta. Las palabras no alcanzan. Obrigado por tudo, Cristiano. Eterno Capitão.",
+      quote: "Vestir esta camiseta ha sido el mayor honor de mi vida. Mi amor por Portugal es eterno.",
+      stats: [
+        { num: "234", lbl: "Partidos", sub: "Récord Mundial Absoluto" },
+        { num: "146", lbl: "Goles", sub: "Máximo Goleador Histórico" },
+        { num: "10", lbl: "Hat-Tricks", sub: "Récord Mundial" },
+        { num: "2", lbl: "Títulos", sub: "Euro 2016 y Nations League" },
+        { num: "6", lbl: "Mundiales", sub: "Ediciones 2006 a 2026" },
+        { num: "23", lbl: "Años", sub: "2003 – 2026 de Leyenda" },
+      ],
+      shareBtn: "Compartir en X / Twitter",
+      shareText: "¡Obrigado, Capitão! 🇵🇹 234 partidos, 146 goles, 2 títulos y 23 años de gloria absoluta con Portugal. Inmortal: https://ronaldostats.app #ObrigadoCristiano #CR7 #Portugal",
+      historyBtn: "🇵🇹 Ver Momentos Históricos",
+      continueBtn: "Saludar y Continuar Navegando"
+    },
+    fr: {
+      bannerBadge: "🇵🇹 ADIEUX À LA SELEÇÃO (2003–2026)",
+      bannerTitle: "Obrigado, Capitão : Cristiano Ronaldo boucle son épopée légendaire de 23 ans avec le Portugal.",
+      bannerBtn: "🕊️ Lire l'Hommage",
+      modalBadge: "🕊️ La Fin d'une Ère Immortelle • 2003–2026",
+      modalTitle: "Obrigado, Capitão : 2003–2026",
+      modalSub: "Cristiano Ronaldo fait ses adieux à la Seleção das Quinas après 23 années de légende",
+      p1: "Le 20 août 2003 à Chaves, un jeune homme de 18 ans floqué du numéro 16 entrait sur la pelouse en remplacement de Luís Figo contre le Kazakhstan. C'était le coup d'envoi de la plus prestigieuse épopée internationale de l'histoire du football.",
+      p2: "En 234 sélections et 146 buts — deux records du monde absolus qui défieront le temps — Cristiano a guidé le Portugal vers des sommets inégalés. Du sacre historique à l'Euro 2016 à Paris à la Ligue des Nations 2019, il a donné foi et fierté à toute une nation.",
+      p3: "10 triplés, des buts lors de 6 Coupes du Monde consécutives et des soirées d'anthologie à Lisbonne, Stockholm ou Sotchi. Les mots ne suffiront jamais. Obrigado por tudo, Cristiano. Éternel Capitão.",
+      quote: "Porter ce maillot a été le plus grand honneur de ma vie. Mon amour pour le Portugal est éternel.",
+      stats: [
+        { num: "234", lbl: "Sélections", sub: "Record du Monde Absolu" },
+        { num: "146", lbl: "Buts", sub: "Meilleur Buteur de l'Histoire" },
+        { num: "10", lbl: "Triplés", sub: "Record International" },
+        { num: "2", lbl: "Trophées", sub: "Euro 2016 & Ligue des Nations" },
+        { num: "6", lbl: "Mondiaux", sub: "Éditions 2006 à 2026" },
+        { num: "23", lbl: "Ans", sub: "2003 – 2026 de Légende" },
+      ],
+      shareBtn: "Partager sur X / Twitter",
+      shareText: "Obrigado, Capitão ! 🇵🇹 234 sélections, 146 buts, 2 trophées et 23 ans d'immortalité avec le Portugal. Légende éternelle : https://ronaldostats.app #ObrigadoCristiano #CR7 #Portugal",
+      historyBtn: "🇵🇹 Découvrir les Grandes Dates",
+      continueBtn: "Rendre Hommage & Continuer"
+    }
+  };
+
+  const langCode = (typeof getLang === "function" ? getLang() : "en");
+  const t = TRIBUTE_COPY[langCode] || TRIBUTE_COPY.en;
+  const timelineUrl = (langCode && langCode !== "en") ? `/${langCode}/timeline.html` : "/timeline.html";
+  const shareHref = `https://twitter.com/intent/tweet?text=${encodeURIComponent(t.shareText)}`;
+
+  // 1. Build and Mount Modal Backdrop into <body>
+  const modal = document.createElement("div");
+  modal.id = "portugal-farewell-modal";
+  modal.className = "farewell-modal-backdrop";
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  modal.setAttribute("aria-labelledby", "farewell-modal-h2");
+  modal.hidden = true;
+
+  modal.innerHTML = `
+    <div class="farewell-modal-sheet">
+      <div class="farewell-modal-hero">
+        <img src="/img/era/era-2016-euro.webp" alt="Cristiano Ronaldo - Portugal Euro 2016" width="620" height="220" loading="eager" />
+        <div class="farewell-modal-hero-gradient"></div>
+        <div class="farewell-modal-hero-tags">
+          <img src="/img/teams/portugal.png" alt="Portugal Crest" class="farewell-modal-hero-crest" width="38" height="38" />
+          <span class="farewell-modal-pill">${t.modalBadge}</span>
+        </div>
+        <button type="button" class="farewell-modal-close-x" id="btn-close-farewell-modal-x" aria-label="Close">✕</button>
+      </div>
+
+      <div class="farewell-modal-body">
+        <div class="farewell-modal-titles">
+          <h2 class="farewell-modal-h2" id="farewell-modal-h2">${t.modalTitle}</h2>
+          <p class="farewell-modal-sub">${t.modalSub}</p>
+        </div>
+
+        <div class="farewell-modal-prose">
+          <p>${t.p1}</p>
+          <p>${t.p2}</p>
+          <p>${t.p3}</p>
+        </div>
+
+        <div class="farewell-quote-card">
+          “${t.quote}” — Cristiano Ronaldo
+        </div>
+
+        <div class="farewell-stats-matrix">
+          ${t.stats.map(s => `
+            <div class="farewell-stat-box">
+              <span class="farewell-stat-num">${s.num}</span>
+              <span class="farewell-stat-lbl">${s.lbl}</span>
+              <span class="farewell-stat-sub">${s.sub}</span>
+            </div>
+          `).join("")}
+        </div>
+
+        <div class="farewell-modal-actions">
+          <a href="${shareHref}" target="_blank" rel="noopener noreferrer" class="btn-farewell-share">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 24.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>${t.shareBtn}</span>
+          </a>
+          <div class="farewell-modal-subactions">
+            <a href="${timelineUrl}" class="btn-farewell-history">
+              <span>${t.historyBtn}</span>
+            </a>
+            <button type="button" class="btn-farewell-continue" id="btn-close-farewell-continue">
+              ${t.continueBtn}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  function openFarewellModal() {
+    modal.hidden = false;
+    try {
+      document.body.style.overflow = "hidden";
+    } catch (_) {}
+  }
+
+  function closeFarewellModal() {
+    modal.hidden = true;
+    try {
+      document.body.style.overflow = "";
+      sessionStorage.setItem("cr7_portugal_farewell_seen", "true");
+      localStorage.setItem("cr7_portugal_farewell_dismissed", String(Date.now()));
+    } catch (_) {}
+  }
+
+  // Bind close buttons and escape key
+  const closeX = document.getElementById("btn-close-farewell-modal-x");
+  if (closeX) closeX.addEventListener("click", closeFarewellModal);
+
+  const closeBtn = document.getElementById("btn-close-farewell-continue");
+  if (closeBtn) closeBtn.addEventListener("click", closeFarewellModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeFarewellModal();
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.hidden) {
+      closeFarewellModal();
+    }
+  });
+
+  // 2. Build and Mount Top Banner into #banner (across all pages)
+  try {
+    const bannerHost = document.getElementById("banner");
+    if (bannerHost && !document.getElementById("portugal-farewell-banner")) {
+      const banner = document.createElement("div");
+      banner.id = "portugal-farewell-banner";
+      banner.className = "portugal-farewell-banner";
+      banner.innerHTML = `
+        <div class="farewell-banner-left">
+          <img src="/img/teams/portugal.png" alt="Portugal" class="farewell-banner-crest" width="36" height="36" loading="lazy" />
+          <div class="farewell-banner-content">
+            <span class="farewell-banner-badge">${t.bannerBadge}</span>
+            <span class="farewell-banner-title">${t.bannerTitle}</span>
+          </div>
+        </div>
+        <div class="farewell-banner-actions">
+          <button type="button" class="btn-farewell-trigger" id="btn-open-farewell-modal">
+            <span>${t.bannerBtn}</span>
+          </button>
+          <button type="button" class="btn-farewell-banner-close" id="btn-close-farewell-banner" aria-label="Close banner">✕</button>
+        </div>
+      `;
+
+      bannerHost.appendChild(banner);
+      bannerHost.removeAttribute("hidden");
+      bannerHost.hidden = false;
+
+      const openBtn = document.getElementById("btn-open-farewell-modal");
+      if (openBtn) {
+        openBtn.addEventListener("click", () => {
+          openFarewellModal();
+        });
+      }
+
+      const closeBannerBtn = document.getElementById("btn-close-farewell-banner");
+      if (closeBannerBtn) {
+        closeBannerBtn.addEventListener("click", () => {
+          banner.remove();
+          if (bannerHost.children.length === 0) {
+            bannerHost.hidden = true;
+          }
+        });
+      }
+    }
+  } catch (_) {}
+
+  // 3. Auto-open trigger logic
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const forceOpen = params.get("tribute") === "1" ||
+                      params.get("farewell") === "1" ||
+                      window.__FORCE_FAREWELL_TRIBUTE__ === true;
+
+    if (forceOpen) {
+      openFarewellModal();
+    } else {
+      const seenSession = sessionStorage.getItem("cr7_portugal_farewell_seen");
+      const dismissedTime = localStorage.getItem("cr7_portugal_farewell_dismissed");
+      const dismissedRecently = dismissedTime && (Date.now() - parseInt(dismissedTime, 10) < 7 * 24 * 60 * 60 * 1000);
+
+      if (!seenSession && !dismissedRecently) {
+        setTimeout(() => {
+          openFarewellModal();
+        }, 1200);
+      }
+    }
+  } catch (_) {}
+}
+
+
 /* ================= PORTUGAL MATCH STREAM NOTIFICATION ================= */
 
 function initPortugalStreamNotification() {
@@ -1891,6 +2171,7 @@ function initLanguageAndMobileTopBar() {
     ensureMobileMoreNavBtn();
     ensureDesktopBrandHeader();
     initDonationPopup();
+    initPortugalFarewellTribute();
     initPortugalStreamNotification();
     initFanArcade();
     initGlobalGoatPoll();
@@ -2967,6 +3248,7 @@ function renderHome(d) {
   initBdayQuickForm();
   renderOnThisDay();
   initFanArcade();
+  initPortugalFarewellTribute();
   initPortugalStreamNotification();
 }
 
@@ -5705,6 +5987,7 @@ function renderLatestGoal(d) {
   bindGoalCards(video, activeNum, activeTitle, activeMeta, activeMin, activeType, activeScore, activeComp, ytBtn, bdayLink);
   autoPullLatestGoalLive(d);
   initDedicatedRoulette();
+  initPortugalFarewellTribute();
   initPortugalStreamNotification();
   renderExplore(d, "latest-goal");
 }
@@ -5835,6 +6118,7 @@ load().then((d) => {
      boot observer, same pattern as the timeline .tl-reveal wiring. */
   armEntrance();
   initBackToTop();
+  initPortugalFarewellTribute();
   initPortugalStreamNotification();
 }).catch(() => {
   const lang = getLang();

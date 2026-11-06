@@ -201,12 +201,12 @@
   }
 
   /* --------------------------------------------- 7. transparent click overlays */
-  const OURS = '.page, .rail, .video-modal-backdrop, .ad-banner-wrap, .ad-native-wrap';
+  const OURS = '.page, .rail, .video-modal-backdrop, .farewell-modal-backdrop, .ad-banner-wrap, .ad-native-wrap';
 
   function cleanRogueOverlays() {
     try {
       document.querySelectorAll('body > div, body > a, body > span, body > iframe').forEach((el) => {
-        if (el.id === 'video-modal' || el.id === 'bday-embed-modal' || el.id === 'banner') return;
+        if (el.id === 'video-modal' || el.id === 'bday-embed-modal' || el.id === 'banner' || el.id === 'portugal-farewell-modal') return;
         if (el.closest(OURS)) return;
         const cs = getComputedStyle(el);
         if (cs.position !== 'fixed' && cs.position !== 'absolute') return;
