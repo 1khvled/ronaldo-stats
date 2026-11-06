@@ -1,27 +1,37 @@
 {
- "retrieved": "2026-11-05",
+ "retrieved": "2026-11-06",
  "source": "amazon.com",
  "note": "Prices and ratings are read from the listing on the retrieval date and change; the card says so.",
  "products": [
   {
-   "file": "ronaldo-home-jersey.jpg",
-   "asin": "B0D5LXBBMQ",
-   "amazonTitle": "PUMA Portugal 2025/26 Men's Home Jersey",
-   "price": "49.99",
+   "file": "ronaldo-away-jersey.jpg",
+   "asin": "B0GQJ35S6Y",
+   "amazonTitle": "Puma Men's FA Portugal Away Jersey Replica",
+   "price": "100.00",
    "rating": "",
    "reviews": "",
-   "image": "https://m.media-amazon.com/images/I/51gK1Z7mK8L._AC_SL1200_.jpg",
-   "url": "https://www.amazon.com/dp/B0D5LXBBMQ?tag=ronaldostats-20"
+   "image": "https://m.media-amazon.com/images/I/71C2oOaWBzL._AC_SL1200_.jpg",
+   "url": "https://www.amazon.com/dp/B0GQJ35S6Y?tag=ronaldostats-20"
   },
   {
-   "file": "ronaldo-hoodie.jpg",
-   "asin": "B0F76CKMMZ",
-   "amazonTitle": "Cup & Branch Collage Ronaldo Tribute - Sudadera unisex con capucha Soccer GOAT",
+   "file": "ronaldo-cape-jersey.jpg",
+   "asin": "B0H31LDWM9",
+   "amazonTitle": "Icon Sports Camiseta de fútbol de la selección nacional de Portugal, camiseta oficial de fútbol para adultos, color rojo, número 7, camiseta para fanáticos",
    "price": "",
    "rating": "",
    "reviews": "",
-   "image": "https://m.media-amazon.com/images/I/61KAmBbIsCL._AC_SL1200_.jpg",
-   "url": "https://www.amazon.com/dp/B0F76CKMMZ?tag=ronaldostats-20"
+   "image": "https://m.media-amazon.com/images/I/71DW19tI2JL._AC_SL1200_.jpg",
+   "url": "https://www.amazon.com/dp/B0H31LDWM9?tag=ronaldostats-20"
+  },
+  {
+   "file": "ronaldo-poster.jpg",
+   "asin": "B0CGCYB89S",
+   "amazonTitle": "sufenvera Signed CR7 Cristiano Ronaldo Framed Photo Collage Poster 10x8",
+   "price": "51.37",
+   "rating": "4.7",
+   "reviews": "128",
+   "image": "https://m.media-amazon.com/images/I/715aWbFpGBL._AC_SL1200_.jpg",
+   "url": "https://www.amazon.com/dp/B0CGCYB89S?tag=ronaldostats-20"
   }
  ]
 }
