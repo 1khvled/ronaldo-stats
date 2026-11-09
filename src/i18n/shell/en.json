@@ -2627,7 +2627,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "The photograph is the listing's own image on Amazon  [Amazon prices and stock change, so the listing always shows the live price] $49.99"
+  "ctx": "The photograph is the listing's own image on Amazon  [Amazon prices and stock change, so the listing always shows the live price] —"
  },
  "Annual Goal Totals &amp; Cumulative Career Trajectory": {
   "count": 1,
@@ -2885,7 +2885,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "Apparel &amp; Fan Wear  [CR7 Baseball Cap] ★★★★★"
+  "ctx": "Apparel &amp; Fan Wear  [CR7 Baseball Cap] The photograph is the listing's own image on Amazon"
  },
  "CR7 Heavyweight Fleece Hoodie": {
   "count": 1,
@@ -3134,14 +3134,14 @@
   "pages": [
    "gear"
   ],
-  "ctx": "Price checked on Amazon  [Check on Amazon ↗] ⭐ Tournament Kit"
+  "ctx": "Check the listing for the price  [Check on Amazon ↗] ⭐ Tournament Kit"
  },
  "Check the listing for the price": {
-  "count": 1,
+  "count": 2,
   "pages": [
    "gear"
   ],
-  "ctx": "[gear copy priceNoteNoPrice]"
+  "ctx": "—  [Check the listing for the price] Check on Amazon ↗"
  },
  "Choose a category to explore deep statistics, match video replays and career milestones — from 27 club seasons to a best calendar year of 69 goals in 2013:": {
   "count": 1,
@@ -6454,7 +6454,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "Official Matchwear  [Portugal Home Jersey #7 Ronaldo] ★★★★☆"
+  "ctx": "Official Matchwear  [Portugal Home Jersey #7 Ronaldo] The photograph is the listing's own image on Amazon"
  },
  "Portugal National Team Goals Year by Year (2003–2026)": {
   "count": 1,
@@ -6582,11 +6582,11 @@
   "ctx": "3  [Premier League title; United reached the final] 2007/08"
  },
  "Price checked on Amazon": {
-  "count": 9,
+  "count": 8,
   "pages": [
    "gear"
   ],
-  "ctx": "$49.99  [Price checked on Amazon] Check on Amazon ↗"
+  "ctx": "$100.00  [Price checked on Amazon] Check on Amazon ↗"
  },
  "Primeira Liga": {
   "count": 2,
@@ -7995,7 +7995,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "reviews  [The photograph is the listing's own image on Amazon] Amazon prices and stock change, so the listing always shows the live price"
+  "ctx": "Portugal Home Jersey #7 Ronaldo  [The photograph is the listing's own image on Amazon] Amazon prices and stock change, so the listing always shows the live price"
  },
  "The record book — 983 goals in 1,342 senior appearances": {
   "count": 1,
@@ -9172,11 +9172,11 @@
   "ctx": "Both the body-part split and the open-play figure are aggregators' numbers:  [provisional until a hand count] is finished."
  },
  "reviews": {
-  "count": 8,
+  "count": 6,
   "pages": [
    "gear"
   ],
-  "ctx": "15  [reviews] The photograph is the listing's own image on Amazon"
+  "ctx": "51  [reviews] The photograph is the listing's own image on Amazon"
  },
  "ronaldo champions league, ronaldo ucl stats, ronaldo champions league goals, ronaldo champions league hat tricks, ronaldo champions league knockout goals, ronaldo ucl titles, ronaldo champions league appearances, ronaldo 140 champions league goals, ronaldo top scorer ucl, ronaldo champions league season by season, ronaldostat": {
   "count": 1,
