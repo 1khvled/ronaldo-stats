@@ -1,16 +1,16 @@
 {
- "retrieved": "2026-11-10",
+ "retrieved": "2026-11-11",
  "source": "amazon.com",
  "note": "Prices and ratings are read from the listing on the retrieval date and change; the card says so.",
  "products": [
   {
    "file": "ronaldo-home-jersey.jpg",
    "asin": "B0D5LXBBMQ",
-   "amazonTitle": "Portugal 2025/26 Men's Home Jersey",
-   "price": "49.99",
-   "rating": "4.5",
-   "reviews": "15",
-   "image": "https://m.media-amazon.com/images/I/51gK1Z7mK8L._AC_SL1200_.jpg",
+   "amazonTitle": "Puma Macbook Pro Blouses Men (Pack of 1)",
+   "price": "",
+   "rating": "",
+   "reviews": "",
+   "image": "https://m.media-amazon.com/images/I/716f7H917ZL._AC_SL1200_.jpg",
    "url": "https://www.amazon.com/dp/B0D5LXBBMQ?tag=ronaldostats-20"
   },
   {
@@ -56,8 +56,8 @@
   {
    "file": "ronaldo-hoodie.jpg",
    "asin": "B0F76CKMMZ",
-   "amazonTitle": "Cup & Branch Collage Ronaldo Tribute - Soccer GOAT Unisex Hooded Sweatshirt",
-   "price": "34.89",
+   "amazonTitle": "Cup & Branch Collage Ronaldo Tribute - Sudadera unisex con capucha Soccer GOAT",
+   "price": "",
    "rating": "",
    "reviews": "",
    "image": "https://m.media-amazon.com/images/I/61KAmBbIsCL._AC_SL1200_.jpg",
@@ -66,10 +66,10 @@
   {
    "file": "ronaldo-cap.jpg",
    "asin": "B0H3XP4V8F",
-   "amazonTitle": "Officially Licensed Portugal National Football Team #7 Adjustable Cap - Unisex Adult - FPF111CP Black",
-   "price": "24.99",
+   "amazonTitle": "Officially Licensed Portugal National Football Team Adjustable Cap - Unisex Adult",
+   "price": "31.87",
    "rating": "4.8",
-   "reviews": "19",
+   "reviews": "18",
    "image": "https://m.media-amazon.com/images/I/71NzWUo-kcL._AC_SL1200_.jpg",
    "url": "https://www.amazon.com/dp/B0H3XP4V8F?tag=ronaldostats-20"
   },
