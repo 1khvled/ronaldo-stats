@@ -3137,11 +3137,11 @@
   "ctx": "Price checked on Amazon  [Check on Amazon ↗] ⭐ Tournament Kit"
  },
  "Check the listing for the price": {
-  "count": 2,
+  "count": 1,
   "pages": [
    "gear"
   ],
-  "ctx": "—  [Check the listing for the price] Check on Amazon ↗"
+  "ctx": "[gear copy priceNoteNoPrice]"
  },
  "Choose a category to explore deep statistics, match video replays and career milestones — from 27 club seasons to a best calendar year of 69 goals in 2013:": {
   "count": 1,
@@ -6440,7 +6440,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "Official Matchwear  [Portugal Away Jersey #7 Ronaldo] The photograph is the listing's own image on Amazon"
+  "ctx": "Official Matchwear  [Portugal Away Jersey #7 Ronaldo] ★★★★★"
  },
  "Portugal Goals": {
   "count": 1,
@@ -6582,7 +6582,7 @@
   "ctx": "3  [Premier League title; United reached the final] 2007/08"
  },
  "Price checked on Amazon": {
-  "count": 8,
+  "count": 9,
   "pages": [
    "gear"
   ],
@@ -9172,7 +9172,7 @@
   "ctx": "Both the body-part split and the open-play figure are aggregators' numbers:  [provisional until a hand count] is finished."
  },
  "reviews": {
-  "count": 5,
+  "count": 6,
   "pages": [
    "gear"
   ],
