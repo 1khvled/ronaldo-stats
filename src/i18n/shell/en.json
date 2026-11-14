@@ -2627,7 +2627,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "The photograph is the listing's own image on Amazon  [Amazon prices and stock change, so the listing always shows the live price] $49.99"
+  "ctx": "The photograph is the listing's own image on Amazon  [Amazon prices and stock change, so the listing always shows the live price] —"
  },
  "Annual Goal Totals &amp; Cumulative Career Trajectory": {
   "count": 1,
@@ -2885,7 +2885,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "Apparel &amp; Fan Wear  [CR7 Baseball Cap] The photograph is the listing's own image on Amazon"
+  "ctx": "Apparel &amp; Fan Wear  [CR7 Baseball Cap] ★★★★★"
  },
  "CR7 Heavyweight Fleece Hoodie": {
   "count": 1,
@@ -3134,14 +3134,14 @@
   "pages": [
    "gear"
   ],
-  "ctx": "Price checked on Amazon  [Check on Amazon ↗] ⭐ Tournament Kit"
+  "ctx": "Check the listing for the price  [Check on Amazon ↗] ⭐ Tournament Kit"
  },
  "Check the listing for the price": {
-  "count": 1,
+  "count": 3,
   "pages": [
    "gear"
   ],
-  "ctx": "[gear copy priceNoteNoPrice]"
+  "ctx": "—  [Check the listing for the price] Check on Amazon ↗"
  },
  "Choose a category to explore deep statistics, match video replays and career milestones — from 27 club seasons to a best calendar year of 69 goals in 2013:": {
   "count": 1,
@@ -6582,11 +6582,11 @@
   "ctx": "3  [Premier League title; United reached the final] 2007/08"
  },
  "Price checked on Amazon": {
-  "count": 9,
+  "count": 7,
   "pages": [
    "gear"
   ],
-  "ctx": "$49.99  [Price checked on Amazon] Check on Amazon ↗"
+  "ctx": "$31.95  [Price checked on Amazon] Check on Amazon ↗"
  },
  "Primeira Liga": {
   "count": 2,
@@ -9172,7 +9172,7 @@
   "ctx": "Both the body-part split and the open-play figure are aggregators' numbers:  [provisional until a hand count] is finished."
  },
  "reviews": {
-  "count": 4,
+  "count": 5,
   "pages": [
    "gear"
   ],
