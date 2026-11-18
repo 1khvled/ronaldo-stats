@@ -7,7 +7,7 @@ const rootDir = path.resolve(__dirname, "..");
 const publicSitemap = path.join(rootDir, "public", "sitemap.xml");
 const distSitemap = path.join(rootDir, "dist", "sitemap.xml");
 
-const LANGS = ["en","es","pt","fr"];
+const LANGS = ["en","es","pt","fr","ro","uz","ar"];
 
 const todayIso = new Date().toISOString().split("T")[0];
 
@@ -62,7 +62,12 @@ function getHreflangsXml(slugPath) {
     `    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt${slugPath}" />`,
     `    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr${slugPath}" />`,
     `    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr${slugPath}" />`,
-    `    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr${slugPath}" />`,
+    `    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr${slugPath}" />`,
+    `    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro${slugPath}" />`,
+    `    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro${slugPath}" />`,
+    `    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz${slugPath}" />`,
+    `    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar${slugPath}" />`,
+    `    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar${slugPath}" />`,
     `    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en${slugPath}" />`
   ].join("\n");
 }
@@ -205,6 +210,21 @@ const videoMeta = {
     desc: `Regardez le but #${LG_NUM} de Cristiano Ronaldo : une frappe ${LG_FINISH.toLowerCase()} pour ${LG_TEAM} contre ${LG_OPP} en ${LG_COMP} le ${LG_DATE}.`,
     tags: ["Cristiano Ronaldo", `But ${LG_NUM}`, LG_OPP_TAG, LG_COMP, "Dernier but de Ronaldo"]
   },
+  ro: {
+    title: `Ultimul Gol al lui Cristiano Ronaldo: Golul #${LG_NUM} vs ${LG_OPP}`,
+    desc: `Urmărește golul #${LG_NUM} al lui Cristiano Ronaldo pentru ${LG_TEAM} împotriva ${LG_OPP} în ${LG_COMP} pe ${LG_DATE}.`,
+    tags: ["Cristiano Ronaldo", `Golul ${LG_NUM}`, LG_OPP_TAG, LG_COMP, "Ultimul gol Ronaldo"]
+  },
+  uz: {
+    title: `Cristiano Ronaldoning So'nggi Goli: #${LG_NUM}-gol vs ${LG_OPP}`,
+    desc: `Cristiano Ronaldoning ${LG_DATE} kuni ${LG_COMP} da ${LG_TEAM} safida ${LG_OPP} ga urgan #${LG_NUM}-golini tomosha qiling.`,
+    tags: ["Cristiano Ronaldo", `Gol ${LG_NUM}`, LG_OPP_TAG, LG_COMP, "Ronaldo so'nggi goli"]
+  },
+  ar: {
+    title: `آخر هدف لكريستيانو رونالدو: هدف #${LG_NUM} ضد ${LG_OPP}`,
+    desc: `شاهد هدف كريستيانو رونالدو رقم #${LG_NUM} مع ${LG_TEAM} ضد ${LG_OPP} في ${LG_COMP} بتاريخ ${LG_DATE}.`,
+    tags: ["Cristiano Ronaldo", `هدف ${LG_NUM}`, LG_OPP_TAG, LG_COMP, "آخر هدف رونالدو"]
+  }
 };
 
 function getVideoXml(lang) {
@@ -241,7 +261,7 @@ ${getHreflangsXml("/" + sub.slug)}${imgXml}${vidXml}
 // 3. Other languages: Homepage + Subpages
 // Number rendering per locale (group separator).
 const groupNum = (n, sep) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
-const APPS_SEP = { en: ",", es: ".", pt: ".", fr: " " };
+const APPS_SEP = { en: ",", es: ".", pt: ".", fr: " ", ro: ".", uz: " ", ar: "," };
 const num = (l, n) => String(n);
 const appsNum = (l) => groupNum(CAREER_APPS, APPS_SEP[l] || ",");
 const trophyNum = (l) => num(l, CAREER_TROPHIES);
@@ -263,9 +283,24 @@ const langHomeMeta = {
     title: `Buts de Ronaldo : ${num("fr", CAREER_GOALS)} Buts Officiels en Direct`,
     caption: `Statistiques complètes de la carrière de Cristiano Ronaldo : ${num("fr", CAREER_GOALS)} buts en ${appsNum("fr")} matchs officiels, ${trophyNum("fr")} trophées collectifs et ${ballonNum("fr")} Ballons d'Or.`
   },
+  ro: {
+    priority: "0.95",
+    title: `Goluri Ronaldo: ${num("ro", CAREER_GOALS)} Goluri Oficiale Live`,
+    caption: `Statistici complete din cariera lui Cristiano Ronaldo: ${num("ro", CAREER_GOALS)} goluri în ${appsNum("ro")} meciuri oficiale, ${trophyNum("ro")} trofee și ${ballonNum("ro")} Baloane de Aur.`
+  },
+  uz: {
+    priority: "0.95",
+    title: `Cristiano Ronaldo Gollari: ${num("uz", CAREER_GOALS)} ta Rasmiy Gol`,
+    caption: `Cristiano Ronaldoning to'liq karyera statistikasi: ${appsNum("uz")} ta o'yinda ${num("uz", CAREER_GOALS)} ta gol, ${trophyNum("uz")} ta kubok va ${ballonNum("uz")} ta Oltin To'p.`
+  },
+  ar: {
+    priority: "0.95",
+    title: `أهداف رونالدو: ${num("ar", CAREER_GOALS)} هدفاً رسمياً مباشرة`,
+    caption: `إحصائيات مسيرة كريستيانو رونالدو الكاملة: ${num("ar", CAREER_GOALS)} هدفاً في ${appsNum("ar")} مباراة رسمية، ${trophyNum("ar")} لقباً و${ballonNum("ar")} كرات ذهبية.`
+  }
 };
 
-for (const lang of ["es","pt","fr"]) {
+for (const lang of ["es","pt","fr","ro","uz","ar"]) {
   const meta = langHomeMeta[lang];
   // Homepage
   urlBlocks.push(`  <url>

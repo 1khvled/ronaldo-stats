@@ -64,6 +64,8 @@ jobs:
         run: |
           npm run build
           npm run verify:all
+          npm run audit:tag
+          npm run guard:ads
 
       - name: Commit & Push New Match Stats
         run: |

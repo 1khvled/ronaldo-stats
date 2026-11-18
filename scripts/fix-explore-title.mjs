@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 const ROOT = "D:/Projects/ronaldo-stats/";
-const LANGS = ["es","pt","fr"];
+const LANGS = ["es","pt","fr","ro","uz","ar"];
 const OLD_KEY = "⚔️ Ronaldo vs Real Madrid (El Clásico)";
 const NEW_KEY = "🏟️ Ronaldo at Real Madrid";
 const T = {

@@ -10,6 +10,9 @@ const navLinks = {
   es: '<a href="/es/latest-goal" aria-label="Último Gol"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon></svg><span>Último Gol <b class="nav-badge-hot">LIVE ⚡</b></span></a>',
   pt: '<a href="/pt/latest-goal" aria-label="Último Gol"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon></svg><span>Último Gol <b class="nav-badge-hot">LIVE ⚡</b></span></a>',
   fr: '<a href="/fr/latest-goal" aria-label="Dernier But"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon></svg><span>Dernier But <b class="nav-badge-hot">LIVE ⚡</b></span></a>',
+  ro: '<a href="/ro/latest-goal" aria-label="Ultimul Gol"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon></svg><span>Ultimul Gol <b class="nav-badge-hot">LIVE ⚡</b></span></a>',
+  uz: '<a href="/uz/latest-goal" aria-label="Soʻnggi Gol"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon></svg><span>Soʻnggi Gol <b class="nav-badge-hot">LIVE ⚡</b></span></a>',
+  ar: '<a href="/ar/latest-goal" aria-label="آخر هدف"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon></svg><span>آخر هدف <b class="nav-badge-hot">LIVE ⚡</b></span></a>',
 };
 
 function processHtmlFile(filePath, lang) {
@@ -53,7 +56,7 @@ for (const file of rootFiles) {
 }
 
 // Localized directories
-for (const lang of ["es","pt","fr"]) {
+for (const lang of ["es","pt","fr","ro","uz","ar"]) {
   const langDir = path.join(rootDir, lang);
   if (!fs.existsSync(langDir)) continue;
   const files = fs.readdirSync(langDir).filter(f => f.endsWith(".html") && f !== "latest-goal.html" && f !== "404.html");

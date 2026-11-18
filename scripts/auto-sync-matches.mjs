@@ -40,6 +40,12 @@ const CLUBS = [
 ];
 const PLAYER = /cristiano\s+ronaldo/i;
 
+// The seven localized homepages (bn/hi stay dead). This auto-sync never
+// writes a total — it only stages rows into pending.json — but it reports
+// which shells are present so a missing restored locale shows up in the run.
+const INDEX_FILES = ["en", "es", "pt", "fr", "ro", "uz", "ar"]
+  .map((lang) => resolve(root, lang === "en" ? "index.html" : `${lang}/index.html`));
+
 const H = { "User-Agent": "ronaldostats/1.0 (public scoreboard reader)" };
 
 async function getJson(url) {
@@ -79,6 +85,7 @@ async function main() {
   const dataPath = resolve(root, "public", "data", "ronaldo-data.json");
   const data = JSON.parse(readFileSync(dataPath, "utf8"));
   const known = new Set((data.calendarYears || []).map((r) => r.year));
+  console.log(`localized homepages present: ${INDEX_FILES.filter((f) => existsSync(f)).length}/${INDEX_FILES.length}`);
 
   const pendingPath = resolve(root, "public", "data", "pending.json");
   const pending = existsSync(pendingPath)

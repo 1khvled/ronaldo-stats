@@ -56,6 +56,8 @@ const EXPECTED_ADS = {
   'hrf-160x300.html': 'bauval.org',
   'prc-native-6161.html': 'profitableratecpmnetwork.com',
   'prc-native-6160.html': 'profitableratecpmnetwork.com',
+  // Social Bar: loaded via ?src= allowlist; no hardcoded network hostname.
+  'social-bar.html': null,
   'frame.css': null,
 };
 for (const [file, net] of Object.entries(EXPECTED_ADS)) {

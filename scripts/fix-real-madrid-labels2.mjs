@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 const ROOT = "D:/Projects/ronaldo-stats/";
-const LANGS = ["es","pt","fr"];
+const LANGS = ["es","pt","fr","ro","uz","ar"];
 
 const t = fs.readFileSync(path.join(ROOT, "real-madrid.html"), "utf8");
 console.log("=== the mangled / leftover strings in the English shell ===");

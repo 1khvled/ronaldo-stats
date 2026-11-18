@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 const ROOT = "D:/Projects/ronaldo-stats/";
-const LANGS = ["es","pt","fr"];
+const LANGS = ["es","pt","fr","ro","uz","ar"];
 
 // the old alt described the card; now that the cards are photographs, the alt
 // describes the photograph

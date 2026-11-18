@@ -6,7 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const DIR = "D:/Projects/ronaldo-stats/src/i18n";
-const LANGS = ["en","es","pt","fr"];
+const LANGS = ["en","es","pt","fr","ro","uz","ar"];
 
 const DICT = {
   en: {

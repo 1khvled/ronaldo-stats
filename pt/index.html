@@ -16,8 +16,8 @@
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <meta content="google07f67a37d7a48a18" name="google-site-verification"/>
 <meta content="07f67a37d7a48a18" name="google-site-verification"/>
-<meta content="Estatísticas de Cristiano Ronaldo: 983 gols na carreira, 261 assistências em 1,342 partidas profissionais (Sporting CP, Manchester United, Real Madrid, Juventus, Al Nassr &amp;amp; Portugal). 35 troféus, 5 Ballons d'Or, faltas, hat-tricks &amp;amp; rastreador ao vivo de 2026." name="description"/>
-<link href="https://www.ronaldostats.site/pt" rel="canonical"/>
+<meta content="Estatísticas de Cristiano Ronaldo: 985 gols na carreira, 261 assistências em 1.343 jogos sênior (Sporting CP, Manchester United, Real Madrid, Juventus, Al Nassr e Portugal). 35 troféus, 5 Bolas de Ouro, tiros livres, hat-tricks e acompanhamento ao vivo de 2026." name="description"/>
+<link rel="canonical" href="https://www.ronaldostats.site/pt"/>
 <link hreflang="en" rel="alternate" href="https://www.ronaldostats.site/en"/>
 <link hreflang="en-US" rel="alternate" href="https://www.ronaldostats.site/en-US"/>
 <link hreflang="en-NG" rel="alternate" href="https://www.ronaldostats.site/en-NG"/>
@@ -32,7 +32,13 @@
 <link hreflang="fr" rel="alternate" href="https://www.ronaldostats.site/fr"/>
 <link hreflang="fr-FR" rel="alternate" href="https://www.ronaldostats.site/fr-FR"/>
 <link hreflang="fr-CA" rel="alternate" href="https://www.ronaldostats.site/fr-CA"/>
+<link hreflang="ro" rel="alternate" href="https://www.ronaldostats.site/ro"/>
+<link hreflang="ro-RO" rel="alternate" href="https://www.ronaldostats.site/ro-RO"/>
+<link hreflang="uz" rel="alternate" href="https://www.ronaldostats.site/uz"/>
+<link hreflang="ar" rel="alternate" href="https://www.ronaldostats.site/ar"/>
+<link hreflang="ar-EG" rel="alternate" href="https://www.ronaldostats.site/ar-EG"/>
 <link hreflang="x-default" rel="alternate" href="https://www.ronaldostats.site/en"/>
+
 <script src="/js/ad-guard.js"></script>
   <link rel="preconnect" href="https://bauval.org" crossorigin />
   <link rel="preconnect" href="https://highrevenueformat.com" crossorigin />
@@ -45,7 +51,11 @@
 <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
 <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="bingbot"/>
 <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="msnbot"/>
-<meta content="#16243a" name="theme-color"/>
+<meta name="theme-color" content="#f2f3f0" media="(prefers-color-scheme: light)"/>
+<meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)"/>
+<meta name="theme-color" content="#f2f3f0" media="(prefers-color-scheme: light)"/>
+<meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)"/>
+<meta name="color-scheme" content="light dark">
 <meta content="RonaldoStats" name="author"/>
 <meta content="website" property="og:type"/>
 <meta content="RonaldoStats" property="og:site_name"/>
@@ -118,7 +128,7 @@
       "@id": "https://www.ronaldostats.site/#ronaldo",
       "name": "Cristiano Ronaldo",
       "alternateName": "CR7",
-      "description": "Portuguese forward with 985 goals and 261 official assists in 1,343 senior appearances for club and country (839 club goals in 1,106 club appearances, 146 goals in 234 caps for Portugal), 35 senior team trophies and 5 Ballons d'Or (figures as of 9 November 2026).",
+      "description": "Portuguese forward with 985 goals and 261 official assists in 1,343 senior appearances for club and country (839 club goals in 1,106 club appearances, 146 goals in 234 caps for Portugal), 35 senior team trophies and 5 Ballons d'Or (figures as of 18 November 2026).",
       "nationality": "Portugal",
       "birthDate": "1985-02-05",
       "birthPlace": {
@@ -181,7 +191,7 @@
       "url": "https://www.ronaldostats.site/pt",
       "name": "Cristiano Ronaldo Stats | RonaldoStats",
       "description": "Cristiano Ronaldo stats: 985 career goals, 261 official assists (291 TM) in 1,343 senior games (Sporting CP, Manchester United, Real Madrid, Juventus, Al Nassr and Portugal). 35 trophies, 5 Ballons d'Or, free kicks, hat-tricks and live 2026 tracker.",
-      "dateModified": "2026-11-09",
+      "dateModified": "2026-11-18",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://www.ronaldostats.site/#org"
@@ -211,8 +221,8 @@
       "creator": {
         "@id": "https://www.ronaldostats.site/#org"
       },
-      "dateModified": "2026-11-09",
-      "temporalCoverage": "2002-08-14/2026-11-09",
+      "dateModified": "2026-11-18",
+      "temporalCoverage": "2002-08-14/2026-11-18",
       "keywords": [
         "ronaldo stat",
         "ronaldo stats",
@@ -423,6 +433,10 @@
       if (/bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)) return;
       var saved = localStorage.getItem('ronaldostats_lang_choice');
       var isRoot = location.pathname === '/' || location.pathname === '/en' || location.pathname === '/en/';
+      if (saved && ['en','es','pt','fr','ro','uz','ar'].indexOf(saved) === -1) {
+        localStorage.removeItem('ronaldostats_lang_choice');
+        saved = null;
+      }
       if (saved && saved !== 'en' && isRoot) {
         location.replace('/' + saved);
         return;
@@ -452,35 +466,46 @@
 <body data-page="home">
 <a class="skip" href="#main">Ir para o conteúdo</a>
 <aside aria-label="Navegação" class="rail">
-<a aria-label="Início do RonaldoStats" class="rail-badge" href="/pt"><img class="rail-mark" src="/img/logo-cr7.webp" alt="" width="36" height="36" /><img class="rail-banner" src="/img/banner-ronaldostats.webp" alt="" width="1200" height="400" /><span class="rail-word">Ronaldo<b>Estatísticas</b></span></a>
-<div class="rail-lang-wrap">
-  <button type="button" class="rail-lang-btn" id="rail-lang-btn" aria-label="Selecionar idioma (English)" title="Selecionar idioma">
-    <svg class="rail-lang-globe" viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="12" r="10"></circle>
-      <line x1="2" y1="12" x2="22" y2="12"></line>
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-    </svg>
-    <span class="rail-lang-label">English</span>
-    <span class="rail-lang-tag">EN</span>
+<div class="rail-head">
+  <a aria-label="Início do RonaldoStats" class="rail-badge" href="/pt"><img class="rail-mark" src="/img/logo-cr7.webp" alt="" width="36" height="36" /><img class="rail-banner" src="/img/banner-ronaldostats.webp" alt="" width="1200" height="400" /><span class="rail-word"><span class="rail-word-main">Ronaldo<b>Estatísticas</b></span><small class="rail-word-sub" data-rail-goals-sub="1">985 Career Goals</small></span></a>
+  <button type="button" class="rail-collapse-btn" id="rail-collapse-btn" aria-label="Recolher navegação" aria-expanded="true" title="Recolher navegação"><span class="rail-collapse-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><line x1="9" y1="3" x2="9" y2="21"></line><polyline points="15 9 12 12 15 15"></polyline></svg></span></button>
+</div>
+<div class="rail-tools-stack">
+  <button type="button" class="rail-search-btn" data-open-cmd="1" aria-label="Abrir paleta de comandos" title="Abrir paleta de comandos"><svg class="rail-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7.5"></circle><line x1="20.5" y1="20.5" x2="16.3" y2="16.3"></line></svg><span class="rail-search-label">Buscar</span><span class="rail-search-kbd">Ctrl K</span></button>
+</div>
+<nav aria-label="Principal">
+<span class="rail-nav-group-label" aria-hidden="true">Destaques</span>
+<a aria-current="page" class="on" href="/pt" aria-label="Início"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 11.5 12 3l9 8.5"></path><path d="M5.5 10.5V21h5v-6h3v6h5V10.5"></path></svg><span class="rail-link-text">Início</span><span class="rail-item-meta is-live">985</span></a>
+<span class="rail-nav-group-label" aria-hidden="true">Rivais e Copas</span>
+<a href="/pt/ronaldo-vs-messi" aria-label="contra Messi"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1"></path><path d="M18 8l4 4-4 4"></path></svg><span class="rail-link-text">contra Messi</span><span class="rail-item-meta">H2H</span></a>
+<a href="/pt/real-madrid" aria-label="vs Real Madrid"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M14.5 17.5 3 6V3h3l11.5 11.5"></path><path d="m13 19 6-6"></path><path d="m16 16 4 4"></path><path d="m19 21 2-2"></path></svg><span class="rail-link-text">vs Real Madrid</span><span class="rail-item-meta tnum">450G</span></a>
+<a href="/pt/champions-league" aria-label="Hub da UCL"><svg aria-hidden="true" viewbox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="rail-link-text">Hub da UCL</span><span class="rail-item-meta tnum">140G</span></a>
+<span class="rail-nav-group-label" aria-hidden="true">Arquivo</span>
+<a href="/pt/goalsbyyear" aria-label="Gols por ano"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="15.5" rx="2.5" width="17" x="3.5" y="5"></rect><path d="M3.5 10h17M8 2.8V6.5M16 2.8V6.5"></path></svg><span class="rail-link-text">Gols por ano</span></a>
+<a href="/pt/goalsbyseason" aria-label="Gols por temporada"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="7.5" rx="1.5" width="7.5" x="3.5" y="3.5"></rect><rect height="7.5" rx="1.5" width="7.5" x="13" y="3.5"></rect><rect height="7.5" rx="1.5" width="7.5" x="3.5" y="13"></rect><rect height="7.5" rx="1.5" width="7.5" x="13" y="13"></rect></svg><span class="rail-link-text">Gols por temporada</span></a>
+<a href="/pt/dashboard" aria-label="Painel"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3.5 20.5h17"></path><path d="M6.5 20v-7M12 20V5M17.5 20v-10"></path></svg><span class="rail-link-text">Painel</span></a>
+<a href="/pt/timeline" aria-label="Ao longo dos anos"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg><span class="rail-link-text">Ao longo dos anos</span><span class="rail-item-meta">2002–26</span></a>
+<a href="/pt/trophies" aria-label="Troféus"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M8 3.5h8V9a4 4 0 0 1-8 0V3.5Z"></path><path d="M8 5H4.5A1.5 1.5 0 0 0 6 10H8M16 5h3.5A1.5 1.5 0 0 1 18 10h-2M12 13v3.5M8.5 20.5h7M10 16.5h4V20h-4z"></path></svg><span class="rail-link-text">Troféus</span><span class="rail-item-meta tnum">35</span></a>
+<a href="/pt/gear" aria-label="Produtos do Ronaldo"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg><span class="rail-link-text">Produtos do Ronaldo</span></a>
+</nav>
+<div class="rail-footer">
+  <div class="rail-lang-wrap">
+    <button type="button" class="rail-lang-btn" id="rail-lang-btn" aria-label="Selecionar idioma (English)" title="Selecionar idioma">
+      <svg class="rail-lang-globe" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="2" y1="12" x2="22" y2="12"></line>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      </svg>
+      <span class="rail-lang-label">English</span>
+      <span class="rail-lang-tag">EN</span>
+    </button>
+  </div>
+  <button aria-label="Alternar o modo escuro" class="theme-toggle" id="theme-toggle" title="Alternar o modo escuro" type="button">
+    <svg aria-hidden="true" class="sun-icon" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+    <svg aria-hidden="true" class="moon-icon" viewbox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    <span class="theme-label">Modo escuro</span>
   </button>
 </div>
-<nav>
-<a aria-current="page" class="on" href="/pt" aria-label="Início"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 11.5 12 3l9 8.5"></path><path d="M5.5 10.5V21h5v-6h3v6h5V10.5"></path></svg><span>Início</span></a>
-<a href="/pt/ronaldo-vs-messi" aria-label="contra Messi"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1"></path><path d="M18 8l4 4-4 4"></path></svg><span>contra Messi</span></a>
-<a href="/pt/real-madrid" aria-label="vs Real Madrid"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M14.5 17.5 3 6V3h3l11.5 11.5"></path><path d="m13 19 6-6"></path><path d="m16 16 4 4"></path><path d="m19 21 2-2"></path></svg><span>vs Real Madrid</span></a>
-<a href="/pt/champions-league" aria-label="Hub da UCL"><svg aria-hidden="true" viewbox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span>Hub da UCL</span></a>
-<a href="/pt/goalsbyyear" aria-label="Gols por ano"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="15.5" rx="2.5" width="17" x="3.5" y="5"></rect><path d="M3.5 10h17M8 2.8V6.5M16 2.8V6.5"></path></svg><span>Gols por ano</span></a>
-<a href="/pt/goalsbyseason" aria-label="Gols por temporada"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="7.5" rx="1.5" width="7.5" x="3.5" y="3.5"></rect><rect height="7.5" rx="1.5" width="7.5" x="13" y="3.5"></rect><rect height="7.5" rx="1.5" width="7.5" x="3.5" y="13"></rect><rect height="7.5" rx="1.5" width="7.5" x="13" y="13"></rect></svg><span>Gols por temporada</span></a>
-<a href="/pt/dashboard" aria-label="Painel"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3.5 20.5h17"></path><path d="M6.5 20v-7M12 20V5M17.5 20v-10"></path></svg><span>Painel</span></a>
-<a href="/pt/timeline" aria-label="Ao longo dos anos"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg><span>Ao longo dos anos</span></a>
-<a href="/pt/trophies" aria-label="Troféus"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M8 3.5h8V9a4 4 0 0 1-8 0V3.5Z"></path><path d="M8 5H4.5A1.5 1.5 0 0 0 6 10H8M16 5h3.5A1.5 1.5 0 0 1 18 10h-2M12 13v3.5M8.5 20.5h7M10 16.5h4V20h-4z"></path></svg><span>Troféus</span></a>
-<a href="/pt/gear" aria-label="Produtos do Ronaldo"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg><span>Produtos do Ronaldo 🛍️</span></a>
-</nav>
-<button aria-label="Alternar o modo escuro" class="theme-toggle" id="theme-toggle" title="Alternar o modo escuro" type="button">
-<svg aria-hidden="true" class="sun-icon" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
-<svg aria-hidden="true" class="moon-icon" viewbox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-<span class="theme-label">Modo escuro</span>
-</button>
 </aside>
 <div class="page">
 <main class="wrap" id="main">
@@ -503,58 +528,111 @@
   </div>
 </aside>
 
-<p class="eyebrow">Estatísticas da carreira <i></i> <span id="upd">Atualizado em <span class="upd-date" data-no-translate data-date="2026-10-22">22 October 2026</span></span></p>
-<h1>Cristiano Ronaldo Stats: 985 Goals, 1,340 Matches &amp; 35 Trophies</h1>
-<p class="lede" id="lede">A base de dados verificada <strong>de estatísticas de Cristiano Ronaldo</strong> : <strong>985 official career goals</strong>, <strong>261 assistências</strong> em <strong>1,343 senior appearances</strong> (0.73 gols por jogo), 35 troféus e 5 Ballons d'Or no Sporting CP, Manchester United, Real Madrid, Juventus, Al Nassr e Portugal. Explore cada <strong>estatística do Ronaldo</strong> atualizada ao vivo após cada partida.</p>
-<section class="community-strip" aria-label="Junte-se à comunidade do RonaldoStats">
-  <div class="community-inner">
-    <div class="community-icon" aria-hidden="true">📣</div>
-    <div class="community-text">
-      <h2>Nunca perca um gol do Ronaldo — junte-se a nós &amp; apoie o RonaldoStats</h2>
-      <p>Alertas de gols, marcos da carreira e bate-papo da comunidade, direto no seu celular. É grátis — e cada novo membro ajuda a manter o RonaldoStats no ar. Gosta do site? <a href="/pt/gear">Compre produtos oficiais do Ronaldo na Amazon</a> ou <a href="https://ko-fi.com/ronaldostats" target="_blank" rel="noopener noreferrer">apoie-nos no Ko-fi</a> para cobrir os custos de hospedagem e de transmissão de vídeos.</p>
-    </div>
-    <div class="community-actions">
-      <a href="https://t.me/messistatdotcom" target="_blank" rel="noopener noreferrer" class="btn-support tg">
-        <span>✈️ Entrar no canal do Telegram</span>
-      </a>
-      <a href="https://araplhn.org/4/9c0421236e838b103398fe1f230fd98e" target="_blank" rel="noopener noreferrer sponsored" class="btn-support partner" title="Ofertas Esportivas Exclusivas e de Parceiros">
-        <span>⭐ Ofertas de Parceiros</span>
-      </a>
-      <a href="/pt/gear" class="btn-support bmac" style="background:#f59e0b; color:#0f172a;"><span>👕 Loja do Ronaldo 🛍️</span></a>
-      <a href="https://ko-fi.com/ronaldostats" target="_blank" rel="noopener noreferrer" class="btn-support kofi">
-        <span>💖 Doar no Ko-fi</span>
-      </a>
-    </div>
+<div class="hero-editorial-head">
+  <p class="eyebrow"><span class="eyebrow-pill">O REGISTRO COMPLETO DO CR7 — 2002–2026</span> <span id="upd">Atualizado em <span class="upd-date" data-no-translate data-date="2026-10-22">22 October 2026</span></span></p>
+  <h1>Estatísticas de Cristiano Ronaldo: 985 gols, 1.343 jogos e 35 troféus</h1>
+  <p class="lede" id="lede">A base de dados verificada <strong>de estatísticas de Cristiano Ronaldo</strong> : <strong>985 official career goals</strong>, <strong>261 assistências</strong> em <strong>1,343 senior appearances</strong> (0.73 gols por jogo), 35 troféus e 5 Ballons d'Or no Sporting CP, Manchester United, Real Madrid, Juventus, Al Nassr e Portugal. Explore cada <strong>estatística do Ronaldo</strong> atualizada ao vivo após cada partida.</p>
+</div>
+
+<section class="community-strip community-ribbon" aria-label="Ações rápidas e comunidade do RonaldoStats">
+  <div class="community-ribbon-lead">
+    <span class="ribbon-pulse" aria-hidden="true"></span>
+    <span><strong>Alertas de jogos ao vivo e arquivo:</strong> Clipes de gols em HD e fichas de jogo verificadas.</span>
   </div>
-</section>
-<section aria-label="Perfil do jogador" class="profile identity--tight" id="profile">
-  <figure class="identity-photo">
-    <picture>
-      <source srcset="/img/ronaldo-450.webp 1x, /img/ronaldo.webp 2x" type="image/webp">
-      <img src="/img/ronaldo.jpg" alt="Cristiano Ronaldo" width="148" height="197" loading="eager" fetchpriority="high" decoding="async">
-    </picture>
-    <figcaption class="photo-credit">Cristiano Ronaldo · Portugal &amp; Al Nassr</figcaption>
-  </figure>
-  <div class="identity-main">
-    <p class="identity-name">CR7 <span class="jersey" aria-label="Número da camisa 7">7</span></p>
-    <div class="identity-chips">
-      <span class="id-chip accent">⚽ Atacante nº7</span>
-      <span class="id-chip">🎂 Nascido em 5 de fevereiro de 1985 · 41</span>
-      <span class="id-chip">📍 Funchal, Madeira, Portugal</span>
-      <span class="id-chip">📏 1.87 m</span>
-      <span class="id-chip gold">⭐ 5 Ballons d'Or</span>
-      <span class="id-chip gold">🏆 35 Troféus</span>
-    </div>
-    <dl class="identity-facts">
-      <div><dt>Posição</dt><dd>Atacante</dd></div>
-      <div><dt>Times</dt><dd>Sporting CP · Manchester United · Real Madrid · Juventus · Al Nassr</dd></div>
-      <div><dt>Agora</dt><dd>Al Nassr · Portugal</dd></div>
-    </dl>
+  <div class="community-actions">
+    <a href="#road-1000" class="btn-support watch-latest"><span>▶ Caminho para 1.000</span></a>
+    <a href="https://t.me/messistatdotcom" target="_blank" rel="noopener noreferrer" class="btn-support tg"><span>✈️ Entrar no canal do Telegram</span></a>
+    <a href="/pt/gear" class="btn-support bmac" style="background:#f59e0b; color:#0f172a;"><span>👕 Loja do Ronaldo 🛍️</span></a>
+    <a href="https://araplhn.org/4/9c0421236e838b103398fe1f230fd98e" target="_blank" rel="noopener noreferrer sponsored" class="btn-support partner" title="Ofertas Esportivas Exclusivas e de Parceiros"><span>⭐ Ofertas de Parceiros</span></a>
+    <a href="https://ko-fi.com/ronaldostats" target="_blank" rel="noopener noreferrer" class="btn-support kofi"><span>💖 Doar no Ko-fi</span></a>
   </div>
 </section>
 
+<!-- EDITORIAL BENTO HERO -->
+<div class="hero-bento">
+  <section aria-label="Perfil do jogador" class="profile identity--tight bento-profile-card" id="profile">
+    <div class="bento-profile-top">
+      <figure class="identity-photo">
+        <picture>
+          <source srcset="/img/ronaldo-450.webp 1x, /img/ronaldo.webp 2x" type="image/webp">
+          <img src="/img/ronaldo.jpg" alt="Cristiano Ronaldo" width="148" height="197" loading="eager" fetchpriority="high" decoding="async">
+        </picture>
+        <figcaption class="photo-credit">Cristiano Ronaldo · Portugal &amp; Al Nassr</figcaption>
+      </figure>
+      <div class="identity-main">
+        <div class="identity-kicker">RECORDE SÊNIOR · 2002–2026</div>
+        <p class="identity-name">CR7 <span class="jersey" aria-label="Número da camisa 7">7</span></p>
+        <div class="identity-chips">
+          <span class="id-chip accent">Atacante #7</span>
+          <span class="id-chip">Funchal, POR</span>
+          <span class="id-chip gold">5× Bola de Ouro</span>
+          <span class="id-chip gold">35 Troféus</span>
+        </div>
+        <dl class="identity-facts">
+          <div><dt>Nascido</dt><dd>5 fev 1985 (41 anos)</dd></div>
+          <div><dt>Ativo</dt><dd>Al Nassr · Portugal</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="bento-club-splits" aria-label="Gols na carreira por equipe">
+      <div class="bento-split-item" role="button" tabindex="0" aria-pressed="false" data-era-team="madrid"><img class="bs-crest" src="/img/teams/real-madrid.png" alt="" width="20" height="20" loading="lazy" decoding="async"><span class="bs-team">Real Madrid</span><strong class="bs-val tnum">450</strong><span class="bs-sub">438 jogos</span></div>
+      <div class="bento-split-item" role="button" tabindex="0" aria-pressed="false" data-era-team="portugal"><img class="bs-crest" src="/img/teams/portugal.png" alt="" width="20" height="20" loading="lazy" decoding="async"><span class="bs-team">Portugal</span><strong class="bs-val tnum">146</strong><span class="bs-sub">234 jogos</span></div>
+      <div class="bento-split-item" role="button" tabindex="0" aria-pressed="false" data-era-team="man-utd"><img class="bs-crest" src="/img/teams/man-utd.png" alt="" width="20" height="20" loading="lazy" decoding="async"><span class="bs-team">Man Utd</span><strong class="bs-val tnum">145</strong><span class="bs-sub">346 jogos</span></div>
+      <div class="bento-split-item" role="button" tabindex="0" aria-pressed="false" data-era-team="alnassr"><img class="bs-crest" src="/img/teams/al-nassr.png" alt="" width="20" height="20" loading="lazy" decoding="async"><span class="bs-team">Al Nassr</span><strong class="bs-val tnum">138</strong><span class="bs-sub">160 jogos</span></div>
+    </div>
+  </section>
 
+  <div class="bento-right-stack">
+    <section aria-label="Totais da carreira" class="kpis kpis-6" id="kpis">
+      <div class="kpi kpi-featured"><span class="kpi-lbl">Total de gols</span><span class="kpi-num">985</span><span class="kpi-sub">839 clubes · 146 Portugal</span></div>
+      <div class="kpi"><span class="kpi-lbl">Total de assistências</span><span class="kpi-num">261</span><span class="kpi-sub">291 critérios Transfermarkt</span></div>
+      <div class="kpi"><span class="kpi-lbl">Participações em gols</span><span class="kpi-num">1,246</span><span class="kpi-sub">0,93 G+A por jogo</span></div>
+      <div class="kpi"><span class="kpi-lbl">Jogos sênior</span><span class="kpi-num">1,343</span><span class="kpi-sub">1.109 clubes · 234 Portugal</span></div>
+      <div class="kpi"><span class="kpi-lbl">Troféus de equipe</span><span class="kpi-num">35</span><span class="kpi-sub">Além de 5 Bolas de Ouro · <a href="/pt/trophies">Todos os títulos</a></span></div>
+      <div class="kpi"><span class="kpi-lbl">Gols de Portugal</span><span class="kpi-num">146</span><span class="kpi-sub">0,62 por jogo · 234 jogos</span></div>
+    </section>
 
+    <!-- ROAD TO 1,000 CAREER GOALS WIDGET -->
+    <section class="road-1000-card" id="road-1000" aria-label="Rastreador rumo aos 1,000 gols de carreira">
+      <div class="road-1000-header">
+        <div class="road-1000-title-wrap">
+          <span class="road-1000-badge">🎯 BUSCA POR MARCOS HISTÓRICOS</span>
+          <h2 class="road-1000-title">Rastreador rumo aos 1,000 gols de carreira</h2>
+        </div>
+        <div class="road-1000-progress-badge">
+          <span class="r1000-percent">98.5%</span>
+          <span class="r1000-sub">Completo</span>
+        </div>
+      </div>
+
+      <div class="road-1000-track-wrap">
+        <div class="road-1000-track" role="progressbar" aria-valuenow="985" aria-valuemin="0" aria-valuemax="1000" aria-label="985 out of 1,000 career goals scored">
+          <div class="road-1000-fill" style="width: 98.5%;"></div>
+          <div class="road-1000-pin" style="left: 98.5%;" title="Current: 985 Goals">
+            <span class="pin-label">985 ⚽</span>
+          </div>
+        </div>
+        <div class="road-1000-axis">
+          <span>0 Estreia (2002)</span>
+          <span>500 (2015)</span>
+          <span class="road-1000-target">🎯 1,000</span>
+        </div>
+      </div>
+
+      <div class="road-1000-metrics">
+        <div class="r1000-metric"><span class="r1000-num">985</span><span class="r1000-lbl">Gols marcados</span><span class="r1000-desc">Carreira profissional oficial</span></div>
+        <div class="r1000-metric highlight"><span class="r1000-num">15</span><span class="r1000-lbl">Gols para 1,000</span><span class="r1000-desc">Faltam para a história</span></div>
+        <div class="r1000-metric"><span class="r1000-num">839</span><span class="r1000-lbl">Gols de clube</span><span class="r1000-desc">Cinco clubes · 1.109 jogos</span></div>
+        <div class="r1000-metric"><span class="r1000-num">146</span><span class="r1000-lbl">Gols de Portugal</span><span class="r1000-desc">Seleção · 234 jogos</span></div>
+      </div>
+
+      <div class="road-1000-footer">
+        <span class="r1000-pace">⚡ Ritmo de artilharia: <b>0.73 gols/jogo</b> · <b>15 gols para alcançar</b> · 1,000 é uma meta, não um calendário</span>
+        <a href="/pt/dashboard" class="r1000-link">Painel completo de análises &rarr;</a>
+      </div>
+    </section>
+  </div>
+</div>
 <!-- GROUND TRUTH FOR SEARCH & AI OVERVIEWS: Cristiano Ronaldo Career Record -->
 <section class="ground-truth-card" id="ronaldo-total-goals" aria-label="Recorde oficial de gols e assistências totais de Cristiano Ronaldo">
   <span id="ronaldo-total-assists" style="display:none;" aria-hidden="true">261</span>
@@ -769,72 +847,6 @@
     <iframe class="safe-ad-frame safe-ad-native" src="/ads/prc-native-6160.html" style="width:100%;height:320px" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" title="Publicidade" scrolling="no" loading="lazy"></iframe>
   </div>
 </aside>
-
-<div class="shead"><h2>Estatísticas de carreira de Ronaldo em resumo</h2><a href="/pt/dashboard">Abra o painel interativo</a></div>
-<section aria-label="Totais da carreira" class="kpis kpis-6" id="kpis">
-  <div class="kpi"><span class="kpi-label">Gols na carreira</span><span class="kpi-value">985</span><span class="kpi-note">0.73 gols por jogo ao longo de 27 temporadas de clube.</span></div>
-  <div class="kpi"><span class="kpi-label">Participações profissionais</span><span class="kpi-value">1,343</span><span class="kpi-note">1,106 de clube, 234 de Portugal.</span></div>
-  <div class="kpi"><span class="kpi-label">Gols de Portugal</span><span class="kpi-value">35</span><span class="kpi-note">0.62 por convocação em 234 jogos pela seleção.</span></div>
-  <div class="kpi"><span class="kpi-label">Títulos coletivos</span><span class="kpi-value">35</span><span class="kpi-note">Mais 5 Ballons d'Or. <a href="/pt/trophies">Lista completa de honrarias</a>.</span></div>
-          <a href="https://www.messistat.com" target="_blank" rel="noopener noreferrer">🐐 MessiStat — Estatísticas de Lionel Messi</a>
-  <div class="kpi progress"><span class="kpi-label">Rumo aos 1,000 gols</span><span class="kpi-value">985 <small style="font-size:1rem;color:var(--muted)">/ 1,000</small></span><div class="progress-track"><div class="progress-fill" style="width:98.5%"></div></div><span class="kpi-note">faltam 19 — uma meta, não um calendário.</span></div>
-</section>
-
-<!-- ROAD TO 1,000 CAREER GOALS WIDGET -->
-<section class="road-1000-card" id="road-1000" aria-label="Rastreador rumo aos 1,000 gols de carreira">
-  <div class="road-1000-header">
-    <div class="road-1000-title-wrap">
-      <span class="road-1000-badge">🎯 BUSCA POR MARCOS HISTÓRICOS</span>
-      <h2 class="road-1000-title">Rastreador rumo aos 1,000 gols de carreira</h2>
-    </div>
-    <div class="road-1000-progress-badge">
-      <span class="r1000-percent">98.5%</span>
-      <span class="r1000-sub">Completo</span>
-    </div>
-  </div>
-
-  <div class="road-1000-track-wrap">
-    <div class="road-1000-track" role="progressbar" aria-valuenow="985" aria-valuemin="0" aria-valuemax="1000" aria-label="985 out of 1,000 career goals scored">
-      <div class="road-1000-fill" style="width: 98.5%;"></div>
-      <div class="road-1000-pin" style="left: 98.5%;" title="Current: 985 Goals">
-        <span class="pin-label">985 ⚽</span>
-      </div>
-    </div>
-    <div class="road-1000-axis">
-      <span>0 Estreia (2002)</span>
-      <span>500 (2015)</span>
-      <span class="road-1000-target">🎯 1,000</span>
-    </div>
-  </div>
-
-  <div class="road-1000-metrics">
-    <div class="r1000-metric">
-      <span class="r1000-num">985</span>
-      <span class="r1000-lbl">Gols marcados</span>
-      <span class="r1000-desc">Carreira profissional oficial</span>
-    </div>
-    <div class="r1000-metric highlight">
-      <span class="r1000-num">15</span>
-      <span class="r1000-lbl">Gols para 1,000</span>
-      <span class="r1000-desc">Faltam para a história</span>
-    </div>
-    <div class="r1000-metric">
-      <span class="r1000-num">839</span>
-      <span class="r1000-lbl">Gols de clube</span>
-      <span class="r1000-desc">Cinco clubes · 1,106 jogos</span>
-    </div>
-    <div class="r1000-metric">
-      <span class="r1000-num">146</span>
-      <span class="r1000-lbl">Gols de Portugal</span>
-      <span class="r1000-desc">Seleção</span>
-    </div>
-  </div>
-
-  <div class="road-1000-footer">
-    <span class="r1000-pace">⚡ Ritmo de artilharia: <b>0.73 gols/jogo</b> · <b>faltam 19 gols</b> · 1,000 é uma meta, não um calendário</span>
-    <a href="/pt/dashboard" class="r1000-link">Painel completo de análises &rarr;</a>
-  </div>
-</section>
 
 <aside aria-label="Publicidade" class="ad-banner-wrap">
   <span class="ad-native-label">Publicidade</span>

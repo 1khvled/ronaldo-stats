@@ -8,7 +8,7 @@ function cleanEnRouting() {
   const handler = (req, res, next) => {
     let url = req.url.split('?')[0];
     const query = req.url.includes('?') ? '?' + req.url.split('?')[1] : '';
-    const langMatch = url.match(/^\/(es|pt|fr)(\/.*)?$/);
+    const langMatch = url.match(/^\/(es|pt|fr|ro|uz|ar)(\/.*)?$/);
     if (langMatch) {
       const lang = langMatch[1];
       const rest = (langMatch[2] || '').replace(/^\/+/, '');
@@ -46,7 +46,7 @@ function cleanEnRouting() {
   };
 }
 
-const langs = ["es","pt","fr"];
+const langs = ["es","pt","fr","ro","uz","ar"];
 const subpages = [
   'index',
   'dashboard',
@@ -82,6 +82,7 @@ for (const l of langs) {
 
 export default defineConfig({
   base: '/',
+  appType: 'mpa',
   plugins: [cleanEnRouting()],
   build: {
     outDir: 'dist',

@@ -46,5 +46,33 @@ if ((R.worldCup?.goals ?? 0) > data.totals.combined.goals) {
   console.log("ok    the World Cup goals are inside the career total");
 }
 
+// Every built rivalry page — all seven locales — must carry the shared split
+// cells from the JSON. Restored locales are skipped until the generator has
+// written their shells; once present they are guarded like the original four.
+const RIVALRY_LOCALES = ["en", "es", "pt", "fr", "ro", "uz", "ar"];
+const sharedCells = [
+  String(R.worldCup?.goals ?? 0),
+  String(M.goals ?? 0),
+  String(R.continental?.goals ?? 0),
+  String(R.trophies ?? 0),
+  String(messi.trophies ?? 0),
+];
+for (const lang of RIVALRY_LOCALES) {
+  const rel = lang === "en" ? "ronaldo-vs-messi.html" : `${lang}/ronaldo-vs-messi.html`;
+  const file = path.join(root, rel);
+  if (!fs.existsSync(file)) {
+    console.log("skip  " + rel + ": page not generated yet");
+    continue;
+  }
+  const html = fs.readFileSync(file, "utf8");
+  const missingCells = sharedCells.filter((cell) => !html.includes(cell));
+  if (missingCells.length) {
+    failed++;
+    console.error("FAIL  " + rel + ": missing shared split cells " + missingCells.join(", "));
+  } else {
+    console.log("ok    " + rel + ": shared split cells present");
+  }
+}
+
 if (failed) { console.error(failed + " check(s) failed"); process.exit(1); }
-console.log("wc-splits audit ok.");
+console.log(`wc-splits audit ok (${RIVALRY_LOCALES.length} locales checked).`);

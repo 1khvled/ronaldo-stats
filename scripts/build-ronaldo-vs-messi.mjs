@@ -6,7 +6,7 @@ import { S } from "./stats.mjs";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 
-const LANGS = ["en","es","pt","fr"];
+const LANGS = ["en","es","pt","fr","ro","uz","ar"];
 
 // Rivalry splits: single source of truth is public/data/messi.json
 // (splits block, verified). Embedded fallback keeps builds working offline.

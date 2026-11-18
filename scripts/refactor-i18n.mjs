@@ -16,7 +16,7 @@ const raw = fs.readFileSync(APP, "utf8");
 const EOL = raw.includes("\r\n") ? "\r\n" : "\n";
 const lines = raw.split("\n"); // each element keeps a trailing "\r" if CRLF
 
-const LANGS = ["en","es","pt","fr"];
+const LANGS = ["en","es","pt","fr","ro","uz","ar"];
 const strip = (s) => s.replace(/\r$/, "");
 
 function findConstBlock(name) {

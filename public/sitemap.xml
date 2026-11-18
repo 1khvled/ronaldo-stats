@@ -5,7 +5,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://www.ronaldostats.site/en</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en" />
@@ -21,7 +21,12 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en" />
     <image:image>
       <image:loc>https://www.ronaldostats.site/img/logo.png</image:loc>
@@ -41,7 +46,7 @@
   </url>
   <url>
     <loc>https://www.ronaldostats.site/en/dashboard</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/dashboard" />
@@ -57,12 +62,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/dashboard" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/dashboard" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/dashboard" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/dashboard" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/dashboard" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/en/goalsbyseason</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyseason" />
@@ -78,12 +88,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyseason" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyseason" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/en/goalsbyyear</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyyear" />
@@ -99,12 +114,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyyear" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyyear" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/en/ronaldo-vs-messi</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
@@ -120,7 +140,12 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
     <image:image>
       <image:loc>https://www.ronaldostats.site/img/ronaldo-vs-messi.webp</image:loc>
@@ -130,7 +155,7 @@
   </url>
   <url>
     <loc>https://www.ronaldostats.site/en/real-madrid</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/real-madrid" />
@@ -146,7 +171,12 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/real-madrid" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/real-madrid" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/real-madrid" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/real-madrid" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/real-madrid" />
     <image:image>
       <image:loc>https://www.ronaldostats.site/img/og-ronaldo.jpg</image:loc>
@@ -156,7 +186,7 @@
   </url>
   <url>
     <loc>https://www.ronaldostats.site/en/champions-league</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/champions-league" />
@@ -172,7 +202,12 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/champions-league" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/champions-league" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/champions-league" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/champions-league" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/champions-league" />
     <image:image>
       <image:loc>https://www.ronaldostats.site/img/era/era-2017-ucl.webp</image:loc>
@@ -182,7 +217,7 @@
   </url>
   <url>
     <loc>https://www.ronaldostats.site/en/timeline</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/timeline" />
@@ -198,7 +233,12 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/timeline" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/timeline" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/timeline" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/timeline" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/timeline" />
     <image:image>
       <image:loc>https://www.ronaldostats.site/img/era/era-2002-sporting.webp</image:loc>
@@ -245,7 +285,7 @@
   </url>
   <url>
     <loc>https://www.ronaldostats.site/en/trophies</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/trophies" />
@@ -261,7 +301,12 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/trophies" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/trophies" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/trophies" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/trophies" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/trophies" />
     <image:image>
       <image:loc>https://www.ronaldostats.site/img/cab-ballon-2026.webp</image:loc>
@@ -296,7 +341,7 @@
   </url>
   <url>
     <loc>https://www.ronaldostats.site/en/gear</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/gear" />
@@ -312,12 +357,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/gear" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/gear" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/gear" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/gear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/gear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/gear" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/gear" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/es</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en" />
@@ -333,7 +383,12 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en" />
     <image:image>
       <image:loc>https://www.ronaldostats.site/img/logo.png</image:loc>
@@ -348,7 +403,7 @@
   </url>
   <url>
     <loc>https://www.ronaldostats.site/es/dashboard</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/dashboard" />
@@ -364,12 +419,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/dashboard" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/dashboard" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/dashboard" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/dashboard" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/dashboard" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/es/goalsbyseason</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyseason" />
@@ -385,12 +445,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyseason" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyseason" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/es/goalsbyyear</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyyear" />
@@ -406,12 +471,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyyear" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyyear" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/es/ronaldo-vs-messi</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
@@ -427,12 +497,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/es/real-madrid</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/real-madrid" />
@@ -448,12 +523,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/real-madrid" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/real-madrid" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/real-madrid" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/real-madrid" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/real-madrid" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/es/champions-league</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/champions-league" />
@@ -469,12 +549,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/champions-league" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/champions-league" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/champions-league" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/champions-league" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/champions-league" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/es/timeline</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/timeline" />
@@ -490,12 +575,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/timeline" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/timeline" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/timeline" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/timeline" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/timeline" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/es/trophies</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/trophies" />
@@ -511,12 +601,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/trophies" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/trophies" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/trophies" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/trophies" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/trophies" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/es/gear</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/gear" />
@@ -532,12 +627,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/gear" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/gear" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/gear" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/gear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/gear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/gear" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/gear" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/pt</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en" />
@@ -553,7 +653,12 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en" />
     <image:image>
       <image:loc>https://www.ronaldostats.site/img/logo.png</image:loc>
@@ -568,7 +673,7 @@
   </url>
   <url>
     <loc>https://www.ronaldostats.site/pt/dashboard</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/dashboard" />
@@ -584,12 +689,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/dashboard" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/dashboard" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/dashboard" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/dashboard" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/dashboard" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/pt/goalsbyseason</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyseason" />
@@ -605,12 +715,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyseason" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyseason" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/pt/goalsbyyear</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyyear" />
@@ -626,12 +741,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyyear" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyyear" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/pt/ronaldo-vs-messi</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
@@ -647,12 +767,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/pt/real-madrid</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/real-madrid" />
@@ -668,12 +793,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/real-madrid" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/real-madrid" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/real-madrid" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/real-madrid" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/real-madrid" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/pt/champions-league</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/champions-league" />
@@ -689,12 +819,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/champions-league" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/champions-league" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/champions-league" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/champions-league" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/champions-league" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/pt/timeline</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/timeline" />
@@ -710,12 +845,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/timeline" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/timeline" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/timeline" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/timeline" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/timeline" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/pt/trophies</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/trophies" />
@@ -731,12 +871,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/trophies" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/trophies" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/trophies" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/trophies" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/trophies" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/pt/gear</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/gear" />
@@ -752,12 +897,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/gear" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/gear" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/gear" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/gear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/gear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/gear" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/gear" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/fr</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en" />
@@ -773,7 +923,12 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en" />
     <image:image>
       <image:loc>https://www.ronaldostats.site/img/logo.png</image:loc>
@@ -788,7 +943,7 @@
   </url>
   <url>
     <loc>https://www.ronaldostats.site/fr/dashboard</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/dashboard" />
@@ -804,12 +959,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/dashboard" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/dashboard" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/dashboard" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/dashboard" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/dashboard" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/fr/goalsbyseason</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyseason" />
@@ -825,12 +985,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyseason" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyseason" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyseason" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/fr/goalsbyyear</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyyear" />
@@ -846,12 +1011,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyyear" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyyear" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyyear" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/fr/ronaldo-vs-messi</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
@@ -867,12 +1037,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/fr/real-madrid</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/real-madrid" />
@@ -888,12 +1063,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/real-madrid" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/real-madrid" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/real-madrid" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/real-madrid" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/real-madrid" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/fr/champions-league</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/champions-league" />
@@ -909,12 +1089,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/champions-league" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/champions-league" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/champions-league" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/champions-league" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/champions-league" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/fr/timeline</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/timeline" />
@@ -930,12 +1115,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/timeline" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/timeline" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/timeline" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/timeline" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/timeline" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/fr/trophies</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/trophies" />
@@ -951,12 +1141,17 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/trophies" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/trophies" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/trophies" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/trophies" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/trophies" />
   </url>
   <url>
     <loc>https://www.ronaldostats.site/fr/gear</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/gear" />
@@ -972,7 +1167,822 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/gear" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/gear" />
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/gear" />
-    <xhtml:link rel="alternate" hreflang="fr-NE" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/gear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/gear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/gear" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/gear" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ro</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en" />
+    <image:image>
+      <image:loc>https://www.ronaldostats.site/img/logo.png</image:loc>
+      <image:title>RonaldoStats Official Logo</image:title>
+      <image:caption>RonaldoStats - Cristiano Ronaldo Career Statistics and Analytics</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ronaldostats.site/img/og-ronaldo.jpg</image:loc>
+      <image:title>Goluri Ronaldo: 985 Goluri Oficiale Live</image:title>
+      <image:caption>Statistici complete din cariera lui Cristiano Ronaldo: 985 goluri în 1.343 meciuri oficiale, 35 trofee și 5 Baloane de Aur.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ro/dashboard</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/dashboard" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/dashboard" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/dashboard" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/dashboard" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/dashboard" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/dashboard" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/dashboard" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ro/goalsbyseason</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyseason" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ro/goalsbyyear</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyyear" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ro/ronaldo-vs-messi</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ro/real-madrid</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/real-madrid" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ro/champions-league</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/champions-league" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/champions-league" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/champions-league" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/champions-league" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/champions-league" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/champions-league" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/champions-league" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ro/timeline</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/timeline" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/timeline" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/timeline" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/timeline" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/timeline" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/timeline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/timeline" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ro/trophies</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/trophies" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/trophies" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/trophies" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/trophies" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/trophies" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/trophies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/trophies" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ro/gear</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/gear" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/gear" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/gear" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/gear" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/gear" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/gear" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/gear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/gear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/gear" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/gear" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/uz</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en" />
+    <image:image>
+      <image:loc>https://www.ronaldostats.site/img/logo.png</image:loc>
+      <image:title>RonaldoStats Official Logo</image:title>
+      <image:caption>RonaldoStats - Cristiano Ronaldo Career Statistics and Analytics</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ronaldostats.site/img/og-ronaldo.jpg</image:loc>
+      <image:title>Cristiano Ronaldo Gollari: 985 ta Rasmiy Gol</image:title>
+      <image:caption>Cristiano Ronaldoning to'liq karyera statistikasi: 1 343 ta o'yinda 985 ta gol, 35 ta kubok va 5 ta Oltin To'p.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/uz/dashboard</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/dashboard" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/dashboard" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/dashboard" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/dashboard" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/dashboard" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/dashboard" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/dashboard" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/uz/goalsbyseason</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyseason" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/uz/goalsbyyear</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyyear" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/uz/ronaldo-vs-messi</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/uz/real-madrid</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/real-madrid" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/uz/champions-league</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/champions-league" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/champions-league" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/champions-league" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/champions-league" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/champions-league" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/champions-league" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/champions-league" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/uz/timeline</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/timeline" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/timeline" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/timeline" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/timeline" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/timeline" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/timeline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/timeline" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/uz/trophies</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/trophies" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/trophies" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/trophies" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/trophies" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/trophies" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/trophies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/trophies" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/uz/gear</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/gear" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/gear" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/gear" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/gear" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/gear" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/gear" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/gear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/gear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/gear" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/gear" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ar</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en" />
+    <image:image>
+      <image:loc>https://www.ronaldostats.site/img/logo.png</image:loc>
+      <image:title>RonaldoStats Official Logo</image:title>
+      <image:caption>RonaldoStats - Cristiano Ronaldo Career Statistics and Analytics</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ronaldostats.site/img/og-ronaldo.jpg</image:loc>
+      <image:title>أهداف رونالدو: 985 هدفاً رسمياً مباشرة</image:title>
+      <image:caption>إحصائيات مسيرة كريستيانو رونالدو الكاملة: 985 هدفاً في 1,343 مباراة رسمية، 35 لقباً و5 كرات ذهبية.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ar/dashboard</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/dashboard" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/dashboard" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/dashboard" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/dashboard" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/dashboard" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/dashboard" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/dashboard" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/dashboard" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/dashboard" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/dashboard" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ar/goalsbyseason</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyseason" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyseason" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ar/goalsbyyear</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/goalsbyyear" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/goalsbyyear" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ar/ronaldo-vs-messi</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/ronaldo-vs-messi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/ronaldo-vs-messi" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ar/real-madrid</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/real-madrid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/real-madrid" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ar/champions-league</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/champions-league" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/champions-league" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/champions-league" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/champions-league" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/champions-league" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/champions-league" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/champions-league" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/champions-league" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/champions-league" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/champions-league" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ar/timeline</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/timeline" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/timeline" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/timeline" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/timeline" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/timeline" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/timeline" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/timeline" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/timeline" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/timeline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/timeline" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ar/trophies</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/trophies" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/trophies" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/trophies" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/trophies" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/trophies" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/trophies" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/trophies" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/trophies" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/trophies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/trophies" />
+  </url>
+  <url>
+    <loc>https://www.ronaldostats.site/ar/gear</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-NG" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="en-PH" href="https://www.ronaldostats.site/en/gear" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ronaldostats.site/es/gear" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.ronaldostats.site/es/gear" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.ronaldostats.site/es/gear" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.ronaldostats.site/pt/gear" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.ronaldostats.site/pt/gear" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.ronaldostats.site/pt/gear" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.ronaldostats.site/fr/gear" />
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="ro-RO" href="https://www.ronaldostats.site/ro/gear" />
+    <xhtml:link rel="alternate" hreflang="uz" href="https://www.ronaldostats.site/uz/gear" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.ronaldostats.site/ar/gear" />
+    <xhtml:link rel="alternate" hreflang="ar-EG" href="https://www.ronaldostats.site/ar/gear" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ronaldostats.site/en/gear" />
   </url>
 </urlset>

@@ -14,7 +14,7 @@ import path from "node:path";
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname).replace(/^\/([A-Za-z]:)/, "$1"), "..");
 const SHELL = path.join(ROOT, "src", "i18n", "shell");
 
-for (const lang of ["es","pt","fr"]) {
+for (const lang of ["es","pt","fr","ro","uz","ar"]) {
   const file = path.join(SHELL, lang + ".json");
   const dict = JSON.parse(fs.readFileSync(file, "utf8"));
   let n = 0;

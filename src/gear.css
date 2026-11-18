@@ -696,3 +696,6 @@
   }
 }
 
+/* Unified Editorial System Alignment (MessiStat 2.0 port) */
+.gear-impact-banner, .gear-card { border-radius: var(--radius, 10px) !important; box-shadow: var(--shadow-sm) !important; }
+.gear-filter-btn, .gear-amazon-btn { border-radius: var(--radius-sm, 6px) !important; }

@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 const ROOT = "D:/Projects/ronaldo-stats/";
-const LANGS = ["es","pt","fr"];
+const LANGS = ["es","pt","fr","ro","uz","ar"];
 
 // The page is Ronaldo's nine years AT Real Madrid. Rename it and say so.
 const COPY = [

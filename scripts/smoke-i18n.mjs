@@ -15,7 +15,7 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const LANGS = ["en","es","pt","fr"];
+const LANGS = ["en","es","pt","fr","ro","uz","ar"];
 
 // the helpers app.js publishes on the global object
 globalThis.n = (v) => Number(v).toLocaleString("en-US");

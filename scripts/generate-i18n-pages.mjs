@@ -37,6 +37,9 @@ const LANGS = {
   es: { dir: "ltr", locale: "es_ES", alts: ["es_AR", "es_ES"] },
   pt: { dir: "ltr", locale: "pt_BR", alts: ["pt_BR", "pt_PT"] },
   fr: { dir: "ltr", locale: "fr_FR", alts: ["fr_FR", "fr_CA"] },
+  ro: { dir: "ltr", locale: "ro_RO", alts: ["ro-RO"] },
+  uz: { dir: "ltr", locale: "uz_UZ", alts: [] },
+  ar: { dir: "rtl", locale: "ar_EG", alts: ["ar-EG"] },
 };
 
 const wanted = process.argv.slice(2).filter((a) => LANGS[a]);
@@ -53,6 +56,9 @@ const HREFLANGS = [
   ["es", "es-AR", "es-ES"],
   ["pt", "pt-BR", "pt-PT"],
   ["fr", "fr-FR", "fr-CA"],
+  ["ro", "ro-RO"],
+  ["uz"],
+  ["ar", "ar-EG"],
 ];
 
 // "content" is the meta description, the Open Graph card and the Twitter card:
@@ -84,6 +90,11 @@ function localizeHtml(html, lang, slug, dict) {
     let a = attrs.replace(/\slang="[^"]*"/i, "").replace(/\sdir="[^"]*"/i, "");
     return `<html lang="${lang}" dir="${LANGS[lang].dir}"${a}>`;
   });
+
+  // 2b. theme-color: one flat meta in the shell, two media-scoped metas in
+  // every localized page so light and dark each get the right browser chrome.
+  out = out.replace(/<meta\b[^>]*name=["']theme-color["'][^>]*\/?>/gi,
+    '<meta name="theme-color" content="#f2f3f0" media="(prefers-color-scheme: light)"/>\n<meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)"/>');
 
   // 3. canonical
   out = setTagAttr(out, /<link\b[^>]*rel="canonical"[^>]*>/i, "href", `${ORIGIN}/${lang}${path}`);
@@ -129,7 +140,7 @@ function localizeHtml(html, lang, slug, dict) {
   // Rewriting them to /es/birthday/MM-DD produced thousands of links to
   // pages the build never writes - every one of them a 404.
   const isDatePage = /^\/birthday\/\d{1,2}-\d{1,2}$/;
-  out = out.replace(/href="\/(?:en|es|pt|fr)(\/[^"]*)?"/g, (m, rest) => {
+  out = out.replace(/href="\/(?:en|es|pt|fr|ro|uz|ar)(\/[^"]*)?"/g, (m, rest) => {
     if (rest && isDatePage.test(rest)) return m;
     return `href="/${lang}${rest || ""}"`;
   });

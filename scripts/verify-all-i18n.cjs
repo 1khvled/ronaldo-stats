@@ -15,7 +15,7 @@ const path = require("path");
 const { pathToFileURL } = require("url");
 
 const ROOT = path.join(__dirname, "..");
-const LANGS = ["es","pt","fr"];
+const LANGS = ["es","pt","fr","ro","uz","ar"];
 
 let issues = 0;
 const fail = (m) => { console.error("[FAIL] " + m); issues++; };

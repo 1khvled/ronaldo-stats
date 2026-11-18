@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 const ROOT = "D:/Projects/ronaldo-stats/";
-const LANGS = ["es","pt","fr"];
+const LANGS = ["es","pt","fr","ro","uz","ar"];
 
 const OLD_B = "Text record, not a video.";
 const NEW_B = "Watch the goal.";

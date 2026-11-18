@@ -17,7 +17,7 @@ const SHELL = path.join(ROOT, "src", "i18n", "shell");
 const en = JSON.parse(fs.readFileSync(path.join(SHELL, "en.json"), "utf8"));
 const keys = new Set(Object.keys(en));
 
-for (const lang of ["es","pt","fr"]) {
+for (const lang of ["es","pt","fr","ro","uz","ar"]) {
   const file = path.join(SHELL, lang + ".json");
   const dict = JSON.parse(fs.readFileSync(file, "utf8"));
   const stale = Object.keys(dict).filter((k) => !keys.has(k));

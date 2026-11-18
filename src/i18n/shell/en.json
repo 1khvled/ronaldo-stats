@@ -1,5 +1,21 @@
 {
- "#16243a": {
+ "#09090b": {
+  "count": 10,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "[attr content]"
+ },
+ "#f2f3f0": {
   "count": 10,
   "pages": [
    "champions-league",
@@ -365,19 +381,12 @@
   ],
   "ctx": "2002 to 2003  [0.5% of 981] 5"
  },
- "0.62 per cap across 234 caps.": {
+ "0.62 per cap · 234 caps": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "35  [0.62 per cap across 234 caps.] Team trophies"
- },
- "0.73 goals per game across 27 club seasons.": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "985  [0.73 goals per game across 27 club seasons.] Senior appearances"
+  "ctx": "146  [0.62 per cap · 234 caps] 🎯 HISTORIC MILESTONE CHASE"
  },
  "0.73 goals per match": {
   "count": 1,
@@ -406,6 +415,13 @@
    "champions-league"
   ],
   "ctx": "183  [0.77 Goals per Match] Trophies Won"
+ },
+ "0.93 G+A per match": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "1,246  [0.93 G+A per match] Senior Apps"
  },
  "0.93 direct goal involvements per match": {
   "count": 1,
@@ -467,12 +483,12 @@
   ],
   "ctx": "Goal #1,000 (appearance)  [1,000th senior appearance] SPAL"
  },
- "1,106 club, 234 Portugal.": {
+ "1,109 club · 234 Portugal": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "1,343  [1,106 club, 234 Portugal.] Portugal goals"
+  "ctx": "1,343  [1,109 club · 234 Portugal] Team Trophies"
  },
  "1,242 G+A (0.93 / match)": {
   "count": 1,
@@ -796,6 +812,22 @@
   ],
   "ctx": ") and Champions League goals (  [140 vs 129] ). Messi leads in"
  },
+ "140G": {
+  "count": 10,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "UCL Hub  [140G] Career Archive"
+ },
  "145G": {
   "count": 1,
   "pages": [
@@ -838,12 +870,19 @@
   ],
   "ctx": "2017:  [15 goals in 13 appearances and a fourth European crown with Real Madrid, the first of three in a row.] UCL Goals"
  },
- "17 to go — a target, not a schedule.": {
+ "15 goals to go": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "/ 1,000  [17 to go — a target, not a schedule.] 🎯 HISTORIC MILESTONE CHASE"
+  "ctx": "·  [15 goals to go] · 1,000 is a target, not a schedule"
+ },
+ "160 apps": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "138  [160 apps] Total Goals"
  },
  "17y 190d": {
   "count": 1,
@@ -886,13 +925,6 @@
    "timeline"
   ],
   "ctx": "as Portugal's captain, with three goals and the Silver Boot.  [19 October 2026] 983 career goals"
- },
- "19 goals to go": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "·  [19 goals to go] · 1,000 is a target, not a schedule"
  },
  "19 short": {
   "count": 1,
@@ -1126,6 +1158,13 @@
   ],
   "ctx": "—  [23 Aug 2025] 40y 199d"
  },
+ "234 apps": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "146  [234 apps] Man Utd"
+ },
  "234th Portugal cap": {
   "count": 1,
   "pages": [
@@ -1204,6 +1243,13 @@
   ],
   "ctx": "800 Club Goals  [29 Oct 2026] Goal #985 — the 67th career hat-trick"
  },
+ "291 Transfermarkt criteria": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "261  [291 Transfermarkt criteria] Goal Involvements"
+ },
  "2nd spell": {
   "count": 1,
   "pages": [
@@ -1255,6 +1301,13 @@
   ],
   "ctx": "▾  [311 in La Liga, 105 in the Champions League, 22 in the Copa del Rey and 12 in the Supercopa de España, the UEFA Super Cup and the FIFA Club World Cup: 450 goals in 438 appearances.] How many hat-tricks did Ronaldo score?"
  },
+ "346 apps": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "145  [346 apps] Al Nassr"
+ },
  "34y 251d": {
   "count": 1,
   "pages": [
@@ -1282,6 +1335,13 @@
    "index"
   ],
   "ctx": "0.73  [35 Senior Trophies, 5 Ballons d'Or, 4 European Golden Shoes] Advertisement"
+ },
+ "35 Trophies": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "5× Ballon d'Or  [35 Trophies] Born"
  },
  "35 Trophies &amp; 5 Ballons d'Or": {
   "count": 2,
@@ -1383,6 +1443,13 @@
   ],
   "ctx": "and added  [42 assists] — all-time records in the competition. He won the tournament"
  },
+ "438 apps": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "450  [438 apps] Portugal"
+ },
  "45.9% of 981": {
   "count": 1,
   "pages": [
@@ -1398,11 +1465,20 @@
   "ctx": "in 346 games for Manchester United,  [450 goals] in 438 games for Real Madrid,"
  },
  "450G": {
-  "count": 1,
+  "count": 11,
   "pages": [
-   "dashboard"
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
   ],
-  "ctx": "Real Madrid  [450G] Manchester United"
+  "ctx": "vs Real Madrid  [450G] UCL Hub"
  },
  "5 Ballon d'Or Awards": {
   "count": 1,
@@ -1418,6 +1494,13 @@
    "trophies"
   ],
   "ctx": "and  [5 Ballons d'Or] ."
+ },
+ "5 Feb 1985 (Age 41)": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "Born  [5 Feb 1985 (Age 41)] Active"
  },
  "5 Sep 2024": {
   "count": 2,
@@ -1525,6 +1608,13 @@
    "timeline"
   ],
   "ctx": "🌟  [5th Ballon d'Or] Advertisement"
+ },
+ "5× Ballon d'Or": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "Funchal, POR  [5× Ballon d'Or] 35 Trophies"
  },
  "6 Sep 2013": {
   "count": 1,
@@ -1703,6 +1793,13 @@
   ],
   "ctx": "797  [81.2% non-penalty ratio (open play & free kicks)] Direct Free Kicks"
  },
+ "839 club · 146 Portugal": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "985  [839 club · 146 Portugal] Total Assists"
+ },
  "839 goals in 1,106 club appearances": {
   "count": 1,
   "pages": [
@@ -1831,11 +1928,20 @@
   "ctx": "All teams  [983G] Real Madrid"
  },
  "985 Career Goals": {
-  "count": 1,
+  "count": 11,
   "pages": [
-   "timeline"
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
   ],
-  "ctx": "⚽  [985 Career Goals] Frequently Asked Questions: Ronaldo's Career Milestones"
+  "ctx": "Stats  [985 Career Goals] Search"
  },
  "985 goals": {
   "count": 2,
@@ -2238,6 +2344,13 @@
   ],
   "ctx": "▾  [Across official senior matches, Cristiano Ronaldo has] 985 goals and 261 assists in 1,343 appearances"
  },
+ "Active": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "5 Feb 1985 (Age 41)  [Active] Al Nassr · Portugal"
+ },
  "Advertisement": {
   "count": 102,
   "pages": [
@@ -2465,14 +2578,14 @@
   "ctx": "800th club goal  [Al Fateh] 26 May 2025"
  },
  "Al Nassr": {
-  "count": 24,
+  "count": 25,
   "pages": [
    "dashboard",
    "goalsbyseason",
    "index",
    "timeline"
   ],
-  "ctx": "3  [Al Nassr] 2022/23"
+  "ctx": "346 apps  [Al Nassr] 138"
  },
  "Al Nassr (2023–present)": {
   "count": 2,
@@ -2507,7 +2620,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "Now  [Al Nassr · Portugal] 261"
+  "ctx": "Active  [Al Nassr · Portugal] Real Madrid"
  },
  "Al Nassr — 2 trophies": {
   "count": 1,
@@ -2530,6 +2643,13 @@
   ],
   "ctx": "Defining Milestones &amp; Historic Photo Stream  [All (18)] 🏆 Trophies (2)"
  },
+ "All 27 Ronaldo club campaigns (2002/03 to 2026/27): 839 club goals split by league, cup and continental play, plus Portugal year by year and scoring ratios.": {
+  "count": 3,
+  "pages": [
+   "goalsbyseason"
+  ],
+  "ctx": "[attr content]"
+ },
  "All 27 club seasons: Sporting CP 2002/03, Manchester United 2003/04&ndash;2008/09 and 2021/22&ndash;2022/23, Real Madrid 2009/10&ndash;2017/18, Juventus 2018/19&ndash;2021/22 and Al Nassr 2022/23&ndash;2026/27.": {
   "count": 2,
   "pages": [
@@ -2537,13 +2657,6 @@
    "goalsbyseason"
   ],
   "ctx": "Bars: goals that year (peak 69, 2013).  [All 27 club seasons: Sporting CP 2002/03, Manchester United 2003/04&ndash;2008/09 and 2021/22&ndash;2022/23, Real Madrid 2009/10&ndash;2017/18, Juventus 2018/19&ndash;2021/22 and Al Nassr 2022/23&ndash;2026/27.] Season"
- },
- "All 35 senior team trophies, 5 Ballons d'Or, 4 European Golden Shoes and 5 Champions League titles. The full verified record of Cristiano Ronaldo's career honours.": {
-  "count": 3,
-  "pages": [
-   "trophies"
-  ],
-  "ctx": "[attr content]"
  },
  "All Products (": {
   "count": 1,
@@ -2866,6 +2979,13 @@
   ],
   "ctx": "Jerseys &amp; Kits (3)  [Boots &amp; Shoes (1)] Balls &amp; Training (1)"
  },
+ "Born": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "35 Trophies  [Born] 5 Feb 1985 (Age 41)"
+ },
  "Both the body-part split and the open-play figure are aggregators' numbers:": {
   "count": 1,
   "pages": [
@@ -2878,7 +2998,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "Cristiano Ronaldo · Portugal &amp; Al Nassr  [CR7] 7"
+  "ctx": "SENIOR RECORD · 2002–2026  [CR7] 7"
  },
  "CR7 Baseball Cap": {
   "count": 1,
@@ -2907,6 +3027,22 @@
    "gear"
   ],
   "ctx": "Footwear &amp; Cleats  [CR7 Signature Match Boots] The photograph is the listing's own image on Amazon"
+ },
+ "Career Archive": {
+  "count": 10,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "140G  [Career Archive] Goals by Year"
  },
  "Career Assists": {
   "count": 1,
@@ -3009,12 +3145,18 @@
   "ctx": "66  [Career direct free-kick goals — provisional compiled tally] Career Hat-Tricks"
  },
  "Career goals": {
-  "count": 2,
+  "count": 1,
   "pages": [
-   "goalsbyyear",
+   "goalsbyyear"
+  ],
+  "ctx": "Bars: goals that year (peak 69, 2013). Line: climb to 983.  [Career goals] 983"
+ },
+ "Career goals by team": {
+  "count": 1,
+  "pages": [
    "index"
   ],
-  "ctx": "Open the interactive dashboard  [Career goals] 985"
+  "ctx": "[attr aria-label]"
  },
  "Career hat-tricks for club and country — provisional compiled tally": {
   "count": 1,
@@ -3029,13 +3171,6 @@
    "timeline"
   ],
   "ctx": "[attr aria-label]"
- },
- "Career statistics": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "Advertisement  [Career statistics] Updated"
  },
  "Career totals": {
   "count": 1,
@@ -3182,7 +3317,7 @@
    "index",
    "ronaldo-vs-messi"
   ],
-  "ctx": "839  [Club Goals] Five clubs · 1,106 apps"
+  "ctx": "839  [Club Goals] Five clubs · 1,109 apps"
  },
  "Club Season-by-Season Goal Breakdown (2002/03–2026/27)": {
   "count": 1,
@@ -3225,6 +3360,22 @@
    "goalsbyseason"
   ],
   "ctx": "0 / 0  [Club total] 1,108"
+ },
+ "Collapse navigation": {
+  "count": 20,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "[attr aria-label]"
  },
  "Collectibles &amp; Prints": {
   "count": 1,
@@ -3425,33 +3576,12 @@
   ],
   "ctx": "22 October 2026  [Cristiano Ronaldo Goals by Season] Cristiano Ronaldo's complete club record for every season from 2002/03 to 2026/27 &mdash; 837 goals in 1,108 appearances, split by league, domestic cup and continental competition &mdash; plus his Portugal scoring year by year."
  },
- "Cristiano Ronaldo Goals by Season | RonaldoStats": {
-  "count": 3,
-  "pages": [
-   "goalsbyseason"
-  ],
-  "ctx": "[attr content]"
- },
  "Cristiano Ronaldo Goals by Year": {
   "count": 1,
   "pages": [
    "goalsbyyear"
   ],
   "ctx": "22 October 2026  [Cristiano Ronaldo Goals by Year] Every Cristiano Ronaldo calendar-year goal tally from 2002 to 2026 with running career totals &mdash; peaking at 69 goals in 2013."
- },
- "Cristiano Ronaldo Goals by Year 2002–2026 | RonaldoStats": {
-  "count": 1,
-  "pages": [
-   "goalsbyyear"
-  ],
-  "ctx": " [Cristiano Ronaldo Goals by Year 2002–2026 | RonaldoStats] Skip to content"
- },
- "Cristiano Ronaldo Goals by Year | RonaldoStats": {
-  "count": 2,
-  "pages": [
-   "goalsbyyear"
-  ],
-  "ctx": "[attr content]"
  },
  "Cristiano Ronaldo Official Career Record: 983 Goals &amp; 261 Assists": {
   "count": 1,
@@ -3481,12 +3611,12 @@
   ],
   "ctx": "[attr content]"
  },
- "Cristiano Ronaldo Stats: 985 Goals, 1,340 Matches &amp; 35 Trophies": {
+ "Cristiano Ronaldo Stats: 985 Goals, 1,343 Matches &amp; 35 Trophies": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "22 October 2026  [Cristiano Ronaldo Stats: 985 Goals, 1,340 Matches &amp; 35 Trophies] The verified"
+  "ctx": "22 October 2026  [Cristiano Ronaldo Stats: 985 Goals, 1,343 Matches &amp; 35 Trophies] The verified"
  },
  "Cristiano Ronaldo Through the Years (2002–2026)": {
   "count": 1,
@@ -3501,13 +3631,6 @@
    "index"
   ],
   "ctx": "[attr aria-label]"
- },
- "Cristiano Ronaldo Trophies & Honours | RonaldoStats": {
-  "count": 3,
-  "pages": [
-   "trophies"
-  ],
-  "ctx": "[attr content]"
  },
  "Cristiano Ronaldo and Lionel Messi with their player-of-the-match medals after Portugal v Argentina in 2011": {
   "count": 1,
@@ -3536,13 +3659,6 @@
    "timeline"
   ],
   "ctx": "Sporting CP 2002–03 — debut season, first senior goals  [Cristiano Ronaldo arrived in Lisbon from Funchal as a teenager with a reputation for speed and a habit of demanding the ball. His first senior season at Sporting CP produced five goals in 31 appearances, the first senior goal came against More"
- },
- "Cristiano Ronaldo at Real Madrid: 450 goals in nine years, 311 in La Liga, four Champions League titles and 18 goals in the El Clásico.": {
-  "count": 3,
-  "pages": [
-   "real-madrid"
-  ],
-  "ctx": "[attr content]"
  },
  "Cristiano Ronaldo by club season — 1,106 club appearances and 837 club goals across 27 seasons, Sporting CP 2002/03 to Al Nassr 2026/27": {
   "count": 1,
@@ -3788,16 +3904,16 @@
   "ctx": "The verified  [Cristiano Ronaldo stats] database:"
  },
  "Cristiano Ronaldo stats: 983 career goals, 261 assists in 1,342 senior games (Sporting CP, Manchester United, Real Madrid, Juventus, Al Nassr &amp; Portugal). 35 trophies, 5 Ballons d'Or, free kicks, hat-tricks &amp; live 2026 tracker.": {
-  "count": 3,
+  "count": 2,
   "pages": [
    "index"
   ],
   "ctx": "[attr content]"
  },
- "Cristiano Ronaldo vs Lionel Messi: 985 goals vs 937, 261 assists vs 409, 67 hat-tricks vs 62, 140 Champions League goals vs 129, 35 trophies vs 46, 5 Ballons d'Or vs 8. Every figure sourced.": {
-  "count": 3,
+ "Cristiano Ronaldo stats: 985 career goals, 261 assists in 1,343 senior games (Sporting CP, Manchester United, Real Madrid, Juventus, Al Nassr &amp; Portugal). 35 trophies, 5 Ballons d'Or, free kicks, hat-tricks &amp; live 2026 tracker.": {
+  "count": 1,
   "pages": [
-   "ronaldo-vs-messi"
+   "index"
   ],
   "ctx": "[attr content]"
  },
@@ -3813,14 +3929,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "💖 Donate on Ko-fi  [Cristiano Ronaldo · Portugal &amp; Al Nassr] CR7"
- },
- "Cristiano Ronaldo's 837 club goals across 27 club seasons from 2002/03 to 2026/27, split by league, domestic cup and continental competition — plus Portugal year by year.": {
-  "count": 3,
-  "pages": [
-   "goalsbyseason"
-  ],
-  "ctx": "[attr content]"
+  "ctx": "💖 Donate on Ko-fi  [Cristiano Ronaldo · Portugal &amp; Al Nassr] SENIOR RECORD · 2002–2026"
  },
  "Cristiano Ronaldo's 983 career goals in 1,342 senior appearances, split by club, competition, finish and body part. Filter by Real Madrid, Manchester United, Juventus, Al Nassr, Sporting CP or Portugal.": {
   "count": 3,
@@ -3835,13 +3944,6 @@
    "trophies"
   ],
   "ctx": "22 October 2026  [Cristiano Ronaldo's Trophies &amp; Honours] 35 team trophies"
- },
- "Cristiano Ronaldo's UEFA Champions League record: 140 goals in 183 appearances (0.77 per game), 42 assists and 5 titles, with the full season-by-season breakdown and the records he holds.": {
-  "count": 3,
-  "pages": [
-   "champions-league"
-  ],
-  "ctx": "[attr content]"
  },
  "Cristiano Ronaldo's complete club record for every season from 2002/03 to 2026/27 &mdash; 837 goals in 1,108 appearances, split by league, domestic cup and continental competition &mdash; plus his Portugal scoring year by year.": {
   "count": 1,
@@ -3886,6 +3988,22 @@
    "dashboard"
   ],
   "ctx": "First player to 900 career goals  [Croatia] 5 Sep 2024"
+ },
+ "Ctrl K": {
+  "count": 10,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "Search  [Ctrl K] Hubs & Live"
  },
  "Cup": {
   "count": 2,
@@ -3937,7 +4055,7 @@
    "timeline",
    "trophies"
   ],
-  "ctx": "Ronaldo Gear 🛍️  [Dark mode] Ronaldo"
+  "ctx": "EN  [Dark mode] Ronaldo"
  },
  "Dashboard": {
   "count": 21,
@@ -4112,7 +4230,7 @@
    "timeline",
    "trophies"
   ],
-  "ctx": "Stats  [English] EN"
+  "ctx": "Ronaldo Gear  [English] EN"
  },
  "English (US, NG, IN, PH)": {
   "count": 5,
@@ -4203,13 +4321,6 @@
    "champions-league"
   ],
   "ctx": "Advertisement  [European Mastery] UEFA Champions League Record"
- },
- "Every Cristiano Ronaldo calendar year from 2002 to 2026: 983 career goals, running totals, and his career record of 69 goals in 2013. Updated after each match.": {
-  "count": 3,
-  "pages": [
-   "goalsbyyear"
-  ],
-  "ctx": "[attr content]"
  },
  "Every Cristiano Ronaldo calendar-year goal tally from 2002 to 2026 with running career totals &mdash; peaking at 69 goals in 2013.": {
   "count": 1,
@@ -4637,12 +4748,12 @@
   ],
   "ctx": "140 goals, the competition record, in 183 appearances.  [Five European titles and 140 Champions League goals] La Liga — 311 goals"
  },
- "Five clubs · 1,106 apps": {
+ "Five clubs · 1,109 apps": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "Club Goals  [Five clubs · 1,106 apps] 146"
+  "ctx": "Club Goals  [Five clubs · 1,109 apps] 146"
  },
  "Five times": {
   "count": 1,
@@ -4704,12 +4815,12 @@
   ],
   "ctx": "▾  [For] Sporting CP"
  },
- "Forward": {
+ "Forward #7": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "Role  [Forward] Teams"
+  "ctx": "7  [Forward #7] Funchal, POR"
  },
  "Four FIFA Club World Cups": {
   "count": 1,
@@ -4749,6 +4860,13 @@
    "gear"
   ],
   "ctx": "Português (Brasil, Portugal)  [Français (France, Niger)] Follow @messistat1 on X"
+ },
+ "Free HD goal clips &amp; verified match sheets.": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "Live Match Alerts &amp; Archive:  [Free HD goal clips &amp; verified match sheets.] ▶ Road to 1,000"
  },
  "Free kicks": {
   "count": 1,
@@ -4820,14 +4938,28 @@
   "pages": [
    "index"
   ],
-  "ctx": "· 1,000 is a target, not a schedule  [Full Analytics Dashboard &rarr;] Advertisement"
+  "ctx": "· 1,000 is a target, not a schedule  [Full Analytics Dashboard &rarr;] 261"
  },
- "Full honours list": {
+ "Full Ronaldo goals by year table (2002–2026): all 985 career goals, calendar-year scoring ratios, club vs Portugal splits and his record 69 in 2013.": {
+  "count": 3,
+  "pages": [
+   "goalsbyyear"
+  ],
+  "ctx": "[attr content]"
+ },
+ "Full honours": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "Plus 5 Ballons d'Or.  [Full honours list] ."
+  "ctx": "Plus 5 Ballons d'Or ·  [Full honours] Portugal Goals"
+ },
+ "Funchal, POR": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "Forward #7  [Funchal, POR] 5× Ballon d'Or"
  },
  "Funds goal video streaming &amp; CDN bandwidth": {
   "count": 1,
@@ -4952,12 +5084,12 @@
   ],
   "ctx": "39481379353792037905  [Goal Contributions:] 1,242 G+A (0.93 / match)"
  },
- "Goal alerts, milestones and community chat, straight to your phone. It's free — and every new member helps keep RonaldoStats alive. Love the site?": {
+ "Goal Involvements": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "Never miss a Ronaldo goal — join us &amp; support RonaldoStats  [Goal alerts, milestones and community chat, straight to your phone. It's free — and every new member helps keep RonaldoStats alive. Love the site?] Shop official Ronaldo gear on Amazon"
+  "ctx": "291 Transfermarkt criteria  [Goal Involvements] 1,246"
  },
  "Goals": {
   "count": 11,
@@ -5144,6 +5276,22 @@
    "champions-league"
   ],
   "ctx": "0  [Group stage and the round of 16 against Lille] 2005/06"
+ },
+ "H2H": {
+  "count": 10,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "vs Messi  [H2H] vs Real Madrid"
  },
  "Has Ronaldo won a major international title?": {
   "count": 1,
@@ -5481,6 +5629,22 @@
   ],
   "ctx": "I count one thing: official senior first-team matches for Sporting CP, Manchester United, Real Madrid, Juventus, Al Nassr and Portugal &mdash; every league game, domestic cup, continental night and international, and nothing else. No youth football, no reserves, no friendlies dressed up as history. "
  },
+ "Hubs & Live": {
+  "count": 10,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "Ctrl K  [Hubs & Live] Home"
+ },
  "I count one thing: official senior first-team matches for Real Madrid, Manchester United, Juventus, Al Nassr, Sporting CP and Portugal — every league game, domestic cup, continental night and international, and nothing else. No youth football, no reserves, no friendlies dressed up as history.": {
   "count": 2,
   "pages": [
@@ -5667,13 +5831,6 @@
    "ronaldo-vs-messi"
   ],
   "ctx": "💖 Support on Ko-fi  [Join Telegram Channel] 🪙 Crypto (BEP-20 / BNB Chain)"
- },
- "Join the RonaldoStats community": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "[attr aria-label]"
  },
  "June 2009": {
   "count": 1,
@@ -5909,6 +6066,13 @@
   ],
   "ctx": "(0.93 goal contributions per match), while  [Lionel Messi has scored 937 goals and provided 409 assists in 1,184 appearances] (1.14 contributions per match). Ronaldo leads the all-time goal tally ("
  },
+ "Live Match Alerts &amp; Archive:": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "updated live after each match.  [Live Match Alerts &amp; Archive:] Free HD goal clips &amp; verified match sheets."
+ },
  "Live Match Streams &amp; Partners": {
   "count": 1,
   "pages": [
@@ -5943,6 +6107,13 @@
    "timeline"
   ],
   "ctx": "🔴  [Man United Return] Al Nassr"
+ },
+ "Man Utd": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "234 apps  [Man Utd] 145"
  },
  "Manchester United": {
   "count": 40,
@@ -6143,12 +6314,12 @@
   ],
   "ctx": "A record for the competition  [Most goals in a single Champions League season] 17"
  },
- "National Team": {
+ "National Team · 234 caps": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "Portugal Goals  [National Team] ⚡ Scoring Pace:"
+  "ctx": "Portugal Goals  [National Team · 234 caps] ⚡ Scoring Pace:"
  },
  "Navigation": {
   "count": 10,
@@ -6165,13 +6336,6 @@
    "trophies"
   ],
   "ctx": "[attr aria-label]"
- },
- "Never miss a Ronaldo goal — join us &amp; support RonaldoStats": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "📣  [Never miss a Ronaldo goal — join us &amp; support RonaldoStats] Goal alerts, milestones and community chat, straight to your phone. It's free — and every new member helps keep RonaldoStats alive. Love the site?"
  },
  "Newest first. 2026 is starred while the season is still being played. Click a column to sort, or type to filter. The best years carry a footnote &mdash; hover the year.": {
   "count": 1,
@@ -6222,13 +6386,6 @@
    "champions-league"
   ],
   "ctx": "Goals  [Notes] 2003/04"
- },
- "Now": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "Sporting CP · Manchester United · Real Madrid · Juventus · Al Nassr  [Now] Al Nassr · Portugal"
  },
  "Official Debut": {
   "count": 1,
@@ -6287,6 +6444,22 @@
   ],
   "ctx": "🎯 Scoring Breakdown by Method / Finish  [Open Play] &middot; goals from open play"
  },
+ "Open command palette": {
+  "count": 20,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "[attr aria-label]"
+ },
  "Open play": {
   "count": 2,
   "pages": [
@@ -6294,13 +6467,6 @@
    "index"
   ],
   "ctx": ": 3 goals.  [Open play] : 733 goals,"
- },
- "Open the interactive dashboard": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "Ronaldo Career Stats at a Glance  [Open the interactive dashboard] Career goals"
  },
  "Opponent": {
   "count": 1,
@@ -6406,20 +6572,21 @@
   ],
   "ctx": "Ronaldo (World Record)  [Playmaking, Creativity &amp; Offensive Influence] Assists and goal contributions: the creative half of two very different careers."
  },
- "Plus 5 Ballons d'Or.": {
+ "Plus 5 Ballons d'Or ·": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "35  [Plus 5 Ballons d'Or.] Full honours list"
+  "ctx": "35  [Plus 5 Ballons d'Or ·] Full honours"
  },
  "Portugal": {
-  "count": 8,
+  "count": 9,
   "pages": [
    "dashboard",
+   "index",
    "timeline"
   ],
-  "ctx": "5G  [Portugal] 146G"
+  "ctx": "438 apps  [Portugal] 146"
  },
  "Portugal &amp; the FIFA World Cup": {
   "count": 1,
@@ -6443,11 +6610,11 @@
   "ctx": "Official Matchwear  [Portugal Away Jersey #7 Ronaldo] ★★★★★"
  },
  "Portugal Goals": {
-  "count": 1,
+  "count": 2,
   "pages": [
    "index"
   ],
-  "ctx": "146  [Portugal Goals] National Team"
+  "ctx": "Full honours  [Portugal Goals] 146"
  },
  "Portugal Home Jersey #7 Ronaldo": {
   "count": 1,
@@ -6476,13 +6643,6 @@
    "dashboard"
   ],
   "ctx": "[attr alt]"
- },
- "Portugal goals": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "1,106 club, 234 Portugal.  [Portugal goals] 35"
  },
  "Portugal goals by calendar year, 2003 to 2026.": {
   "count": 1,
@@ -6588,6 +6748,22 @@
   ],
   "ctx": "$49.99  [Price checked on Amazon] Check on Amazon ↗"
  },
+ "Primary": {
+  "count": 10,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "[attr aria-label]"
+ },
  "Primeira Liga": {
   "count": 2,
   "pages": [
@@ -6617,6 +6793,13 @@
   ],
   "ctx": "0.3%  [Provisional until hand count verification against official match sheets. Provisional compiled tally based on verified match reports.] Click a column header to sort. Senior first-team matches only."
  },
+ "Quick actions and RonaldoStats community": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "[attr aria-label]"
+ },
  "Quick answers about trophies": {
   "count": 1,
   "pages": [
@@ -6632,7 +6815,7 @@
   "ctx": "France Football (Ballon d'Or)  [RSSSF International Records] Live Match Streams &amp; Partners"
  },
  "Real Madrid": {
-  "count": 46,
+  "count": 47,
   "pages": [
    "champions-league",
    "dashboard",
@@ -6640,7 +6823,7 @@
    "index",
    "timeline"
   ],
-  "ctx": "26  [Real Madrid] 2009/10"
+  "ctx": "Al Nassr · Portugal  [Real Madrid] 450"
  },
  "Real Madrid (2009–2018)": {
   "count": 2,
@@ -6783,6 +6966,22 @@
   ],
   "ctx": "19.0%  [Right foot] 634"
  },
+ "Rivalries & Cups": {
+  "count": 10,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "985  [Rivalries & Cups] vs Messi"
+ },
  "Road to 1,000 Career Goals": {
   "count": 1,
   "pages": [
@@ -6796,20 +6995,6 @@
    "index"
   ],
   "ctx": "[attr aria-label]"
- },
- "Road to 1,000 goals": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "🐐 MessiStat — Lionel Messi Stats  [Road to 1,000 goals] 985"
- },
- "Role": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "🏆 35 Trophies  [Role] Forward"
  },
  "Ronaldo": {
   "count": 12,
@@ -6925,13 +7110,6 @@
   ],
   "ctx": "—  [Ronaldo (World Record)] Playmaking, Creativity &amp; Offensive Influence"
  },
- "Ronaldo Career Stats at a Glance": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "Advertisement  [Ronaldo Career Stats at a Glance] Open the interactive dashboard"
- },
  "Ronaldo Champions League": {
   "count": 1,
   "pages": [
@@ -6939,12 +7117,19 @@
   ],
   "ctx": "UEFA Champions League Record  [Ronaldo Champions League] Cristiano Ronaldo scored 140 goals in 183 UEFA Champions League appearances across 19 campaigns for Manchester United, Real Madrid and Juventus, won the competition five times and holds the all-time assist record with 42."
  },
- "Ronaldo Champions League | RonaldoStats": {
+ "Ronaldo Champions League Stats: All 140 Goals, 42 Assists &amp; Record Nights": {
   "count": 3,
   "pages": [
    "champions-league"
   ],
-  "ctx": " [Ronaldo Champions League | RonaldoStats] Skip to content"
+  "ctx": " [Ronaldo Champions League Stats: All 140 Goals, 42 Assists &amp; Record Nights] Skip to content"
+ },
+ "Ronaldo Champions League stats: all 140 goals and 42 assists in 183 appearances, five titles, record nights and a full season-by-season breakdown.": {
+  "count": 3,
+  "pages": [
+   "champions-league"
+  ],
+  "ctx": "[attr content]"
  },
  "Ronaldo Fan Gear & Official Merch": {
   "count": 1,
@@ -6961,7 +7146,7 @@
   "ctx": "👕 Ronaldo Fan Gear &amp; Store  [Ronaldo Fan Shop &amp; Support] 🛍️ Amazon Ronaldo Gear &amp; Kits"
  },
  "Ronaldo Gear": {
-  "count": 10,
+  "count": 20,
   "pages": [
    "champions-league",
    "dashboard",
@@ -6976,21 +7161,19 @@
   ],
   "ctx": "[attr aria-label]"
  },
- "Ronaldo Gear 🛍️": {
-  "count": 10,
+ "Ronaldo Goals by Season (2002–2026): All 27 Club Campaigns &amp; Ratios": {
+  "count": 3,
   "pages": [
-   "champions-league",
-   "dashboard",
-   "gear",
-   "goalsbyseason",
-   "goalsbyyear",
-   "index",
-   "real-madrid",
-   "ronaldo-vs-messi",
-   "timeline",
-   "trophies"
+   "goalsbyseason"
   ],
-  "ctx": "Trophies  [Ronaldo Gear 🛍️] Dark mode"
+  "ctx": "[attr content]"
+ },
+ "Ronaldo Goals by Year (2002–2026): Full Annual Table, 69 in 2013 &amp; Ratios": {
+  "count": 3,
+  "pages": [
+   "goalsbyyear"
+  ],
+  "ctx": "[attr content]"
  },
  "Ronaldo Trophies & Honours Trivia Quiz": {
   "count": 1,
@@ -6998,6 +7181,13 @@
    "trophies"
   ],
   "ctx": "[attr aria-label]"
+ },
+ "Ronaldo Trophies List (2026): All 35 Titles by Club, Portugal &amp; Finals": {
+  "count": 3,
+  "pages": [
+   "trophies"
+  ],
+  "ctx": "[attr content]"
  },
  "Ronaldo Wins": {
   "count": 2,
@@ -7013,12 +7203,19 @@
   ],
   "ctx": "His Nine Years at the Bernabéu  [Ronaldo at Real Madrid] Cristiano Ronaldo played for Real Madrid from 2009 to 2018: 438 appearances and 450 goals, 311 of them in La Liga and four Champions League titles. Against Barcelona he scored 18 El Clásico goals. Lionel Messi, on the other side of that fixtur"
  },
- "Ronaldo at Real Madrid: 450 Goals, 311 in La Liga, 18 in the Clásico | RonaldoStats": {
+ "Ronaldo at Real Madrid (2009–2018): 450 Goals, 311 in La Liga, 18 Clásico Goals": {
   "count": 3,
   "pages": [
    "real-madrid"
   ],
-  "ctx": " [Ronaldo at Real Madrid: 450 Goals, 311 in La Liga, 18 in the Clásico | RonaldoStats] Skip to content"
+  "ctx": " [Ronaldo at Real Madrid (2009–2018): 450 Goals, 311 in La Liga, 18 Clásico Goals] Skip to content"
+ },
+ "Ronaldo at Real Madrid (2009–2018): 450 goals in 438 games, 311 in La Liga and 18 in the Clásico, with four Champions League titles.": {
+  "count": 3,
+  "pages": [
+   "real-madrid"
+  ],
+  "ctx": "[attr content]"
  },
  "Ronaldo career stats": {
   "count": 5,
@@ -7144,12 +7341,26 @@
   ],
   "ctx": "Filter every chart by Sporting CP, Manchester United, Real Madrid, Juventus, Al Nassr or Portugal.  [Ronaldo through the years] Every career milestone, dated and in order, from his 2002 debut to today."
  },
+ "Ronaldo trophies list: all 35 senior team titles by club and Portugal, plus finals records, Ballons d'Or and the fully verified career honours breakdown.": {
+  "count": 3,
+  "pages": [
+   "trophies"
+  ],
+  "ctx": "[attr content]"
+ },
  "Ronaldo vs Messi": {
   "count": 1,
   "pages": [
    "ronaldo-vs-messi"
   ],
   "ctx": "Head-to-Head &amp; Complete Career Comparison  [Ronaldo vs Messi] Cristiano Ronaldo and Lionel Messi, side by side: all-time goals, appearances, assists, set pieces, trophies, international records and every one of the 36 direct club meetings. The numbers are sourced; the verdict is the reader's."
+ },
+ "Ronaldo vs Messi Stats (2026 Live): 985 vs 937 Goals, Assists &amp; H2H": {
+  "count": 3,
+  "pages": [
+   "ronaldo-vs-messi"
+  ],
+  "ctx": " [Ronaldo vs Messi Stats (2026 Live): 985 vs 937 Goals, Assists &amp; H2H] Skip to content"
  },
  "Ronaldo vs Messi page": {
   "count": 1,
@@ -7158,19 +7369,19 @@
   ],
   "ctx": "(0.79 per game). Ronaldo leads on goals (985 to 937), penalties (184 to 110), Champions League goals (140 to 129) and hat-tricks (67 to 62); Messi leads on assists (409 to 261), trophies (46 to 35), Ballons d'Or (8 to 5) and free kicks (67 to 66). They have met 36 times in club football: Messi's tea"
  },
+ "Ronaldo vs Messi stats (2026 live): 985 vs 937 goals, 261 vs 409 assists, 140 vs 129 Champions League goals and the full head-to-head.": {
+  "count": 3,
+  "pages": [
+   "ronaldo-vs-messi"
+  ],
+  "ctx": "[attr content]"
+ },
  "Ronaldo vs Messi stats tracker": {
   "count": 1,
   "pages": [
    "index"
   ],
   "ctx": "Explore full head-to-head statistics and all 36 club meetings on our  [Ronaldo vs Messi stats tracker] ."
- },
- "Ronaldo vs Messi: The Complete Statistical Comparison | RonaldoStats": {
-  "count": 3,
-  "pages": [
-   "ronaldo-vs-messi"
-  ],
-  "ctx": " [Ronaldo vs Messi: The Complete Statistical Comparison | RonaldoStats] Skip to content"
  },
  "Ronaldo's archive records 18 El Clásico goals against Barcelona for Real Madrid. Messi's published record is 26 El Clásico goals in 45 matches, almost all of them for Barcelona.": {
   "count": 1,
@@ -7268,6 +7479,13 @@
   ],
   "ctx": "Why Your Support Matters  [RonaldoStats is an independent, non-profit community project tracking all] 983 career goals"
  },
+ "SENIOR RECORD · 2002–2026": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "Cristiano Ronaldo · Portugal &amp; Al Nassr  [SENIOR RECORD · 2002–2026] CR7"
+ },
  "Saudi Pro League": {
   "count": 5,
   "pages": [
@@ -7311,6 +7529,22 @@
    "goalsbyyear"
   ],
   "ctx": "Season in progress.  [Scoring years] 25"
+ },
+ "Search": {
+  "count": 10,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "985 Career Goals  [Search] Ctrl K"
  },
  "Search Ronaldo products": {
   "count": 1,
@@ -7419,6 +7653,13 @@
   ],
   "ctx": "[attr aria-label]"
  },
+ "Senior Apps": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "0.93 G+A per match  [Senior Apps] 1,343"
+ },
  "Senior Career Appearances": {
   "count": 1,
   "pages": [
@@ -7467,13 +7708,6 @@
    "index"
   ],
   "ctx": "39702381443811938094  [Senior Trophies:] 35 (32 club · 3 Portugal)"
- },
- "Senior appearances": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "0.73 goals per game across 27 club seasons.  [Senior appearances] 1,343"
  },
  "Senior club career total": {
   "count": 1,
@@ -7561,13 +7795,6 @@
    "index"
   ],
   "ctx": "[attr aria-label]"
- },
- "Shop official Ronaldo gear on Amazon": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "Goal alerts, milestones and community chat, straight to your phone. It's free — and every new member helps keep RonaldoStats alive. Love the site?  [Shop official Ronaldo gear on Amazon] or"
  },
  "Showing all teams: 983 goals in 1,342 apps. Select a club or Portugal to re-cut every chart.": {
   "count": 1,
@@ -7669,13 +7896,6 @@
   ],
   "ctx": "[attr alt]"
  },
- "Sporting CP · Manchester United · Real Madrid · Juventus · Al Nassr": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "Teams  [Sporting CP · Manchester United · Real Madrid · Juventus · Al Nassr] Now"
- },
  "Sporting CP — 1 trophy": {
   "count": 1,
   "pages": [
@@ -7718,7 +7938,7 @@
    "timeline",
    "trophies"
   ],
-  "ctx": "Ronaldo  [Stats] English"
+  "ctx": "Ronaldo  [Stats] 985 Career Goals"
  },
  "Supercopa de España": {
   "count": 1,
@@ -7765,6 +7985,13 @@
   ],
   "ctx": "[attr aria-label]"
  },
+ "THE COMPLETE CR7 RECORD — 2002–2026": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "Advertisement  [THE COMPLETE CR7 RECORD — 2002–2026] Updated"
+ },
  "THE GOAT VERDICT • COMPLETE OFFICIAL TOTALS": {
   "count": 1,
   "pages": [
@@ -7786,20 +8013,19 @@
   ],
   "ctx": ": with 981 goals, Ronaldo is 17 short of 1,000 official senior goals.  [Team / Competition] Matches"
  },
- "Team trophies": {
-  "count": 2,
-  "pages": [
-   "index",
-   "trophies"
-  ],
-  "ctx": "0.62 per cap across 234 caps.  [Team trophies] 35"
- },
- "Teams": {
+ "Team Trophies": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "Forward  [Teams] Sporting CP · Manchester United · Real Madrid · Juventus · Al Nassr"
+  "ctx": "1,109 club · 234 Portugal  [Team Trophies] 35"
+ },
+ "Team trophies": {
+  "count": 1,
+  "pages": [
+   "trophies"
+  ],
+  "ctx": "Career Trophies &amp; Major Honours at a Glance  [Team trophies] 35"
  },
  "Telegram @messistatdotcom": {
   "count": 10,
@@ -8044,7 +8270,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "Cristiano Ronaldo Stats: 985 Goals, 1,340 Matches &amp; 35 Trophies  [The verified] Cristiano Ronaldo stats"
+  "ctx": "Cristiano Ronaldo Stats: 985 Goals, 1,343 Matches &amp; 35 Trophies  [The verified] Cristiano Ronaldo stats"
  },
  "The years behind it &mdash; 2012 (63), 2014 (61) and 2011 (60) &mdash; show how far ahead of his own normal 2013 was.": {
   "count": 1,
@@ -8152,11 +8378,12 @@
   "ctx": "Real Madrid  [Took the record in 2015 and has extended it since] Most Champions League appearances"
  },
  "Total Assists": {
-  "count": 1,
+  "count": 2,
   "pages": [
-   "dashboard"
+   "dashboard",
+   "index"
   ],
-  "ctx": "0.73 goals/game · 1,342 matches (all teams)  [Total Assists] 👟"
+  "ctx": "839 club · 146 Portugal  [Total Assists] 261"
  },
  "Total Career Assists": {
   "count": 1,
@@ -8173,11 +8400,12 @@
   "ctx": "His last Champions League campaign; United exited in the round of 16  [Total Champions League] 3 clubs"
  },
  "Total Goals": {
-  "count": 1,
+  "count": 2,
   "pages": [
-   "dashboard"
+   "dashboard",
+   "index"
   ],
-  "ctx": "Showing all teams: 983 goals in 1,342 apps. Select a club or Portugal to re-cut every chart.  [Total Goals] ⚽"
+  "ctx": "160 apps  [Total Goals] 985"
  },
  "Total for Real Madrid": {
   "count": 1,
@@ -8374,7 +8602,7 @@
    "timeline",
    "trophies"
   ],
-  "ctx": "Career statistics  [Updated] 22 October 2026"
+  "ctx": "THE COMPLETE CR7 RECORD — 2002–2026  [Updated] 22 October 2026"
  },
  "Value": {
   "count": 1,
@@ -9128,6 +9356,22 @@
   ],
   "ctx": "provisional until a hand count  [is finished.] 📜 Certified World Records &amp; Historic Milestones"
  },
+ "light dark": {
+  "count": 10,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "[attr content]"
+ },
  "of 1,000 senior career goals. No date is promised: he is 19 goals short, and the tracker updates after every match.": {
   "count": 1,
   "pages": [
@@ -9142,13 +9386,6 @@
    "timeline"
   ],
   "ctx": "Al Nassr  [on] 12 October 2026"
- },
- "or": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "Shop official Ronaldo gear on Amazon  [or] support us on Ko-fi"
  },
  "penalties": {
   "count": 1,
@@ -9308,13 +9545,6 @@
   ],
   "ctx": "[attr content]"
  },
- "support us on Ko-fi": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "or  [support us on Ko-fi] to cover hosting and video streaming costs."
- },
  "the complete trophy breakdown": {
   "count": 1,
   "pages": [
@@ -9329,19 +9559,12 @@
   ],
   "ctx": "(2008, 2013, 2014, 2016, 2017) and 4 European Golden Shoes. See  [the full trophy list] ."
  },
- "to cover hosting and video streaming costs.": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "support us on Ko-fi  [to cover hosting and video streaming costs.] ✈️ Join Telegram Channel"
- },
  "updated live after each match.": {
   "count": 1,
   "pages": [
    "index"
   ],
-  "ctx": "Ronaldo stat  [updated live after each match.] 📣"
+  "ctx": "Ronaldo stat  [updated live after each match.] Live Match Alerts &amp; Archive:"
  },
  "vs Messi": {
   "count": 20,
@@ -9437,7 +9660,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "19 goals to go  [· 1,000 is a target, not a schedule] Full Analytics Dashboard &rarr;"
+  "ctx": "15 goals to go  [· 1,000 is a target, not a schedule] Full Analytics Dashboard &rarr;"
  },
  "— 0.73 goals per game and 1,244 goal contributions (0.93 per match). He has scored": {
   "count": 1,
@@ -9709,6 +9932,13 @@
   ],
   "ctx": "Unified interactive analytics of Cristiano Ronaldo's 983 career goals: filter by team, competition, body part, season-by-season breakdown, and calendar-year trajectory (69 in 2013).  [← Back to stats] 🌍"
  },
+ "▶ Road to 1,000": {
+  "count": 1,
+  "pages": [
+   "index"
+  ],
+  "ctx": "Free HD goal clips &amp; verified match sheets.  [▶ Road to 1,000] ✈️ Join Telegram Channel"
+ },
  "☕ Coffee": {
   "count": 1,
   "pages": [
@@ -9770,7 +10000,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "National Team  [⚡ Scoring Pace:] 0.73 goals/game"
+  "ctx": "National Team · 234 caps  [⚡ Scoring Pace:] 0.73 goals/game"
  },
  "⚡ THE RECORD GOALSCORER": {
   "count": 1,
@@ -9785,13 +10015,6 @@
    "timeline"
   ],
   "ctx": "🔴 Manchester United (3)  [⚪ Real Madrid (4)] 🐂 Juventus (2)"
- },
- "⚽ Forward #7": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "7  [⚽ Forward #7] 🎂 Born 5 February 1985 · 41"
  },
  "⚽ Landmark Goals (5)": {
   "count": 1,
@@ -9833,7 +10056,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "to cover hosting and video streaming costs.  [✈️ Join Telegram Channel] ⭐ Partner Deals"
+  "ctx": "▶ Road to 1,000  [✈️ Join Telegram Channel] 👕 Ronaldo Store 🛍️"
  },
  "✈️ Telegram Channel": {
   "count": 2,
@@ -9856,13 +10079,6 @@
    "ronaldo-vs-messi"
   ],
   "ctx": "⚔️ 36 Direct Matches  [❓ Frequently Asked Questions] THE GOAT VERDICT • COMPLETE OFFICIAL TOTALS"
- },
- "⭐ 5 Ballons d'Or": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "📏 1.87 m  [⭐ 5 Ballons d'Or] 🏆 35 Trophies"
  },
  "⭐ Ballons d'Or (2)": {
   "count": 1,
@@ -9888,7 +10104,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "✈️ Join Telegram Channel  [⭐ Partner Deals] 👕 Ronaldo Store 🛍️"
+  "ctx": "👕 Ronaldo Store 🛍️  [⭐ Partner Deals] 💖 Donate on Ko-fi"
  },
  "⭐ Partner Deals &amp; Offers": {
   "count": 1,
@@ -9942,13 +10158,6 @@
   ],
   "ctx": "💛 Al Nassr (2)  [🇵🇹 Portugal (5)] Filter milestones"
  },
- "🎂 Born 5 February 1985 · 41": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "⚽ Forward #7  [🎂 Born 5 February 1985 · 41] 📍 Funchal, Madeira, Portugal"
- },
  "🎯 Free Kicks &amp; Penalties": {
   "count": 1,
   "pages": [
@@ -9961,7 +10170,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "17 to go — a target, not a schedule.  [🎯 HISTORIC MILESTONE CHASE] Road to 1,000 Career Goals Tracker"
+  "ctx": "0.62 per cap · 234 caps  [🎯 HISTORIC MILESTONE CHASE] Road to 1,000 Career Goals Tracker"
  },
  "🎯 Scoring Breakdown by Body Part &amp; Range": {
   "count": 1,
@@ -9990,13 +10199,6 @@
    "trophies"
   ],
   "ctx": "Advertisement  [🎯 TROPHY & RECORDS TRIVIA] Test Your Cristiano Ronaldo Trophy & Records IQ"
- },
- "🏆 35 Trophies": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "⭐ 5 Ballons d'Or  [🏆 35 Trophies] Role"
  },
  "🏆 International Records": {
   "count": 1,
@@ -10085,14 +10287,13 @@
   "ctx": "Check on Amazon ↗  [🐐 Iconic Shirt] Official Matchwear"
  },
  "🐐 MessiStat — Lionel Messi Stats": {
-  "count": 4,
+  "count": 3,
   "pages": [
    "champions-league",
    "gear",
-   "index",
    "ronaldo-vs-messi"
   ],
-  "ctx": ".  [🐐 MessiStat — Lionel Messi Stats] Road to 1,000 goals"
+  "ctx": "Achievements &amp; 35 Trophies  [🐐 MessiStat — Lionel Messi Stats] International Editions / Idiomas"
  },
  "🐐 Ronaldo vs Messi All-Time": {
   "count": 10,
@@ -10129,7 +10330,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "⭐ Partner Deals  [👕 Ronaldo Store 🛍️] 💖 Donate on Ko-fi"
+  "ctx": "✈️ Join Telegram Channel  [👕 Ronaldo Store 🛍️] ⭐ Partner Deals"
  },
  "👟 Pro Cleats": {
   "count": 1,
@@ -10144,7 +10345,7 @@
    "gear",
    "index"
   ],
-  "ctx": "👕 Ronaldo Store 🛍️  [💖 Donate on Ko-fi] Cristiano Ronaldo · Portugal &amp; Al Nassr"
+  "ctx": "⭐ Partner Deals  [💖 Donate on Ko-fi] Cristiano Ronaldo · Portugal &amp; Al Nassr"
  },
  "💖 Support Directly on Ko-fi": {
   "count": 1,
@@ -10181,20 +10382,6 @@
    "ronaldo-vs-messi"
   ],
   "ctx": "Cristiano Ronaldo &amp; Lionel Messi — two overlapping careers, 36 direct club meetings, and a statistical archive that records the results without ruling on them.  [📊 All-Time Totals] 🎯 Free Kicks &amp; Penalties"
- },
- "📍 Funchal, Madeira, Portugal": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "🎂 Born 5 February 1985 · 41  [📍 Funchal, Madeira, Portugal] 📏 1.87 m"
- },
- "📏 1.87 m": {
-  "count": 1,
-  "pages": [
-   "index"
-  ],
-  "ctx": "📍 Funchal, Madeira, Portugal  [📏 1.87 m] ⭐ 5 Ballons d'Or"
  },
  "📖 View Complete Career Topic Index &amp; All-Time Club Records": {
   "count": 1,

@@ -146,7 +146,7 @@ for (const g of GEAR_FILES) checkPhoto(`gear/${g}`, { w: 800, h: 800 });
 
 console.log('\n== 5. HTML references resolve ==');
 const htmlFiles = [];
-const LOCALES = ["es","fr","pt"];
+const LOCALES = ["es","fr","pt","ro","uz","ar"];
 for (const loc of LOCALES) {
   const dir = path.join(ROOT, loc);
   if (!fs.existsSync(dir)) continue;

@@ -13,7 +13,7 @@ import path from "node:path";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname).replace(/^\/([A-Za-z]:)/, "$1"), "..");
 const SHELL = path.join(ROOT, "src", "i18n", "shell");
-const LANGS = ["es","pt","fr"];
+const LANGS = ["es","pt","fr","ro","uz","ar"];
 const PAGES = ["index", "dashboard", "goalsbyyear", "goalsbyseason", "timeline", "trophies",
   "birthday", "latest-goal", "champions-league", "gear", "real-madrid", "ronaldo-vs-messi"];
 

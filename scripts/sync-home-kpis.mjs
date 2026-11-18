@@ -76,6 +76,9 @@ export function syncHomeKpis() {
     if (lg.totals?.miamiGoals) miami = lg.totals.miamiGoals;
   } catch {}
   const miamiApps = (ronaldo.clubSeasons || []).filter((s) => s.club === "Inter Miami").reduce((n, s) => n + (s.apps || 0), 0);
+  // Bento club splits come straight from clubSeasons — never hand-typed.
+  const clubGoals = (name) => (ronaldo.clubSeasons || []).filter((s) => s.club === name).reduce((n, s) => n + (s.goals || 0), 0);
+  const clubApps = (name) => (ronaldo.clubSeasons || []).filter((s) => s.club === name).reduce((n, s) => n + (s.apps || 0), 0);
   // value-anchored transplant for prose facts (magnitudes that can ONLY mean
   // one thing on homepages; trophies-adjacent 46 handled explicitly elsewhere
   // to avoid the "46 assists" collision)
@@ -135,6 +138,26 @@ export function syncHomeKpis() {
           return p;
         });
         return s;
+      });
+    }
+
+    // ---- Bento Club Splits: goals + apps for the four career pillars ----
+    // Real Madrid / Portugal / Man Utd / Al Nassr, all read from the JSON.
+    if (html.includes("bento-club-splits")) {
+      const splitGoals = [clubGoals("Real Madrid"), arg, clubGoals("Manchester United"), clubGoals("Al Nassr")];
+      const splitApps = [clubApps("Real Madrid"), T.country?.appearances ?? 0, clubApps("Manchester United"), clubApps("Al Nassr")];
+      html = html.replace(/(<div class="bento-club-splits"[^>]*>[\s\S]*?<\/div>\s*<\/div>)/i, (block) => {
+        let b = block;
+        let gi = 0;
+        b = b.replace(/(<strong class="bs-val[^"]*">)[^<]*(<\/strong>)/gi, (w, a, c) => (gi < splitGoals.length ? `${a}${splitGoals[gi++]}${c}` : w));
+        let ai = 0;
+        b = b.replace(/(<span class="bs-sub">)([^<]*)(<\/span>)/gi, (w, a, txt, c) => {
+          if (ai >= splitApps.length) return w;
+          const val = splitApps[ai++];
+          const unit = String(txt).replace(/^\s*\d[\d.,]*\s*/, "").trim();
+          return `${a}${unit ? `${val} ${unit}` : String(val)}${c}`;
+        });
+        return b;
       });
     }
 

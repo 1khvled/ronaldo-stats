@@ -8,25 +8,240 @@ import { inject } from "@vercel/analytics";
 import { injectSpeedInsights } from "@vercel/speed-insights";
 import { getDict } from "./i18n/index.js";
 import { getShellDict } from "./i18n/shell/index.js";
+import { MONETIZE_CONFIG } from "./monetize-config.js";
 inject(); // page-view counting; no-ops off Vercel (script 404s silently in local preview)
 injectSpeedInsights(); // Core Web Vitals; same deal — production only, silent locally
-/* Theme manager (Dark / Light mode) with localStorage persistence and OS sync */
-let DICT = getDict("en");
+/* Theme manager (Dark / Light mode) synced with <meta name="color-scheme"> & OS preference */
+function syncColorSchemeMeta(mode) {
+  if (typeof document === "undefined") return;
+  let csMeta = document.querySelector('meta[name="color-scheme"]');
+  if (!csMeta && document.head) {
+    csMeta = document.createElement("meta");
+    csMeta.setAttribute("name", "color-scheme");
+    document.head.appendChild(csMeta);
+  }
+  if (csMeta) {
+    csMeta.setAttribute("content", mode === "dark" || mode === "light" ? mode : "light dark");
+  }
+}
+
+function initTheme() {
+  const getSystemScheme = () =>
+    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+  const getStoredOverride = () => {
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark" || saved === "light") return saved;
+    } catch (_) {}
+    return null;
+  };
+
+  const getResolved = () => getStoredOverride() || getSystemScheme();
+
+  const applyTheme = (resolved, storedOverride) => {
+    if (resolved === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+    // Keep the mobile browser chrome in step with the theme (pure black in dark).
+    syncColorSchemeMeta(storedOverride || "light dark");
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", resolved === "dark" ? "#000000" : "#16243a");
+    const themeLang = ((document.documentElement.lang || "en").toLowerCase().split("-")[0]);
+    const themeStrings = {
+      en: { toLight: "Light mode", toDark: "Dark mode", ariaLight: "Switch to light mode", ariaDark: "Switch to dark mode" },
+      es: { toLight: "Modo claro", toDark: "Modo oscuro", ariaLight: "Cambiar a modo claro", ariaDark: "Cambiar a modo oscuro" },
+      pt: { toLight: "Modo claro", toDark: "Modo escuro", ariaLight: "Mudar para modo claro", ariaDark: "Mudar para modo escuro" },
+      fr: { toLight: "Mode clair", toDark: "Mode sombre", ariaLight: "Passer en mode clair", ariaDark: "Passer en mode sombre" },
+      ro: { toLight: "Mod luminos", toDark: "Mod întunecat", ariaLight: "Comută la modul luminos", ariaDark: "Comută la modul întunecat" },
+      uz: { toLight: "Yorug' rejim", toDark: "Tungi rejim", ariaLight: "Yorug' rejimga o'tish", ariaDark: "Tungi rejimga o'tish" },
+      ar: { toLight: "الوضع الفاتح", toDark: "الوضع الداكن", ariaLight: "التبديل إلى الوضع الفاتح", ariaDark: "التبديل إلى الوضع الداكن" }
+    };
+    const ts = themeStrings[themeLang] || themeStrings.en;
+    const btns = document.querySelectorAll(".theme-toggle");
+    btns.forEach((btn) => {
+      const label = btn.querySelector(".theme-label");
+      if (label) label.textContent = resolved === "dark" ? ts.toLight : ts.toDark;
+      btn.setAttribute("aria-label", resolved === "dark" ? ts.ariaLight : ts.ariaDark);
+      btn.setAttribute("title", resolved === "dark" ? ts.ariaLight : ts.ariaDark);
+    });
+  };
+
+  const toggleTheme = () => {
+    const current = getResolved();
+    const target = current === "dark" ? "light" : "dark";
+    const sys = getSystemScheme();
+    let stored = null;
+    try {
+      if (target === sys) {
+        localStorage.removeItem("theme");
+      } else {
+        localStorage.setItem("theme", target);
+        stored = target;
+      }
+    } catch (_) {}
+    applyTheme(target, stored);
+  };
+
+  if (typeof window !== "undefined") {
+    window.__toggleRonaldoTheme = toggleTheme;
+  }
+
+  applyTheme(getResolved(), getStoredOverride());
+
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".theme-toggle");
+    if (!btn) return;
+    toggleTheme();
+  });
+
+  if (window.matchMedia) {
+    try {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+        if (!getStoredOverride()) {
+          applyTheme(e.matches ? "dark" : "light", null);
+        }
+      });
+    } catch (_) {}
+  }
+}
+initTheme();
+
+/* Sidebar 2.0 collapse/expand state (zero-CLS early apply + delegated toggle) */
+const RAIL_COLLAPSE_KEY = "ronaldostat_rail_collapsed";
+
+function syncSidebarCollapseState(collapsed) {
+  if (typeof document === "undefined") return;
+  const root = document.documentElement;
+  if (collapsed) {
+    root.setAttribute("data-rail", "collapsed");
+  } else if (root.getAttribute("data-rail") === "collapsed") {
+    root.removeAttribute("data-rail");
+  }
+  const expanded = collapsed ? "false" : "true";
+  document.querySelectorAll("#rail-collapse-btn, .rail-collapse-btn").forEach((btn) => {
+    btn.setAttribute("aria-expanded", expanded);
+  });
+}
+
+function readSidebarCollapsed() {
+  try {
+    return localStorage.getItem(RAIL_COLLAPSE_KEY) === "1";
+  } catch (_) {
+    return false;
+  }
+}
+
+function initSidebarCollapse() {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+  syncSidebarCollapseState(readSidebarCollapsed());
+
+  if (document.readyState === "loading" && !window.__rsRailCollapseDclBound) {
+    window.__rsRailCollapseDclBound = true;
+    document.addEventListener("DOMContentLoaded", () => {
+      syncSidebarCollapseState(readSidebarCollapsed());
+    }, { once: true });
+  }
+
+  if (window.__rsRailCollapseBound) return;
+  window.__rsRailCollapseBound = true;
+
+  let relayoutTimer = null;
+  document.addEventListener("click", (e) => {
+    const btn = e.target && typeof e.target.closest === "function"
+      ? e.target.closest("#rail-collapse-btn, .rail-collapse-btn")
+      : null;
+    if (!btn) return;
+    const nextCollapsed = document.documentElement.getAttribute("data-rail") !== "collapsed";
+    try {
+      if (nextCollapsed) {
+        localStorage.setItem(RAIL_COLLAPSE_KEY, "1");
+      } else {
+        localStorage.removeItem(RAIL_COLLAPSE_KEY);
+      }
+    } catch (_) {}
+    syncSidebarCollapseState(nextCollapsed);
+    if (relayoutTimer) clearTimeout(relayoutTimer);
+    relayoutTimer = setTimeout(() => {
+      window.dispatchEvent(new Event("rs:spark-relayout"));
+      // Existing chart modules still listen on the legacy Ronaldo event.
+      window.dispatchEvent(new Event("ronaldo:spark-relayout"));
+    }, 220);
+  });
+}
+
+initSidebarCollapse();
+
+function isOwnerNoAdsActive() {
+  try {
+    if (typeof document !== "undefined" && document.documentElement.dataset.ownerNoads === "1") return true;
+    return typeof localStorage !== "undefined" && localStorage.getItem("rs_owner_noads") === "1";
+  } catch (_) {
+    return false;
+  }
+}
 
 // ---------- High-Yield Monetization Architecture ----------
 function initMonetizationUnits() {
   if (typeof window === "undefined" || typeof document === "undefined") return;
 
-  const SMARTLINK_URL = "https://araplhn.org/4/9c0421236e838b103398fe1f230fd98e";
-  const SESSION_KEY = "rs_session_sl_v1";
-
-  // 1. High-Yield Smartlink Trigger (Strictly Capped 1x Per Session)
-  function triggerSmartlink() {
-    try {
-      if (typeof sessionStorage !== "undefined") {
-        if (sessionStorage.getItem(SESSION_KEY)) return false;
-        sessionStorage.setItem(SESSION_KEY, "1");
+  const OWNER_NOADS_KEY = "rs_owner_noads";
+  try {
+    const ownerParam = new URLSearchParams(window.location.search).get("owner");
+    if (ownerParam === "1") {
+      localStorage.setItem(OWNER_NOADS_KEY, "1");
+    } else if (ownerParam === "0") {
+      localStorage.removeItem(OWNER_NOADS_KEY);
+      if (document.documentElement.dataset.ownerNoads === "1") {
+        delete document.documentElement.dataset.ownerNoads;
       }
+    }
+  } catch (_) {}
+
+  function isOwnerNoAds() {
+    return isOwnerNoAdsActive();
+  }
+
+  if (isOwnerNoAds()) {
+    document.documentElement.dataset.ownerNoads = "1";
+    if (typeof console !== "undefined" && typeof console.info === "function") {
+      console.info("[RonaldoStats] Owner ad-free mode active");
+    }
+    return;
+  }
+  if (document.documentElement.getAttribute("data-owner-noads") === "1") {
+    document.documentElement.removeAttribute("data-owner-noads");
+  }
+
+  const SMARTLINK_URL = MONETIZE_CONFIG.adsterraSmartlinkUrl;
+  const SESSION_KEY = "rs_session_sl_v1";
+  const SL_COUNT_KEY = "rs_sl_count_v2";
+  const SL_LAST_TS_KEY = "rs_sl_last_ts";
+  const SL_MAX_PER_SESSION = 3;
+  const SL_COOLDOWN_MS = 75000;
+
+  // 1. High-Intent Smartlink Trigger (75s Cooldown, Max 3x Per Session)
+  function triggerSmartlink(skipWindowOpen) {
+    try {
+      if (isOwnerNoAds()) return false;
+      if (typeof sessionStorage !== "undefined") {
+        if (sessionStorage.getItem(SESSION_KEY) === "1") return false;
+        const count = parseInt(sessionStorage.getItem(SL_COUNT_KEY) || "0", 10) || 0;
+        const lastTs = parseInt(sessionStorage.getItem(SL_LAST_TS_KEY) || "0", 10) || 0;
+        const now = Date.now();
+        if (skipWindowOpen) {
+          sessionStorage.setItem(SL_COUNT_KEY, String(count + 1));
+          sessionStorage.setItem(SL_LAST_TS_KEY, String(now));
+          return true;
+        }
+        if (count >= SL_MAX_PER_SESSION) return false;
+        if (lastTs > 0 && (now - lastTs) < SL_COOLDOWN_MS) return false;
+        sessionStorage.setItem(SL_COUNT_KEY, String(count + 1));
+        sessionStorage.setItem(SL_LAST_TS_KEY, String(now));
+      }
+      if (skipWindowOpen) return true;
       const pop = window.open(SMARTLINK_URL, "_blank", "noopener,noreferrer");
       if (pop) {
         try { pop.blur(); window.focus(); } catch (_) {}
@@ -37,18 +252,35 @@ function initMonetizationUnits() {
     }
   }
 
-  // Trigger on first genuine user interaction click (links, buttons, video, cards, tabs)
+  // Trigger ONLY on high-intent content interactions; never on UI chrome
   document.addEventListener("click", (e) => {
     if (!e || !e.isTrusted) return;
-    const target = e.target;
+    const target = e.target instanceof Element ? e.target : (e.target && e.target.parentElement);
     if (!target) return;
 
-    const isInteractive = target.closest(
-      "a, button, video, .card, .kpi, .tl-item, .table-card, .tab-btn, .filter-btn, .gear-card"
+    if (target.closest(".rail, .mobile-topbar, #cmd-palette, #lang-modal, #mobile-nav-drawer, .theme-toggle, .ad-anchor-close, [data-open-cmd]")) {
+      return;
+    }
+
+    const isHighIntent = target.closest(
+      '.bento-split-item, .tl-era-btn, .dash-filter-btn, .year-pick-control, video, .hub-monetize-watch, .community-ribbon .watch-latest, .btn-vote-candidate, a[href*=".mp4"]'
     );
 
-    if (isInteractive) {
-      triggerSmartlink();
+    if (isHighIntent) {
+      const anchor = target.closest("a[href]");
+      const isDirectSmartlink = !!(
+        anchor &&
+        anchor.getAttribute("target") === "_blank" &&
+        (anchor.getAttribute("href") || "").includes("araplhn.org/")
+      );
+      triggerSmartlink(isDirectSmartlink);
+    }
+  }, { capture: true });
+
+  // Fallback for native video play event
+  document.addEventListener("play", (e) => {
+    if (e && e.target && e.target.tagName === "VIDEO") {
+      triggerSmartlink(false);
     }
   }, { capture: true });
 
@@ -133,56 +365,6 @@ function paintDates(root) {
   });
 }
 
-function initTheme() {
-  const getPreferred = () => {
-    try {
-      const saved = localStorage.getItem("theme");
-      if (saved === "dark" || saved === "light") return saved;
-    } catch (_) {}
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  };
-
-  const applyTheme = (theme) => {
-    if (theme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
-    // Keep the mobile browser chrome in step with the theme (pure black in dark).
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "dark" ? "#000000" : "#16243a");
-    const btns = document.querySelectorAll(".theme-toggle");
-    btns.forEach((btn) => {
-      const label = btn.querySelector(".theme-label");
-      if (label) label.textContent = theme === "dark" ? "Light mode" : "Dark mode";
-      btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
-      btn.setAttribute("title", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
-    });
-  };
-
-  applyTheme(getPreferred());
-
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest(".theme-toggle");
-    if (!btn) return;
-    const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-    const next = current === "dark" ? "light" : "dark";
-    try { localStorage.setItem("theme", next); } catch (_) {}
-    applyTheme(next);
-  });
-
-  if (window.matchMedia) {
-    try {
-      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-        try {
-          if (!localStorage.getItem("theme")) applyTheme(e.matches ? "dark" : "light");
-        } catch (_) {}
-      });
-    } catch (_) {}
-  }
-}
-initTheme();
-
 /* ================= REDESIGNED LANGUAGE SELECTOR & MOBILE TOPBAR ================= */
 /* ---------- the runtime translation pass ---------- */
 // The copy that JavaScript renders is written in English in the source: it is
@@ -262,9 +444,12 @@ function translateRuntime(root) {
 }
 const LANGUAGES = [
   { code: "en", flag: "🇺🇸", name: "English", native: "English", note: "US, NG, IN, PH" },
-  { code: "es", flag: "🇪🇸", name: "Spanish", native: "Español", note: "España" },
+  { code: "es", flag: "🇪🇸", name: "Spanish", native: "Español", note: "España, Argentina" },
   { code: "pt", flag: "🇧🇷", name: "Portuguese", native: "Português", note: "Brasil, Portugal" },
   { code: "fr", flag: "🇫🇷", name: "French", native: "Français", note: "France, Niger" },
+  { code: "ro", flag: "🇷🇴", name: "Romanian", native: "Română", note: "România, Moldova" },
+  { code: "uz", flag: "🇺🇿", name: "Uzbek", native: "Oʻzbekcha", note: "Oʻzbekiston" },
+  { code: "ar", flag: "🇸🇦", name: "Arabic", native: "العربية", note: "الشرق الأوسط وشمال أفريقيا", rtl: true }
 ];
 
 function getCurrentLangCode() {
@@ -292,7 +477,8 @@ function getLangUrl(targetCode) {
     "trophies",
     "ronaldo-vs-messi",
     "real-madrid",
-    "champions-league"
+    "champions-league",
+    "gear"
   ];
   const pathParts = location.pathname.split("/").filter(Boolean);
   let subpage = "";
@@ -369,28 +555,52 @@ function centerActiveNav() {
   setTimeout(scrollIntoView, 80);
 }
 
+function bindDialogLightDismissFallback(dialog) {
+  if (!dialog || dialog.dataset.lbBound === "1") return;
+  dialog.dataset.lbBound = "1";
+  if (!("closedBy" in HTMLDialogElement.prototype)) {
+    const outside = (e) => {
+      const r = dialog.getBoundingClientRect();
+      return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+    };
+    let pressedOutside = false;
+    dialog.addEventListener("pointerdown", (e) => { pressedOutside = outside(e); });
+    dialog.addEventListener("pointerup", (e) => { if (pressedOutside && outside(e)) dialog.close(); });
+  }
+}
+
+/* ================= REDESIGNED LANGUAGE SELECTOR (dialog 2.0) ================= */
+const LANG_MODAL_I18N = {
+  en: { title: "Select Language", close: "Close language selector", aria: "Language selector" },
+  es: { title: "Seleccionar idioma", close: "Cerrar selector de idioma", aria: "Selector de idioma" },
+  pt: { title: "Selecionar idioma", close: "Fechar seletor de idioma", aria: "Seletor de idioma" },
+  fr: { title: "Choisir la langue", close: "Fermer le sélecteur de langue", aria: "Sélecteur de langue" },
+  ro: { title: "Selectare limbă", close: "Închide selectorul de limbă", aria: "Selector de limbă" },
+  uz: { title: "Tilni tanlash", close: "Til tanlagichini yopish", aria: "Til tanlagichi" },
+  ar: { title: "اختر اللغة", close: "إغلاق محدد اللغة", aria: "محدد اللغة" }
+};
+
 function ensureLangModal() {
   if (typeof document === "undefined") return null;
   let langModal = document.getElementById("lang-modal");
   if (langModal) return langModal;
 
   const curLangCode = getCurrentLangCode();
+  const lm = LANG_MODAL_I18N[curLangCode] || LANG_MODAL_I18N.en;
 
-  langModal = document.createElement("div");
+  langModal = document.createElement("dialog");
   langModal.id = "lang-modal";
-  langModal.className = "lang-modal-backdrop";
-  langModal.hidden = true;
-  langModal.setAttribute("aria-hidden", "true");
-  langModal.setAttribute("role", "dialog");
-  langModal.setAttribute("aria-modal", "true");
+  langModal.className = "lang-modal-dialog";
+  langModal.setAttribute("closedby", "any");
   langModal.setAttribute("aria-labelledby", "lang-modal-heading");
+  langModal.setAttribute("aria-label", lm.aria);
 
   let cardsHtml = "";
   LANGUAGES.forEach((l) => {
     const isActive = l.code === curLangCode;
     const href = getLangUrl(l.code);
     cardsHtml += `
-      <a href="${href}" class="lang-card-option${isActive ? " active" : ""}" data-code="${l.code}">
+      <a href="${href}" class="lang-card-option${isActive ? " active" : ""}" data-code="${l.code}"${l.rtl ? ' dir="rtl"' : ""}>
         <span class="lang-card-flag">${l.flag}</span>
         <div class="lang-card-info">
           <span class="lang-card-name">${l.name}</span>
@@ -412,9 +622,9 @@ function ensureLangModal() {
             <line x1="2" y1="12" x2="22" y2="12"></line>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
           </svg>
-          <h3 class="lang-modal-title" id="lang-modal-heading">Select Language / Idioma</h3>
+          <h3 class="lang-modal-title" id="lang-modal-heading">${lm.title}</h3>
         </div>
-        <button type="button" class="lang-modal-close" id="lang-modal-close-btn" aria-label="Close language selector">&times;</button>
+        <button type="button" class="lang-modal-close" id="lang-modal-close-btn" aria-label="${lm.close}">&times;</button>
       </div>
       <div class="lang-modal-grid">
         ${cardsHtml}
@@ -424,6 +634,7 @@ function ensureLangModal() {
 
   if (document.body) {
     document.body.appendChild(langModal);
+    bindDialogLightDismissFallback(langModal);
   }
   return langModal;
 }
@@ -431,19 +642,24 @@ function ensureLangModal() {
 function openLangModal() {
   const modal = ensureLangModal();
   if (!modal) return;
-  modal.hidden = false;
-  modal.setAttribute("aria-hidden", "false");
-  if (document.body) document.body.style.overflow = "hidden";
+  if (typeof modal.showModal === "function" && !modal.open) {
+    modal.showModal();
+  } else {
+    modal.setAttribute("open", "");
+  }
 }
 
 function closeLangModal() {
   const modal = document.getElementById("lang-modal");
   if (!modal) return;
-  modal.hidden = true;
-  modal.setAttribute("aria-hidden", "true");
-  if (document.body) document.body.style.overflow = "";
+  if (typeof modal.close === "function" && modal.open) {
+    modal.close();
+  } else {
+    modal.removeAttribute("open");
+  }
 }
 
+/* ================= CATEGORIZED MOBILE DRAWER (dialog 2.0) ================= */
 function ensureMobileMenuDrawer() {
   let drawer = document.getElementById("mobile-nav-drawer");
   if (drawer) return drawer;
@@ -451,126 +667,99 @@ function ensureMobileMenuDrawer() {
   const DRAWER_I18N = {
     en: {
       menuTitle: "Ronaldo<b>Stats</b> Menu",
-      statGoals: "Total Goals",
-      statApps: "Senior Apps",
-      statTrophies: "Trophies",
-      statBallons: "Ballons d'Or",
-      catFeatured: "Featured ⚡",
-      catHistory: "History & Trophies 🏆",
-      catStats: "Big Matches & Stats 📊",
-      home: "Career Home & Stats",
-      vsRonaldo: "Ronaldo vs Messi",
-      latestGoal: "Latest Goal Replay",
-      birthday: "Birthday Goals Explorer",
-    days: "All 366 Days",
-      achievements: "All 35 Trophies & Awards",
-      timeline: "Career Timeline & Photos",
-      goalsByYear: "Goals by Calendar Year",
-      goalsBySeason: "Goals by Season",
-      dashboard: "Deep Stats & Analytics",
-      vsRealMadrid: "Real Madrid years",
-      championsLeague: "Champions League Hub",
-      toggleTheme: "🌓 Toggle Dark Mode"
+      statGoals: "Total Goals", statApps: "Senior Apps", statTrophies: "Trophies", statBallons: "Ballons d'Or",
+      catCore: "Core Hubs", catMatch: "Matchups & Tournaments", catHistory: "Historical Analysis",
+      home: "Career Home & Stats", dashboard: "Deep Stats & Analytics", goalsByYear: "Goals by Calendar Year", goalsBySeason: "Goals by Season",
+      vsMessi: "Ronaldo vs Messi", realMadrid: "Real Madrid years", championsLeague: "Champions League Hub",
+      timeline: "Career Timeline & Photos", trophies: "All 35 Trophies & Awards", gear: "Ronaldo Gear",
+      toggleTheme: "Toggle Dark / Light", closeMenu: "Close menu", search: "Quick search", changeLang: "Change language"
     },
     es: {
       menuTitle: "Menú Ronaldo<b>Stats</b>",
-      statGoals: "Goles Totales",
-      statApps: "Partidos",
-      statTrophies: "Títulos",
-      statBallons: "Balones de Oro",
-      catFeatured: "Destacado ⚡",
-      catHistory: "Historia y Títulos 🏆",
-      catStats: "Partidos y Análisis 📊",
-      home: "Inicio y Estadísticas",
-      vsRonaldo: "Ronaldo vs Messi",
-      latestGoal: "Último Gol Replay",
-      birthday: "Goles en tu Cumpleaños",
-    days: "Los 366 días",
-      achievements: "Los 35 Títulos y Premios",
-      timeline: "Línea de Tiempo y Fotos",
-      goalsByYear: "Goles por Año Calendario",
-      goalsBySeason: "Goles por Temporada",
-      dashboard: "Panel de Análisis Avanzado",
-      vsRealMadrid: "Real Madrid years",
-      championsLeague: "Champions League Hub",
-      toggleTheme: "🌓 Cambiar Modo Oscuro"
+      statGoals: "Goles Totales", statApps: "Partidos", statTrophies: "Títulos", statBallons: "Balones de Oro",
+      catCore: "Centros principales", catMatch: "Enfrentamientos y torneos", catHistory: "Análisis histórico",
+      home: "Inicio y Estadísticas", dashboard: "Panel de Análisis Avanzado", goalsByYear: "Goles por Año Calendario", goalsBySeason: "Goles por Temporada",
+      vsMessi: "Ronaldo vs Messi", realMadrid: "Años en el Real Madrid", championsLeague: "Hub de la Champions League",
+      timeline: "Línea de Tiempo y Fotos", trophies: "Los 35 Títulos y Premios", gear: "Equipación de Ronaldo",
+      toggleTheme: "Cambiar Tema", closeMenu: "Cerrar menú", search: "Búsqueda rápida", changeLang: "Cambiar idioma"
     },
     pt: {
       menuTitle: "Menu Ronaldo<b>Stats</b>",
-      statGoals: "Total de Gols",
-      statApps: "Partidas",
-      statTrophies: "Títulos",
-      statBallons: "Bolas de Ouro",
-      catFeatured: "Destaques ⚡",
-      catHistory: "História e Títulos 🏆",
-      catStats: "Grandes Jogos e Dados 📊",
-      home: "Início e Estatísticas",
-      vsRonaldo: "Ronaldo vs Messi",
-      latestGoal: "Último Gol Replay",
-      birthday: "Gols no Aniversário",
-    days: "Os 366 dias",
-      achievements: "Todos os 35 Títulos",
-      timeline: "Linha do Tempo e Fotos",
-      goalsByYear: "Gols por Ano",
-      goalsBySeason: "Gols por Temporada",
-      dashboard: "Painel de Análise",
-      vsRealMadrid: "Real Madrid years",
-      championsLeague: "Champions League Hub",
-      toggleTheme: "🌓 Alternar Modo Escuro"
+      statGoals: "Total de Gols", statApps: "Partidas", statTrophies: "Títulos", statBallons: "Bolas de Ouro",
+      catCore: "Hubs principais", catMatch: "Confrontos e torneios", catHistory: "Análise histórica",
+      home: "Início e Estatísticas", dashboard: "Painel de Análise", goalsByYear: "Gols por Ano Calendário", goalsBySeason: "Gols por Temporada",
+      vsMessi: "Ronaldo vs Messi", realMadrid: "Anos no Real Madrid", championsLeague: "Hub da Champions League",
+      timeline: "Linha do Tempo e Fotos", trophies: "Todos os 35 Títulos", gear: "Equipamento Ronaldo",
+      toggleTheme: "Alternar Tema", closeMenu: "Fechar menu", search: "Busca rápida", changeLang: "Mudar idioma"
     },
     fr: {
       menuTitle: "Menu Ronaldo<b>Stats</b>",
-      statGoals: "Total de Buts",
-      statApps: "Matchs",
-      statTrophies: "Trophées",
-      statBallons: "Ballons d'Or",
-      catFeatured: "En Vedette ⚡",
-      catHistory: "Histoire & Trophées 🏆",
-      catStats: "Grands Matchs & Stats 📊",
-      home: "Accueil & Statistiques",
-      vsRonaldo: "Ronaldo vs Messi",
-      latestGoal: "Dernier But Replay",
-      birthday: "Buts par Anniversaire",
-    days: "Les 366 jours",
-      achievements: "Tous les 35 Trophées",
-      timeline: "Chronologie & Photos",
-      goalsByYear: "Buts par Année Civile",
-      goalsBySeason: "Buts par Saison",
-      dashboard: "Tableau de Bord & Analyses",
-      vsRealMadrid: "Real Madrid years",
-      championsLeague: "Hub Ligue des Champions",
-      toggleTheme: "🌓 Basculer Mode Sombre"
+      statGoals: "Total de Buts", statApps: "Matchs", statTrophies: "Trophées", statBallons: "Ballons d'Or",
+      catCore: "Hubs principaux", catMatch: "Confrontations et tournois", catHistory: "Analyse historique",
+      home: "Accueil & Statistiques", dashboard: "Tableau de Bord & Analyses", goalsByYear: "Buts par Année Civile", goalsBySeason: "Buts par Saison",
+      vsMessi: "Ronaldo vs Messi", realMadrid: "Années au Real Madrid", championsLeague: "Hub Ligue des Champions",
+      timeline: "Chronologie & Photos", trophies: "Tous les 35 Trophées", gear: "Équipement Ronaldo",
+      toggleTheme: "Basculer le Thème", closeMenu: "Fermer le menu", search: "Recherche rapide", changeLang: "Changer de langue"
     },
+    ro: {
+      menuTitle: "Meniu Ronaldo<b>Stats</b>",
+      statGoals: "Total Goluri", statApps: "Meciuri", statTrophies: "Trofee", statBallons: "Baloane de Aur",
+      catCore: "Huburi principale", catMatch: "Confruntări și turnee", catHistory: "Analiză istorică",
+      home: "Acasă și Statistici Carieră", dashboard: "Panou de Analiză Avansată", goalsByYear: "Goluri pe An Calendaristic", goalsBySeason: "Goluri pe Sezon",
+      vsMessi: "Ronaldo vs Messi", realMadrid: "Anii la Real Madrid", championsLeague: "Hub Champions League",
+      timeline: "Cronologie și Fotografii", trophies: "Toate cele 35 de Trofee", gear: "Echipament Ronaldo",
+      toggleTheme: "Comutare Temă", closeMenu: "Închide meniul", search: "Căutare rapidă", changeLang: "Schimbă limba"
+    },
+    uz: {
+      menuTitle: "Ronaldo<b>Stats</b> Menyu",
+      statGoals: "Jami Gollar", statApps: "O'yinlar", statTrophies: "Sovrinlar", statBallons: "Oltin To'plar",
+      catCore: "Asosiy bo'limlar", catMatch: "To'qnashuvlar va turnirlar", catHistory: "Tarixiy tahlil",
+      home: "Asosiy va Statistika", dashboard: "Tahliliy Panel", goalsByYear: "Yillar Bo'yicha Gollar", goalsBySeason: "Mavsumlar Bo'yicha Gollar",
+      vsMessi: "Ronaldo vs Messi", realMadrid: "Real Madrid Yillari", championsLeague: "Chempionlar Ligasi Xabi",
+      timeline: "Xronologiya va Suratlar", trophies: "Barcha 35 ta Sovrin", gear: "Ronaldo Jihozlari",
+      toggleTheme: "Rejimni O'zgartirish", closeMenu: "Menyu yopish", search: "Tezkor qidiruv", changeLang: "Tilni o'zgartirish"
+    },
+    ar: {
+      menuTitle: "قائمة Ronaldo<b>Stats</b>",
+      statGoals: "إجمالي الأهداف", statApps: "المباريات الرسمية", statTrophies: "الألقاب", statBallons: "الكرة الذهبية",
+      catCore: "المراكز الرئيسية", catMatch: "المواجهات والبطولات", catHistory: "التحليل التاريخي",
+      home: "الرئيسية والإحصائيات", dashboard: "لوحة الإحصائيات الشاملة", goalsByYear: "الأهداف حسب السنة", goalsBySeason: "الأهداف حسب الموسم",
+      vsMessi: "رونالدو ضد ميسي", realMadrid: "سنوات ريال مدريد", championsLeague: "دوري أبطال أوروبا",
+      timeline: "المسيرة والصور", trophies: "جميع البطولات الـ 35", gear: "معدات رونالدو",
+      toggleTheme: "تبديل المظهر", closeMenu: "إغلاق القائمة", search: "بحث سريع", changeLang: "تغيير اللغة"
+    }
   };
 
   const curLangCode = getCurrentLangCode();
   const curLangObj = LANGUAGES.find((l) => l.code === curLangCode) || LANGUAGES[0];
   const curPath = (typeof location !== "undefined" ? location.pathname : "");
   const txt = DRAWER_I18N[curLangCode] || DRAWER_I18N.en;
+  const L = curLangCode;
 
   const navCategories = [
     {
-      title: txt.catFeatured,
+      title: txt.catCore,
       items: [
-        { href: getLangUrl(curLangCode), label: txt.home, badge: "985 Goals", icon: `<svg viewBox="0 0 24 24"><path d="M3 11.5 12 3l9 8.5"></path><path d="M5.5 10.5V21h5v-6h3v6h5V10.5"></path></svg>` },
-        { href: `/${curLangCode}/ronaldo-vs-messi`, label: txt.vsRonaldo, badge: "GOAT", icon: `<svg viewBox="0 0 24 24"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1"></path><path d="M18 8l4 4-4 4"></path></svg>` },
+        { href: getLangUrl(curLangCode), label: txt.home, badge: `${n(LIVE.goals)}`, icon: `<svg viewBox="0 0 24 24"><path d="M3 11.5 12 3l9 8.5"></path><path d="M5.5 10.5V21h5v-6h3v6h5V10.5"></path></svg>` },
+        { href: `/${L}/dashboard`, label: txt.dashboard, badge: "Hub", icon: `<svg viewBox="0 0 24 24"><path d="M3.5 20.5h17"></path><path d="M6.5 20v-7M12 20V5M17.5 20v-10"></path></svg>` },
+        { href: `/${L}/goalsbyyear`, label: txt.goalsByYear, badge: "69 in 2013", icon: `<svg viewBox="0 0 24 24"><rect height="15.5" rx="2.5" width="17" x="3.5" y="5"></rect><path d="M3.5 10h17M8 2.8V6.5M16 2.8V6.5"></path></svg>` },
+        { href: `/${L}/goalsbyseason`, label: txt.goalsBySeason, badge: "25 Yrs", icon: `<svg viewBox="0 0 24 24"><rect height="7.5" rx="1.5" width="7.5" x="3.5" y="3.5"></rect><rect height="7.5" rx="1.5" width="7.5" x="13" y="3.5"></rect><rect height="7.5" rx="1.5" width="7.5" x="3.5" y="13"></rect><rect height="7.5" rx="1.5" width="7.5" x="13" y="13"></rect></svg>` }
+      ]
+    },
+    {
+      title: txt.catMatch,
+      items: [
+        { href: `/${L}/ronaldo-vs-messi`, label: txt.vsMessi, badge: "GOAT", icon: `<svg viewBox="0 0 24 24"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1"></path><path d="M18 8l4 4-4 4"></path></svg>` },
+        { href: `/${L}/real-madrid`, label: txt.realMadrid, badge: "450 Goals", icon: `<svg viewBox="0 0 24 24"><path d="M14.5 17.5 3 6V3h3l11.5 11.5"></path><path d="m13 19 6-6"></path><path d="m16 16 4 4"></path><path d="m19 21 2-2"></path></svg>` },
+        { href: `/${L}/champions-league`, label: txt.championsLeague, badge: "140 Goals", icon: `<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>` }
       ]
     },
     {
       title: txt.catHistory,
       items: [
-        { href: `/${curLangCode}/trophies`, label: txt.achievements, badge: "35 Cups", icon: `<svg viewBox="0 0 24 24"><path d="M8 3.5h8V9a4 4 0 0 1-8 0V3.5Z"></path><path d="M8 5H4.5A1.5 1.5 0 0 0 6 10H8M16 5h3.5A1.5 1.5 0 0 1 18 10h-2M12 13v3.5M8.5 20.5h7M10 16.5h4V20h-4z"></path></svg>` },
-        { href: `/${curLangCode}/timeline`, label: txt.timeline, badge: "2002-2026", icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg>` },
-        { href: `/${curLangCode}/goalsbyyear`, label: txt.goalsByYear, badge: "69 in 2013", icon: `<svg viewBox="0 0 24 24"><rect height="15.5" rx="2.5" width="17" x="3.5" y="5"></rect><path d="M3.5 10h17M8 2.8V6.5M16 2.8V6.5"></path></svg>` },
-        { href: `/${curLangCode}/goalsbyseason`, label: txt.goalsBySeason, badge: "25 Yrs", icon: `<svg viewBox="0 0 24 24"><rect height="7.5" rx="1.5" width="7.5" x="3.5" y="3.5"></rect><rect height="7.5" rx="1.5" width="7.5" x="13" y="3.5"></rect><rect height="7.5" rx="1.5" width="7.5" x="3.5" y="13"></rect><rect height="7.5" rx="1.5" width="7.5" x="13" y="13"></rect></svg>` }
-      ]
-    },
-    {
-      title: txt.catStats,
-      items: [
-        { href: `/${curLangCode}/dashboard`, label: txt.dashboard, badge: "Hub", icon: `<svg viewBox="0 0 24 24"><path d="M3.5 20.5h17"></path><path d="M6.5 20v-7M12 20V5M17.5 20v-10"></path></svg>` },
-        { href: `/${curLangCode}/real-madrid`, label: txt.vsRealMadrid, badge: "450 Goals", icon: `<svg viewBox="0 0 24 24"><path d="M14.5 17.5 3 6V3h3l11.5 11.5"></path><path d="m13 19 6-6"></path><path d="m16 16 4 4"></path><path d="m19 21 2-2"></path></svg>` },
-        { href: `/${curLangCode}/champions-league`, label: txt.championsLeague, badge: "140 Goals", icon: `<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>` }
+        { href: `/${L}/timeline`, label: txt.timeline, badge: "2002–26", icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg>` },
+        { href: `/${L}/trophies`, label: txt.trophies, badge: "35", icon: `<svg viewBox="0 0 24 24"><path d="M8 3.5h8V9a4 4 0 0 1-8 0V3.5Z"></path><path d="M8 5H4.5A1.5 1.5 0 0 0 6 10H8M16 5h3.5A1.5 1.5 0 0 1 18 10h-2M12 13v3.5M8.5 20.5h7M10 16.5h4V20h-4z"></path></svg>` },
+        { href: `/${L}/gear`, label: txt.gear, badge: "CR7", icon: `<svg viewBox="0 0 24 24"><path d="M14.5 17.5 3 6V3h3l11.5 11.5"></path><path d="m13 19 6-6"></path><path d="m16 16 4 4"></path><path d="m19 21 2-2"></path></svg>` }
       ]
     }
   ];
@@ -591,19 +780,19 @@ function ensureMobileMenuDrawer() {
     catHtml += `</div>`;
   }
 
-  drawer = document.createElement("div");
+  drawer = document.createElement("dialog");
   drawer.id = "mobile-nav-drawer";
-  drawer.className = "mobile-drawer-backdrop";
-  drawer.hidden = true;
-  drawer.setAttribute("aria-hidden", "true");
+  drawer.className = "mobile-drawer-dialog";
+  drawer.setAttribute("closedby", "any");
+  drawer.setAttribute("aria-label", "Navigation Menu");
   drawer.innerHTML = `
-    <div class="mobile-drawer-sheet" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+    <div class="mobile-drawer-sheet">
       <div class="mobile-drawer-header">
         <div class="mobile-drawer-brand">
           <img src="/img/logo-cr7.webp" alt="RonaldoStats Logo" width="28" height="28" style="object-fit:contain;border-radius:4px;flex:0 0 28px;"/>
           <span>${txt.menuTitle}</span>
         </div>
-        <button type="button" class="mobile-drawer-close" id="mobile-drawer-close-btn" aria-label="Close menu">
+        <button type="button" class="mobile-drawer-close" id="mobile-drawer-close-btn" aria-label="${txt.closeMenu}">
           <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
@@ -614,9 +803,13 @@ function ensureMobileMenuDrawer() {
           <div class="mobile-drawer-stat"><span class="num">${LIVE.trophies}</span><span class="lbl">${txt.statTrophies}</span></div>
           <div class="mobile-drawer-stat"><span class="num">5</span><span class="lbl">${txt.statBallons}</span></div>
         </div>
+        <button type="button" class="mobile-drawer-search" data-open-cmd aria-label="${txt.search}">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7.5"></circle><line x1="20.5" y1="20.5" x2="16.3" y2="16.3"></line></svg>
+          <span>${txt.search}</span>
+        </button>
         ${catHtml}
         <div class="mobile-drawer-footer">
-          <button type="button" class="mobile-drawer-btn" id="drawer-lang-btn">
+          <button type="button" class="mobile-drawer-btn" id="drawer-lang-btn" aria-label="${txt.changeLang}">
             <span>${curLangObj.flag}</span>
             <span>${curLangObj.name}</span>
           </button>
@@ -625,7 +818,7 @@ function ensureMobileMenuDrawer() {
           </button>
         </div>
         <div class="mobile-drawer-social">
-          <a href="https://x.com/messistat1" target="_blank" rel="noopener noreferrer" class="mobile-drawer-x-btn" aria-label="Follow @messistat1 on X">
+          <a href="https://x.com/messistat1" target="_blank" rel="noopener noreferrer" class="mobile-drawer-x-btn" aria-label="Follow RonaldoStats on X">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 24.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             <span>Follow @messistat1 on X</span>
           </a>
@@ -639,34 +832,41 @@ function ensureMobileMenuDrawer() {
   `;
 
   document.body.appendChild(drawer);
+  bindDialogLightDismissFallback(drawer);
+  drawer.addEventListener("close", () => {
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    if (menuBtn) {
+      menuBtn.classList.remove("active");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+  });
   return drawer;
 }
 
 function openMobileMenuDrawer() {
   const drawer = ensureMobileMenuDrawer();
-    ensureMobileMoreNavBtn();
+  ensureMobileMoreNavBtn();
   if (!drawer) return;
-  drawer.hidden = false;
-  drawer.setAttribute("aria-hidden", "false");
+  if (typeof drawer.showModal === "function" && !drawer.open) {
+    drawer.showModal();
+  } else {
+    drawer.setAttribute("open", "");
+  }
   const menuBtn = document.getElementById("mobile-menu-btn");
   if (menuBtn) {
     menuBtn.classList.add("active");
     menuBtn.setAttribute("aria-expanded", "true");
   }
-  if (document.body) document.body.style.overflow = "hidden";
 }
 
 function closeMobileMenuDrawer() {
   const drawer = document.getElementById("mobile-nav-drawer");
   if (!drawer) return;
-  drawer.hidden = true;
-  drawer.setAttribute("aria-hidden", "true");
-  const menuBtn = document.getElementById("mobile-menu-btn");
-  if (menuBtn) {
-    menuBtn.classList.remove("active");
-    menuBtn.setAttribute("aria-expanded", "false");
+  if (typeof drawer.close === "function" && drawer.open) {
+    drawer.close();
+  } else {
+    drawer.removeAttribute("open");
   }
-  if (document.body) document.body.style.overflow = "";
 }
 
 // ---------- Mobile 'More' Button in Bottom Rail ----------
@@ -676,10 +876,8 @@ function ensureMobileMoreNavBtn() {
   if (!railNav || railNav.querySelector(".rail-more-btn")) return;
   const curLang = getCurrentLangCode();
   const moreLabels = {
-    en: "More",
-    es: "Más",
-    pt: "Mais",
-    fr: "Plus",
+    en: "More", es: "Más", pt: "Mais", fr: "Plus",
+    ro: "Mai mult", uz: "Ko'proq", ar: "المزيد"
   };
   const label = moreLabels[curLang] || "More";
   const moreBtn = document.createElement("button");
@@ -702,13 +900,68 @@ function ensureMobileMoreNavBtn() {
   railNav.appendChild(moreBtn);
 }
 
+/* Latest-goal number from the canonical JSON (no new route is introduced). */
+let __RS_LIVE_GOAL_HYDRATED = false;
+async function hydrateLiveGoalNum() {
+  if (__RS_LIVE_GOAL_HYDRATED) return;
+  __RS_LIVE_GOAL_HYDRATED = true;
+  try {
+    const res = await fetch("/data/latest-goal.json", { cache: "no-store" });
+    if (!res || !res.ok) return;
+    const payload = await res.json();
+    const g = payload && payload.latestGoal;
+    if (!g) return;
+    window.__RS_LIVE_GOAL = g;
+    if (g.goalNumber) {
+      const num = String(g.goalNumber);
+      document.querySelectorAll("[data-live-goal-num]").forEach((node) => { node.textContent = num; });
+    }
+  } catch (_) {}
+}
+
 function ensureDesktopBrandHeader() {
   if (typeof document === "undefined") return;
   const wrap = document.querySelector("#main.wrap") || document.querySelector(".wrap");
-  if (!wrap || wrap.querySelector(".desktop-brand-header")) return;
-
+  if (!wrap) return;
   const curLang = getCurrentLangCode();
-  const brandHeader = document.createElement("div");
+  const searchPrompts = {
+    en: "Search 985 goals, years, rivals…",
+    es: "Buscar 985 goles, años, rivales…",
+    pt: "Buscar 985 gols, anos, rivais…",
+    fr: "Rechercher 985 buts, années, rivaux…",
+    ro: "Caută 985 goluri, ani, rivali…",
+    uz: "985 gol, yil va raqiblarni qidiring…",
+    ar: "ابحث في 985 هدفاً، السنوات، المنافسين…"
+  };
+  const brandSubs = {
+    en: "The Verified Cristiano Ronaldo Statistics &amp; Video Database",
+    es: "Base de datos verificada de estadísticas y vídeos de Cristiano Ronaldo",
+    pt: "Banco de dados verificado de estatísticas e vídeos de Cristiano Ronaldo",
+    fr: "Base vérifiée des statistiques et vidéos de Cristiano Ronaldo",
+    ro: "Bază de date verificată cu statistici și videoclipuri Cristiano Ronaldo",
+    uz: "Cristiano Ronaldo statistikasi va videolari tasdiqlangan bazasi",
+    ar: "قاعدة بيانات موثقة لإحصائيات وفيديوهات كريستيانو رونالدو"
+  };
+  const actionsHtml = `
+    <div class="masthead-actions">
+      <button type="button" class="masthead-search-trigger" data-open-cmd aria-label="Quick Search">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7.5"></circle><line x1="20.5" y1="20.5" x2="16.3" y2="16.3"></line></svg>
+        <span>${searchPrompts[curLang] || searchPrompts.en}</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <span class="masthead-live-pill" title="Latest goal">
+        <span class="live-dot-mini" aria-hidden="true"></span>
+        <span>#<b class="tnum" data-live-goal-num>${LIVE.goals}</b> ▶</span>
+      </span>
+    </div>
+  `;
+  const existing = wrap.querySelector(".desktop-brand-header");
+  if (existing) {
+    if (!existing.querySelector(".masthead-actions")) existing.insertAdjacentHTML("beforeend", actionsHtml);
+    return;
+  }
+
+  const brandHeader = document.createElement("header");
   brandHeader.className = "desktop-brand-header";
   brandHeader.innerHTML = `
     <a href="${getLangUrl(curLang)}" class="desktop-brand-logo-link" aria-label="RonaldoStats Home">
@@ -716,10 +969,12 @@ function ensureDesktopBrandHeader() {
     </a>
     <div class="desktop-brand-titles">
       <div class="desktop-brand-name">Ronaldo<span>Stats</span></div>
-      <div class="desktop-brand-sub">The Verified Cristiano Ronaldo Statistics &amp; Video Database</div>
+      <div class="desktop-brand-sub">${brandSubs[curLang] || brandSubs.en}</div>
     </div>
+    ${actionsHtml}
   `;
   wrap.prepend(brandHeader);
+  hydrateLiveGoalNum();
 }
 
 /* Keyboard users land here first: one Tab press reveals a jump-to-content link. */
@@ -729,18 +984,20 @@ function ensureSkipLink() {
   const main = document.getElementById("main") || document.querySelector(".wrap");
   if (!main) return;
   if (!main.id) main.id = "main";
+  const lang = getCurrentLangCode();
+  const skipLabels = {
+    en: "Skip to content", es: "Saltar al contenido", pt: "Pular para o conteúdo", fr: "Aller au contenu",
+    ro: "Sari la conținut", uz: "Kontentga o'tish", ar: "تخطي إلى المحتوى"
+  };
   const link = document.createElement("a");
   link.className = "skip-link";
   link.href = "#main";
-  link.textContent = document.documentElement.lang === "es" ? "Saltar al contenido" : "Skip to content";
+  link.textContent = skipLabels[lang] || skipLabels.en;
   document.body.prepend(link);
 }
 ensureSkipLink();
 
-/* The 300x250 leaderboard sits above the headline, which on a 390x844 phone
-   pushed the H1 to 429px — over half the first screen before any content.
-   On phones we let the headline win and drop the slot just under the lede.
-   Desktop keeps the original position, and rotating re-applies the layout. */
+/* The 300x250 leaderboard sits above the headline: on phones the lede wins. */
 function placeTopAdForViewport() {
   if (typeof document === "undefined") return;
   const ad = document.querySelector(".ad-banner-top");
@@ -761,12 +1018,359 @@ function placeTopAdForViewport() {
   }
 }
 placeTopAdForViewport();
-window.addEventListener("ronaldo:spark-relayout", placeTopAdForViewport);
+window.addEventListener("rs:spark-relayout", placeTopAdForViewport);
 if (typeof window !== "undefined") {
   window.addEventListener("orientationchange", () => setTimeout(placeTopAdForViewport, 120));
 }
 
+/* ================= HUB MONETIZE BAR (every hub page except index/gear) ================= */
+function mountHubMonetizeBar() {
+  if (typeof document === "undefined") return;
+  if (isOwnerNoAdsActive()) return;
+  if (document.getElementById("hub-monetize-bar")) return;
+
+  const HUB_PAGE_ALIASES = {
+    "goalsbyyear": "goalsbyyear", "byyear": "goalsbyyear",
+    "goalsbyseason": "goalsbyseason", "byseason": "goalsbyseason",
+    "champions-league": "champions-league", "real-madrid": "real-madrid",
+    "trophies": "trophies", "achievements": "trophies",
+    "ronaldo-vs-messi": "ronaldo-vs-messi", "vs-ronaldo": "ronaldo-vs-messi",
+    "dashboard": "dashboard", "timeline": "timeline"
+  };
+
+  let hubKey = "";
+  const bodyPage = (document.body && document.body.dataset && document.body.dataset.page || "").toLowerCase();
+  if (HUB_PAGE_ALIASES[bodyPage]) {
+    hubKey = HUB_PAGE_ALIASES[bodyPage];
+  } else if (typeof location !== "undefined") {
+    const parts = location.pathname.toLowerCase().split("/").filter(Boolean).map((p) => p.replace(/\.html$/, ""));
+    for (let i = parts.length - 1; i >= 0; i--) {
+      if (HUB_PAGE_ALIASES[parts[i]]) { hubKey = HUB_PAGE_ALIASES[parts[i]]; break; }
+    }
+  }
+  if (!hubKey) return;
+
+  const lang = getCurrentLangCode();
+  const WATCH_LABELS = {
+    en: "▶ Watch HD Goal Highlights & Live Streams",
+    es: "▶ Ver Goles en HD y Partidos en Vivo",
+    pt: "▶ Ver Gols em HD e Jogos ao Vivo",
+    fr: "▶ Voir les Buts HD & Matchs en Direct",
+    ro: "▶ Vezi Goluri HD și Meciuri Live",
+    uz: "▶ HD Gollar va Jonli Efirni Ko'rish",
+    ar: "▶ شاهد أهداف HD والمباريات المباشرة"
+  };
+  const ARIA_LABELS = {
+    en: "Goal Highlights & Official Gear",
+    es: "Resúmenes de Goles y Equipación Oficial",
+    pt: "Melhores Momentos e Camisas Oficiais",
+    fr: "Temps Forts & Équipement Officiel",
+    ro: "Momente Cheie & Echipament Oficial",
+    uz: "Gol Lahzalari & Rasmiy Forma",
+    ar: "أبرز الأهداف والأدوات الرسمية"
+  };
+  const KIT_CONFIG = {
+    madrid: {
+      href: MONETIZE_CONFIG.offers.kitMadridUrl,
+      labels: {
+        en: "Real Madrid #7 Jersey ↗", es: "Camiseta Real Madrid #7 ↗", pt: "Camisa Real Madrid #7 ↗",
+        fr: "Maillot Real Madrid #7 ↗", ro: "Tricou Real Madrid #7 ↗", uz: "Real Madrid #7 Forma ↗",
+        ar: "قميص ريال مدريد #7 ↗"
+      }
+    },
+    portugal: {
+      href: MONETIZE_CONFIG.offers.kitPortugalUrl,
+      labels: {
+        en: "Portugal #7 Jersey ↗", es: "Camiseta Portugal #7 ↗", pt: "Camisa Portugal #7 ↗",
+        fr: "Maillot Portugal #7 ↗", ro: "Tricou Portugalia #7 ↗", uz: "Portugaliya #7 Forma ↗",
+        ar: "قميص البرتغال #7 ↗"
+      }
+    },
+    alnassr: {
+      href: MONETIZE_CONFIG.offers.kitAlNassrUrl,
+      labels: {
+        en: "Al Nassr #7 Jersey ↗", es: "Camiseta Al Nassr #7 ↗", pt: "Camisa Al Nassr #7 ↗",
+        fr: "Maillot Al Nassr #7 ↗", ro: "Tricou Al Nassr #7 ↗", uz: "Al Nassr #7 Forma ↗",
+        ar: "قميص النصر #7 ↗"
+      }
+    }
+  };
+
+  let eraGroup = "alnassr";
+  if (["real-madrid", "champions-league", "goalsbyyear", "goalsbyseason"].includes(hubKey)) eraGroup = "madrid";
+  else if (hubKey === "trophies" || hubKey === "timeline") eraGroup = "portugal";
+  const kit = KIT_CONFIG[eraGroup];
+
+  const bar = document.createElement("aside");
+  bar.id = "hub-monetize-bar";
+  bar.className = "hub-monetize-bar";
+  bar.setAttribute("aria-label", ARIA_LABELS[lang] || ARIA_LABELS.en);
+
+  const watchLink = document.createElement("a");
+  watchLink.className = "hub-monetize-btn hub-monetize-watch";
+  watchLink.href = MONETIZE_CONFIG.adsterraSmartlinkUrl;
+  watchLink.target = "_blank";
+  watchLink.rel = "noopener noreferrer sponsored";
+  watchLink.textContent = WATCH_LABELS[lang] || WATCH_LABELS.en;
+
+  const kitLink = document.createElement("a");
+  kitLink.className = "hub-monetize-btn hub-monetize-kit";
+  kitLink.href = kit.href;
+  kitLink.target = "_blank";
+  kitLink.rel = "noopener sponsored";
+  kitLink.textContent = kit.labels[lang] || kit.labels.en;
+
+  bar.appendChild(watchLink);
+  bar.appendChild(kitLink);
+
+  const main = document.getElementById("main") || document.querySelector("main.wrap") || document.querySelector(".wrap") || document.body;
+  if (!main) return;
+
+  let anchor = null;
+  if (hubKey === "ronaldo-vs-messi") anchor = document.getElementById("rivalry-tug-arena");
+  if (!anchor) anchor = main.querySelector(".page-lead, .lede, h1");
+  if (anchor && anchor.parentElement) {
+    anchor.insertAdjacentElement("afterend", bar);
+  } else {
+    main.prepend(bar);
+  }
+}
+
+if (typeof document !== "undefined") {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mountHubMonetizeBar, { once: true });
+  } else {
+    mountHubMonetizeBar();
+  }
+}
+
+/* ================= IN-PAGE SOCIAL PUSH (Adsterra in-page mode) ================= */
+function initInPageSocialBar() {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+
+  try {
+    if (isOwnerNoAdsActive()) return;
+    if (sessionStorage.getItem("rs_session_sl_v1") === "1") return;
+    if (sessionStorage.getItem("rs_push_dismissed") === "1") return;
+  } catch (_) { return; }
+
+  const lang = getCurrentLangCode();
+
+  if (MONETIZE_CONFIG.adsterraSocialBarScriptUrl) {
+    if (document.getElementById("rs-socialbar-iframe-wrap")) return;
+    const iframeWrap = document.createElement("div");
+    iframeWrap.id = "rs-socialbar-iframe-wrap";
+    iframeWrap.style.cssText = "position:fixed;bottom:0;left:0;width:100%;z-index:9995;pointer-events:none;";
+    const iframe = document.createElement("iframe");
+    iframe.src = `/ads/social-bar.html?src=${encodeURIComponent(MONETIZE_CONFIG.adsterraSocialBarScriptUrl)}`;
+    iframe.style.cssText = "width:100%;height:50px;border:none;pointer-events:auto;";
+    iframe.setAttribute("scrolling", "no");
+    iframe.setAttribute("frameborder", "0");
+    iframeWrap.appendChild(iframe);
+    document.body.appendChild(iframeWrap);
+    return;
+  }
+
+  const goalNum = LIVE.lgNum || LIVE.goals || 985;
+  const strike = (window.__RS_LIVE_GOAL && window.__RS_LIVE_GOAL.title) || `Al-Nassr 5–3 ${LIVE.lgOpp || "Al Kholood"}`;
+  const PUSH_I18N = {
+    en: {
+      badge: `LIVE REPLAY · #${goalNum}`,
+      title: `Goal #${goalNum} HD Replay & Match Stream`,
+      subtitle: `Ronaldo's latest strike — ${strike} + live match stream`,
+      cta: "Watch HD Replay ▶", dismiss: "Dismiss"
+    },
+    es: {
+      badge: `REPETICIÓN HD · #${goalNum}`,
+      title: `Gol #${goalNum} Repetición HD y Partido`,
+      subtitle: `El último gol de Ronaldo — ${strike} + transmisión en vivo`,
+      cta: "Ver Repetición ▶", dismiss: "Cerrar"
+    },
+    pt: {
+      badge: `REPLAY AO VIVO · #${goalNum}`,
+      title: `Gol #${goalNum} Replay HD e Transmissão`,
+      subtitle: `O último gol de Ronaldo — ${strike} + transmissão ao vivo`,
+      cta: "Assistir Replay ▶", dismiss: "Fechar"
+    },
+    fr: {
+      badge: `REPLAY HD · #${goalNum}`,
+      title: `But #${goalNum} Replay HD & Direct`,
+      subtitle: `Le dernier but de Ronaldo — ${strike} + match en direct`,
+      cta: "Voir le Replay ▶", dismiss: "Fermer"
+    },
+    ro: {
+      badge: `REPLAY LIVE · #${goalNum}`,
+      title: `Golul #${goalNum} Replay HD și Stream`,
+      subtitle: `Ultimul gol al lui Ronaldo — ${strike} + transmisiune live`,
+      cta: "Vezi Replay HD ▶", dismiss: "Închide"
+    },
+    uz: {
+      badge: `JONLI TAKROR · #${goalNum}`,
+      title: `${goalNum}-Gol HD Takrori va Efir`,
+      subtitle: `Ronaldoning so'nggi goli — ${strike} + jonli o'yin efiri`,
+      cta: "HD Takrorini Ko'rish ▶", dismiss: "Yopish"
+    },
+    ar: {
+      badge: `إعادة مباشرة · #${goalNum}`,
+      title: `إعادة الهدف #${goalNum} بجودة HD والبث`,
+      subtitle: `أحدث أهداف رونالدو — ${strike} + البث المباشر`,
+      cta: "شاهد الإعادة ▶", dismiss: "إغلاق"
+    }
+  };
+  const t = PUSH_I18N[lang] || PUSH_I18N.en;
+
+  function showPush() {
+    try {
+      if (isOwnerNoAdsActive()) return;
+      if (sessionStorage.getItem("rs_push_dismissed") === "1") return;
+      if (sessionStorage.getItem("rs_social_bar_shown") === "1") return;
+      sessionStorage.setItem("rs_social_bar_shown", "1");
+    } catch (_) {}
+
+    if (document.getElementById("rs-inpage-push")) return;
+
+    const push = document.createElement("aside");
+    push.id = "rs-inpage-push";
+    push.className = "rs-inpage-push";
+    push.setAttribute("role", "complementary");
+    push.setAttribute("aria-label", t.title);
+    push.innerHTML = `
+      <button type="button" class="rs-inpage-push-close" aria-label="${t.dismiss}" title="${t.dismiss}">×</button>
+      <div class="rs-inpage-push-inner">
+        <span class="rs-inpage-push-badge">${t.badge}</span>
+        <strong class="rs-inpage-push-title">${t.title}</strong>
+        <p class="rs-inpage-push-subtitle">${t.subtitle}</p>
+        <a class="rs-inpage-push-cta"
+           href="${MONETIZE_CONFIG.adsterraSmartlinkUrl}"
+           target="_blank" rel="noopener noreferrer sponsored">${t.cta}</a>
+      </div>
+    `;
+    push.querySelector(".rs-inpage-push-close").addEventListener("click", () => {
+      try { sessionStorage.setItem("rs_push_dismissed", "1"); } catch (_) {}
+      push.remove();
+    });
+    document.body.appendChild(push);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => { push.classList.add("rs-inpage-push--visible"); });
+    });
+  }
+
+  let scrollReady = false;
+  let scrollFired = false;
+  const scrollHandler = () => {
+    if (scrollFired || !scrollReady) return;
+    if ((window.scrollY || window.pageYOffset) >= 300) {
+      scrollFired = true;
+      window.removeEventListener("scroll", scrollHandler, { passive: true });
+      showPush();
+    }
+  };
+  setTimeout(() => { scrollReady = true; }, 3000);
+  window.addEventListener("scroll", scrollHandler, { passive: true });
+  setTimeout(() => {
+    if (!scrollFired) {
+      scrollFired = true;
+      window.removeEventListener("scroll", scrollHandler, { passive: true });
+      showPush();
+    }
+  }, 6000);
+}
+
+// Global click and keydown delegation for language switcher, mobile menu drawer, theme toggles, and modal backdrops
+if (typeof document !== "undefined") {
+  document.addEventListener("click", (e) => {
+    const cmdTrigger = e.target.closest("[data-open-cmd]");
+    if (cmdTrigger) {
+      e.preventDefault();
+      openCommandPalette();
+      return;
+    }
+    const menuTrigger = e.target.closest("#mobile-menu-btn, .mobile-menu-btn");
+    if (menuTrigger) {
+      e.preventDefault();
+      const drawer = document.getElementById("mobile-nav-drawer");
+      if (drawer && drawer.open) {
+        closeMobileMenuDrawer();
+      } else {
+        openMobileMenuDrawer();
+      }
+      return;
+    }
+    const drawerClose = e.target.closest("#mobile-drawer-close-btn, .mobile-drawer-close");
+    if (drawerClose) {
+      e.preventDefault();
+      closeMobileMenuDrawer();
+      return;
+    }
+    const drawerEl = document.getElementById("mobile-nav-drawer");
+    if (drawerEl && e.target === drawerEl) {
+      closeMobileMenuDrawer();
+      return;
+    }
+    const drawerLink = e.target.closest(".mobile-drawer-link");
+    if (drawerLink) {
+      closeMobileMenuDrawer();
+      return;
+    }
+    const drawerLang = e.target.closest("#drawer-lang-btn");
+    if (drawerLang) {
+      e.preventDefault();
+      closeMobileMenuDrawer();
+      openLangModal();
+      return;
+    }
+    const drawerTheme = e.target.closest("#drawer-theme-btn");
+    if (drawerTheme) {
+      e.preventDefault();
+      if (typeof window.__toggleRonaldoTheme === "function") window.__toggleRonaldoTheme();
+      return;
+    }
+
+    const langTrigger = e.target.closest("#rail-lang-btn, .rail-lang-btn, #mobile-lang-btn, .mobile-lang-btn");
+    if (langTrigger) {
+      e.preventDefault();
+      openLangModal();
+      return;
+    }
+    const closeTrigger = e.target.closest("#lang-modal-close-btn, .lang-modal-close");
+    if (closeTrigger) {
+      e.preventDefault();
+      closeLangModal();
+      return;
+    }
+    const modal = document.getElementById("lang-modal");
+    if (modal && e.target === modal) {
+      closeLangModal();
+      return;
+    }
+    const langCard = e.target.closest(".lang-card-option");
+    if (langCard) {
+      const code = langCard.getAttribute("data-code");
+      if (code) {
+        try { localStorage.setItem("ronaldostats_lang_choice", code); } catch (_) {}
+      }
+      return;
+    }
+    const mobTheme = e.target.closest("#mobile-theme-btn, .mobile-theme-btn");
+    if (mobTheme) {
+      e.preventDefault();
+      if (typeof window.__toggleRonaldoTheme === "function") window.__toggleRonaldoTheme();
+      return;
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const drawer = document.getElementById("mobile-nav-drawer");
+      if (drawer && drawer.open && typeof drawer.close === "function") drawer.close();
+      const modal = document.getElementById("lang-modal");
+      if (modal && modal.open && typeof modal.close === "function") modal.close();
+    }
+  });
+}
+
 function initDonationPopup() {
+  if (isOwnerNoAdsActive()) return;
   if (typeof window === "undefined" || typeof document === "undefined") return;
 
   const DISMISS_KEY = "ronaldostat_donation_dismissed";
@@ -1965,111 +2569,6 @@ function initDedicatedRoulette() {
   });
 }
 
-// Global click and keydown delegation for language switcher, mobile menu drawer, theme toggles, and modal backdrops
-if (typeof document !== "undefined") {
-  document.addEventListener("click", (e) => {
-    const menuTrigger = e.target.closest("#mobile-menu-btn, .mobile-menu-btn");
-    if (menuTrigger) {
-      e.preventDefault();
-      const drawer = document.getElementById("mobile-nav-drawer");
-      if (drawer && !drawer.hidden) {
-        closeMobileMenuDrawer();
-      } else {
-        openMobileMenuDrawer();
-      }
-      return;
-    }
-    const drawerClose = e.target.closest("#mobile-drawer-close-btn, .mobile-drawer-close");
-    if (drawerClose) {
-      e.preventDefault();
-      closeMobileMenuDrawer();
-      return;
-    }
-    const drawerEl = document.getElementById("mobile-nav-drawer");
-    if (drawerEl && e.target === drawerEl) {
-      closeMobileMenuDrawer();
-      return;
-    }
-    const drawerLink = e.target.closest(".mobile-drawer-link");
-    if (drawerLink) {
-      closeMobileMenuDrawer();
-      return;
-    }
-    const drawerLang = e.target.closest("#drawer-lang-btn");
-    if (drawerLang) {
-      e.preventDefault();
-      closeMobileMenuDrawer();
-      openLangModal();
-      return;
-    }
-    const drawerTheme = e.target.closest("#drawer-theme-btn");
-    if (drawerTheme) {
-      e.preventDefault();
-      const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-      const next = current === "dark" ? "light" : "dark";
-      if (next === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-      } else {
-        document.documentElement.removeAttribute("data-theme");
-      }
-      try { localStorage.setItem("theme", next); } catch (_) {}
-      return;
-    }
-
-    const langTrigger = e.target.closest("#rail-lang-btn, .rail-lang-btn, #mobile-lang-btn, .mobile-lang-btn");
-    if (langTrigger) {
-      e.preventDefault();
-      openLangModal();
-      return;
-    }
-    const closeTrigger = e.target.closest("#lang-modal-close-btn, .lang-modal-close");
-    if (closeTrigger) {
-      e.preventDefault();
-      closeLangModal();
-      return;
-    }
-    const modal = document.getElementById("lang-modal");
-    if (modal && e.target === modal) {
-      closeLangModal();
-      return;
-    }
-    const langCard = e.target.closest(".lang-card-option");
-    if (langCard) {
-      const code = langCard.getAttribute("data-code");
-      if (code) {
-        try { localStorage.setItem("ronaldostats_lang_choice", code); } catch (_) {}
-      }
-      return;
-    }
-    const mobTheme = e.target.closest("#mobile-theme-btn, .mobile-theme-btn");
-    if (mobTheme) {
-      e.preventDefault();
-      const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-      const next = current === "dark" ? "light" : "dark";
-      if (next === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-      } else {
-        document.documentElement.removeAttribute("data-theme");
-      }
-      try { localStorage.setItem("theme", next); } catch (_) {}
-      return;
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      const drawer = document.getElementById("mobile-nav-drawer");
-      if (drawer && !drawer.hidden) {
-        closeMobileMenuDrawer();
-      }
-      const modal = document.getElementById("lang-modal");
-      if (modal && !modal.hidden) {
-        closeLangModal();
-      }
-    }
-  });
-}
-
 function initLanguageAndMobileTopBar() {
   if (typeof document === "undefined") return;
 
@@ -2135,6 +2634,9 @@ function initLanguageAndMobileTopBar() {
           <span class="mobile-topbar-title">Ronaldo<b>Stats</b></span>
         </a>
         <div class="mobile-topbar-actions">
+          <button type="button" class="mobile-search-btn" data-open-cmd aria-label="Search stats and pages">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7.5"></circle><line x1="20.5" y1="20.5" x2="16.3" y2="16.3"></line></svg>
+          </button>
           <button type="button" class="mobile-lang-btn" id="mobile-lang-btn" aria-label="Change language">
             <span class="mobile-lang-flag">${curLangObj.flag}</span>
             <span class="mobile-lang-code">${curLangObj.code.toUpperCase()}</span>
@@ -2557,6 +3059,7 @@ function normalize(d) {
   const _todayIso = new Date().toISOString().split("T")[0];
   const _updIso = (d.meta && d.meta.updated && d.meta.updated > _todayIso) ? d.meta.updated : _todayIso;
   d.lastUpdated = new Date(_updIso + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  d.lastUpdatedIso = _updIso;
   const fin = {};
   d.byFinish.forEach((r) => { fin[r.finish] = r.goals; });
   d.byFinish = { openPlay: fin["Open play"], penalties: fin["Penalties"], freeKicks: fin["Free kicks"] };
@@ -2671,6 +3174,16 @@ function setHead(d, ledeHTML) {
   if (el("upd")) {
     if (isEn) {
       el("upd").textContent = "Updated " + d.lastUpdated;
+    } else if (d.lastUpdatedIso) {
+      try {
+        const dt = new Date(d.lastUpdatedIso + "T00:00:00");
+        const locMap = { es: "es-ES", pt: "pt-PT", fr: "fr-FR", ro: "ro-RO", uz: "uz-Latn-UZ", ar: "ar-EG-u-nu-latn" };
+        const prefixMap = { es: "Actualizado el ", pt: "Atualizado em ", fr: "Mis à jour le ", ro: "Actualizat la ", uz: "Yangilangan: ", ar: "مُحدّث في " };
+        const loc = locMap[lang];
+        if (loc && prefixMap[lang]) {
+          el("upd").textContent = prefixMap[lang] + dt.toLocaleDateString(loc, { day: "numeric", month: "long", year: "numeric" });
+        }
+      } catch (_) {}
     }
   }
   if (el("lede")) {
@@ -2726,7 +3239,7 @@ function reveal() {
 
 function getLang() {
   const l = (document.documentElement.lang || "en").toLowerCase();
-  for (const c of ["es","pt","fr"]) {
+  for (const c of ["es","pt","fr","ro","uz","ar"]) {
     if (l.startsWith(c)) return c;
   }
   return "en";
@@ -2993,7 +3506,21 @@ function renderHome(d) {
 
   setHead(d, dict.head(t, p, d));
 
+  document.querySelectorAll("[data-live-goal-num]").forEach((node) => {
+    node.textContent = String(LIVE.lgNum || t.goals);
+  });
+  hydrateLiveGoalNum();
+
   const prof = el("profile");
+  if (prof && prof.classList.contains("bento-profile-card")) {
+    const splitSubs = prof.querySelectorAll(".bento-split-item .bs-sub");
+    const wantApps = [agg.realmadrid && agg.realmadrid.apps, agg.portugal && agg.portugal.apps, agg.alnassr && agg.alnassr.apps];
+    splitSubs.forEach((sEl, idx) => {
+      if (idx < wantApps.length && wantApps[idx] != null) {
+        sEl.textContent = sEl.textContent.replace(/\d[\d.,]*/, String(wantApps[idx]));
+      }
+    });
+  }
   if (prof) {
     const dob = new Date(p.born + "T00:00:00").toLocaleDateString(dict.locale || "en-GB", { day: "numeric", month: "long", year: "numeric" });
     prof.innerHTML =
@@ -3243,6 +3770,8 @@ function renderHome(d) {
     });
   }
 
+  initBentoEraExplorer(d);
+  initRoad1000Simulator(d);
   renderExplore(d, "home");
   renderMethod(d, "");
   initBdayQuickForm();
@@ -3257,6 +3786,7 @@ function renderHome(d) {
 function renderVsPage(d) {
   const lede = el("lede");
   setHead(d, lede ? lede.innerHTML : "");
+  buildRivalryArena(d);
   renderExplore(d, ["vs-ronaldo", "ronaldo-vs-messi"]);
 }
 
@@ -4104,6 +4634,7 @@ function renderDashboard(d, team) {
     if (tbl) sortable(tbl);
   }
 
+  mountRonaldoPitchZones(d);
   renderExplore(d, "dashboard");
   renderMethod(d, cfg.method);
 }
@@ -6089,8 +6620,921 @@ function fixLocaleLinks() {
   }
 }
 
+/* ================= GLOBAL COMMAND PALETTE (⌘K / /) ================= */
+let __CMD_DATA_CACHE = null;
+
+function ensureCommandPalette() {
+  if (typeof document === "undefined") return null;
+  let dlg = document.getElementById("cmd-palette");
+  if (dlg) return dlg;
+
+  const lang = getCurrentLangCode();
+  const CMD_I18N = {
+    en: {
+      ph: "Jump to year (2013), rival (Messi, Real Madrid), UCL, Ronaldo gear or hub…",
+      esc: "ESC",
+      empty: "No matching stats or pages found.",
+      live: "LIVE",
+      cats: { hub: "Hub", live: "Live", interactive: "Interactive", rivalry: "Rivalry", tournament: "Tournament", analytics: "Analytics", archive: "Archive", history: "History", honours: "Honours", date: "Historic Date", team: "Team Filter", year: "Year" }
+    },
+    es: {
+      ph: "Ir a año (2012), rival (Ronaldo, Real Madrid), fecha (18 Dic) o sección…",
+      esc: "ESC",
+      empty: "Sin resultados.",
+      live: "EN VIVO",
+      cats: { hub: "Centro", live: "En vivo", interactive: "Interactivo", rivalry: "Rivalidad", tournament: "Torneo", analytics: "Analítica", archive: "Archivo", history: "Historia", honours: "Trofeos", date: "Fecha histórica", team: "Equipo", year: "Año" }
+    },
+    pt: {
+      ph: "Ir para ano (2012), rival (Ronaldo, Real Madrid), data (18 Dez) ou página…",
+      esc: "ESC",
+      empty: "Nenhum resultado encontrado.",
+      live: "AO VIVO",
+      cats: { hub: "Hub", live: "Ao vivo", interactive: "Interativo", rivalry: "Rivalidade", tournament: "Torneio", analytics: "Análises", archive: "Arquivo", history: "História", honours: "Troféus", date: "Data histórica", team: "Clube", year: "Ano" }
+    },
+    fr: {
+      ph: "Aller à une année (2012), rival (Ronaldo, Real Madrid), date ou page…",
+      esc: "ESC",
+      empty: "Aucun résultat trouvé.",
+      live: "DIRECT",
+      cats: { hub: "Hub", live: "Direct", interactive: "Interactif", rivalry: "Rivalité", tournament: "Tournoi", analytics: "Analytique", archive: "Archives", history: "Histoire", honours: "Palmarès", date: "Date clé", team: "Équipe", year: "Année" }
+    },
+    ro: {
+      ph: "Caută an (2012), rival (Ronaldo, Real Madrid), dată (18 Dec) sau pagină…",
+      esc: "ESC",
+      empty: "Nu s-au găsit statistici sau pagini.",
+      live: "LIVE",
+      cats: { hub: "Centru", live: "Live", interactive: "Interactiv", rivalry: "Rivalitate", tournament: "Turneu", analytics: "Analiză", archive: "Arhivă", history: "Istorie", honours: "Trofee", date: "Dată istorică", team: "Echipă", year: "An" }
+    },
+    uz: {
+      ph: "Yil (2012), raqib (Ronaldo, Real Madrid), sana (18 Dek) yoki bo'lim…",
+      esc: "ESC",
+      empty: "Mos natija yoki sahifa topilmadi.",
+      live: "JONLI",
+      cats: { hub: "Markaz", live: "Jonli", interactive: "Interaktiv", rivalry: "Raqobat", tournament: "Turnir", analytics: "Tahlil", archive: "Arxiv", history: "Tarix", honours: "Sovrinlar", date: "Tarixiy sana", team: "Jamoa", year: "Yil" }
+    },
+    ar: {
+      ph: "انتقل إلى سنة (2012) أو منافس (رونالدو، ريال مدريد) أو تاريخ أو قسم…",
+      esc: "ESC",
+      empty: "لم يتم العثور على إحصائيات أو صفحات مطابقة.",
+      live: "مباشر",
+      cats: { hub: "المركز", live: "مباشر", interactive: "تفاعلي", rivalry: "منافسة", tournament: "بطولة", analytics: "تحليلات", archive: "أرشيف", history: "التاريخ", honours: "الألقاب", date: "تاريخ بارز", team: "الفريق", year: "سنة" }
+    }
+  };
+  const tx = CMD_I18N[lang] || CMD_I18N.en;
+
+  dlg = document.createElement("dialog");
+  dlg.id = "cmd-palette";
+  dlg.className = "cmd-dialog";
+  dlg.setAttribute("closedby", "any");
+  dlg.setAttribute("aria-label", "Quick Search");
+  dlg.innerHTML = `
+    <div class="cmd-shell">
+      <div class="cmd-input-row">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7.5"></circle><line x1="20.5" y1="20.5" x2="16.3" y2="16.3"></line></svg>
+        <input type="search" id="cmd-input" class="cmd-input" placeholder="${tx.ph}" autocomplete="off" autofocus />
+        <form method="dialog" style="margin:0"><button class="cmd-esc-btn" id="cmd-close-btn">${tx.esc}</button></form>
+      </div>
+      <div class="cmd-results" id="cmd-results" role="listbox"></div>
+    </div>
+  `;
+  document.body.appendChild(dlg);
+  bindDialogLightDismissFallback(dlg);
+
+  const inp = dlg.querySelector("#cmd-input");
+  const listEl = dlg.querySelector("#cmd-results");
+
+  let activeIdx = 0;
+  let currentItems = [];
+
+  const getItems = () => {
+    const c = tx.cats;
+    const L = lang;
+    // Ronaldo's ten pages only — no birthday / latest-goal / days routes here.
+    const base = [
+      { cat: c.hub, title: "Career Overview & Official Ledger", sub: `${n(LIVE.goals)} goals · ${n(LIVE.apps)} senior matches`, badge: `${LIVE.goals}G`, href: `/${L}`, kw: "home stats career total goals assists ronaldo cr7" },
+      { cat: c.rivalry, title: "Ronaldo vs Messi", sub: `${LIVE.goals} vs ${LIVE.rGoals} goals · ${LIVE.trophies} vs ${LIVE.rTrophies} trophies · 36 H2H`, badge: "GOAT", href: `/${L}/ronaldo-vs-messi`, kw: "messi comparison goat head to head h2h" },
+      { cat: c.rivalry, title: "Real Madrid years", sub: "450 goals in 438 appearances — 3 Champions League titles", badge: "450G", href: `/${L}/real-madrid`, kw: "real madrid bernabeu clasico champions league" },
+      { cat: c.tournament, title: "UEFA Champions League Hub", sub: "140 goals, 42 assists, 5 titles — all-time records", badge: "140G", href: `/${L}/champions-league`, kw: "ucl champions league europe Wembley final" },
+      { cat: c.archive, title: "Goals by Calendar Year", sub: "Every season from 2002 to today — 69 goals in 2013", badge: "69 in '13", href: `/${L}/goalsbyyear`, kw: "year calendar annual 2013 69" },
+      { cat: c.archive, title: "Goals by Club Season", sub: "All 25 club campaigns across five leagues", badge: "25 Yrs", href: `/${L}/goalsbyseason`, kw: "season club la liga premier league serie a spl" },
+      { cat: c.analytics, title: "Interactive Stats Dashboard & Pitch Map", sub: "Filter by club, competition and body part", badge: c.hub, href: `/${L}/dashboard`, kw: "dashboard analytics chart body part pitch map filters" },
+      { cat: c.history, title: "Through the Years — Career Timeline", sub: "Every debut, final, Ballon d'Or and milestone", badge: "2002–26", href: `/${L}/timeline`, kw: "timeline history milestones debut world cup" },
+      { cat: c.honours, title: `${LIVE.trophies} Trophies & 5 Ballons d'Or`, sub: "The complete honours cabinet", badge: `${LIVE.trophies} Cups`, href: `/${L}/trophies`, kw: "trophies honours awards ballon dor golden shoe world cup" },
+      { cat: c.team, title: "Ronaldo Gear & Kit Guide", sub: "CR7 jerseys, boots and official fan gear", badge: "CR7", href: `/${L}/gear`, kw: "gear kit jersey boots mercurial shopping" }
+    ];
+    if (__CMD_DATA_CACHE && Array.isArray(__CMD_DATA_CACHE.calendarYears)) {
+      __CMD_DATA_CACHE.calendarYears.toReversed().forEach((yr) => {
+        base.push({
+          cat: c.year,
+          title: `${yr.year} Calendar Year Record`,
+          sub: `${yr.goals} goals scored (Age ${yr.age}) · Running total: ${n(yr.careerTotal)}`,
+          badge: `${yr.goals}G`,
+          href: `/${L}/goalsbyyear#y${yr.year}`,
+          kw: `year ${yr.year} ${yr.goals} goals age ${yr.age}`
+        });
+      });
+    }
+    return base;
+  };
+
+  const renderList = (q) => {
+    const query = (q || "").trim().toLowerCase();
+    const all = getItems();
+    currentItems = query
+      ? all.filter((it) => (it.title + " " + it.sub + " " + it.kw + " " + it.badge).toLowerCase().includes(query)).slice(0, 12)
+      : all.slice(0, 9);
+    activeIdx = 0;
+    if (!currentItems.length) {
+      listEl.innerHTML = `<div class="cmd-empty">${tx.empty}</div>`;
+      return;
+    }
+    listEl.innerHTML = currentItems.map((it, i) => `
+      <a href="${it.href}" class="cmd-item${i === 0 ? " is-active" : ""}" role="option" data-cidx="${i}">
+        <span class="cmd-item-cat">${it.cat}</span>
+        <div class="cmd-item-main">
+          <strong class="cmd-item-title">${it.title}</strong>
+          <span class="cmd-item-sub">${it.sub}</span>
+        </div>
+        <span class="cmd-item-badge tnum">${it.badge}</span>
+      </a>
+    `).join("");
+  };
+
+  inp.addEventListener("input", () => renderList(inp.value));
+  inp.addEventListener("keydown", (e) => {
+    const rows = listEl.querySelectorAll(".cmd-item");
+    if (!rows.length) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      activeIdx = (activeIdx + 1) % rows.length;
+      rows.forEach((r, idx) => r.classList.toggle("is-active", idx === activeIdx));
+      rows[activeIdx].scrollIntoView({ block: "nearest" });
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      activeIdx = (activeIdx - 1 + rows.length) % rows.length;
+      rows.forEach((r, idx) => r.classList.toggle("is-active", idx === activeIdx));
+      rows[activeIdx].scrollIntoView({ block: "nearest" });
+    } else if (e.key === "Enter" && currentItems[activeIdx]) {
+      e.preventDefault();
+      const dest = currentItems[activeIdx].href;
+      dlg.close();
+      window.location.href = dest;
+    }
+  });
+
+  dlg._refreshList = () => {
+    inp.value = "";
+    renderList("");
+    setTimeout(() => inp.focus(), 20);
+  };
+  return dlg;
+}
+
+function openCommandPalette() {
+  const dlg = ensureCommandPalette();
+  if (!dlg) return;
+  if (typeof dlg.showModal === "function" && !dlg.open) {
+    dlg.showModal();
+  } else {
+    dlg.setAttribute("open", "");
+  }
+  if (dlg._refreshList) dlg._refreshList();
+}
+
+if (typeof document !== "undefined") {
+  document.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      openCommandPalette();
+      return;
+    }
+    if (e.key === "/" && !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)) {
+      const pageSearch = document.querySelector("#tl-filter, #gear-search");
+      if (!pageSearch) {
+        e.preventDefault();
+        openCommandPalette();
+      }
+    }
+  });
+}
+
+/* ================= HUD TOOLTIPS ON SPARK CHARTS ================= */
+function bindSparkTooltips() {
+  if (typeof document === "undefined") return;
+  let hud = document.getElementById("spark-hover-hud");
+  if (!hud) {
+    hud = document.createElement("div");
+    hud.id = "spark-hover-hud";
+    hud.className = "spark-hover-hud";
+    hud.hidden = true;
+    document.body.appendChild(hud);
+  }
+  document.querySelectorAll("svg.spark .bar").forEach((bar) => {
+    if (bar.dataset.hudBound === "1") return;
+    bar.dataset.hudBound = "1";
+    const show = () => {
+      const tip = bar.querySelector("title")?.textContent || (bar.dataset.year ? `${bar.dataset.year}: ${bar.dataset.val} goals` : "");
+      if (!tip) return;
+      hud.textContent = tip;
+      hud.hidden = false;
+      const r = bar.getBoundingClientRect();
+      const left = Math.min(window.innerWidth - 180, Math.max(12, r.left + r.width / 2));
+      hud.style.left = `${left}px`;
+      hud.style.top = `${Math.max(12, r.top - 10)}px`;
+    };
+    const hide = () => { hud.hidden = true; };
+    bar.addEventListener("mouseenter", show);
+    bar.addEventListener("mouseleave", hide);
+  });
+}
+
+/* ================= RIVALRY TUG-OF-WAR ARENA ================= */
+function buildRivalryArena(d) {
+  if (typeof document === "undefined") return null;
+  let arena = document.getElementById("rivalry-tug-arena");
+  if (arena) return arena;
+  const main = document.getElementById("main") || document.querySelector("main.wrap") || document.querySelector(".wrap");
+  if (!main) return null;
+
+  const splits = (d && d.splits) || {};
+  const rWC = (splits.ronaldo && splits.ronaldo.worldCup) || {};
+  const mWC = (splits.worldCup && splits.worldCup.messi) || {};
+  const rFin = (splits.ronaldo && splits.ronaldo.finals) || {};
+  const mFin = (splits.finals && splits.finals.messi) || {};
+  const rGoals = (d && d.totals && d.totals.combined && d.totals.combined.goals) || LIVE.goals;
+  const rApps = (d && d.totals && d.totals.combined && d.totals.combined.appearances) || LIVE.apps;
+  const mGoals = 937, mApps = 1184, mAssists = 409;
+  const rAssists = (d && d.totals && d.totals.assists && d.totals.assists.official) || LIVE.assists;
+  const rNpg = rGoals - 184;
+  const mNpg = 827;
+  const rTrophies = (splits.ronaldo && splits.ronaldo.trophies) || LIVE.trophies;
+  const mTrophies = (splits.trophies && splits.trophies.messi) || LIVE.rTrophies;
+  const rBallons = (splits.ronaldo && splits.ronaldo.ballons) || 5;
+  const mBallons = 8;
+  const rGpm = rApps ? (rGoals / rApps).toFixed(2) : "0.73";
+  const mGpm = (mGoals / mApps).toFixed(2);
+  const rGa = ((rGoals + rAssists) / rApps).toFixed(2);
+  const mGa = ((mGoals + mAssists) / mApps).toFixed(2);
+  const rNpgpm = (rNpg / rApps).toFixed(2);
+  const mNpgpm = (mNpg / mApps).toFixed(2);
+
+  const rows = [
+    { key: "gpm", r: parseFloat(rGpm), m: parseFloat(mGpm), rDisp: rGpm, mDisp: mGpm },
+    { key: "gapm", r: parseFloat(rGa), m: parseFloat(mGa), rDisp: rGa, mDisp: mGa },
+    { key: "npgpm", r: parseFloat(rNpgpm), m: parseFloat(mNpgpm), rDisp: rNpgpm, mDisp: mNpgpm },
+    { key: "wcG", r: rWC.goals || 0, m: mWC.goals || 0, rDisp: String(rWC.goals || 0), mDisp: String(mWC.goals || 0) },
+    { key: "wcA", r: 2, m: mWC.assists || 0, rDisp: "2", mDisp: String(mWC.assists || 0) },
+    { key: "wcGb", r: 1, m: 2, rDisp: "1", mDisp: "2" },
+    { key: "finalsG", r: rFin.goals || 0, m: mFin.goals || 0, rDisp: String(rFin.goals || 0), mDisp: String(mFin.goals || 0) },
+    { key: "trophies", r: rTrophies, m: mTrophies, rDisp: String(rTrophies), mDisp: String(mTrophies) },
+    { key: "h2h", r: 11, m: 16, rDisp: "11", mDisp: "16" }
+  ];
+
+  const escAttr = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+  const rowsHtml = rows.map((row) => {
+    const tot = row.r + row.m;
+    const rPct = tot > 0 ? ((row.r / tot) * 100).toFixed(1) : "50.0";
+    const mPct = tot > 0 ? (100 - parseFloat(rPct)).toFixed(1) : "50.0";
+    const rLead = row.r > row.m;
+    const mLead = row.m > row.r;
+    return `<div class="tug-row" data-tug-key="${row.key}">` +
+      `<div class="tug-row-top">` +
+        `<span class="tug-val ronaldo tnum${rLead ? " lead" : ""}">${escAttr(row.rDisp)}</span>` +
+        `<span class="tug-stat-lbl" data-tug-label="${row.key}"></span>` +
+        `<span class="tug-val messi tnum${mLead ? " lead" : ""}">${escAttr(row.mDisp)}</span>` +
+      `</div>` +
+      `<div class="tug-bar" role="img" aria-label="Ronaldo ${escAttr(row.rDisp)} vs Messi ${escAttr(row.mDisp)}">` +
+        `<span class="tug-fill-ronaldo${rLead ? " is-lead" : ""}" style="width:${rPct}%"></span>` +
+        `<span class="tug-fill-messi${mLead ? " is-lead" : ""}" style="width:${mPct}%"></span>` +
+      `</div>` +
+    `</div>`;
+  }).join("");
+
+  arena = document.createElement("section");
+  arena.id = "rivalry-tug-arena";
+  arena.className = "rivalry-tug-arena card";
+  arena.setAttribute("aria-label", "Ronaldo vs Messi comparison modes");
+  arena.innerHTML = `<div class="tug-rows">${rowsHtml}</div>`;
+
+  const showdown = main.querySelector(".rivalry-showdown-card");
+  if (showdown && showdown.parentElement) showdown.insertAdjacentElement("afterend", arena);
+  else {
+    const h1 = main.querySelector("h1, .page-lead, .lede");
+    if (h1 && h1.parentElement) h1.insertAdjacentElement("afterend", arena);
+    else main.prepend(arena);
+  }
+
+  // Prefer the live rival figures from messi.json when available.
+  fetch("/data/messi.json", { cache: "no-store" }).then((res) => (res && res.ok ? res.json() : null)).then((rival) => {
+    if (!rival || !arena.isConnected) return;
+    const replacements = {
+      gpm: [null, rival.goalsPerGame ? rival.goalsPerGame.toFixed(2) : null],
+      wcG: [null, rival.worldCupGoals != null ? String(rival.worldCupGoals) : null],
+      trophies: [null, rival.trophies != null ? String(rival.trophies) : null]
+    };
+    Object.entries(replacements).forEach(([key, [, val]]) => {
+      if (val == null) return;
+      const row = arena.querySelector(`[data-tug-key="${key}"] .tug-val.messi`);
+      if (row) row.textContent = val;
+    });
+  }).catch(() => {});
+
+  return arena;
+}
+
+function initRivalryModeTabs(d) {
+  const arena = document.getElementById("rivalry-tug-arena");
+  if (!arena || arena.dataset.rivalryTabsInit) return;
+  const rowsWrap = arena.querySelector(".tug-rows");
+  if (!rowsWrap) return;
+  arena.dataset.rivalryTabsInit = "1";
+
+  const lang = getLang();
+  const RIVALRY_I18N = {
+    en: {
+      aria: "Comparison perspective mode",
+      tabs: { all: "All Career", ratios: "Per-90 & Efficiency", finals: "World Cup & Finals" },
+      rows: {
+        gpm: "Goals per Match (Ratio)",
+        gapm: "Goal Contributions per Match",
+        npgpm: "Non-Penalty Goals per Match",
+        npg: "Non-Penalty Goals",
+        opg: "Open-Play Goals",
+        fk: "Direct Free-Kick Goals",
+        out: "Goals from Outside Penalty Box",
+        bcc: "Big Chances Created (Tracked Era)",
+        wcG: "FIFA World Cup Goals",
+        wcA: "FIFA World Cup Assists",
+        wcKoG: "World Cup Knockout Goals",
+        wcKoA: "World Cup Knockout Assists",
+        wcGb: "World Cup Golden Balls",
+        finalsG: "Goals in Cup Finals",
+        trophies: "Total Team Trophies",
+        h2h: "Direct Head-to-Head Wins"
+      }
+    },
+    es: {
+      aria: "Modo de comparación",
+      tabs: { all: "Toda la carrera", ratios: "Por partido y eficiencia", finals: "Mundial y finales" },
+      rows: {
+        gpm: "Goles por partido (Ratio)",
+        gapm: "Contribuciones (G+A) por partido",
+        npgpm: "Goles sin penalti por partido",
+        npg: "Goles sin penalti",
+        opg: "Goles en jugada abierta",
+        fk: "Goles de tiro libre directo",
+        out: "Goles desde fuera del área",
+        bcc: "Grandes ocasiones creadas",
+        wcG: "Goles en Copas del Mundo",
+        wcA: "Asistencias en Copas del Mundo",
+        wcKoG: "Goles en eliminatorias de Mundial",
+        wcKoA: "Asistencias en eliminatorias de Mundial",
+        wcGb: "Balones de Oro del Mundial",
+        finalsG: "Goles en finales de copa",
+        trophies: "Trofeos oficiales de equipo",
+        h2h: "Victorias en duelos directos"
+      }
+    },
+    pt: {
+      aria: "Modo de comparação",
+      tabs: { all: "Toda a carreira", ratios: "Por jogo e eficiência", finals: "Copa do Mundo e finais" },
+      rows: {
+        gpm: "Gols por jogo (Média)",
+        gapm: "Participações em gol por jogo",
+        npgpm: "Gols sem pênalti por jogo",
+        npg: "Gols sem pênalti",
+        opg: "Gols com bola rolando",
+        fk: "Gols de falta direta",
+        out: "Gols de fora da área",
+        bcc: "Grandes chances criadas",
+        wcG: "Gols em Copas do Mundo",
+        wcA: "Assistências em Copas do Mundo",
+        wcKoG: "Gols em mata-mata de Copa",
+        wcKoA: "Assistências em mata-mata de Copa",
+        wcGb: "Bolas de Ouro da Copa",
+        finalsG: "Gols em finais",
+        trophies: "Total de títulos coletivos",
+        h2h: "Vitórias em confrontos diretos"
+      }
+    },
+    fr: {
+      aria: "Mode de comparaison",
+      tabs: { all: "Toute la carrière", ratios: "Par match & efficacité", finals: "Coupe du monde & finales" },
+      rows: {
+        gpm: "Buts par match (Ratio)",
+        gapm: "Actions décisives par match",
+        npgpm: "Buts hors penalty par match",
+        npg: "Buts hors penalty",
+        opg: "Buts dans le jeu",
+        fk: "Coups francs directs",
+        out: "Buts hors de la surface",
+        bcc: "Grosses occasions créées",
+        wcG: "Buts en Coupe du monde",
+        wcA: "Passes décisives en Coupe du monde",
+        wcKoG: "Buts en phase finale de Mondial",
+        wcKoA: "Passes décisives en phase finale",
+        wcGb: "Ballons d'Or du Mondial",
+        finalsG: "Buts en finales de coupe",
+        trophies: "Total des trophées en équipe",
+        h2h: "Victoires en confrontations directes"
+      }
+    },
+    ro: {
+      aria: "Mod de comparare",
+      tabs: { all: "Întreaga carieră", ratios: "Per meci & eficiență", finals: "Cupa Mondială & finale" },
+      rows: {
+        gpm: "Goluri per meci (Rată)",
+        gapm: "Contribuții (G+A) per meci",
+        npgpm: "Goluri fără penalty per meci",
+        npg: "Goluri fără penalty",
+        opg: "Goluri din acțiune",
+        fk: "Goluri din lovitură liberă",
+        out: "Goluri din afara careului",
+        bcc: "Ocazii mari create",
+        wcG: "Goluri la Cupa Mondială",
+        wcA: "Pase decisive la Cupa Mondială",
+        wcKoG: "Goluri în fazele eliminatorii CM",
+        wcKoA: "Pase decisive eliminatorii CM",
+        wcGb: "Baloane de Aur CM",
+        finalsG: "Goluri în finale",
+        trophies: "Total trofee de echipă",
+        h2h: "Victorii directe (H2H)"
+      }
+    },
+    uz: {
+      aria: "Taqqoslash ko'rinishi",
+      tabs: { all: "Butun faoliyat", ratios: "O'yin boshiga samaradorlik", finals: "Jahon chempionati va finallar" },
+      rows: {
+        gpm: "O'yin boshiga gollar",
+        gapm: "O'yin boshiga G+A hissa",
+        npgpm: "Penaltisiz gol / o'yin",
+        npg: "Penaltisiz gollar",
+        opg: "Ochiq o'yindagi gollar",
+        fk: "To'g'ridan-to'g'ri jarima zarbalari",
+        out: "Jarima maydoni tashqarisidan gollar",
+        bcc: "Yaratilgan yirik vaziyatlar",
+        wcG: "Jahon chempionatidagi gollar",
+        wcA: "Jahon chempionatidagi assistlar",
+        wcKoG: "JCh pley-off bosqichi gollari",
+        wcKoA: "JCh pley-off bosqichi assistlari",
+        wcGb: "JCh Oltin to'plari",
+        finalsG: "Finallardagi gollar",
+        trophies: "Jami jamoaviy sovrinlar",
+        h2h: "O'zaro o'yinlardagi g'alabalar"
+      }
+    },
+    ar: {
+      aria: "وضع المقارنة",
+      tabs: { all: "المسيرة كاملة", ratios: "المعدل والكفاءة", finals: "كأس العالم والنهائيات" },
+      rows: {
+        gpm: "الأهداف لكل مباراة",
+        gapm: "المساهمات التهديفية لكل مباراة",
+        npgpm: "أهداف دون ركلات جزاء للمباراة",
+        npg: "أهداف دون ركلات جزاء",
+        opg: "أهداف اللعب المفتوح",
+        fk: "أهداف الركلات الحرة المباشرة",
+        out: "أهداف من خارج منطقة الجزاء",
+        bcc: "الفرص الكبرى المصنوعة",
+        wcG: "أهداف كأس العالم",
+        wcA: "تمريرات حاسمة في كأس العالم",
+        wcKoG: "أهداف الأدوار الإقصائية للمونديال",
+        wcKoA: "تمريرات الإقصائيات في المونديال",
+        wcGb: "الكرة الذهبية لكأس العالم",
+        finalsG: "الأهداف في النهائيات",
+        trophies: "إجمالي البطولات الجماعية",
+        h2h: "الانتصارات في المواجهات المباشرة"
+      }
+    }
+  };
+  const tx = RIVALRY_I18N[lang] || RIVALRY_I18N.en;
+  const r = tx.rows;
+
+  const initialRowsHtml = rowsWrap.innerHTML;
+  const splits = (d && d.splits) || {};
+  const rWC = (splits.ronaldo && splits.ronaldo.worldCup) || {};
+  const mWC = (splits.worldCup && splits.worldCup.messi) || {};
+  const rFin = (splits.ronaldo && splits.ronaldo.finals) || {};
+  const mFin = (splits.finals && splits.finals.messi) || {};
+  const rGoals = (d && d.totals && d.totals.combined && d.totals.combined.goals) || LIVE.goals;
+  const rApps = (d && d.totals && d.totals.combined && d.totals.combined.appearances) || LIVE.apps;
+  const rAssists = (d && d.totals && d.totals.assists && d.totals.assists.official) || LIVE.assists;
+  const rTrophies = (splits.ronaldo && splits.ronaldo.trophies) || LIVE.trophies;
+  const mTrophies = (splits.trophies && splits.trophies.messi) || LIVE.rTrophies;
+  const rRatio = rApps ? (rGoals / rApps).toFixed(2) : "0.73";
+  const rGaRatio = rApps ? ((rGoals + rAssists) / rApps).toFixed(2) : "0.93";
+
+  const ratioRows = [
+    { lbl: r.gpm, rNum: parseFloat(rRatio), mNum: 0.79, rDisp: rRatio, mDisp: "0.79" },
+    { lbl: r.gapm, rNum: parseFloat(rGaRatio), mNum: 1.14, rDisp: rGaRatio, mDisp: "1.14" },
+    { lbl: r.npgpm, rNum: 0.60, mNum: 0.70, rDisp: "0.60", mDisp: "0.70" }
+  ];
+  const finalsRows = [
+    { lbl: r.wcG, rNum: rWC.goals || 0, mNum: mWC.goals || 0, rDisp: String(rWC.goals || 0), mDisp: String(mWC.goals || 0) },
+    { lbl: r.wcA, rNum: 2, mNum: mWC.assists || 0, rDisp: "2", mDisp: String(mWC.assists || 0) },
+    { lbl: r.wcGb, rNum: 1, mNum: 2, rDisp: "1", mDisp: "2" },
+    { lbl: r.finalsG, rNum: rFin.goals || 0, mNum: mFin.goals || 0, rDisp: String(rFin.goals || 0), mDisp: String(mFin.goals || 0) },
+    { lbl: r.trophies, rNum: rTrophies, mNum: mTrophies, rDisp: String(rTrophies), mDisp: String(mTrophies) },
+    { lbl: r.h2h, rNum: 11, mNum: 16, rDisp: "11", mDisp: "16" }
+  ];
+
+  const buildRowsHtml = (items) => items.map((item) => {
+    const tot = item.rNum + item.mNum;
+    const rPct = tot > 0 ? ((item.rNum / tot) * 100).toFixed(1) : "50.0";
+    const mPct = tot > 0 ? (100 - parseFloat(rPct)).toFixed(1) : "50.0";
+    const rLeads = item.rNum > item.mNum;
+    const mLeads = item.mNum > item.rNum;
+    return `<div class="tug-row">` +
+      `<div class="tug-row-top">` +
+        `<span class="tug-val ronaldo tnum${rLeads ? " lead" : ""}">${esc(item.rDisp)}</span>` +
+        `<span class="tug-stat-lbl">${esc(item.lbl)}</span>` +
+        `<span class="tug-val messi tnum${mLeads ? " lead" : ""}">${esc(item.mDisp)}</span>` +
+      `</div>` +
+      `<div class="tug-bar" role="img" aria-label="${esc(item.lbl)}: Ronaldo ${esc(item.rDisp)} vs Messi ${esc(item.mDisp)}">` +
+        `<span class="tug-fill-ronaldo${rLeads ? " is-lead" : ""}" style="width:${rPct}%"></span>` +
+        `<span class="tug-fill-messi${mLeads ? " is-lead" : ""}" style="width:${mPct}%"></span>` +
+      `</div>` +
+    `</div>`;
+  }).join("");
+
+  const tabsEl = document.createElement("div");
+  tabsEl.className = "rivalry-mode-tabs";
+  tabsEl.setAttribute("role", "tablist");
+  tabsEl.setAttribute("aria-label", tx.aria);
+  tabsEl.innerHTML = ["all", "ratios", "finals"].map((mode, idx) =>
+    `<button type="button" class="rivalry-mode-btn${idx === 0 ? " is-active" : ""}" role="tab" aria-selected="${idx === 0 ? "true" : "false"}" data-rivalry-mode="${mode}">${esc(tx.tabs[mode])}</button>`
+  ).join("");
+
+  rowsWrap.parentNode.insertBefore(tabsEl, rowsWrap);
+
+  tabsEl.addEventListener("click", (e) => {
+    const btn = e.target.closest(".rivalry-mode-btn");
+    if (!btn) return;
+    const mode = btn.dataset.rivalryMode || "all";
+    tabsEl.querySelectorAll(".rivalry-mode-btn").forEach((b) => {
+      const active = b === btn;
+      b.classList.toggle("is-active", active);
+      b.setAttribute("aria-selected", active ? "true" : "false");
+    });
+    if (mode === "all") rowsWrap.innerHTML = initialRowsHtml;
+    else if (mode === "ratios") rowsWrap.innerHTML = buildRowsHtml(ratioRows);
+    else if (mode === "finals") rowsWrap.innerHTML = buildRowsHtml(finalsRows);
+  });
+}
+
+/* ================= BENTO ERA EXPLORER (home KPI filters) ================= */
+function initBentoEraExplorer(d) {
+  if (typeof document === "undefined") return;
+  const prof = document.querySelector("#profile.bento-profile-card");
+  const kpis = document.querySelector("#kpis.kpis-6");
+  if (!prof || !kpis) return;
+  if (document.getElementById("bento-era-filter")) return;
+  const cards = [...kpis.querySelectorAll(".kpi")];
+  if (cards.length < 6) return;
+
+  const lang = getLang();
+  const sep = (lang === "fr" || lang === "uz") ? " " : (lang === "es" || lang === "pt" || lang === "ro") ? "." : ",";
+  const fmtInt = (val) => String(Math.round(val)).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+  const origKpis = cards.map((card) => ({
+    num: card.querySelector(".kpi-num")?.textContent || "",
+    sub: card.querySelector(".kpi-sub")?.textContent || ""
+  }));
+
+  const ERA_DATA = {
+    all: { nums: [LIVE.goals, LIVE.assists, LIVE.apps, 1343, LIVE.trophies, 5], subs: null },
+    madrid: {
+      nums: [450, 152, 438, 438, 15, 3],
+      subs: {
+        en: ["2009–2018 · Club Record", "152 Official Assists", "1.37 Goals / Match", "438 Official Matches", "3× UCL · 4× Ballon d'Or", "2009–2018 Era"],
+        es: ["2009–2018 · Récord del Club", "152 Asistencias Oficiales", "1,37 Goles / Partido", "438 Partidos", "3× UCL · 4× Balón de Oro", "Etapa 2009–2018"],
+        pt: ["2009–2018 · Recorde do Clube", "152 Assistências Oficiais", "1,37 Gols / Jogo", "438 Jogos", "3× UCL · 4× Bola de Ouro", "Era 2009–2018"],
+        fr: ["2009–2018 · Record du Club", "152 Passes Officielles", "1,37 But / Match", "438 Matchs", "3× LDC · 4× Ballon d'Or", "Ère 2009–2018"],
+        ro: ["2009–2018 · Record Club", "152 Pase Oficiale", "1,37 Goluri / Meci", "438 Meciuri", "3× UCL · 4× Balon de Aur", "Era 2009–2018"],
+        uz: ["2009–2018 · Klub Rekordi", "152 Rasmiy Assist", "1,37 Gol / O'yin", "438 O'yin", "3× ECHL · 4× Oltin To'p", "2009–2018 Davri"],
+        ar: ["2009–2018 · رقم قياسي", "152 تمريرة حاسمة", "1.37 هدف / مباراة", "438 مباراة", "3 أبطال أوروبا · 4 كرات ذهبية", "فترة 2009–2018"]
+      }
+    },
+    portugal: {
+      nums: [LIVE.argGoals, 14, LIVE.argCaps, LIVE.argCaps, LIVE.tPortugal, 3],
+      subs: {
+        en: ["2003–2026 · All-Time #1", "14 Official Assists", "0.62 Goals / Match", "234 Senior Caps", "Euro · Nations League · WC", "2003–2026 Era"],
+        es: ["2003–2026 · N.º 1 Histórico", "14 Asistencias Oficiales", "0,62 Goles / Partido", "234 Partidos", "Euro · Nations League · Mundial", "Etapa 2003–2026"],
+        pt: ["2003–2026 · Nº 1 Histórico", "14 Assistências Oficiais", "0,62 Gols / Jogo", "234 Jogos", "Euro · Liga das Nações · Copa", "Era 2003–2026"],
+        fr: ["2003–2026 · N°1 Historique", "14 Passes Officielles", "0,62 But / Match", "234 Sélections", "Euro · Ligue des Nations · Coupe", "Ère 2003–2026"],
+        ro: ["2003–2026 · Lider Istoric", "14 Pase Oficiale", "0,62 Goluri / Meci", "234 Meciuri", "Euro · Nations League · CM", "Era 2003–2026"],
+        uz: ["2003–2026 · Tarixiy #1", "14 Rasmiy Assist", "0,62 Gol / O'yin", "234 O'yin", "Yevro · Millatlar ligasi · JCH", "2003–2026 Davri"],
+        ar: ["2003–2026 · الهداف التاريخي", "14 تمريرة حاسمة", "0.62 هدف / مباراة", "234 مباراة", "يورو · أمم الأوروبية · مونديال", "فترة 2003–2026"]
+      }
+    },
+    alnassr: {
+      nums: [LIVE.alnassrGoals, 9, LIVE.alnassrApps, LIVE.alnassrApps, LIVE.tAlNassr, 0],
+      subs: {
+        en: ["2023–2026 · Club Record", "9 Official Assists", "0.86 Goals / Match", "160 Official Matches", "Arab Club Champions Cup", "2023–2026 Era"],
+        es: ["2023–2026 · Récord del Club", "9 Asistencias Oficiales", "0,86 Goles / Partido", "160 Partidos", "Copa de Campeones Árabes", "Etapa 2023–2026"],
+        pt: ["2023–2026 · Recorde do Clube", "9 Assistências Oficiais", "0,86 Gols / Jogo", "160 Jogos", "Copa Árabe de Clubes", "Era 2023–2026"],
+        fr: ["2023–2026 · Record du Club", "9 Passes Officielles", "0,86 But / Match", "160 Matchs", "Coupe Arabe des Clubs", "Ère 2023–2026"],
+        ro: ["2023–2026 · Record Club", "9 Pase Oficiale", "0,86 Goluri / Meci", "160 Meciuri", "Cupa Campionilor Arabi", "Era 2023–2026"],
+        uz: ["2023–2026 · Klub Rekordi", "9 Rasmiy Assist", "0,86 Gol / O'yin", "160 O'yin", "Arab Klublar Chempionati", "2023–2026 Davri"],
+        ar: ["2023–2026 · رقم قياسي", "9 تمريرات حاسمة", "0.86 هدف / مباراة", "160 مباراة", "كأس أبطال الأندية العربية", "فترة 2023–2026"]
+      }
+    }
+  };
+
+  const ERA_LABELS = {
+    en: { aria: "Filter career KPIs by team era", all: `All Career (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (138)" },
+    es: { aria: "Filtrar estadísticas por etapa", all: `Carrera (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (138)" },
+    pt: { aria: "Filtrar estatísticas por equipe", all: `Carreira (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (138)" },
+    fr: { aria: "Filtrer les statistiques par équipe", all: `Carrière (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (138)" },
+    ro: { aria: "Filtrează statisticile după echipă", all: `Carieră (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (138)" },
+    uz: { aria: "Statistikani jamoa bo'yicha filtrlash", all: `Karyera (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugaliya (146)", alnassr: "Al Nassr (138)" },
+    ar: { aria: "تصفية الإحصائيات حسب الفريق", all: `المسيرة (${LIVE.goals})`, madrid: "ريال مدريد (450)", portugal: "البرتغال (146)", alnassr: "النصر (138)" }
+  };
+  const labels = ERA_LABELS[lang] || ERA_LABELS.en;
+  const ERA_KEYS = ["all", "madrid", "portugal", "alnassr"];
+
+  const filterBar = document.createElement("div");
+  filterBar.id = "bento-era-filter";
+  filterBar.className = "bento-era-filter";
+  filterBar.setAttribute("role", "group");
+  filterBar.setAttribute("aria-label", labels.aria);
+  filterBar.innerHTML = ERA_KEYS.map((key, idx) =>
+    `<button type="button" class="era-filter-btn${idx === 0 ? " is-active" : ""}" data-era-team="${key}" aria-pressed="${idx === 0 ? "true" : "false"}">${labels[key]}</button>`
+  ).join("");
+  kpis.before(filterBar);
+
+  const splitItems = [...prof.querySelectorAll(".bento-split-item")];
+  splitItems.forEach((item, idx) => {
+    const teamKey = item.dataset.eraTeam || ERA_KEYS[idx + 1] || "madrid";
+    item.dataset.eraTeam = teamKey;
+    item.setAttribute("role", "button");
+    item.setAttribute("tabindex", "0");
+    item.setAttribute("aria-pressed", "false");
+  });
+
+  let activeEra = "all";
+  let animRaf = 0;
+  const setEra = (nextEra) => {
+    const era = ERA_DATA[nextEra] ? nextEra : "all";
+    activeEra = era;
+    filterBar.querySelectorAll(".era-filter-btn").forEach((btn) => {
+      const on = btn.dataset.eraTeam === era;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    splitItems.forEach((item) => {
+      const on = item.dataset.eraTeam === era;
+      item.classList.toggle("is-active", on);
+      item.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    if (era === "all") kpis.removeAttribute("data-era-filtered");
+    else kpis.setAttribute("data-era-filtered", era);
+
+    const spec = ERA_DATA[era];
+    const targetSubs = era === "all" ? origKpis.map((k) => k.sub) : (spec.subs[lang] || spec.subs.en);
+    cards.forEach((card, i) => {
+      const subEl = card.querySelector(".kpi-sub");
+      if (subEl && targetSubs[i] != null) subEl.textContent = targetSubs[i];
+    });
+
+    const reducedMotion = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (animRaf) cancelAnimationFrame(animRaf);
+    const startNums = cards.map((card) => parseInt((card.querySelector(".kpi-num")?.textContent || "0").replace(/[^\d]/g, ""), 10) || 0);
+    const endNums = spec.nums;
+    const applyFinal = () => {
+      cards.forEach((card, i) => {
+        const numEl = card.querySelector(".kpi-num");
+        if (!numEl) return;
+        numEl.textContent = era === "all" ? origKpis[i].num : fmtInt(endNums[i]);
+      });
+    };
+    if (reducedMotion || typeof requestAnimationFrame !== "function") { applyFinal(); return; }
+    const duration = 280;
+    const t0 = performance.now();
+    const step = (now) => {
+      const p = Math.min(1, (now - t0) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      cards.forEach((card, i) => {
+        const numEl = card.querySelector(".kpi-num");
+        if (!numEl) return;
+        numEl.textContent = fmtInt(Math.round(startNums[i] + (endNums[i] - startNums[i]) * eased));
+      });
+      if (p < 1) animRaf = requestAnimationFrame(step);
+      else { animRaf = 0; applyFinal(); }
+    };
+    animRaf = requestAnimationFrame(step);
+  };
+
+  filterBar.addEventListener("click", (e) => {
+    const btn = e.target.closest(".era-filter-btn");
+    if (btn) setEra(btn.dataset.eraTeam || "all");
+  });
+  splitItems.forEach((item) => {
+    const activate = () => {
+      const team = item.dataset.eraTeam || "all";
+      setEra(activeEra === team ? "all" : team);
+    };
+    item.addEventListener("click", activate);
+    item.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(); }
+    });
+  });
+}
+
+/* ================= ROAD TO 1,000 PACE SIMULATOR ================= */
+function initRoad1000Simulator(d) {
+  if (typeof document === "undefined") return;
+  const r1000 = document.getElementById("road-1000");
+  if (!r1000 || r1000.querySelector(".r1000-pace-pills")) return;
+  const paceEl = r1000.querySelector(".r1000-pace");
+  const footer = r1000.querySelector(".road-1000-footer");
+  if (!paceEl || !footer) return;
+
+  const lang = getLang();
+  const goals = (d && d.totals && d.totals.combined && d.totals.combined.goals) || LIVE.goals || 985;
+  const remaining = Math.max(0, 1000 - goals);
+  const SIM_I18N = {
+    en: { aria: "Scoring pace projection scenarios", pills: [
+      { id: "career", label: "Career 0.73/g", rate: 0.73, window: "Late 2027" },
+      { id: "nassr", label: "Al Nassr 0.86/g", rate: 0.86, window: "Mid 2027" },
+      { id: "conservative", label: "Conservative 0.60/g", rate: 0.60, window: "2028" }
+    ], fmt: (rate, matches, win) => `Pace: <b>${rate.toFixed(2)} goals/game</b> · <b>${matches} matches</b> needed · Est: <b>${win}</b>` },
+    es: { aria: "Simulador de ritmo hacia los 1.000 goles", pills: [
+      { id: "career", label: "Carrera 0,73/p", rate: 0.73, window: "Finales de 2027" },
+      { id: "nassr", label: "Al Nassr 0,86/p", rate: 0.86, window: "Mediados de 2027" },
+      { id: "conservative", label: "Conservador 0,60/p", rate: 0.60, window: "2028" }
+    ], fmt: (rate, matches, win) => `Ritmo: <b>${rate.toFixed(2).replace(".", ",")} goles/partido</b> · <b>${matches} partidos</b> necesarios · Est.: <b>${win}</b>` },
+    pt: { aria: "Simulador de ritmo rumo aos 1.000 gols", pills: [
+      { id: "career", label: "Carreira 0,73/j", rate: 0.73, window: "Fim de 2027" },
+      { id: "nassr", label: "Al Nassr 0,86/j", rate: 0.86, window: "Meio de 2027" },
+      { id: "conservative", label: "Conservador 0,60/j", rate: 0.60, window: "2028" }
+    ], fmt: (rate, matches, win) => `Ritmo: <b>${rate.toFixed(2).replace(".", ",")} gols/jogo</b> · <b>${matches} jogos</b> necessários · Prev.: <b>${win}</b>` },
+    fr: { aria: "Simulateur de rythme vers les 1 000 buts", pills: [
+      { id: "career", label: "Carrière 0,73/m", rate: 0.73, window: "Fin 2027" },
+      { id: "nassr", label: "Al Nassr 0,86/m", rate: 0.86, window: "Mi-2027" },
+      { id: "conservative", label: "Prudent 0,60/m", rate: 0.60, window: "2028" }
+    ], fmt: (rate, matches, win) => `Rythme : <b>${rate.toFixed(2).replace(".", ",")} buts/match</b> · <b>${matches} matchs</b> requis · Est. : <b>${win}</b>` },
+    ro: { aria: "Simulator de ritm spre 1.000 de goluri", pills: [
+      { id: "career", label: "Carieră 0,73/m", rate: 0.73, window: "Sfârșit 2027" },
+      { id: "nassr", label: "Al Nassr 0,86/m", rate: 0.86, window: "Mijloc 2027" },
+      { id: "conservative", label: "Prudent 0,60/m", rate: 0.60, window: "2028" }
+    ], fmt: (rate, matches, win) => `Ritm: <b>${rate.toFixed(2).replace(".", ",")} goluri/meci</b> · <b>${matches} meciuri</b> necesare · Est.: <b>${win}</b>` },
+    uz: { aria: "1 000 gol sari sur'at simulyatori", pills: [
+      { id: "career", label: "Karyera 0,73/o'", rate: 0.73, window: "2027 oxiri" },
+      { id: "nassr", label: "Nassr 0,86/o'", rate: 0.86, window: "2027 o'rtasi" },
+      { id: "conservative", label: "Ehtiyotkor 0,60/o'", rate: 0.60, window: "2028" }
+    ], fmt: (rate, matches, win) => `Sur'at: <b>${rate.toFixed(2).replace(".", ",")} gol/o'yin</b> · <b>${matches} ta o'yin</b> kerak · Taxmin: <b>${win}</b>` },
+    ar: { aria: "محاكي وتيرة الوصول إلى 1000 هدف", pills: [
+      { id: "career", label: "المسيرة 0.73/م", rate: 0.73, window: "أواخر 2027" },
+      { id: "nassr", label: "النصر 0.86/م", rate: 0.86, window: "منتصف 2027" },
+      { id: "conservative", label: "متحفظ 0.60/م", rate: 0.60, window: "2028" }
+    ], fmt: (rate, matches, win) => `الوتيرة: <b>${rate.toFixed(2)} هدف/مباراة</b> · المطلوب: <b>${matches} مباراة</b> · التوقع: <b>${win}</b>` }
+  };
+  const sim = SIM_I18N[lang] || SIM_I18N.en;
+  const pillsWrap = document.createElement("div");
+  pillsWrap.className = "r1000-pace-pills";
+  pillsWrap.setAttribute("role", "group");
+  pillsWrap.setAttribute("aria-label", sim.aria);
+  pillsWrap.innerHTML = sim.pills.map((p, idx) =>
+    `<button type="button" class="pace-pill-btn${idx === 0 ? " is-active" : ""}" data-pace-id="${p.id}" aria-pressed="${idx === 0 ? "true" : "false"}">${p.label}</button>`
+  ).join("");
+  footer.before(pillsWrap);
+
+  const selectPace = (id) => {
+    const spec = sim.pills.find((p) => p.id === id) || sim.pills[0];
+    pillsWrap.querySelectorAll(".pace-pill-btn").forEach((b) => {
+      const on = b.dataset.paceId === spec.id;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    const matchesNeeded = remaining > 0 ? Math.ceil(remaining / spec.rate) : 0;
+    paceEl.innerHTML = sim.fmt(spec.rate, matchesNeeded, spec.window);
+  };
+  pillsWrap.addEventListener("click", (e) => {
+    const btn = e.target.closest(".pace-pill-btn");
+    if (btn) selectPace(btn.dataset.paceId);
+  });
+  selectPace("career");
+}
+
+/* ================= INTERACTIVE PITCH ZONES (body-part splits) ================= */
+function initInteractivePitchZones(pitchHost) {
+  if (!pitchHost) return;
+  const svg = pitchHost.querySelector(".tactical-pitch-svg");
+  const cards = [...pitchHost.querySelectorAll(".pitch-zone-stat[data-zone-card]")];
+  const zones = svg ? [...svg.querySelectorAll("[data-zone]")] : [];
+  if (!svg || !cards.length || !zones.length) return;
+
+  let lockedZone = null;
+  const applyHighlight = (zoneKey) => {
+    cards.forEach((card) => {
+      const on = zoneKey !== null && card.dataset.zoneCard === zoneKey;
+      card.classList.toggle("is-active", on);
+      card.setAttribute("aria-pressed", lockedZone === card.dataset.zoneCard ? "true" : "false");
+    });
+    zones.forEach((z) => {
+      z.style.transition = "opacity 0.2s ease, filter 0.2s ease";
+      if (!zoneKey) {
+        z.classList.remove("is-active", "is-dimmed");
+        z.style.opacity = "1";
+        z.style.filter = "";
+      } else if (z.dataset.zone === zoneKey) {
+        z.classList.add("is-active");
+        z.classList.remove("is-dimmed");
+        z.style.opacity = "1";
+        z.style.filter = "drop-shadow(0 0 8px rgba(179,18,23,0.55))";
+      } else {
+        z.classList.remove("is-active");
+        z.classList.add("is-dimmed");
+        z.style.opacity = "0.35";
+        z.style.filter = "";
+      }
+    });
+  };
+
+  cards.forEach((card) => {
+    const zKey = card.dataset.zoneCard;
+    card.addEventListener("mouseenter", () => { if (!lockedZone) applyHighlight(zKey); });
+    card.addEventListener("mouseleave", () => { if (!lockedZone) applyHighlight(null); });
+    const toggle = () => {
+      lockedZone = lockedZone === zKey ? null : zKey;
+      applyHighlight(lockedZone);
+    };
+    card.addEventListener("click", toggle);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+    });
+  });
+}
+
+function mountRonaldoPitchZones(d) {
+  if (typeof document === "undefined" || document.getElementById("pitch-zone-card")) return;
+  const gridParent = document.querySelector(".dash-sections-grid") || document.getElementById("kpis");
+  if (!gridParent) return;
+  const bp = (d && d.byBodyPart) || [];
+  const get = (frag) => {
+    const row = bp.find((r) => String(r.part).toLowerCase().includes(frag));
+    return row ? row.goals : 0;
+  };
+  const right = get("right"), left = get("left"), head = get("head"), other = get("other");
+  const total = (d && d.totals && d.totals.combined && d.totals.combined.goals) || LIVE.goals;
+  const pct = (v) => total ? ((v / total) * 100).toFixed(1) : "0.0";
+  const lang = getLang();
+  const PITCH_I18N = {
+    en: { tag: "TACTICAL SPATIAL PROFILE", title: "Shot Origin & Scoring Zone Map", sub: `Career spatial distribution across ${total} official goals — click or hover any zone to isolate on pitch.`, right: "Right Foot", left: "Left Foot", head: "Head", other: "Other", caveat: "PROVISIONAL — body-part splits are compiled tallies, not a match-by-match hand count." },
+    es: { tag: "PERFIL TÁCTICO ESPACIAL", title: "Mapa de Zonas de Disparo y Definición", sub: `Distribución espacial de ${total} goles oficiales — haz clic o pasa el cursor sobre cualquier zona.`, right: "Pierna derecha", left: "Pierna izquierda", head: "Cabeza", other: "Otros", caveat: "PROVISIONAL — los desgloses por parte del cuerpo son recopilaciones, no un conteo partido por partido." },
+    pt: { tag: "PERFIL TÁTICO ESPACIAL", title: "Mapa de Zonas de Chute e Gols", sub: `Distribuição espacial dos ${total} gols oficiais — clique ou passe o mouse em qualquer zona.`, right: "Pé direito", left: "Pé esquerdo", head: "Cabeça", other: "Outros", caveat: "PROVISIONAL — as divisões por parte do corpo são compilações, não uma contagem jogo a jogo." },
+    fr: { tag: "PROFIL TACTIQUE SPATIAL", title: "Carte des Zones de Tir & Finition", sub: `Répartition spatiale des ${total} buts officiels — cliquez ou survolez une zone pour l'isoler.`, right: "Pied droit", left: "Pied gauche", head: "Tête", other: "Autres", caveat: "PROVISIONAL — les répartitions par partie du corps sont des compilations, pas un décompte match par match." },
+    ro: { tag: "PROFIL TACTIC SPAȚIAL", title: "Harta Zonelor de Șut și Marcare", sub: `Distribuția spațială a celor ${total} goluri oficiale — apasă sau treci peste orice zonă.`, right: "Picior drept", left: "Picior stâng", head: "Cap", other: "Altele", caveat: "PROVISIONAL — defalcările pe părți ale corpului sunt compilații, nu o numărătoare meci cu meci." },
+    uz: { tag: "TAKTIK FAZOVIY PROFIL", title: "Zarba Manbai va Gol Zonalari Xaritasi", sub: `${total} ta rasmiy golning fazoviy taqsimoti — ajratib ko'rish uchun istalgan zonani bosing.`, right: "O'ng oyoq", left: "Chap oyoq", head: "Bosh", other: "Boshqalar", caveat: "PROVISIONAL — tana qismlari bo'yicha taqsimotlar to'plam ma'lumotlardir, o'yin bo'yicha hisob emas." },
+    ar: { tag: "الملف التكتيكي المكاني", title: "خريطة منطقة التسديد والتسجيل", sub: `التوزيع المكاني لـ ${total} هدفاً رسمياً — انقر أو مرّر المؤشر على أي منطقة للتركيز عليها.`, right: "القدم اليمنى", left: "القدم اليسرى", head: "الرأس", other: "أخرى", caveat: "مؤقت — تقسيمات أجزاء الجسم تقديرية وليست إحصاءً مباراة بمباراة." }
+  };
+  const pt = PITCH_I18N[lang] || PITCH_I18N.en;
+  const zone = (key, label, val, color) => `
+    <div class="pitch-zone-stat" data-zone-card="${key}" role="button" tabindex="0" aria-pressed="false">
+      <div class="pzs-top"><span class="pzs-dot" style="background:${color}"></span><strong>${pt[key]}</strong><span class="pzs-num tnum">${n(val)} <small>(${pct(val)}%)</small></span></div>
+      <div class="pzs-bar"><span style="background:${color};width:${pct(val)}%"></span></div>
+      <span class="pzs-sub">${label}</span>
+    </div>
+  `;
+  const host = document.createElement("section");
+  host.id = "pitch-zone-card";
+  host.className = "dash-pitch-banner card";
+  host.innerHTML = `
+    <div class="pitch-banner-head">
+      <div>
+        <span class="pitch-eyebrow">${pt.tag}</span>
+        <h3 class="pitch-title">${pt.title}</h3>
+        <p class="pitch-sub">${pt.sub}</p>
+      </div>
+    </div>
+    <div class="pitch-banner-grid">
+      <div class="pitch-svg-wrap">
+        <svg viewBox="0 0 520 300" class="tactical-pitch-svg" role="img" aria-label="${pt.title}">
+          <rect x="8" y="8" width="504" height="284" rx="10" fill="none" stroke="var(--brand)" stroke-width="2"/>
+          <line x1="8" y1="150" x2="512" y2="150" stroke="var(--brand)" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="260" cy="150" r="46" fill="none" stroke="var(--brand)" stroke-width="1.5" opacity="0.4"/>
+          <g class="pitch-zone" data-zone="right"><rect x="40" y="40" width="140" height="90" rx="8" fill="var(--brand)" opacity="0.28" stroke="var(--brand)"/><text x="110" y="94" text-anchor="middle" fill="currentColor" font-size="14" font-weight="800">${right}</text></g>
+          <g class="pitch-zone" data-zone="left"><rect x="340" y="40" width="140" height="90" rx="8" fill="var(--brand)" opacity="0.20" stroke="var(--brand)"/><text x="410" y="94" text-anchor="middle" fill="currentColor" font-size="14" font-weight="800">${left}</text></g>
+          <g class="pitch-zone" data-zone="head"><rect x="190" y="190" width="140" height="70" rx="8" fill="var(--gold, #b31217)" opacity="0.24" stroke="var(--brand)"/><text x="260" y="232" text-anchor="middle" fill="currentColor" font-size="14" font-weight="800">${head}</text></g>
+          <g class="pitch-zone" data-zone="other"><circle cx="260" cy="150" r="16" fill="var(--brand)" opacity="0.3"/><text x="260" y="155" text-anchor="middle" fill="currentColor" font-size="11" font-weight="800">${other}</text></g>
+        </svg>
+      </div>
+      <div class="pitch-zones-list">
+        ${zone("right", `${pct(right)}%`, right, "var(--brand, #b31217)")}
+        ${zone("left", `${pct(left)}%`, left, "var(--brand, #b31217)")}
+        ${zone("head", `${pct(head)}%`, head, "var(--gold, #b31217)")}
+        ${zone("other", `${pct(other)}%`, other, "var(--muted, #b31217)")}
+      </div>
+    </div>
+    <p class="pitch-caveat caveat">${pt.caveat}</p>
+  `;
+  if (gridParent.classList.contains("dash-sections-grid")) gridParent.before(host);
+  else gridParent.after(host);
+  initInteractivePitchZones(host);
+}
+
 load().then((d) => {
   normalize(d);
+  __CMD_DATA_CACHE = d;
   const page = document.body.dataset.page;
   try {
     if (page === "home") renderHome(d);
@@ -6108,6 +7552,7 @@ load().then((d) => {
   } catch (e) {
     console.error(e);
   }
+  initRivalryModeTabs(d);
   fixLocaleLinks();
   updateRailEdges();
   try { translateRuntime(); } catch (_) {}
@@ -6117,7 +7562,13 @@ load().then((d) => {
   /* Chart entrance: bars grow, donuts sweep, KPIs tick on visibility — one shared
      boot observer, same pattern as the timeline .tl-reveal wiring. */
   armEntrance();
+  bindSparkTooltips();
+  window.addEventListener("rs:spark-relayout", () => setTimeout(bindSparkTooltips, 30));
   initBackToTop();
+  ensureDesktopBrandHeader();
+  mountHubMonetizeBar();
+  hydrateLiveGoalNum();
+  initInPageSocialBar();
   initPortugalFarewellTribute();
   initPortugalStreamNotification();
 }).catch(() => {
@@ -6126,6 +7577,9 @@ load().then((d) => {
     es: "Error al cargar las estadísticas. Comprueba tu conexión y recarga la página.",
     pt: "Falha ao carregar as estatísticas. Verifique sua conexão e recarregue.",
     fr: "Échec du chargement des statistiques. Vérifiez votre connexion et actualisez la page.",
+    ro: "Eroare la încărcarea statisticilor. Verifică conexiunea și reîncarcă pagina.",
+    uz: "Statistikani yuklab bo'lmadi. Internet aloqasini tekshirib, sahifani yangilang.",
+    ar: "تعذر تحميل الإحصائيات. تحقق من اتصالك بالإنترنت وأعد تحميل الصفحة."
   };
   const msgText = errorMsgs[lang] || "Stats failed to load. Check your connection and refresh.";
   document.querySelectorAll("main.wrap").forEach((m) => {
@@ -6134,6 +7588,8 @@ load().then((d) => {
     p.textContent = msgText;
     m.prepend(p);
   });
+  mountHubMonetizeBar();
+  initInPageSocialBar();
 });
 
 /* ============ SUPPORT TOAST — appears once, after 4 minutes on the page ============

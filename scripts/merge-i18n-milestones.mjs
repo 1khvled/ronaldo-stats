@@ -14,7 +14,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const TASKS = "C:/Users/Abdelli/AppData/Local/Temp/opencode/i18n/";
-const LANGS = ["es","pt","fr"];
+const LANGS = ["es","pt","fr","ro","uz","ar"];
 
 const en = JSON.parse(fs.readFileSync(path.join(ROOT, "src/i18n/shell/en.json"), "utf8"));
 const enKeys = Object.keys(en);

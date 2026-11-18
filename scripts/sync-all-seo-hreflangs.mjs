@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 
-const LANGS = ["en", "es", "pt", "fr"];
+const LANGS = ["en", "es", "pt", "fr", "ro", "uz", "ar"];
 
 const PAGES = [
   "index",
@@ -24,7 +24,10 @@ const HREFLANGS = [
   ["en", "en-US", "en-NG", "en-IN", "en-PH"],
   ["es", "es-AR", "es-ES"],
   ["pt", "pt-BR", "pt-PT"],
-  ["fr", "fr-FR", "fr-CA"]
+  ["fr", "fr-FR", "fr-CA"],
+  ["ro", "ro-RO"],
+  ["uz"],
+  ["ar", "ar-EG"]
 ];
 
 function getHreflangTags(pageSlug) {
@@ -73,4 +76,4 @@ for (const lang of LANGS) {
   }
 }
 
-console.log("Synchronized canonicals and hreflang tags across 4 languages.");
+console.log("Synchronized canonicals and 19 hreflang tags (+ x-default) across 7 languages.");

@@ -19,7 +19,7 @@ const ROOT = "D:/Projects/ronaldo-stats/";
 // --- 2. the gear copy that still names a shirt that is not sold -------------
 {
   const P = ROOT + "/src/i18n/shell";
-  const LANGS = ["es","pt","fr"];
+  const LANGS = ["es","pt","fr","ro","uz","ar"];
   // the phrase that named the 2006-07 shirt, in each language
   const PHRASE = {
     es: ["la camiseta local de 2006-07", "la camiseta de la selección portuguesa"],

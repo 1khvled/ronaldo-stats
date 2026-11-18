@@ -19,7 +19,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const LANGS = ["en","es","pt","fr"];
+const LANGS = ["en","es","pt","fr","ro","uz","ar"];
 const SHELLS = ["index", "dashboard", "goalsbyyear", "goalsbyseason", "timeline", "trophies", "champions-league", "gear", "real-madrid", "ronaldo-vs-messi"];
 
 const problems = [];
@@ -50,7 +50,7 @@ for (const shell of SHELLS) {
 // 3. the home page answers at /<lang> and /<lang>/index
 const vercel = JSON.parse(fs.readFileSync(path.join(ROOT, "vercel.json"), "utf8"));
 const rules = [...(vercel.redirects || []), ...(vercel.rewrites || [])];
-const homeRule = rules.find((r) => r.source === "/:lang(en|es|pt|fr)/index");
+const homeRule = rules.find((r) => r.source === "/:lang(en|es|pt|fr|ro|uz|ar)/index");
 if (!homeRule) problems.push("vercel.json has no rule for /<lang>/index: the home page 404s in that form");
 for (const lang of LANGS) {
   if (!rules.some((r) => (r.source || "").includes(":lang"))) {

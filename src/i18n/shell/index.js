@@ -7,8 +7,11 @@ import en from "./en.json";
 import es from "./es.json";
 import pt from "./pt.json";
 import fr from "./fr.json";
+import ro from "./ro.json";
+import uz from "./uz.json";
+import ar from "./ar.json";
 
-const REGISTRY = { en, es, pt, fr };
+const REGISTRY = { en, es, pt, fr, ro, uz, ar };
 
 export function getShellDict(lang) {
   return REGISTRY[lang] || REGISTRY.en;

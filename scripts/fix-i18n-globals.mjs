@@ -38,7 +38,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\\//, ""), "..");
-const LANGS = ["en","es","pt","fr"];
+const LANGS = ["en","es","pt","fr","ro","uz","ar"];
 
 // the helpers app.js publishes
 globalThis.n = (v) => Number(v).toLocaleString("en-US");

@@ -10,7 +10,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const LANGS = ["es","pt","fr"];
+const LANGS = ["es","pt","fr","ro","uz","ar"];
 const PAGES = ["index", "dashboard", "goalsbyyear", "goalsbyseason", "timeline", "trophies",
   "champions-league", "gear", "real-madrid", "ronaldo-vs-messi"];
 
