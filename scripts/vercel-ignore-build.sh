@@ -12,21 +12,33 @@ if [[ "$VERCEL_GIT_COMMIT_MESSAGE" == *"[skip deploy]"* ]] || [[ "$VERCEL_GIT_CO
 fi
 
 # 2. If commit was created with [skip ci] (e.g. automated bot sync):
+#    deploy only when the commit carries a real change. A day that only
+#    rolled its date stamps forward must not cost a deployment, so the
+#    same detector the workflow uses decides here.
 if [[ "$VERCEL_GIT_COMMIT_MESSAGE" == *"[skip ci]"* ]]; then
   DIFF_BASE="HEAD~1"
   if [ -n "$VERCEL_GIT_PREVIOUS_SHA" ]; then
     DIFF_BASE="$VERCEL_GIT_PREVIOUS_SHA"
   fi
 
-  CHANGED_FILES=$(git diff --name-only "$DIFF_BASE" HEAD 2>/dev/null || true)
-  echo "Changed files in commit: $CHANGED_FILES"
-
-  # Filter out trivial watcher logs, state files, and non-production files
-  SIGNIFICANT_CHANGES=$(echo "$CHANGED_FILES" | grep -vE "^(public/data/(source-watch|last-check)\.json|\.github/.*|README\.md)$" || true)
-
-  if [ -z "$SIGNIFICANT_CHANGES" ]; then
-    echo "Only trivial internal watcher logs changed. Cancelling build to preserve Vercel deployment storage."
-    exit 0
+  if node scripts/has-meaningful-change.mjs --range "$DIFF_BASE" HEAD 2>/dev/null; then
+    echo "Meaningful changes detected. Proceeding with deployment build."
+    exit 1
+  else
+    RC=$?
+    if [ "$RC" -eq 1 ]; then
+      echo "Only date stamps, watcher logs and non-production files changed. Cancelling build to preserve Vercel deployment storage."
+      exit 0
+    fi
+    # RC >= 2: the detector itself could not run (shallow clone, missing
+    # node) - fall back to the filename filter so a decision is still made.
+    CHANGED_FILES=$(git diff --name-only "$DIFF_BASE" HEAD 2>/dev/null || true)
+    echo "(detector unavailable - filename filter) Changed files: $CHANGED_FILES"
+    SIGNIFICANT_CHANGES=$(echo "$CHANGED_FILES" | grep -vE "^(public/data/(source-watch|last-check)\.json|\.github/.*|README\.md|CONTEXT\.md|X_POSTS_SCHEDULE\.md|docs/.*|scripts/.*|public/llms(-full)?\.txt)$" || true)
+    if [ -z "$SIGNIFICANT_CHANGES" ]; then
+      echo "Only trivial non-production files changed. Cancelling build to preserve Vercel deployment storage."
+      exit 0
+    fi
   fi
 fi
 

@@ -37,8 +37,12 @@ jobs:
       - name: Run Scrapers & Auto-Sync
         # every one of these reads a public feed; a feed that is down must not
         # fail the run, it must only mean that nothing was learnt
+        # NOTE: daily-date-sync is deliberately NOT here. It stamps today's
+        # date across every file, and that stamp alone would be a commit and
+        # a Vercel deployment every single day. It now runs in the rebuild
+        # step, only on days that found a real change, so the date rides
+        # along with the change instead of manufacturing one.
         run: |
-          node scripts/daily-date-sync.mjs
           node scripts/sync-dated-copy.mjs || true
           node scripts/auto-sync-matches.mjs || true
           node scripts/auto-sync-latest-goal.mjs || true
@@ -54,13 +58,31 @@ jobs:
         # themselves, so they are read again on every run
         run: npm run fetch:gear || true
 
-      - name: Rebuild the dataset and the pages
+      - name: Skip the day when nothing changed
+        # a day with no new goals, gear or videos must not cost a rebuild,
+        # a commit or a Vercel deployment: the run stops here and the next
+        # one half an hour later tries again. Date stamps, watcher logs and
+        # non-production files never count as a change.
+        id: changed
         run: |
+          if node scripts/has-meaningful-change.mjs --worktree; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Meaningful changes found - rebuilding, committing and deploying."
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No meaningful change today - skipping the rebuild, the commit and the Vercel deployment."
+          fi
+
+      - name: Rebuild the dataset and the pages
+        if: steps.changed.outputs.changed == 'true'
+        run: |
+          node scripts/daily-date-sync.mjs
           npm run build:data
           npm run build:calendar
           npm run build:i18n
 
       - name: Build & Run Verification Audits
+        if: steps.changed.outputs.changed == 'true'
         run: |
           npm run build
           npm run verify:all
@@ -68,6 +90,7 @@ jobs:
           npm run guard:ads
 
       - name: Commit & Push New Match Stats
+        if: steps.changed.outputs.changed == 'true'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
