@@ -3946,7 +3946,7 @@
    "goalsbyseason",
    "goalsbyyear"
   ],
-  "ctx": "Telegram @messistatdotcom  [Cristiano Ronaldo: 1,344 senior appearances, 986 goals (1,110 apps / 840 goals club, 234 / 146 Portugal). Last checked November 2026.] Club crests are trademarks of their respective clubs, shown for team identification."
+  "ctx": "🐐 MessiStat — Lionel Messi Stats  [Cristiano Ronaldo: 1,344 senior appearances, 986 goals (1,110 apps / 840 goals club, 234 / 146 Portugal). Last checked November 2026.] Club crests are trademarks of their respective clubs, shown for team identification."
  },
  "Cristiano Ronaldo: 1,344 senior appearances, 986 goals (1,110 apps / 840 goals for clubs, 234 / 146 with Portugal). Last checked November 2026.": {
   "count": 1,
@@ -7117,7 +7117,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "👕 Ronaldo Fan Gear &amp; Store  [Ronaldo Fan Shop &amp; Support] 🛍️ Amazon Ronaldo Gear &amp; Kits"
+  "ctx": "🐐 MessiStat — Lionel Messi Stats  [Ronaldo Fan Shop &amp; Support] 🛍️ Amazon Ronaldo Gear &amp; Kits"
  },
  "Ronaldo Gear": {
   "count": 20,
@@ -8326,7 +8326,7 @@
   "pages": [
    "real-madrid"
   ],
-  "ctx": "Through the Years  [Timeline &amp; 35 Trophies] International Editions / Idiomas"
+  "ctx": "Through the Years  [Timeline &amp; 35 Trophies] 🐐 MessiStat — Lionel Messi Stats"
  },
  "Toggle dark mode": {
   "count": 20,
@@ -10261,13 +10261,20 @@
   "ctx": "Check on Amazon ↗  [🐐 Iconic Shirt] Official Matchwear"
  },
  "🐐 MessiStat — Lionel Messi Stats": {
-  "count": 3,
+  "count": 10,
   "pages": [
    "champions-league",
+   "dashboard",
    "gear",
-   "ronaldo-vs-messi"
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
   ],
-  "ctx": "Achievements &amp; 35 Trophies  [🐐 MessiStat — Lionel Messi Stats] International Editions / Idiomas"
+  "ctx": "👕 Ronaldo Fan Gear &amp; Store  [🐐 MessiStat — Lionel Messi Stats] Ronaldo Fan Shop &amp; Support"
  },
  "🐐 Ronaldo vs Messi All-Time": {
   "count": 10,
@@ -10297,7 +10304,7 @@
    "gear",
    "index"
   ],
-  "ctx": "35 Trophies &amp; 5 Ballons d'Or  [👕 Ronaldo Fan Gear &amp; Store] Ronaldo Fan Shop &amp; Support"
+  "ctx": "35 Trophies &amp; 5 Ballons d'Or  [👕 Ronaldo Fan Gear &amp; Store] 🐐 MessiStat — Lionel Messi Stats"
  },
  "👕 Ronaldo Store 🛍️": {
   "count": 1,
