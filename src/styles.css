@@ -15314,3 +15314,89 @@ html[dir="rtl"] #mobile-nav-drawer .mobile-drawer-sheet,
 html[dir="rtl"] .mobile-drawer-dialog .mobile-drawer-sheet { text-align: right; }
 html[dir="rtl"] #lang-modal .lang-card-option,
 html[dir="rtl"] .lang-card-option { text-align: right; }
+
+/* ---------- SISTER SITE PROMO ---------- */
+.sister-ad {
+  --sister-blue: #74acdf;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  max-width: 760px;
+  margin: 28px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.sister-ad__mark {
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--sister-blue);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sister-ad__text { display: block; min-width: 0; }
+.sister-ad__eyebrow {
+  display: block;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sister-ad__title {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 2px;
+}
+.sister-ad__sub {
+  display: block;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+.sister-ad__cta {
+  flex: 0 0 auto;
+  display: inline-block;
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: var(--sister-blue);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.sister-ad__cta:hover { background: #5a96c8; }
+.sister-ad__cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+[data-theme="dark"] .sister-ad { --sister-blue: #3f7fb5; }
+[data-theme="dark"] .sister-ad__cta:hover { background: #2f6692; }
+@media (max-width: 700px) {
+  .sister-ad {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 18px;
+  }
+  /* start = left in LTR, right in RTL: dir=rtl handles Arabic naturally. */
+  .sister-ad__text { text-align: start; width: 100%; }
+  .sister-ad__cta { width: 100%; text-align: center; }
+}
