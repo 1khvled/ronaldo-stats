@@ -11,12 +11,12 @@ export const MONETIZE_CONFIG = {
   adsenseClient: "ca-pub-8397501846754760",
 
   /* Adsterra primary Smartlink — also used as fallback for all CPA CTAs */
-  adsterraSmartlinkUrl: "https://araplhn.org/4/9c0421236e838b103398fe1f230fd98e",
+  adsterraSmartlinkUrl: "https://araplhn.org/4/a43dd89b7672cf02606650ed6786c3de",
 
   /* Adsterra Social Bar external script URL.
      If non-empty, app.js mounts <iframe src="/ads/social-bar.html?src=..." ...>
      automatically; leave empty to use the built-in in-page push instead. */
-  adsterraSocialBarScriptUrl: "",
+  adsterraSocialBarScriptUrl: "https://bauval.org/14/493e0f99144ebe85af44e5f57dae9109",
 
   /* Amazon Associates tag */
   amazonAffiliateTag: "ronaldostats-20",
@@ -27,11 +27,11 @@ export const MONETIZE_CONFIG = {
      *  window.__RS_STREAM_CPA_URL before the module loads.            */
     get streamPassUrl() {
       return (typeof window !== "undefined" && window.__RS_STREAM_CPA_URL) ||
-        "https://araplhn.org/4/9c0421236e838b103398fe1f230fd98e";
+        "https://araplhn.org/4/a43dd89b7672cf02606650ed6786c3de";
     },
 
     /** VPN streaming offer for geo-blocked matches */
-    vpnStreamUrl: "https://araplhn.org/4/9c0421236e838b103398fe1f230fd98e",
+    vpnStreamUrl: "https://araplhn.org/4/a43dd89b7672cf02606650ed6786c3de",
 
     /** Real Madrid #7 jersey (Amazon affiliate) */
     kitMadridUrl:

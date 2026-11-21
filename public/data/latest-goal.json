@@ -1,35 +1,48 @@
 {
- "syncedAt": "2026-11-21T07:35:09.740Z",
+ "syncedAt": "2026-11-21T12:41:19.925Z",
  "latestGoal": {
-  "goalNumber": 985,
+  "goalNumber": 986,
   "team": "Al-Nassr",
-  "opponent": "Al Kholood",
+  "opponent": "Al Ahli",
   "competition": "Saudi Pro League",
   "competitionSlug": "saudi-pro-league",
-  "date": "2026-10-29",
-  "formattedDate": "29 October 2026",
-  "bdayKey": "10-29",
-  "minute": "81'",
-  "clock": "81'",
+  "date": "2026-11-20",
+  "formattedDate": "20 November 2026",
+  "bdayKey": "11-20",
+  "minute": "14'",
+  "clock": "14'",
   "type": "Right-footed shot",
   "finish": "Right-footed shot",
   "assist": "",
-  "score": "5–3",
-  "venue": "Al-Awwal Park, Riyadh, Saudi Arabia",
-  "title": "Al-Nassr 5–3 Al Kholood",
+  "score": "1–3",
+  "venue": "King Abdullah Sports City, Jeddah, Saudi Arabia",
+  "title": "Al-Nassr 1–3 Al Ahli",
   "videoUrl": "",
-  "bdayUrl": "/en/birthday/10-29"
+  "bdayUrl": "/en/birthday/11-20"
  },
  "todayStatus": {
   "didScoreToday": false,
   "hasMatchToday": false,
-  "lastMatchDate": "2026-10-29",
-  "lastMatchOpponent": "Al Kholood",
-  "lastMatchResult": "Al-Nassr 5–3 Al Kholood",
-  "lastGoalNumber": 985,
-  "lastGoalMinute": "81'"
+  "lastMatchDate": "2026-11-20",
+  "lastMatchOpponent": "Al Ahli",
+  "lastMatchResult": "Al-Nassr 1–3 Al Ahli",
+  "lastGoalNumber": 986,
+  "lastGoalMinute": "14'"
  },
  "recentGoals": [
+  {
+   "goalNumber": 986,
+   "title": "Al-Nassr 1–3 Al Ahli",
+   "meta": "Saudi Pro League • 20 Nov 2026",
+   "match": "vs Al Ahli (1–3)",
+   "date": "20 Nov 2026 • 14'",
+   "minute": "14'",
+   "type": "Right-footed shot",
+   "tag": "Right-footed shot",
+   "score": "1–3",
+   "comp": "Saudi Pro League",
+   "bdayUrl": "/en/birthday/11-20"
+  },
   {
    "goalNumber": 985,
    "title": "Al-Nassr 5–3 Al Kholood",
@@ -81,26 +94,13 @@
    "score": "3–1",
    "comp": "Saudi Pro League",
    "bdayUrl": "/en/birthday/10-23"
-  },
-  {
-   "goalNumber": 981,
-   "title": "Al-Nassr 3–1 Neftchi Fergana",
-   "meta": "AFC Champions League Elite • 12 Oct 2026",
-   "match": "vs Neftchi Fergana (3–1)",
-   "date": "12 Oct 2026 • 42'",
-   "minute": "42'",
-   "type": "Right-footed shot",
-   "tag": "Right-footed shot",
-   "score": "3–1",
-   "comp": "AFC Champions League Elite",
-   "bdayUrl": "/en/birthday/10-12"
   }
  ],
  "totals": {
-  "goals": 985,
-  "alnassrGoals": 138,
-  "alnassrApps": 160,
-  "season2026Goals": 28,
+  "goals": 986,
+  "alnassrGoals": 139,
+  "alnassrApps": 161,
+  "season2026Goals": 29,
   "portugueseGoals": 146,
   "portugueseCaps": 234
  }

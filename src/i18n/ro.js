@@ -218,7 +218,7 @@ export const ACH = {
     ["Care este cel mai important trofeu al lui Ronaldo?", "<b>Campionatul European din 2016</b> — trofeul pe care l-a câștigat cu Portugalia la Paris, în calitate de căpitan, fiind al doilea cel mai bun marcator al turneului."],
     ["Câte titluri de ligă a câștigat Ronaldo?", "<b>Opt</b> — 3 Premier League, 2 La Liga, 2 Serie A și 1 Saudi Pro League, după cum sunt enumerate în lista de palmares din această arhivă."],
     ["Câte distincții individuale a câștigat Ronaldo?", "Cinci trofee Ballon d'Or, patru Gantele de Aur europene, trei premii UEFA de Jucătorul Anului, FIFA World Player of the Year în 2008, Premiul FIFA Puskás în 2009, Gantă de Aur la Euro 2020 și The Best FIFA Men's Player în 2016 și 2017."],
-    ["Este Ronaldo cel mai decorat jucător din toate timpurile?", "După trofeele de echipă, Messi conduce cu 46, față de 35 ale lui Ronaldo. Ronaldo conduce în ceea ce privește recordurile de goluri — 985 de goluri, dintre care 140 în Liga Campionilor, și 146 de goluri în 234 de selecții pentru Portugalia."]
+    ["Este Ronaldo cel mai decorat jucător din toate timpurile?", "După trofeele de echipă, Messi conduce cu 46, față de 35 ale lui Ronaldo. Ronaldo conduce în ceea ce privește recordurile de goluri — 986 de goluri, dintre care 140 în Liga Campionilor, și 146 de goluri în 234 de selecții pentru Portugalia."]
   ]
 };
 

@@ -4,7 +4,7 @@
   "sourceHome": "https://cr7allgoals.com",
   "retrievedAt": "2026-10-20T00:38:58.620Z",
   "perGoalPagePattern": "https://cr7allgoals.com/goal/{number}",
-  "goals": 979,
+  "goals": 980,
   "mediaAssets": 62,
   "goalsWithExactClip": 35,
   "goalsWithHighlight": 0,
@@ -22200,6 +22200,19 @@
    "finalScore": "2–1",
    "scorerOrdinal": 1,
    "sourcePage": "https://cr7allgoals.com/goal/979",
+   "media": []
+  },
+  {
+   "number": 986,
+   "date": "2026-11-20",
+   "team": "Al Nassr",
+   "opponent": "Al Ahli",
+   "competition": "Saudi Pro League",
+   "venue": "King Abdullah Sports City, Jeddah, Saudi Arabia",
+   "scoreAfterGoal": "1–0",
+   "finalScore": "1–3",
+   "scorerOrdinal": 1,
+   "sourcePage": "https://cr7allgoals.com/goal/986",
    "media": []
   }
  ],

@@ -47,15 +47,15 @@ const pages = [];
 // The isolated ad documents. Keyed by the iframe src pages must use.
 const ADS_DIR = path.join(DIST, 'ads');
 const EXPECTED_ADS = {
-  'hrf-300x250.html': 'highrevenueformat.com',
+  'hrf-300x250.html': 'bauval.org',
   'hrf-728x90.html': 'bauval.org',
   'hrf-320x50.html': 'bauval.org',
   'hrf-top.html': 'bauval.org',
   'hrf-468x60.html': 'bauval.org',
   'hrf-160x600.html': 'bauval.org',
   'hrf-160x300.html': 'bauval.org',
-  'prc-native-6161.html': 'profitableratecpmnetwork.com',
-  'prc-native-6160.html': 'profitableratecpmnetwork.com',
+  'prc-native-6161.html': 'bauval.org',
+  'prc-native-6160.html': 'bauval.org',
   // Social Bar: loaded via ?src= allowlist; no hardcoded network hostname.
   'social-bar.html': null,
   'frame.css': null,

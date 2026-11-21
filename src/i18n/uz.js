@@ -217,7 +217,7 @@ export const ACH = {
     ["Ronaldo ning eng muhim sovrigi qaysi?", "<b>2016-yilgi Yevropa Championshipasi</b> — u Portugaliyani Parijda kapeton sifatida olib borgan titul, turnirning ikkinchi yirik golchisi sifatida."],
     ["Ronaldo qancha liga tituli yutgan?", "<b>Sekiz</b> — 3 ta Premier Liga, 2 ta La Liga, 2 ta Serie A va 1 ta Saudi Pro Liga, ushbu arxivning faxr roʻyxatida batafsil keltirilgan."],
     ["Ronaldo qancha shaxsiy mukofot yutgan?", "Besh ta Ballon d'Or, toʻrtta Yevropa Oltin choyoni, uchta UEFA Yillik Futbolchi mukofoti, 2008-yildagi FIFA Yilning Futbolchisi, 2009-yildagi FIFA Puskás mukofoti, Euro 2020 Oltin choyoni hamda 2016 va 2017-yillarda The Best FIFA Men's Player."],
-    ["Ronaldo tarixdagi eng koʻp shuhratga ega futbolchimi?", "Faqat jamoaviy titullar boʻyicha Messi 46 ta bilan Ronaldo ning 35 tasidan oldinda. Ronaldo esa gol rekordlarida oldinda — 985 ta gol, ulardan 140 tasi Chempionlar Ligasiida, va Portugaliya safida 146 ta gol — 234 ta milliy oʻyinda."]
+    ["Ronaldo tarixdagi eng koʻp shuhratga ega futbolchimi?", "Faqat jamoaviy titullar boʻyicha Messi 46 ta bilan Ronaldo ning 35 tasidan oldinda. Ronaldo esa gol rekordlarida oldinda — 986 ta gol, ulardan 140 tasi Chempionlar Ligasiida, va Portugaliya safida 146 ta gol — 234 ta milliy oʻyinda."]
   ]
 };
 

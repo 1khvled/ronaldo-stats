@@ -257,7 +257,7 @@ const I18N = {
     faqs: [
       {
         q: "Who has more total career goals: Messi or Ronaldo?",
-        a: "Cristiano Ronaldo holds the all-time world record with 981 official senior career goals in 1,340 appearances (0.73 goals per match), while Lionel Messi has scored 932 goals in 1,178 appearances (0.79 goals per match). Ronaldo leads by 48 goals, though Messi has played 161 fewer matches and maintains a higher scoring ratio."
+        a: "Cristiano Ronaldo holds the all-time world record with 986 official senior career goals in 1,344 appearances (0.73 goals per match), while Lionel Messi has scored 937 goals in 1,184 appearances (0.79 goals per match). Ronaldo leads by 49 goals, though Messi has played 160 fewer matches and maintains a higher scoring ratio."
       },
       {
         q: "Who has more non-penalty goals: Messi or Ronaldo?",
@@ -444,7 +444,7 @@ const I18N = {
     faqs: [
       {
         q: "¿Quién tiene más goles en total: Messi o Cristiano Ronaldo?",
-        a: "Cristiano Ronaldo tiene el récord mundial histórico absoluto con 981 goles oficiales en 1.340 partidos (0,73 goles por partido). Lionel Messi suma 932 goles en 1.178 partidos (0,79 goles por partido). Ronaldo aventaja a Messi por 48 goles, aunque Messi ha jugado 161 partidos menos y ostenta un mejor promedio goleador."
+        a: "Cristiano Ronaldo tiene el récord mundial histórico absoluto con 986 goles oficiales en 1.344 partidos (0,73 goles por partido). Lionel Messi suma 937 goles en 1.184 partidos (0,79 goles por partido). Ronaldo aventaja a Messi por 49 goles, aunque Messi ha jugado 160 partidos menos y ostenta un mejor promedio goleador."
       },
       {
         q: "¿Quién tiene más goles sin contar penaltis?",
@@ -631,7 +631,7 @@ const I18N = {
     faqs: [
       {
         q: "Quem tem mais gols na carreira: Messi ou Cristiano Ronaldo?",
-        a: "Cristiano Ronaldo detém o recorde mundial absoluto com 981 gols oficiais em 1.340 jogos (0,73 gols por jogo). Lionel Messi marcou 932 gols em 1.178 jogos (0,79 gols por jogo). Ronaldo lidera por 48 gols, mas Messi disputou 161 jogos a menos e possui média superior."
+        a: "Cristiano Ronaldo detém o recorde mundial absoluto com 986 gols oficiais em 1.344 jogos (0,73 gols por jogo). Lionel Messi marcou 937 gols em 1.184 jogos (0,79 gols por jogo). Ronaldo lidera por 49 gols, mas Messi disputou 160 jogos a menos e possui média superior."
       },
       {
         q: "Quem tem mais gols sem contar cobranças de pênalti?",
@@ -818,7 +818,7 @@ const I18N = {
     faqs: [
       {
         q: "Qui a marqué le plus de buts officiels : Messi ou Ronaldo ?",
-        a: "Cristiano Ronaldo détient le record mondial de l'histoire du football avec 981 buts officiels en 1 340 apparitions (0,73 but par match). Lionel Messi compte 932 buts en 1 178 apparitions (0,79 but par match). Ronaldo mène de 48 buts, mais Messi compte 161 matchs de moins et affiche une meilleure moyenne."
+        a: "Cristiano Ronaldo détient le record mondial de l'histoire du football avec 986 buts officiels en 1 344 apparitions (0,73 but par match). Lionel Messi compte 937 buts en 1 178 apparitions (0,79 but par match). Ronaldo mène de 49 buts, mais Messi compte 160 matchs de moins et affiche une meilleure moyenne."
       },
       {
         q: "Qui a inscrit le plus de buts hors penalty ?",

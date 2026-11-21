@@ -147,6 +147,18 @@ const feed = {
   };
   let previous = null;
   try { previous = JSON.parse(fs.readFileSync(out, "utf8")); } catch (e) { previous = null; }
+  // Workflow hardening (2026-11-20): never let a rebuild clobber a feed
+  // that is AHEAD of the calendar. The auto-puller can write a brand-new
+  // goal to latest-goal.json before the dated calendar row exists; an old
+  // rebuild would then silently roll the feed back to the previous goal.
+  // If the file on disk carries a NEWER date than the newest calendar goal
+  // we just built, the calendar is missing that new goal row: keep the feed.
+  if (previous?.latestGoal?.date && lg.date && previous.latestGoal.date > lg.date) {
+    console.error(
+      `\n  ⚠️  ALERT: auto-detected goal #${previous.latestGoal.goalNumber} of ${previous.latestGoal.date} is newer than the calendar (newest ${lg.date}) — calendar needs the new goal row; keeping the feed.`
+    );
+    process.exit(0);
+  }
   if (!previous || material(previous) !== material(feed)) {
     fs.writeFileSync(out, JSON.stringify(feed, null, 1), "utf8");
     console.log("  the latest goal changed: the feed is written");

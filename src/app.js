@@ -925,13 +925,13 @@ function ensureDesktopBrandHeader() {
   if (!wrap) return;
   const curLang = getCurrentLangCode();
   const searchPrompts = {
-    en: "Search 985 goals, years, rivals…",
-    es: "Buscar 985 goles, años, rivales…",
-    pt: "Buscar 985 gols, anos, rivais…",
-    fr: "Rechercher 985 buts, années, rivaux…",
-    ro: "Caută 985 goluri, ani, rivali…",
-    uz: "985 gol, yil va raqiblarni qidiring…",
-    ar: "ابحث في 985 هدفاً، السنوات، المنافسين…"
+    en: "Search 986 goals, years, rivals…",
+    es: "Buscar 986 goles, años, rivales…",
+    pt: "Buscar 986 gols, anos, rivais…",
+    fr: "Rechercher 986 buts, années, rivaux…",
+    ro: "Caută 986 goluri, ani, rivali…",
+    uz: "986 gol, yil va raqiblarni qidiring…",
+    ar: "ابحث في 986 هدفاً، السنوات، المنافسين…"
   };
   const brandSubs = {
     en: "The Verified Cristiano Ronaldo Statistics &amp; Video Database",
@@ -1171,7 +1171,7 @@ function initInPageSocialBar() {
     return;
   }
 
-  const goalNum = LIVE.lgNum || LIVE.goals || 985;
+  const goalNum = LIVE.lgNum || LIVE.goals || 986;
   const strike = (window.__RS_LIVE_GOAL && window.__RS_LIVE_GOAL.title) || `Al-Nassr 5–3 ${LIVE.lgOpp || "Al Kholood"}`;
   const PUSH_I18N = {
     en: {
@@ -2241,7 +2241,7 @@ function initGlobalGoatPoll() {
           </div>
           <div class="goat-vote-meta">
             <span class="vote-confirmed-tag">✓ Your vote was recorded! (${total.toLocaleString()} total community votes)</span>
-            <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I just voted in the Cristiano Ronaldo vs Lionel Messi GOAT poll on RonaldoStats! Compare their official 985 vs 937 career stats:`)}&url=${encodeURIComponent(window.location.href)}" target="_blank" rel="noopener noreferrer" class="btn-share-poll-vote">
+            <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I just voted in the Cristiano Ronaldo vs Lionel Messi GOAT poll on RonaldoStats! Compare their official 986 vs 937 career stats:`)}&url=${encodeURIComponent(window.location.href)}" target="_blank" rel="noopener noreferrer" class="btn-share-poll-vote">
               <span>🐦 Share Verdict</span>
             </a>
           </div>
@@ -2441,19 +2441,19 @@ function initDedicatedRoulette() {
       const rouletteSec = document.createElement("section");
       rouletteSec.className = "latest-goal-roulette-card";
       rouletteSec.id = "dedicated-roulette-section";
-      rouletteSec.setAttribute("aria-label", "985 Career Goal Roulette");
+      rouletteSec.setAttribute("aria-label", "986 Career Goal Roulette");
       rouletteSec.innerHTML = `
         <div class="roulette-card-header">
-          <div class="roulette-badge-pill">🎲 985-GOAL ROULETTE</div>
+          <div class="roulette-badge-pill">🎲 986-GOAL ROULETTE</div>
           <h2 class="roulette-section-title">Spin a Random Ronaldo Career Goal Highlight</h2>
-          <p class="roulette-section-desc">Spin through all 985 official senior goals across Cristiano Ronaldo's 25-year legendary career. Click to immediately stream and replay the highlight video in the player above!</p>
+          <p class="roulette-section-desc">Spin through all 986 official senior goals across Cristiano Ronaldo's 25-year legendary career. Click to immediately stream and replay the highlight video in the player above!</p>
         </div>
         <div class="roulette-interactive-stage">
           <div class="roulette-highlight-display" id="dedicated-roulette-display">
             <div class="roulette-standby-view">
               <span class="roulette-standby-icon">⚽</span>
               <div class="roulette-standby-text">
-                <b>985 Senior Goals Available</b>
+                <b>986 Senior Goals Available</b>
                 <span>Click the button below to randomly draw a classic milestone, solo stunner, or cup final decider.</span>
               </div>
             </div>
@@ -2535,7 +2535,7 @@ function initDedicatedRoulette() {
     display.innerHTML = `
       <div class="roulette-spinning-state">
         <div class="roulette-spinner-ring"></div>
-        <div class="roulette-spintip">🎲 Spinning across 985 career goals...</div>
+        <div class="roulette-spintip">🎲 Spinning across 986 career goals...</div>
       </div>
     `;
 
@@ -2899,20 +2899,20 @@ const gpg = (g, a) => (a ? (g / a).toFixed(2) : "—");
  */
 
 const LIVE = {
-  goals: 985, apps: 1343, clubGoals: 839, argGoals: 146, argCaps: 234,
-  assists: 261, tmAssists: 291, ga: 1246, tmGa: 1276,
+  goals: 986, apps: 1344, clubGoals: 840, argGoals: 146, argCaps: 234,
+  assists: 261, tmAssists: 291, ga: 1247, tmGa: 1277,
   trophies: 35, rTrophies: 46, tReal: 15, tManUtd: 9, tJuve: 5, tAlNassr: 2, tSporting: 1, tPortugal: 3,
-  gap: -48, fewer: 159, road: 15,
+  gap: -49, fewer: 160, road: 14,
   rGoals: 937, rApps: 1184, rAssists: 409, rGpg: "0.79", rGa: 1346, astLead: -148,
-  npg: 801, npgR: 827, npgLead: -26,
-  alnassrGoals: 138, alnassrApps: 160,
+  npg: 802, npgR: 827, npgLead: -25,
+  alnassrGoals: 139, alnassrApps: 161,
   abtReal: 152, abtPortugal: 14, abtAlNassr: 9, abtJuve: 20, abtManUtd: 66,
   compLiga: 311, compCDR: 22, compSuper: 12, compUCLb: 105, compUCLm: 24, compUCLj: 14,
-  compPL: 103, compSerieA: 81, compSPL: 110, compPrimeira: 3,
+  compPL: 103, compSerieA: 81, compSPL: 111, compPrimeira: 3,
   compCupMU: 17, compCupJuve: 4, compCupNassr: 3, compCupSporting: 2, compACL: 16,
   compShield: 1, compSupercoppaIt: 2, compACC: 9,
   compQual: 52, compWC: 52, compNL: 15, compEuro: 55, compConfed: 2, compFriend: 22,
-  lgNum: 985, lgOpp: "Al Kholood", lgDate: "29 October 2026",
+  lgNum: 986, lgOpp: "Al Ahli", lgDate: "20 November 2026",
 };
 
 // The dictionary modules are separate files, so the helpers
@@ -3725,8 +3725,8 @@ function renderHome(d) {
   // from live totals on each render — static HTML is SEO fallback only)
   const r1000 = el("road-1000");
   if (r1000) {
-    const goals = t.goals || 985;
-    const apps = t.apps || 1343;
+    const goals = t.goals || 986;
+    const apps = t.apps || 1344;
     const clubG = (d.totals && d.totals.club && d.totals.club.goals) || 835;
     const prtG = (d.totals && d.totals.country && d.totals.country.goals) || 146;
     const remaining = Math.max(0, 1000 - goals);
@@ -4337,7 +4337,7 @@ function renderDashboard(d, team) {
     // per-team NPG/FK/HT stay literal — the JSON has no per-team splits, so
     // PEN_BY_TEAM / FK_BY_TEAM / HT_BY_TEAM carry the frozen split and still
     // reconcile with the canonical career totals (184 pens, 66 FKs, 66 hat-tricks).
-    // G+A computed live (985+261 = 1,246).
+    // G+A computed live (986+261 = 1,247).
     const assistsBT = d.totals.assists.byTeam;
     const assistsVal = T === "all" ? n(d.totals.assists.official) + "+" : String(assistsBT[TEAM_ASSIST_KEY[T] || T].official);
     const gaVal = T === "all" ? n(d.totals.goals + d.totals.assists.official) + "+" : n(clubAgg(d)[T].goals + d.totals.assists.byTeam[TEAM_ASSIST_KEY[T] || T].official);
@@ -4728,7 +4728,7 @@ const ERA_PHOTOS = {
   ],
   miami: [
     { src: "/img/era/era-2023-alnassr.webp", w: 1200, h: 675, pos: "50% 25%", alt: "Ronaldo in the Al Nassr number 7 shirt", cap: "The Al Nassr years — captain of the Saudi Pro League, 2023 to now" },
-    { src: "/img/era/era-2026-record.webp", w: 1200, h: 675, pos: "50% 25%", alt: "Cristiano Ronaldo celebrating as the all-time leading goalscorer in international football", cap: "Records & milestones — 985 goals in 1,343 senior appearances" },
+    { src: "/img/era/era-2026-record.webp", w: 1200, h: 675, pos: "50% 25%", alt: "Cristiano Ronaldo celebrating as the all-time leading goalscorer in international football", cap: "Records & milestones — 986 goals in 1,344 senior appearances" },
   ],
 };
 ERA_PHOTOS.rosario = ERA_PHOTOS["Sporting CP 2002-2003"];
@@ -5195,7 +5195,7 @@ function updateBirthdaySocialShare(dayData, key) {
     } else if (isRonaldoBday) {
       shareText = `¡Cumplo años el mismo día que Cristiano Ronaldo (5 de febrero)! 🐐🎂 ¿Marcó en tu cumpleaños?`;
     } else {
-      shareText = `¿Marcó Cristiano Ronaldo en tu cumpleaños? Revisa los 366 días a lo largo de sus 985 goles:`;
+      shareText = `¿Marcó Cristiano Ronaldo en tu cumpleaños? Revisa los 366 días a lo largo de sus 986 goles:`;
     }
   } else if (lang === "pt") {
     if (dayData.goalsCount > 0) {
@@ -6386,7 +6386,7 @@ async function autoPullLatestGoalLive(d) {
     const todayCard = document.getElementById("today-status-section");
 
     const currentNumStr = (activeNum ? activeNum.textContent : "").replace(/\D/g, "");
-    const currentNum = parseInt(currentNumStr, 10) || 985;
+    const currentNum = parseInt(currentNumStr, 10) || 986;
 
     const isDesynced = (g.goalNumber !== currentNum) ||
       (video && !video.src.includes(`Goal${g.goalNumber}.mp4`)) ||
@@ -7200,7 +7200,7 @@ function initBentoEraExplorer(d) {
   }));
 
   const ERA_DATA = {
-    all: { nums: [LIVE.goals, LIVE.assists, LIVE.apps, 1343, LIVE.trophies, 5], subs: null },
+    all: { nums: [LIVE.goals, LIVE.assists, LIVE.apps, 1344, LIVE.trophies, 5], subs: null },
     madrid: {
       nums: [450, 152, 438, 438, 15, 3],
       subs: {
@@ -7228,25 +7228,25 @@ function initBentoEraExplorer(d) {
     alnassr: {
       nums: [LIVE.alnassrGoals, 9, LIVE.alnassrApps, LIVE.alnassrApps, LIVE.tAlNassr, 0],
       subs: {
-        en: ["2023–2026 · Club Record", "9 Official Assists", "0.86 Goals / Match", "160 Official Matches", "Arab Club Champions Cup", "2023–2026 Era"],
-        es: ["2023–2026 · Récord del Club", "9 Asistencias Oficiales", "0,86 Goles / Partido", "160 Partidos", "Copa de Campeones Árabes", "Etapa 2023–2026"],
-        pt: ["2023–2026 · Recorde do Clube", "9 Assistências Oficiais", "0,86 Gols / Jogo", "160 Jogos", "Copa Árabe de Clubes", "Era 2023–2026"],
-        fr: ["2023–2026 · Record du Club", "9 Passes Officielles", "0,86 But / Match", "160 Matchs", "Coupe Arabe des Clubs", "Ère 2023–2026"],
-        ro: ["2023–2026 · Record Club", "9 Pase Oficiale", "0,86 Goluri / Meci", "160 Meciuri", "Cupa Campionilor Arabi", "Era 2023–2026"],
-        uz: ["2023–2026 · Klub Rekordi", "9 Rasmiy Assist", "0,86 Gol / O'yin", "160 O'yin", "Arab Klublar Chempionati", "2023–2026 Davri"],
-        ar: ["2023–2026 · رقم قياسي", "9 تمريرات حاسمة", "0.86 هدف / مباراة", "160 مباراة", "كأس أبطال الأندية العربية", "فترة 2023–2026"]
+        en: ["2023–2026 · Club Record", "9 Official Assists", "0.86 Goals / Match", "161 Official Matches", "Arab Club Champions Cup", "2023–2026 Era"],
+        es: ["2023–2026 · Récord del Club", "9 Asistencias Oficiales", "0,86 Goles / Partido", "161 Partidos", "Copa de Campeones Árabes", "Etapa 2023–2026"],
+        pt: ["2023–2026 · Recorde do Clube", "9 Assistências Oficiais", "0,86 Gols / Jogo", "161 Jogos", "Copa Árabe de Clubes", "Era 2023–2026"],
+        fr: ["2023–2026 · Record du Club", "9 Passes Officielles", "0,86 But / Match", "161 Matchs", "Coupe Arabe des Clubs", "Ère 2023–2026"],
+        ro: ["2023–2026 · Record Club", "9 Pase Oficiale", "0,86 Goluri / Meci", "161 Meciuri", "Cupa Campionilor Arabi", "Era 2023–2026"],
+        uz: ["2023–2026 · Klub Rekordi", "9 Rasmiy Assist", "0,86 Gol / O'yin", "161 O'yin", "Arab Klublar Chempionati", "2023–2026 Davri"],
+        ar: ["2023–2026 · رقم قياسي", "9 تمريرات حاسمة", "0.86 هدف / مباراة", "161 مباراة", "كأس أبطال الأندية العربية", "فترة 2023–2026"]
       }
     }
   };
 
   const ERA_LABELS = {
-    en: { aria: "Filter career KPIs by team era", all: `All Career (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (138)" },
-    es: { aria: "Filtrar estadísticas por etapa", all: `Carrera (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (138)" },
-    pt: { aria: "Filtrar estatísticas por equipe", all: `Carreira (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (138)" },
-    fr: { aria: "Filtrer les statistiques par équipe", all: `Carrière (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (138)" },
-    ro: { aria: "Filtrează statisticile după echipă", all: `Carieră (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (138)" },
-    uz: { aria: "Statistikani jamoa bo'yicha filtrlash", all: `Karyera (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugaliya (146)", alnassr: "Al Nassr (138)" },
-    ar: { aria: "تصفية الإحصائيات حسب الفريق", all: `المسيرة (${LIVE.goals})`, madrid: "ريال مدريد (450)", portugal: "البرتغال (146)", alnassr: "النصر (138)" }
+    en: { aria: "Filter career KPIs by team era", all: `All Career (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (139)" },
+    es: { aria: "Filtrar estadísticas por etapa", all: `Carrera (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (139)" },
+    pt: { aria: "Filtrar estatísticas por equipe", all: `Carreira (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (139)" },
+    fr: { aria: "Filtrer les statistiques par équipe", all: `Carrière (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (139)" },
+    ro: { aria: "Filtrează statisticile după echipă", all: `Carieră (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugal (146)", alnassr: "Al Nassr (139)" },
+    uz: { aria: "Statistikani jamoa bo'yicha filtrlash", all: `Karyera (${LIVE.goals})`, madrid: "Real Madrid (450)", portugal: "Portugaliya (146)", alnassr: "Al Nassr (139)" },
+    ar: { aria: "تصفية الإحصائيات حسب الفريق", all: `المسيرة (${LIVE.goals})`, madrid: "ريال مدريد (450)", portugal: "البرتغال (146)", alnassr: "النصر (139)" }
   };
   const labels = ERA_LABELS[lang] || ERA_LABELS.en;
   const ERA_KEYS = ["all", "madrid", "portugal", "alnassr"];
@@ -7349,7 +7349,7 @@ function initRoad1000Simulator(d) {
   if (!paceEl || !footer) return;
 
   const lang = getLang();
-  const goals = (d && d.totals && d.totals.combined && d.totals.combined.goals) || LIVE.goals || 985;
+  const goals = (d && d.totals && d.totals.combined && d.totals.combined.goals) || LIVE.goals || 986;
   const remaining = Math.max(0, 1000 - goals);
   const SIM_I18N = {
     en: { aria: "Scoring pace projection scenarios", pills: [
