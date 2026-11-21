@@ -8,9 +8,12 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const d = JSON.parse(fs.readFileSync(path.join(ROOT, "public/data/ronaldo-data.json"), "utf8"));
 const m = JSON.parse(fs.readFileSync(path.join(ROOT, "public/data/messi.json"), "utf8"));
+const lg = JSON.parse(fs.readFileSync(path.join(ROOT, "public/data/latest-goal.json"), "utf8")).latestGoal;
 const t = d.totals;
 const U = (n) => Number(n).toLocaleString("en-US");
-const TODAY = "19 October 2026";
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const NOW = new Date();
+const TODAY = `${NOW.getUTCDate()} ${MONTHS[NOW.getUTCMonth()]} ${NOW.getUTCFullYear()}`;
 
 // The raw JSON stores byFinish / byBodyPart as arrays; the renderer
 // normalises them at runtime, so resolve them here the same way.
@@ -119,7 +122,7 @@ Ronaldo's record against Barcelona: 18 goals in El Clásico, nine years and 450 
 - **How many hat-tricks?** ${d.hatTricks} in total, of which 10 came for Portugal (a world record).
 - **How many trophies?** ${U(35)} senior team trophies. Popular media counts of 36-37 over-count the UEFA Super Cup and the domestic supercups; the itemised list is 35.
 - **Who has more goals, Ronaldo or Messi?** Ronaldo, ${U(t.combined.goals)} to ${U(m.goals)}.
-- **When was his last goal?** Goal #${U(t.combined.goals)} for Al Nassr on 9 October 2026.
+- **When was his last goal?** Goal #${U(lg.goalNumber)} for Al Nassr on ${lg.formattedDate}.
 `;
 fs.writeFileSync(path.join(ROOT, "public/llms-full.txt"), full, "utf8");
 console.log("llms-full.txt written (" + full.length + " chars)");

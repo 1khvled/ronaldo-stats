@@ -185,7 +185,7 @@ const enImages = {
   "champions-league": `    <image:image>
       <image:loc>https://www.ronaldostats.site/img/era/era-2017-ucl.webp</image:loc>
       <image:title>Cristiano Ronaldo and the UEFA Champions League</image:title>
-      <image:caption>Ronaldo's Champions League record: 140 goals in 173 appearances and five European crowns.</image:caption>
+      <image:caption>Ronaldo's Champions League record: 140 goals in 183 appearances and five European crowns.</image:caption>
     </image:image>`,
 };
 

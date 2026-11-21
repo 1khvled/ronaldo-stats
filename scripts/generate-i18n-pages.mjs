@@ -133,6 +133,10 @@ function localizeHtml(html, lang, slug, dict) {
   out = out.replace(/"url"\s*:\s*"https:\/\/www\.ronaldostats\.site\/[^"]*"/g, `"url": "${ORIGIN}/${lang}${path}"`);
   out = out.replace(/"contentUrl"\s*:\s*"https:\/\/www\.ronaldostats\.site\/[^"]*"/g, `"contentUrl": "${ORIGIN}/${lang}${path}"`);
 
+  // 7a. a non-English page must declare its own language in every JSON-LD
+  // WebSite/WebPage node (both spacing variants occur in the shells).
+  out = out.replace(/"inLanguage"\s*:\s*"en"/g, `"inLanguage": "${lang}"`);
+
   // 7. internal links
   // The programmatic date pages exist in English only: one canonical URL per
   // date (the same rule the language switcher and the ?date= redirect in
