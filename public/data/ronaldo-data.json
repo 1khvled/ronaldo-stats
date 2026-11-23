@@ -1,7 +1,7 @@
 {
   "meta": {
     "status": "CROSS_CHECKED",
-    "updated": "2026-11-22",
+    "updated": "2026-11-23",
     "methodology": "Senior first-team matches only. Club rows follow the Wikipedia career-achievements club season table (league / domestic cup / continental / other), cross-checked against RSSSF, worldfootball.net and Transfermarkt. Portugal rows are parsed directly from the RSSSF appearance list, which supplies both the per-year caps and the competitive-versus-friendly split. Every split in this file is computed from the rows, never typed by hand, so the checksum invariants cannot drift.",
     "verification": [
       "Club season splits: Wikipedia 'List of career achievements by Cristiano Ronaldo' club season table (cites Soccerway and worldfootball.net), fetched 2026-10-19. Rows reconciled to the published per-club totals: Sporting CP 31/5, Manchester United 346/145, Real Madrid 438/450, Juventus 134/101, Al Nassr 161/139.",
