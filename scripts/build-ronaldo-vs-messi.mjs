@@ -1002,7 +1002,8 @@ ${getHreflangs(lang, "messi-vs-ronaldo")}
 <link rel="manifest" href="/site.webmanifest"/>
 <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin/>
 <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin/>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8397501846854760" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8397501846754760"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8397501846754760" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/src/styles.css"/>
 <script type="application/ld+json">
 ${JSON.stringify(jsonLd, null, 2)}
