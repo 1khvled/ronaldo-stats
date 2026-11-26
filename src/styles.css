@@ -12527,6 +12527,9 @@ body.mst-toast-open .back-to-top-btn {
   .page {
     margin-right: 196px; /* Reserves clean gutter for 160x600 .ad-skyscraper-dock so it never overlaps content */
   }
+  body[data-page="advertise"] .page {
+    margin-right: 0 !important;
+  }
 }
 .ad-banner-wrap.ad-banner-top {
   margin: 0.35rem auto 0.85rem auto;
@@ -15077,6 +15080,9 @@ dialog::backdrop {
   html[dir="rtl"] .page {
     margin-left: 196px !important;
     margin-right: var(--rail-w) !important;
+  }
+  html[dir="rtl"] body[data-page="advertise"] .page {
+    margin-left: 0 !important;
   }
   html[dir="rtl"] #ad-desktop-skyscraper,
   html[dir="rtl"] .ad-skyscraper-dock {

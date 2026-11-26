@@ -11,6 +11,7 @@ import { getShellDict } from "./i18n/shell/index.js";
 import { MONETIZE_CONFIG } from "./monetize-config.js";
 inject(); // page-view counting; no-ops off Vercel (script 404s silently in local preview)
 injectSpeedInsights(); // Core Web Vitals; same deal — production only, silent locally
+let DICT = getDict("en");
 /* Theme manager (Dark / Light mode) synced with <meta name="color-scheme"> & OS preference */
 function syncColorSchemeMeta(mode) {
   if (typeof document === "undefined") return;
@@ -466,6 +467,7 @@ function getCurrentLangCode() {
   }
   return "en";
 }
+DICT = getDict(getCurrentLangCode());
 
 function getLangUrl(targetCode) {
   if (typeof location === "undefined") return `/${targetCode}`;
@@ -3241,13 +3243,9 @@ function reveal() {
 }
 
 function getLang() {
-  const l = (document.documentElement.lang || "en").toLowerCase();
-  for (const c of ["es","pt","fr","ro","uz","ar"]) {
-    if (l.startsWith(c)) return c;
-  }
-  return "en";
-  DICT = getDict(getLangCode());
-  return getLangCode();
+  const code = getCurrentLangCode();
+  DICT = getDict(code);
+  return code;
 }
 
 function renderExplore(d, page) {
@@ -4296,14 +4294,15 @@ function renderDashboard(d, team) {
   // 1. Team Selector Bar with instant reactive re-rendering
   const pillsEl = el("pills");
   if (pillsEl) {
+    const aggTeams = clubAgg(d);
     const teams = [
       { id: "all", label: "All Teams", goals: d.totals.goals, apps: d.totals.apps, crest: "" },
-      { id: "realmadrid", label: "Real Madrid", goals: 450, apps: 438, crest: "/img/teams/real-madrid.png" },
-      { id: "manutd", label: "Manchester United", goals: 145, apps: 346, crest: "/img/teams/man-utd.png" },
-      { id: "juventus", label: "Juventus", goals: 101, apps: 134, crest: "/img/teams/juventus.png" },
-      { id: "alnassr", label: "Al Nassr", goals: 134, apps: 157, crest: "/img/teams/al-nassr.png" },
-      { id: "sporting", label: "Sporting CP", goals: 5, apps: 31, crest: "/img/teams/sporting.png" },
-      { id: "portugal", label: "Portugal", goals: 146, apps: 234, crest: "/img/teams/portugal.png" }
+      { id: "realmadrid", label: "Real Madrid", goals: aggTeams.realmadrid.goals, apps: aggTeams.realmadrid.apps, crest: "/img/teams/real-madrid.png" },
+      { id: "manutd", label: "Manchester United", goals: aggTeams.manutd.goals, apps: aggTeams.manutd.apps, crest: "/img/teams/man-utd.png" },
+      { id: "juventus", label: "Juventus", goals: aggTeams.juventus.goals, apps: aggTeams.juventus.apps, crest: "/img/teams/juventus.png" },
+      { id: "alnassr", label: "Al Nassr", goals: aggTeams.alnassr.goals, apps: aggTeams.alnassr.apps, crest: "/img/teams/al-nassr.png" },
+      { id: "sporting", label: "Sporting CP", goals: aggTeams.sporting.goals, apps: aggTeams.sporting.apps, crest: "/img/teams/sporting.png" },
+      { id: "portugal", label: "Portugal", goals: d.totals.country.goals, apps: d.totals.country.apps, crest: "/img/teams/portugal.png" }
     ];
     pillsEl.className = "dash-team-selector";
     pillsEl.innerHTML = teams.map((tm) => `
@@ -4345,8 +4344,8 @@ function renderDashboard(d, team) {
     const assistsVal = T === "all" ? n(d.totals.assists.official) + "+" : String(assistsBT[TEAM_ASSIST_KEY[T] || T].official);
     const gaVal = T === "all" ? n(d.totals.goals + d.totals.assists.official) + "+" : n(clubAgg(d)[T].goals + d.totals.assists.byTeam[TEAM_ASSIST_KEY[T] || T].official);
     const npgVal = T === "all" ? String(LIVE.npg) : String(Math.max(0, clubAgg(d)[T].goals - (PEN_BY_TEAM[T] || 0)));
-    const fkVal = T === "all" ? "66" : String(FK_BY_TEAM[T] || 0);
-    const htVal = T === "all" ? "66" : String(HT_BY_TEAM[T] || 0);
+    const fkVal = T === "all" ? String(d.byFinish.freeKicks || 66) : String(FK_BY_TEAM[T] || 0);
+    const htVal = T === "all" ? String(d.hatTricks || 67) : String(HT_BY_TEAM[T] || 0);
 
     const kpiList = [
       { label: "Total Goals", icon: "⚽", num: n(goals), sub: `${gpg(goals, apps)} goals/game · ${n(apps)} matches (${name})` },
@@ -4403,7 +4402,7 @@ function renderDashboard(d, team) {
     const finishRows = [
       { label: "Open Play", val: d.byFinish.openPlay, pct: ((d.byFinish.openPlay / d.totals.goals) * 100).toFixed(1), fill: "fill-blue", sub: `${d.byFinish.openPlay} goals from open play` },
       { label: "Direct Free Kicks", val: d.byFinish.freeKicks, pct: ((d.byFinish.freeKicks / d.totals.goals) * 100).toFixed(1), fill: "fill-gold", sub: `${d.byFinish.freeKicks} career direct free-kick goals` },
-      { label: "Penalties", val: d.byFinish.penalties, pct: ((d.byFinish.penalties / d.totals.goals) * 100).toFixed(1), fill: "fill-red", sub: `${d.byFinish.penalties} converted from 220 attempts (83.6%)` }
+      { label: "Penalties", val: d.byFinish.penalties, pct: ((d.byFinish.penalties / d.totals.goals) * 100).toFixed(1), fill: "fill-red", sub: `${d.byFinish.penalties} converted from 222 attempts (${((d.byFinish.penalties / 222) * 100).toFixed(1)}%)` }
     ];
     finishCard.innerHTML = `
       <h3 class="dash-card-title">🎯 Scoring Breakdown by Method / Finish</h3>
@@ -4455,28 +4454,28 @@ function renderDashboard(d, team) {
   const msCard = el("milestones-card");
   if (msCard) {
     const milestones = [
-      { goal: "100", opp: "vs Sevilla", date: "16 Jan 2010", age: "22y 206d", apps: "188" },
-      { goal: "200", opp: "vs Viktoria Plzeň", date: "1 Nov 2011", age: "24y 130d", apps: "286" },
-      { goal: "300", opp: "vs Granada", date: "16 Feb 2013", age: "25y 237d", apps: "365" },
-      { goal: "400", opp: "vs Granada", date: "27 Sep 2014", age: "27y 95d", apps: "525" },
-      { goal: "500", opp: "vs Valencia", date: "17 Apr 2016", age: "28y 298d", apps: "632" },
-      { goal: "600", opp: "vs Atlético Madrid", date: "4 Mar 2018", age: "30y 253d", apps: "747" },
-      { goal: "700", opp: "vs Atlético Madrid", date: "30 Jun 2020", age: "33y 6d", apps: "862" },
-      { goal: "800", opp: "vs Panama", date: "23 Mar 2023", age: "35y 272d", apps: "1,017" },
-      { goal: "900", opp: "vs NY Red Bulls", date: "2025", age: "37y 315d", apps: "1,135" },
-      { goal: String(LIVE.goals), opp: LIVE.lgOpp, date: LIVE.lgDate, age: "39y", apps: n(LIVE.apps) }
+      { goal: "100", opp: "vs Tottenham Hotspur", team: "Manchester United", date: "27 Jan 2008", age: "22y 356d" },
+      { goal: "200", opp: "vs Valencia", team: "Real Madrid", date: "4 Dec 2010", age: "25y 302d" },
+      { goal: "300", opp: "vs Granada", team: "Real Madrid", date: "5 May 2012", age: "27y 90d" },
+      { goal: "400", opp: "vs Celta Vigo", team: "Real Madrid", date: "6 Jan 2014", age: "28y 335d" },
+      { goal: "500", opp: "vs Malmö FF", team: "Real Madrid", date: "30 Sep 2015", age: "30y 237d" },
+      { goal: "600", opp: "vs Juventus", team: "Real Madrid", date: "3 Jun 2017", age: "32y 118d" },
+      { goal: "700", opp: "vs Ukraine", team: "Portugal", date: "14 Oct 2019", age: "34y 251d" },
+      { goal: "800", opp: "vs Arsenal", team: "Manchester United", date: "2 Dec 2021", age: "36y 300d" },
+      { goal: "900", opp: "vs Croatia", team: "Portugal", date: "5 Sep 2024", age: "39y 213d" },
+      { goal: String(LIVE.goals), opp: `vs ${LIVE.lgOpp}`, team: "Al Nassr", date: LIVE.lgDate, age: "41y 292d" }
     ];
     msCard.innerHTML = `
-      <h3 class="dash-card-title">⚡ Landmark Goal Speed Tracker</h3>
+      <h3 class="dash-card-title">⚡ Landmark Career Goal Progression</h3>
       <div class="table-wrap">
         <table class="milestone-table">
           <thead>
             <tr>
               <th>Milestone</th>
               <th>Opponent</th>
+              <th>Team</th>
               <th>Date</th>
               <th>Age</th>
-              <th>Matches</th>
             </tr>
           </thead>
           <tbody>
@@ -4484,9 +4483,9 @@ function renderDashboard(d, team) {
               <tr>
                 <td><strong>Goal #${m.goal}</strong></td>
                 <td>${esc(m.opp)}</td>
+                <td>${esc(m.team)}</td>
                 <td>${esc(m.date)}</td>
-                <td>${esc(m.age)}</td>
-                <td><b>${esc(m.apps)}</b></td>
+                <td><b>${esc(m.age)}</b></td>
               </tr>
             `).join("")}
           </tbody>
@@ -4543,7 +4542,7 @@ function renderDashboard(d, team) {
     compTable.innerHTML =
       `<div class="table-wrap"><table class="data-table"><caption>${cfg.compCaption(name)}</caption>` +
       `<thead><tr><th scope="col" class="left">${cfg.thComp}</th><th scope="col">${cfg.thGoals}</th><th scope="col">${cfg.thShare}</th></tr></thead><tbody>` +
-      compRows.map((r) => `<tr><th scope="row">${esc(r.competition)}${r.team ? `<small class="comp-team">${esc(r.team)}</small>` : ""}` + (T === "all" && r.competition === "La Liga" ? `<span class="yr-note">${cfg.recAllTime}</span>` : "") + (T === "all" && r.competition === "UEFA Champions League" ? `<span class="yr-note">105 Real Madrid · 24 Manchester United · 14 Juventus</span>` : "") + `</th><td><b>${r.goals}</b></td><td>${((r.goals / goals) * 100).toFixed(1)}%</td></tr>`).join("") +
+      compRows.map((r) => `<tr><th scope="row">${esc(r.competition)}${r.team ? `<small class="comp-team">${esc(r.team)}</small>` : ""}` + (T === "all" && r.competition === "La Liga" ? `<span class="yr-note">${cfg.recAllTime}</span>` : "") + (T === "all" && r.competition === "UEFA Champions League" ? `<span class="yr-note">105 Real Madrid · 21 Manchester United · 14 Juventus</span>` : "") + `</th><td><b>${r.goals}</b></td><td>${((r.goals / goals) * 100).toFixed(1)}%</td></tr>`).join("") +
       `</tbody></table></div>`;
     compTable.insertAdjacentHTML("beforeend", clubTableCaption());
     const tbl = compTable.querySelector("table");
@@ -4598,7 +4597,7 @@ function renderDashboard(d, team) {
     const bestS = ss.reduce((a, b) => (b.goals > a.goals ? b : a));
     sTable.innerHTML = `<div class="table-wrap"><table class="data-table"><caption>All ${ss.length} club seasons: Sporting CP, Manchester United, Real Madrid, Juventus and Al Nassr.</caption>` +
       `<thead><tr><th scope="col" class="left">Season</th><th scope="col" class="left">Club</th><th scope="col">Apps</th><th scope="col">Goals</th><th scope="col">League</th><th scope="col">Cup</th><th scope="col">Continental</th><th scope="col">Other</th></tr></thead><tbody>` +
-      ss.map((s) => `<tr><th scope="row">${esc(s.season)}${s.provisional ? " *" : ""}${s.season === bestS.season ? ` <span class="yr-note">Record 73G</span>` : ""}</th>` +
+      ss.map((s) => `<tr><th scope="row">${esc(s.season)}${s.provisional ? " *" : ""}${s.season === bestS.season ? ` <span class="yr-note">Record ${bestS.goals}G</span>` : ""}</th>` +
         `<td class="left">${dispClub(s.club)}</td><td>${n(s.apps)}</td><td><b>${n(s.goals)}</b></td>` +
         `<td>${s.league.apps}/${s.league.goals}</td><td>${s.cup.apps}/${s.cup.goals}</td>` +
         `<td>${s.continental.apps}/${s.continental.goals}</td><td>${s.other.apps}/${s.other.goals}</td></tr>`).join("") +
@@ -6765,6 +6764,12 @@ function ensureCommandPalette() {
 
   inp.addEventListener("input", () => renderList(inp.value));
   inp.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      if (typeof dlg.close === "function") dlg.close();
+      else dlg.removeAttribute("open");
+      return;
+    }
     const rows = listEl.querySelectorAll(".cmd-item");
     if (!rows.length) return;
     if (e.key === "ArrowDown") {
@@ -6780,7 +6785,8 @@ function ensureCommandPalette() {
     } else if (e.key === "Enter" && currentItems[activeIdx]) {
       e.preventDefault();
       const dest = currentItems[activeIdx].href;
-      dlg.close();
+      if (typeof dlg.close === "function") dlg.close();
+      else dlg.removeAttribute("open");
       window.location.href = dest;
     }
   });
@@ -7472,10 +7478,13 @@ function mountRonaldoPitchZones(d) {
   if (typeof document === "undefined" || document.getElementById("pitch-zone-card")) return;
   const gridParent = document.querySelector(".dash-sections-grid") || document.getElementById("kpis");
   if (!gridParent) return;
-  const bp = (d && d.byBodyPart) || [];
+  const bp = (d && d.byBodyPart) || {};
   const get = (frag) => {
-    const row = bp.find((r) => String(r.part).toLowerCase().includes(frag));
-    return row ? row.goals : 0;
+    if (Array.isArray(bp)) {
+      const row = bp.find((r) => String(r.part).toLowerCase().includes(frag));
+      return row ? row.goals : 0;
+    }
+    return Number(bp[frag]) || 0;
   };
   const right = get("right"), left = get("left"), head = get("head"), other = get("other");
   const total = (d && d.totals && d.totals.combined && d.totals.combined.goals) || LIVE.goals;

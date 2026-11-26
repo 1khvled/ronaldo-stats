@@ -25,9 +25,12 @@ const H = { "User-Agent": "ronaldostats/1.0 (public scoreboard reader)" };
 const isRonaldoFixture = (name) =>
   CLUBS.some((c) => new RegExp(c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i").test(name || ""));
 
-async function getJson(url) {
+async function getJson(url, timeoutMs = 2500) {
   try {
-    const r = await fetch(url, { headers: H });
+    const r = await fetch(url, {
+      headers: H,
+      signal: AbortSignal.timeout(timeoutMs),
+    });
     if (!r.ok) return null;
     return await r.json();
   } catch {
@@ -55,10 +58,20 @@ function readSummary(summary) {
 }
 
 export default async function handler(req, res) {
-  res.setHeader("Cache-Control", "s-maxage=120, stale-while-revalidate=300");
   res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+  res.setHeader("Cache-Control", "s-maxage=120, stale-while-revalidate=300");
 
-  const days = Math.min(Number(new URL(req.url, "http://x").searchParams.get("days")) || 1, 30);
+  if (req.method === "OPTIONS") {
+    return res.status(204).end();
+  }
+  if (req.method && req.method !== "GET") {
+    res.setHeader("Allow", "GET, OPTIONS");
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  const rawDays = parseInt(new URL(req.url, "http://x").searchParams.get("days"), 10);
+  const days = Number.isFinite(rawDays) ? Math.max(1, Math.min(rawDays, 7)) : 1;
   const now = new Date();
   const dates = [];
   for (let i = 0; i < days; i++) {
@@ -66,32 +79,49 @@ export default async function handler(req, res) {
     dates.push(d.toISOString().slice(0, 10));
   }
 
-  const fixtures = [];
+  const boardQueries = [];
   for (const comp of COMPETITIONS) {
     for (const date of dates) {
-      const board = await getJson(
-        `https://site.api.espn.com/apis/site/v2/sports/soccer/${comp.code}/scoreboard?dates=${date}&limit=60`
-      );
-      if (!board || !board.events) continue;
-      for (const ev of board.events) {
-        if (!isRonaldoFixture(ev.name || "")) continue;
-        const summary = await getJson(
-          `https://site.api.espn.com/apis/site/v2/sports/soccer/${comp.code}/summary?event=${ev.id}`
-        );
-        const r = readSummary(summary);
-        fixtures.push({
-          date: ev.date,
-          name: ev.name,
-          competition: comp.label,
-          status: ev.status?.type?.description || "",
-          completed: !!ev.competitions?.[0]?.status?.type?.completed,
-          ronaldo_goals: r ? r.goals : 0,
-          ronaldo_assists: r ? r.assists : 0,
-          minutes: r ? r.minutes : [],
-        });
-      }
+      boardQueries.push({ comp, date });
     }
   }
+
+  const boards = await Promise.all(
+    boardQueries.map(({ comp, date }) =>
+      getJson(
+        `https://site.api.espn.com/apis/site/v2/sports/soccer/${comp.code}/scoreboard?dates=${date}&limit=60`
+      ).then((board) => ({ comp, board }))
+    )
+  );
+
+  const seenEvents = new Map();
+  for (const { comp, board } of boards) {
+    if (!board || !board.events) continue;
+    for (const ev of board.events) {
+      if (!isRonaldoFixture(ev.name || "")) continue;
+      const key = `${comp.code}:${ev.id}`;
+      if (!seenEvents.has(key)) seenEvents.set(key, { comp, ev });
+    }
+  }
+
+  const fixtures = await Promise.all(
+    [...seenEvents.values()].map(async ({ comp, ev }) => {
+      const summary = await getJson(
+        `https://site.api.espn.com/apis/site/v2/sports/soccer/${comp.code}/summary?event=${ev.id}`
+      );
+      const r = readSummary(summary);
+      return {
+        date: ev.date,
+        name: ev.name,
+        competition: comp.label,
+        status: ev.status?.type?.description || "",
+        completed: !!ev.competitions?.[0]?.status?.type?.completed,
+        ronaldo_goals: r ? r.goals : 0,
+        ronaldo_assists: r ? r.assists : 0,
+        minutes: r ? r.minutes : [],
+      };
+    })
+  );
 
   const today = now.toISOString().slice(0, 10);
   const todays = fixtures.filter((f) => (f.date || "").slice(0, 10) === today);
