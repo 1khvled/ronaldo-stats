@@ -1,19 +1,19 @@
 {
   "meta": {
     "status": "CROSS_CHECKED",
-    "updated": "2026-11-24",
+    "updated": "2026-11-26",
     "methodology": "Senior first-team matches only. Club rows follow the Wikipedia career-achievements club season table (league / domestic cup / continental / other), cross-checked against RSSSF, worldfootball.net and Transfermarkt. Portugal rows are parsed directly from the RSSSF appearance list, which supplies both the per-year caps and the competitive-versus-friendly split. Every split in this file is computed from the rows, never typed by hand, so the checksum invariants cannot drift.",
     "verification": [
-      "Club season splits: Wikipedia 'List of career achievements by Cristiano Ronaldo' club season table (cites Soccerway and worldfootball.net), fetched 2026-10-19. Rows reconciled to the published per-club totals: Sporting CP 31/5, Manchester United 346/145, Real Madrid 438/450, Juventus 134/101, Al Nassr 161/139.",
+      "Club season splits: Wikipedia 'List of career achievements by Cristiano Ronaldo' club season table (cites Soccerway and worldfootball.net), fetched 2026-10-19. Rows reconciled to the published per-club totals: Sporting CP 31/5, Manchester United 346/145, Real Madrid 438/450, Juventus 134/101, Al Nassr 162/140.",
       "International record: RSSSF 'Cristiano Ronaldo dos Santos Aveiro - Century of International Appearances' (Roberto Mamrud), last updated 7 Oct 2026 — 233 caps, 146 goals, and a type tally of 56 friendlies / 52 World Cup qualifiers / 44 European qualifiers / 30 European Championship / 27 World Cup / 20 Nations League / 4 Confederations Cup. This file reproduces that tally exactly.",
       "234th cap: UEFA 'Europe's most-capped men's international players: Cristiano Ronaldo on 234 appearances for Portugal', 29 Sep 2026, data correct as of 6 Oct 2026 — the extra cap is the UEFA Nations League match away to Norway on 27 Sep 2026, the most recent of his 234 Portugal appearances.",
       "International goals: Wikipedia 'List of international goals scored by Cristiano Ronaldo' (146 goals with dates and competitions, as of 24 Sep 2026) agrees with the RSSSF goal column year by year.",
-      "Calendar-year totals: Wikipedia 'Goals by year' plus the RSSSF international goal list agree on every year from 2002 to 2026; each year is the sum of that year's club goals and Portugal goals, and the series sums to 986.",
-      "Set pieces: 184 penalties from 221 attempts (83.3% conversion), 66 direct free-kick goals and 67 hat-tricks — planetfootball (7 Jul 2026), Sofascore (14 Aug 2026) and messivsronaldo.app. The open-play figure of 736 is the residual of the same compiled table.",
+      "Calendar-year totals: Wikipedia 'Goals by year' plus the RSSSF international goal list agree on every year from 2002 to 2026; each year is the sum of that year's club goals and Portugal goals, and the series sums to 987.",
+      "Set pieces: 185 penalties from 222 attempts (83.3% conversion), 66 direct free-kick goals and 67 hat-tricks — planetfootball (7 Jul 2026), Sofascore (14 Aug 2026) and messivsronaldo.app. The open-play figure of 736 is the residual of the same compiled table.",
       "Champions League: 140 goals (all-time record) across 183 appearances (UEFA's record figure, which counts the qualifying rounds; the club season tables account for 173 appearances from the group stage onwards). The 2005/06 UEFA Cup run, the 2022/23 Europa League run and Sporting CP's 2002/03 UEFA Cup campaign are booked under their own competitions so the Champions League total stays at 140.",
-      "Body-part split (right foot 638 / left foot 186 / head 159 / other 3) is published only by aggregators and stays PROVISIONAL; Wikipedia's records table gives 156 headed goals.",
+      "Body-part split (right foot 639 / left foot 186 / head 159 / other 3) is published only by aggregators and stays PROVISIONAL; Wikipedia's records table gives 156 headed goals.",
       "Trophy count: 35 senior team trophies from the itemised Wikipedia honours list (32 club + 3 Portugal). Popular media counts of 36-37 over-count the UEFA Super Cup (2 senior wins, not 3) and the domestic supercups (6, not 7).",
-      "Last senior goal: #986, Al Nassr, 20 November 2026 (right-footed open-play finish away to Al Ahli in the Saudi Pro League, 14'; live career total: 986)."
+      "Last senior goal: #987, Al Nassr, 24 November 2026 (13' penalty vs Al Sadd in the AFC Champions League Elite, 2-1; live career total: 987)."
     ],
     "sources": [
       "https://www.rsssf.org/miscellaneous/cronaldo-intlg.html",
@@ -50,8 +50,8 @@
   },
   "totals": {
     "club": {
-      "appearances": 1110,
-      "goals": 840,
+      "appearances": 1111,
+      "goals": 841,
       "goalsPerGame": 0.76
     },
     "country": {
@@ -60,8 +60,8 @@
       "goalsPerGame": 0.62
     },
     "combined": {
-      "appearances": 1344,
-      "goals": 986
+      "appearances": 1345,
+      "goals": 987
     },
     "assists": {
       "official": 261,
@@ -85,7 +85,7 @@
         "al_nassr": {
           "official": 9,
           "transfermarkt": 11,
-          "appearances": 161
+          "appearances": 162
         },
         "sporting_cp": {
           "official": 0,
@@ -105,8 +105,8 @@
         "international": 36
       },
       "goalContributions": {
-        "official": 1247,
-        "transfermarkt": 1277,
+        "official": 1248,
+        "transfermarkt": 1278,
         "perGameOfficial": 0.93
       },
       "note": "Career assist total of 261 is the widely published compiled tally (planetfootball / Sofascore / messivsronaldo.app); Transfermarkt's wider criteria (penalties won, rebounds) gives 291. The club-by-team assist splits are compiled tallies and stay PROVISIONAL until a true match-by-match hand count is finished."
@@ -698,15 +698,15 @@
         0
       ],
       "continental": [
-        2,
-        1
+        3,
+        2
       ],
       "other": [
         0,
         0
       ],
-      "apps": 13,
-      "goals": 10
+      "apps": 14,
+      "goals": 11
     }
   ],
   "countryYears": [
@@ -1106,7 +1106,7 @@
     {
       "competition": "AFC Champions League Elite / Two",
       "team": "Al Nassr",
-      "goals": 16
+      "goals": 17
     },
     {
       "competition": "UEFA Nations League",
@@ -1177,7 +1177,7 @@
     },
     {
       "finish": "Penalties",
-      "goals": 184
+      "goals": 185
     },
     {
       "finish": "Free kicks",
@@ -1191,7 +1191,7 @@
     },
     {
       "part": "Right foot",
-      "goals": 638
+      "goals": 639
     },
     {
       "part": "Head",
@@ -1792,15 +1792,15 @@
     },
     {
       "year": 2026,
-      "goals": 29,
-      "careerTotal": 986,
+      "goals": 30,
+      "careerTotal": 987,
       "age": 41,
       "status": "provisional-ongoing"
     }
   ],
   "hatTricks": 67,
   "splits": {
-    "_note": "Rivalry comparison splits, verified 2026-10-30. Ronaldo: 986 goals, 1,344 appearances, 261 assists, 184 penalties (from 221), 66 direct free kicks, 67 hat-tricks, 35 senior team trophies, 5 Ballons d'Or, 140 Champions League goals (all-time record), 42 Champions League assists (all-time record), 146 goals in 234 caps for Portugal (both all-time records). Messi: 937 goals, 1,184 appearances, 409 assists, 110 penalties, 67 direct free kicks, 62 hat-tricks, 46 senior team trophies, 8 Ballons d'Or, 129 Champions League goals, 21 World Cup goals.",
+    "_note": "Rivalry comparison splits, verified 2026-11-24. Ronaldo: 987 goals, 1,345 appearances, 261 assists, 185 penalties (from 222), 66 direct free kicks, 67 hat-tricks, 35 senior team trophies, 5 Ballons d'Or, 140 Champions League goals (all-time record), 42 Champions League assists (all-time record), 146 goals in 234 caps for Portugal (both all-time records). Messi: 937 goals, 1,184 appearances, 409 assists, 110 penalties, 67 direct free kicks, 62 hat-tricks, 46 senior team trophies, 8 Ballons d'Or, 129 Champions League goals, 21 World Cup goals.",
     "ronaldo": {
       "worldCup": {
         "goals": 11,

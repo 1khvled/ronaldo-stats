@@ -80,7 +80,7 @@ export async function autoPullLatestGoal() {
   };
   const ronaldoData = existsSync(ronaldoDataJsonPath) ? JSON.parse(readFileSync(ronaldoDataJsonPath, "utf8")) : null;
 
-  const currentGoalNum = latestData.latestGoal?.goalNumber || 932;
+  const currentGoalNum = latestData.latestGoal?.goalNumber || 986;
   console.log(`Current registered latest goal: Goal #${currentGoalNum} (${latestData.latestGoal?.opponent || "Unknown"})`);
 
   // Fetch overview from ESPN and MLS Scoreboard in parallel
@@ -203,7 +203,7 @@ export async function autoPullLatestGoal() {
         const goalTextRaw = k.text || "";
         const primaryAthlete = k.participants?.[0]?.athlete;
         const isRonaldoScorer = primaryAthlete ? 
-          (primaryAthlete.id === "45843" || /ronaldo/i.test(primaryAthlete.displayName || "")) :
+          (primaryAthlete.id === "22774" || /ronaldo/i.test(primaryAthlete.displayName || "")) :
           /Cristiano Ronaldo\s*\(/i.test(goalTextRaw);
         if (isGoal && isRonaldoScorer) {
           const rawClock = (k.clock?.displayValue || "").replace(/'/g, "");
@@ -233,7 +233,7 @@ export async function autoPullLatestGoal() {
       const venueState = summary.gameInfo?.venue?.address?.state;
       const venueFull = summary.gameInfo?.venue?.fullName;
       const venueLocation = venueCity ? ` (${venueCity}${venueState ? `, ${venueState}` : ""})` : "";
-      const venue = venueFull ? `${venueFull}${venueLocation}` : "Chase Stadium (Fort Lauderdale, FL)";
+      const venue = venueFull ? `${venueFull}${venueLocation}` : "Al-Awwal Park (Riyadh, Saudi Arabia)";
 
       newlyFoundGoal = {
         id: ev.id,
@@ -330,7 +330,7 @@ export async function autoPullLatestGoal() {
           date: `${newlyFoundGoal.formattedDate} • ${minute}`,
           minute,
           type,
-          tag: `${finish} 🔥`,
+          tag: finish,
           score: newlyFoundGoal.score,
           comp: newlyFoundGoal.competition,
           videoUrl,
@@ -351,12 +351,16 @@ export async function autoPullLatestGoal() {
       latestData.todayStatus.lastGoalMinute = newestObj.minute;
 
       if (latestData.totals) {
+        latestData.totals.goals = newGoalNum;
         latestData.totals.seniorGoals = newGoalNum;
-        latestData.totals.appearances = (latestData.totals.appearances || 1178) + 1;
-        if (!newlyFoundGoal.isPortugal) latestData.totals.miamiGoals = (latestData.totals.miamiGoals || 102) + matchGoals;
-        latestData.totals.season2026Goals = (latestData.totals.season2026Goals || 26) + matchGoals;
+        latestData.totals.appearances = (latestData.totals.appearances || 1344) + 1;
+        if (!newlyFoundGoal.isPortugal) {
+          latestData.totals.alnassrGoals = (latestData.totals.alnassrGoals || 139) + matchGoals;
+          latestData.totals.alnassrApps = (latestData.totals.alnassrApps || 161) + 1;
+        }
+        latestData.totals.season2026Goals = (latestData.totals.season2026Goals || 29) + matchGoals;
         if (newlyFoundGoal.finish.includes("Free Kick")) {
-          latestData.totals.freeKicks = (latestData.totals.freeKicks || 76) + 1;
+          latestData.totals.freeKicks = (latestData.totals.freeKicks || 66) + 1;
         }
       }
 
@@ -384,7 +388,7 @@ export async function autoPullLatestGoal() {
     }
   }
 
-  console.log(`[AUTO-PULL COMPLETED] Status: UP_TO_DATE (Goal #${latestData.latestGoal?.goalNumber || 932})`);
+  console.log(`[AUTO-PULL COMPLETED] Status: UP_TO_DATE (Goal #${latestData.latestGoal?.goalNumber || 986})`);
   return latestData;
 }
 

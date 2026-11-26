@@ -41,32 +41,32 @@ const latest = readJson("public/data/latest-goal.json", {});
 const bday = readJson("public/data/birthday-goals.json", {});
 
 // ---- base totals (Ronaldo) ------------------------------------------------
-const goals = ronaldo.totals?.combined?.goals ?? 986;
-const apps = ronaldo.totals?.combined?.appearances ?? 1344;
-const clubGoals = ronaldo.totals?.club?.goals ?? 840;
-const clubApps = ronaldo.totals?.club?.appearances ?? 1110;
+const goals = ronaldo.totals?.combined?.goals ?? 987;
+const apps = ronaldo.totals?.combined?.appearances ?? 1345;
+const clubGoals = ronaldo.totals?.club?.goals ?? 841;
+const clubApps = ronaldo.totals?.club?.appearances ?? 1111;
 const countryGoals = ronaldo.totals?.country?.goals ?? 146;
 const countryCaps = ronaldo.totals?.country?.appearances ?? 234;
 const assists = ronaldo.totals?.assists?.official ?? 261;
 const tmAssists = ronaldo.totals?.assists?.transfermarkt ?? 291;
-const ga = ronaldo.totals?.goalContributions?.official ?? 1247;
-const tmGa = ronaldo.totals?.goalContributions?.transfermarkt ?? 1277;
+const ga = ronaldo.totals?.goalContributions?.official ?? 1248;
+const tmGa = ronaldo.totals?.goalContributions?.transfermarkt ?? 1278;
 const gpg = ronaldo.totals?.goalsPerGame ?? 0.73;
 const gaPerGame = ronaldo.totals?.goalContributions?.perGameOfficial ?? 0.93;
 const assistsByTeam = ronaldo.totals?.assists?.byTeam ?? {};
-const alnassrGoals = ronaldo.totals?.club?.goals ?? 840;
-const alnassrApps = assistsByTeam.al_nassr?.appearances ?? 161;
-const season2026Goals = (ronaldo.calendarYears || []).find((r) => r.year === 2026)?.goals ?? 29;
+const alnassrGoals = ronaldo.totals?.club?.goals ?? 841;
+const alnassrApps = assistsByTeam.al_nassr?.appearances ?? 162;
+const season2026Goals = (ronaldo.calendarYears || []).find((r) => r.year === 2026)?.goals ?? 30;
 
 // ---- breakdowns -------------------------------------------------------------
 const fin = {};
 (ronaldo.byFinish || []).forEach((r) => { fin[r.finish] = r.goals; });
-const byFinish = { openPlay: fin["Open play"] ?? 736, penalties: fin["Penalties"] ?? 184, freeKicks: fin["Free kicks"] ?? 66 };
+const byFinish = { openPlay: fin["Open play"] ?? 736, penalties: fin["Penalties"] ?? 185, freeKicks: fin["Free kicks"] ?? 66 };
 const bp = {};
 (ronaldo.byBodyPart || []).forEach((r) => { bp[r.part] = r.goals; });
-const byBody = { left: bp["Left foot"] ?? 186, right: bp["Right foot"] ?? 638, head: bp["Head"] ?? 158, other: bp["Other (chest etc.)"] ?? 3 };
-const hatTricks = ronaldo.hatTricks ?? 66;
-const cal2026 = (ronaldo.calendarYears || []).find((r) => r.year === 2026) || { goals: 29, careerTotal: goals };
+const byBody = { left: bp["Left foot"] ?? 186, right: bp["Right foot"] ?? 639, head: bp["Head"] ?? 159, other: bp["Other (chest etc.)"] ?? 3 };
+const hatTricks = ronaldo.hatTricks ?? 67;
+const cal2026 = (ronaldo.calendarYears || []).find((r) => r.year === 2026) || { goals: 30, careerTotal: goals };
 
 // Trophy count per team, derived from the itemised list (years.length).
 const trophiesByTeam = {};
@@ -116,7 +116,7 @@ export const S = {
   rGoals, rApps, rAssists, gap, fewer, road, rGpg, rGa, astLead,
   npg, npgR, npgLead,
   latestGoal, recentGoals,
-  bdayTotalGoals: bday.meta?.totalGoals ?? 986,
+  bdayTotalGoals: bday.meta?.totalGoals ?? 987,
   byCompetition: ronaldo.byCompetition || [],
 };
 

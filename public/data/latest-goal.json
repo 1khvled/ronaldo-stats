@@ -1,35 +1,48 @@
 {
- "syncedAt": "2026-11-24T18:05:51.716Z",
+ "syncedAt": "2026-11-26T01:05:47.419Z",
  "latestGoal": {
-  "goalNumber": 986,
+  "goalNumber": 987,
   "team": "Al-Nassr",
-  "opponent": "Al Ahli",
-  "competition": "Saudi Pro League",
-  "competitionSlug": "saudi-pro-league",
-  "date": "2026-11-20",
-  "formattedDate": "20 November 2026",
-  "bdayKey": "11-20",
-  "minute": "14'",
-  "clock": "14'",
-  "type": "Right-footed shot",
-  "finish": "Right-footed shot",
+  "opponent": "Al Sadd",
+  "competition": "AFC Champions League Elite",
+  "competitionSlug": "afc-champions-league-elite",
+  "date": "2026-11-24",
+  "formattedDate": "24 November 2026",
+  "bdayKey": "11-24",
+  "minute": "13'",
+  "clock": "13'",
+  "type": "Penalty",
+  "finish": "Penalty",
   "assist": "",
-  "score": "1–3",
-  "venue": "King Abdullah Sports City, Jeddah, Saudi Arabia",
-  "title": "Al-Nassr 1–3 Al Ahli",
+  "score": "2–1",
+  "venue": "Al-Awwal Park, Riyadh, Saudi Arabia",
+  "title": "Al-Nassr 2–1 Al Sadd",
   "videoUrl": "",
-  "bdayUrl": "/en/birthday/11-20"
+  "bdayUrl": "/en/birthday/11-24"
  },
  "todayStatus": {
   "didScoreToday": false,
   "hasMatchToday": false,
-  "lastMatchDate": "2026-11-20",
-  "lastMatchOpponent": "Al Ahli",
-  "lastMatchResult": "Al-Nassr 1–3 Al Ahli",
-  "lastGoalNumber": 986,
-  "lastGoalMinute": "14'"
+  "lastMatchDate": "2026-11-24",
+  "lastMatchOpponent": "Al Sadd",
+  "lastMatchResult": "Al-Nassr 2–1 Al Sadd",
+  "lastGoalNumber": 987,
+  "lastGoalMinute": "13'"
  },
  "recentGoals": [
+  {
+   "goalNumber": 987,
+   "title": "Al-Nassr 2–1 Al Sadd",
+   "meta": "AFC Champions League Elite • 24 Nov 2026",
+   "match": "vs Al Sadd (2–1)",
+   "date": "24 Nov 2026 • 13'",
+   "minute": "13'",
+   "type": "Penalty",
+   "tag": "Penalty",
+   "score": "2–1",
+   "comp": "AFC Champions League Elite",
+   "bdayUrl": "/en/birthday/11-24"
+  },
   {
    "goalNumber": 986,
    "title": "Al-Nassr 1–3 Al Ahli",
@@ -81,26 +94,13 @@
    "score": "5–3",
    "comp": "Saudi Pro League",
    "bdayUrl": "/en/birthday/10-29"
-  },
-  {
-   "goalNumber": 982,
-   "title": "Al-Nassr 3–1 Al-Faisaly FC",
-   "meta": "Saudi Pro League • 23 Oct 2026",
-   "match": "vs Al-Faisaly FC (3–1)",
-   "date": "23 Oct 2026 • 49'",
-   "minute": "49'",
-   "type": "Header",
-   "tag": "Header",
-   "score": "3–1",
-   "comp": "Saudi Pro League",
-   "bdayUrl": "/en/birthday/10-23"
   }
  ],
  "totals": {
-  "goals": 986,
-  "alnassrGoals": 139,
-  "alnassrApps": 161,
-  "season2026Goals": 29,
+  "goals": 987,
+  "alnassrGoals": 140,
+  "alnassrApps": 162,
+  "season2026Goals": 30,
   "portugueseGoals": 146,
   "portugueseCaps": 234
  }

@@ -22,12 +22,12 @@ globalThis.n = (v) => Number(v).toLocaleString("en-US");
 globalThis.esc = (s) =>
   String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 globalThis.LIVE = {
-  goals: 981, apps: 1340, clubGoals: 835, argGoals: 146, argCaps: 234,
-  assists: 261, tmAssists: 291, ga: 1242, tmGa: 1272,
+  goals: 987, apps: 1345, clubGoals: 841, argGoals: 146, argCaps: 234,
+  assists: 261, tmAssists: 291, ga: 1248, tmGa: 1278,
   trophies: 35, rTrophies: 46, tBarca: 15, tArg: 3, tPsg: 2, tMiami: 1,
-  gap: -45, fewer: 159, road: 19, rGoals: 936, rApps: 1181, rAssists: 408,
-  rGpg: "0.79", rGa: 1344, astLead: -147, npg: 797, npgR: 827, npgLead: -30,
-  miamiGoals: 134, miamiApps: 157,
+  gap: -50, fewer: 161, road: 13, rGoals: 937, rApps: 1184, rAssists: 409,
+  rGpg: "0.79", rGa: 1346, astLead: -148, npg: 802, npgR: 827, npgLead: -25,
+  alnassrGoals: 140, alnassrApps: 162,
 };
 
 /** A forgiving mock: any property resolves to something shaped like it. */

@@ -223,6 +223,7 @@ export function isMachineText(s) {
   const t = s.trim();
   if (!t) return true;
   if (/^https?:\/\//i.test(t)) return true;
+  if (/^ca-pub-\d+$/i.test(t)) return true;
   if (/^\/[\w\-./?=&%#]*$/.test(t)) return true;      // paths
   if (/^[A-Z]{2,5}$/.test(t)) return true;              // all caps codes
   // no letters at all -> numbers, prices, dates, percentages, symbols
