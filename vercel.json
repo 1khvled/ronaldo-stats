@@ -261,6 +261,14 @@
       "destination": "/champions-league.html"
     },
     {
+      "source": "/advertise",
+      "destination": "/advertise.html"
+    },
+    {
+      "source": "/en/advertise",
+      "destination": "/advertise.html"
+    },
+    {
       "source": "/embed/on-this-day",
       "destination": "/embed/on-this-day.html"
     },

@@ -57,7 +57,7 @@
   "pages": [
    "index"
   ],
-  "ctx": "Match Highlights &amp; Deals  [&mdash; Sponsored Hub] International Editions / Idiomas"
+  "ctx": "Match Highlights &amp; Deals  [&mdash; Sponsored Hub] Advertise / Sponsor"
  },
  "&mdash; is his most prolific club season: 48 in La Liga, 10 in the Champions League, 1 in the Copa del Rey and 2 in the super cups. He scored in every competition he entered.": {
   "count": 1,
@@ -2331,6 +2331,22 @@
   ],
   "ctx": "5 Feb 1985 (Age 41)  [Active] Al Nassr · Portugal"
  },
+ "Advertise / Sponsor": {
+  "count": 10,
+  "pages": [
+   "champions-league",
+   "dashboard",
+   "gear",
+   "goalsbyseason",
+   "goalsbyyear",
+   "index",
+   "real-madrid",
+   "ronaldo-vs-messi",
+   "timeline",
+   "trophies"
+  ],
+  "ctx": "&mdash; Sponsored Hub  [Advertise / Sponsor] International Editions / Idiomas"
+ },
  "Advertisement": {
   "count": 102,
   "pages": [
@@ -3318,7 +3334,7 @@
   "pages": [
    "ronaldo-vs-messi"
   ],
-  "ctx": "Telegram @messistatdotcom  [Club crests are trademarks of their respective clubs, shown for identification purposes.] "
+  "ctx": "Advertise / Sponsor  [Club crests are trademarks of their respective clubs, shown for identification purposes.] "
  },
  "Club crests are trademarks of their respective clubs, shown for team identification.": {
   "count": 8,
@@ -5726,7 +5742,7 @@
    "real-madrid",
    "ronaldo-vs-messi"
   ],
-  "ctx": "&mdash; Sponsored Hub  [International Editions / Idiomas] English (US, NG, IN, PH)"
+  "ctx": "Advertise / Sponsor  [International Editions / Idiomas] English (US, NG, IN, PH)"
  },
  "International Goal": {
   "count": 1,

@@ -19,6 +19,7 @@ const htmlPages = [
   "ronaldo-vs-messi.html",
   "champions-league.html",
   "gear.html",
+  "advertise.html",
 ];
 
 for (const p of htmlPages) {

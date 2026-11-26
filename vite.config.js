@@ -70,7 +70,8 @@ const rollupInput = {
   real_madrid: resolve(root, 'real-madrid.html'),
   ronaldo_vs_messi: resolve(root, 'ronaldo-vs-messi.html'),
   champions_league: resolve(root, 'champions-league.html'),
-  gear: resolve(root, 'gear.html')
+  gear: resolve(root, 'gear.html'),
+  advertise: resolve(root, 'advertise.html')
 };
 
 for (const l of langs) {
