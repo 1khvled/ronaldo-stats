@@ -1151,6 +1151,7 @@ if (typeof document !== "undefined") {
 /* ================= IN-PAGE SOCIAL PUSH (Adsterra in-page mode) ================= */
 function initInPageSocialBar() {
   if (typeof window === "undefined" || typeof document === "undefined") return;
+  if (document.body?.dataset?.page === "advertise") return;
 
   try {
     if (isOwnerNoAdsActive()) return;
@@ -1550,6 +1551,7 @@ function showDonationPopup() {
 
 function initPortugalFarewellTribute() {
   if (typeof window === "undefined" || typeof document === "undefined") return;
+  if (document.body?.dataset?.page === "advertise") return;
   if (document.getElementById("portugal-farewell-modal")) return;
 
   const TRIBUTE_COPY = {
