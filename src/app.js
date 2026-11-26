@@ -330,9 +330,11 @@ function initMonetizationUnits() {
     (document.body || document.documentElement).appendChild(aside);
   }
 
-  // Arm both immediately without waiting for DOMContentLoaded
-  armMobileAnchor();
-  armDesktopSkyscraper();
+  // Arm both immediately without waiting for DOMContentLoaded (skip on B2B /advertise page)
+  if (document.body?.dataset?.page !== "advertise") {
+    armMobileAnchor();
+    armDesktopSkyscraper();
+  }
 }
 initMonetizationUnits();
 
@@ -2788,10 +2790,11 @@ function initLanguageAndMobileTopBar() {
     }
   } catch (_) {}
 
-  // 6. Show Smart Language Suggestion Banner
+  // 6. Show Smart Language Suggestion Banner (skip English-only B2B /advertise page)
   try {
+    const isAdvertise = document.body?.dataset?.page === "advertise";
     const isBot = typeof navigator !== "undefined" && /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
-    if (!isBot) {
+    if (!isBot && !isAdvertise) {
       const detectedLang = detectDeviceAndLocationLang();
       const userChoice = localStorage.getItem("ronaldostats_lang_choice");
       const dismissed = sessionStorage.getItem("ronaldostats_lang_dismissed");
