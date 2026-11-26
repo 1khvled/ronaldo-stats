@@ -103,7 +103,7 @@ function localizeHtml(html, lang, slug, dict) {
   const altLinks = [];
   for (const [base, ...variants] of HREFLANGS) {
     for (const code of [base, ...variants]) {
-      const target = code === base ? base : code;
+      const target = base;
       altLinks.push(`<link hreflang="${code}" rel="alternate" href="${ORIGIN}/${target}${pagePath(slug)}"/>`);
     }
   }
