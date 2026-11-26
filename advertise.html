@@ -151,30 +151,40 @@
     border-radius: var(--radius);
     padding: 16px;
   }
-  .mk-subpanel-head { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:14px; }
+  .mk-subpanel-head { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-bottom:14px; }
   .mk-subpanel-title { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
+  .mk-head-badges { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
   .mk-trend-tag { font-size:.72rem; font-weight:700; padding:2px 7px; border-radius:var(--radius-pill); background:var(--accent-soft); color:var(--accent); font-variant-numeric:tabular-nums; }
+  .mk-sync-badge { display:inline-flex; align-items:center; gap:6px; font-size:.72rem; font-weight:700; padding:3px 9px; border-radius:var(--radius-pill); background:var(--accent-soft); color:var(--accent); border:1px solid rgba(16,185,129,.28); }
+  .mk-metric-switch { display:inline-flex; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--bg-3); }
+  .mk-metric-btn { border:none; background:transparent; color:var(--muted); font-size:.72rem; font-weight:700; padding:3px 9px; cursor:pointer; }
+  .mk-metric-btn.active { background:var(--ink); color:var(--surface); }
 
   .mk-chart { display:flex; align-items:flex-end; gap:10px; padding-top:8px; }
-  .mk-col { flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; cursor:default; }
+  .mk-col { flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer; padding:4px 2px; border-radius:var(--radius); border:1px solid transparent; background:transparent; font-family:inherit; }
+  .mk-col:hover, .mk-col.is-selected { background:var(--bg-2); border-color:var(--line-soft); }
   .mk-col-num { font-size:.72rem; font-weight:700; font-variant-numeric:tabular-nums; color:var(--ink-soft); }
   .mk-col-track { width:100%; height:96px; display:flex; align-items:flex-end; }
   .mk-col-fill {
     width:100%; border-radius:3px 3px 0 0; min-height:6px; display:block;
     background: linear-gradient(180deg, var(--accent) 0%, var(--brand) 100%);
-    transition: opacity .15s ease, transform .15s ease;
+    transition: height .32s cubic-bezier(.22,1,.36,1), opacity .15s ease, transform .15s ease;
   }
   .mk-col.is-peak .mk-col-fill { background: linear-gradient(180deg, #34d399 0%, #059669 100%); }
-  .mk-col:hover .mk-col-fill { transform: scaleY(1.04); }
+  .mk-col:hover .mk-col-fill, .mk-col.is-selected .mk-col-fill { transform: scaleY(1.04); filter: brightness(1.08); }
   .mk-col-dt { font-size:.7rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .mk-chart-inspector { margin-top:10px; padding:7px 10px; border-radius:var(--radius); background:var(--bg-2); border:1px solid var(--line-soft); font-size:.76rem; color:var(--ink-soft); display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px; font-variant-numeric:tabular-nums; }
+  .mk-chart-inspector strong { color:var(--ink); }
 
   .mk-countries { display:flex; flex-direction:column; gap:10px; }
   .mk-ctry { display:grid; grid-template-columns:145px 1fr 78px; align-items:center; gap:10px; font-size:.84rem; }
   @media (max-width: 480px) { .mk-ctry { grid-template-columns:112px 1fr 68px; gap:8px; } }
   .mk-ctry-name { font-weight:700; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .mk-ctry-track { height:9px; border-radius:2px; background:var(--bg-3); border:1px solid var(--line-soft); overflow:hidden; }
-  .mk-ctry-fill { height:100%; background:var(--brand); display:block; }
+  .mk-ctry-fill { height:100%; background:var(--brand); display:block; transition:width .35s ease; }
   .mk-ctry-meta { text-align:right; font-size:.78rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .mk-dev-strip { margin-top:12px; padding-top:10px; border-top:1px dashed var(--line-soft); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; font-size:.74rem; color:var(--muted); }
+  .mk-dev-pills { display:flex; gap:10px; flex-wrap:wrap; font-weight:700; color:var(--ink-soft); font-variant-numeric:tabular-nums; }
 
   /* Interactive Placement Simulator */
   .mk-place-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
@@ -393,8 +403,8 @@
       </div>
       <div class="mk-hero-callout">
         <div class="mk-callout-lbl">Combined Two-Site Network</div>
-        <div class="mk-callout-val">131,235</div>
-        <div class="mk-callout-sub">Verified Google Search Console impressions across <strong>RonaldoStats + MessiStats</strong></div>
+        <div class="mk-callout-val" id="callout-combined">126,762</div>
+        <div class="mk-callout-sub" id="callout-combined-sub">Verified Google Search Console impressions across <strong>RonaldoStats + MessiStats</strong></div>
       </div>
     </div>
   </header>
@@ -404,61 +414,77 @@
     <div class="mk-sec-head">
       <div>
         <span class="mk-sec-num">01 · Verified Telemetry</span>
-        <h2 id="stats-h">Live Search Console Stats (Launch Week: Nov 21–26, 2026)</h2>
+        <h2 id="stats-h">Live Search Console Stats (<span id="gsc-period-lbl">Nov 21–26, 2026</span>)</h2>
       </div>
-      <p class="mk-sec-note">Exported directly from Google Search Console · Screenshots available on request</p>
+      <div class="mk-head-badges">
+        <span class="mk-sync-badge" id="gsc-sync-pill"><i class="mk-live-dot"></i> <span id="gsc-sync-label">Auto-synced daily · GSC API</span></span>
+      </div>
     </div>
 
     <div class="kpis kpis-4 mk-kpis">
       <div class="kpi-card">
-        <span class="kpi-label">Week-1 Impressions</span>
-        <div class="kpi-value tnum mk-kpi-accent">12,961</div>
-        <div class="kpi-note">First 6 days after launch</div>
+        <span class="kpi-label" id="kpi-impr-lbl">Launch-Week Impressions</span>
+        <div class="kpi-value tnum mk-kpi-accent" id="kpi-impr">13,047</div>
+        <div class="kpi-note" id="kpi-impr-note">First 6 active days in Search Console</div>
       </div>
       <div class="kpi-card">
         <span class="kpi-label">Organic Clicks</span>
-        <div class="kpi-value tnum">63</div>
-        <div class="kpi-note">Scaling daily with goal alerts</div>
+        <div class="kpi-value tnum" id="kpi-clicks">63</div>
+        <div class="kpi-note" id="kpi-clicks-note">0.48% avg CTR · matchday spikes</div>
       </div>
       <div class="kpi-card">
         <span class="kpi-label">Peak Daily Volume</span>
-        <div class="kpi-value tnum mk-kpi-gold">5,516</div>
-        <div class="kpi-note">Nov 24 Goal #987 surge (39x jump)</div>
+        <div class="kpi-value tnum mk-kpi-gold" id="kpi-peak">5,516</div>
+        <div class="kpi-note" id="kpi-peak-note">Nov 24 peak day (21 clicks)</div>
       </div>
       <div class="kpi-card">
         <span class="kpi-label">Avg. Search Position</span>
-        <div class="kpi-value tnum">8.4</div>
-        <div class="kpi-note">Across EN, ES, PT, FR, RO, UZ, AR</div>
+        <div class="kpi-value tnum" id="kpi-pos">8.4</div>
+        <div class="kpi-note" id="kpi-pos-note">Across EN, ES, PT, FR, RO, UZ, AR</div>
       </div>
     </div>
 
     <div class="mk-data-grid">
       <div class="mk-subpanel">
         <div class="mk-subpanel-head">
-          <span class="mk-subpanel-title">Launch-Week Ramp (Nov 21–25)</span>
-          <span class="mk-trend-tag">5.5K/day by Day 4</span>
+          <span class="mk-subpanel-title" id="chart-title">Launch-Week Ramp (Nov 21–25)</span>
+          <div class="mk-head-badges">
+            <div class="mk-metric-switch" role="group" aria-label="Chart metric">
+              <button type="button" class="mk-metric-btn active" data-metric="impr">Impressions</button>
+              <button type="button" class="mk-metric-btn" data-metric="clicks">Clicks</button>
+            </div>
+            <span class="mk-trend-tag" id="chart-trend">5.5K/day peak</span>
+          </div>
         </div>
-        <div class="mk-chart" role="img" aria-label="Bar chart showing launch-week impressions jumping from 12 on Nov 21 to 5,516 on Nov 24 and 5,458 on Nov 25">
-          <div class="mk-col"><span class="mk-col-num">12</span><div class="mk-col-track"><div class="mk-col-fill" style="height:4%"></div></div><span class="mk-col-dt">Nov 21</span></div>
-          <div class="mk-col"><span class="mk-col-num">141</span><div class="mk-col-track"><div class="mk-col-fill" style="height:7%"></div></div><span class="mk-col-dt">Nov 22</span></div>
-          <div class="mk-col"><span class="mk-col-num">1.4K</span><div class="mk-col-track"><div class="mk-col-fill" style="height:26%"></div></div><span class="mk-col-dt">Nov 23</span></div>
-          <div class="mk-col is-peak"><span class="mk-col-num">5.5K</span><div class="mk-col-track"><div class="mk-col-fill" style="height:100%"></div></div><span class="mk-col-dt">Nov 24</span></div>
-          <div class="mk-col is-peak"><span class="mk-col-num">5.5K</span><div class="mk-col-track"><div class="mk-col-fill" style="height:99%"></div></div><span class="mk-col-dt">Nov 25</span></div>
+        <div class="mk-chart" id="mk-chart-bars" role="group" aria-label="Daily Search Console performance bars">
+          <button type="button" class="mk-col" data-idx="0"><span class="mk-col-num">12</span><div class="mk-col-track"><div class="mk-col-fill" style="height:6%"></div></div><span class="mk-col-dt">Nov 21</span></button>
+          <button type="button" class="mk-col" data-idx="1"><span class="mk-col-num">141</span><div class="mk-col-track"><div class="mk-col-fill" style="height:6%"></div></div><span class="mk-col-dt">Nov 22</span></button>
+          <button type="button" class="mk-col" data-idx="2"><span class="mk-col-num">1.4K</span><div class="mk-col-track"><div class="mk-col-fill" style="height:25%"></div></div><span class="mk-col-dt">Nov 23</span></button>
+          <button type="button" class="mk-col is-peak is-selected" data-idx="3"><span class="mk-col-num">5.5K</span><div class="mk-col-track"><div class="mk-col-fill" style="height:100%"></div></div><span class="mk-col-dt">Nov 24</span></button>
+          <button type="button" class="mk-col is-peak" data-idx="4"><span class="mk-col-num">5.5K</span><div class="mk-col-track"><div class="mk-col-fill" style="height:99%"></div></div><span class="mk-col-dt">Nov 25</span></button>
+        </div>
+        <div class="mk-chart-inspector" id="chart-inspector">
+          <span><strong>Nov 24</strong> · Peak day</span>
+          <span>5,516 impressions · 21 clicks · Pos 7.9</span>
         </div>
       </div>
 
       <div class="mk-subpanel">
         <div class="mk-subpanel-head">
           <span class="mk-subpanel-title">Top Visitor Countries (GSC)</span>
-          <span class="mk-trend-tag">Global + Tier-1</span>
+          <span class="mk-trend-tag" id="ctry-tag">Global + Tier-1</span>
         </div>
-        <div class="mk-countries">
-          <div class="mk-ctry"><span class="mk-ctry-name">Brazil</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:100%"></div></div><span class="mk-ctry-meta">1,451 impr</span></div>
-          <div class="mk-ctry"><span class="mk-ctry-name">United States</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:45%"></div></div><span class="mk-ctry-meta">610 impr</span></div>
-          <div class="mk-ctry"><span class="mk-ctry-name">France</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:36%"></div></div><span class="mk-ctry-meta">450 impr</span></div>
-          <div class="mk-ctry"><span class="mk-ctry-name">Portugal</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:32%"></div></div><span class="mk-ctry-meta">380 impr</span></div>
-          <div class="mk-ctry"><span class="mk-ctry-name">Romania</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:72%"></div></div><span class="mk-ctry-meta">16 clicks</span></div>
-          <div class="mk-ctry"><span class="mk-ctry-name">Cameroon &amp; COD</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:40%"></div></div><span class="mk-ctry-meta">313 impr</span></div>
+        <div class="mk-countries" id="mk-countries">
+          <div class="mk-ctry"><span class="mk-ctry-name">Brazil</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:100%"></div></div><span class="mk-ctry-meta">1,472 impr</span></div>
+          <div class="mk-ctry"><span class="mk-ctry-name">India</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:95%"></div></div><span class="mk-ctry-meta">1,394 impr</span></div>
+          <div class="mk-ctry"><span class="mk-ctry-name">United States</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:42%"></div></div><span class="mk-ctry-meta">618 impr</span></div>
+          <div class="mk-ctry"><span class="mk-ctry-name">France</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:31%"></div></div><span class="mk-ctry-meta">463 impr</span></div>
+          <div class="mk-ctry"><span class="mk-ctry-name">Portugal</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:26%"></div></div><span class="mk-ctry-meta">384 impr</span></div>
+          <div class="mk-ctry"><span class="mk-ctry-name">Spain</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:24%"></div></div><span class="mk-ctry-meta">357 impr</span></div>
+        </div>
+        <div class="mk-dev-strip" id="mk-device-strip">
+          <span>Device split (launch):</span>
+          <span class="mk-dev-pills"><span>Mobile 83%</span> · <span>Desktop 15%</span> · <span>Tablet 2%</span></span>
         </div>
       </div>
     </div>
@@ -538,7 +564,7 @@
 
       <div class="mk-tier" data-tier="bundle" data-monthly="95" data-name="RonaldoStats + MessiStats Bundle">
         <div>
-          <span class="mk-tier-badge">Best Reach · 131.2K Impr</span>
+          <span class="mk-tier-badge" id="tier-bundle-badge">Best Reach · 126.8K Impr</span>
           <h3>RonaldoStats + MessiStats</h3>
           <div class="mk-price" id="price-bundle">$95 <small>/ month</small></div>
           <ul>
@@ -620,7 +646,7 @@
     <div class="sister-ad__text">
       <span class="sister-ad__eyebrow">NETWORK PARTNER SITE</span>
       <strong class="sister-ad__title">MessiStats Media Kit</strong>
-      <span class="sister-ad__sub">118.3K monthly search impressions · Single-site flat rate $65/mo (bundle both for $95/mo).</span>
+      <span class="sister-ad__sub" id="sister-sub">113.7K monthly search impressions · Single-site flat rate $65/mo (bundle both for $95/mo).</span>
     </div>
     <a class="sister-ad__cta" href="https://www.messistat.com/advertise" target="_blank" rel="noopener noreferrer">MessiStats Kit →</a>
   </aside>
@@ -776,12 +802,15 @@
   let selectedTier = "single";
   let pickedPlace = "Top Sticky Header Bar";
 
+  let activePlaceKey = "topbar";
+
   document.querySelectorAll(".mk-place-tab").forEach(btn => {
     btn.addEventListener("click", () => {
+      activePlaceKey = btn.dataset.place;
       document.querySelectorAll(".mk-place-tab").forEach(b => { b.classList.remove("active"); b.setAttribute("aria-selected","false"); });
       btn.classList.add("active"); btn.setAttribute("aria-selected","true");
-      renderPlace(btn.dataset.place);
-      const mapped = PLACE_TITLE_BY_KEY[btn.dataset.place];
+      renderPlace(activePlaceKey);
+      const mapped = PLACE_TITLE_BY_KEY[activePlaceKey];
       if (mapped) {
         pickedPlace = mapped;
         document.querySelectorAll(".mk-place-pill").forEach(p => p.classList.toggle("active", p.dataset.pickPlace === pickedPlace));
@@ -789,7 +818,7 @@
       }
     });
   });
-  renderPlace("topbar");
+  renderPlace(activePlaceKey);
 
   function refreshPricing() {
     const mult = billing === "quarterly" ? 0.85 : 1;
@@ -902,6 +931,203 @@ Please send availability and setup details.`;
       setTimeout(() => { btn.textContent = orig; }, 1600);
     });
   });
+
+  // Live GSC + Career + Latest Goal Auto-Hydration
+  const escHtml = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]));
+  const fmtInt = (n) => Math.round(Number(n) || 0).toLocaleString("en-US");
+  const fmtCompact = (n) => n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, "")}K` : String(Math.round(n));
+
+  let chartMetric = "impr";
+  let chartRows = [
+    { label: "Nov 21", impressions: 12, clicks: 1, ctr: 8.33, position: 15.3, imprPct: 6, clickPct: 6, isPeak: false },
+    { label: "Nov 22", impressions: 141, clicks: 0, ctr: 0, position: 14.3, imprPct: 6, clickPct: 4, isPeak: false },
+    { label: "Nov 23", impressions: 1384, clicks: 11, ctr: 0.79, position: 10.1, imprPct: 25, clickPct: 38, isPeak: false },
+    { label: "Nov 24", impressions: 5516, clicks: 21, ctr: 0.38, position: 7.9, imprPct: 100, clickPct: 72, isPeak: true },
+    { label: "Nov 25", impressions: 5458, clicks: 29, ctr: 0.53, position: 8.2, imprPct: 99, clickPct: 100, isPeak: true }
+  ];
+  let chartSelectedIdx = 3;
+  let chartTrendDefault = "5.5K/day peak";
+
+  function updateInspector() {
+    const el = document.getElementById("chart-inspector");
+    const row = chartRows[chartSelectedIdx] || chartRows[chartRows.length - 1];
+    if (!el || !row) return;
+    const tag = row.isPeak ? "Peak window" : "Daily snapshot";
+    el.innerHTML = `<span><strong>${escHtml(row.label)}</strong> · ${tag}</span><span>${fmtInt(row.impressions)} impressions · ${fmtInt(row.clicks)} clicks · ${row.ctr}% CTR · Pos ${row.position}</span>`;
+  }
+
+  function renderTelemetryChart() {
+    const host = document.getElementById("mk-chart-bars");
+    if (!host || !chartRows.length) return;
+    const isClk = chartMetric === "clicks";
+    const maxVal = Math.max(1, ...chartRows.map((r) => isClk ? r.clicks : r.impressions));
+    if (chartSelectedIdx < 0 || chartSelectedIdx >= chartRows.length) {
+      chartSelectedIdx = chartRows.reduce((bi, r, i, arr) => r.impressions > arr[bi].impressions ? i : bi, 0);
+    }
+    host.innerHTML = chartRows.map((r, i) => {
+      const val = isClk ? r.clicks : r.impressions;
+      const pct = isClk ? (r.clickPct ?? Math.max(6, Math.round((val / maxVal) * 100))) : (r.imprPct ?? Math.max(6, Math.round((val / maxVal) * 100)));
+      const peak = isClk ? val >= maxVal * 0.8 : !!r.isPeak;
+      const sel = i === chartSelectedIdx ? " is-selected" : "";
+      const labelNum = isClk ? fmtInt(val) : fmtCompact(val);
+      return `<button type="button" class="mk-col${peak ? " is-peak" : ""}${sel}" data-idx="${i}" aria-pressed="${i === chartSelectedIdx}"><span class="mk-col-num">${escHtml(labelNum)}</span><div class="mk-col-track"><div class="mk-col-fill" style="height:${pct}%"></div></div><span class="mk-col-dt">${escHtml(r.label)}</span></button>`;
+    }).join("");
+
+    host.querySelectorAll(".mk-col").forEach((btn) => {
+      const pick = () => {
+        chartSelectedIdx = Number(btn.dataset.idx);
+        host.querySelectorAll(".mk-col").forEach((c, idx) => {
+          const on = idx === chartSelectedIdx;
+          c.classList.toggle("is-selected", on);
+          c.setAttribute("aria-pressed", String(on));
+        });
+        updateInspector();
+      };
+      btn.addEventListener("click", pick);
+      btn.addEventListener("mouseenter", pick);
+    });
+    const trendEl = document.getElementById("chart-trend");
+    if (trendEl) {
+      if (isClk) {
+        const sumClk = chartRows.reduce((s, r) => s + r.clicks, 0);
+        trendEl.textContent = `${fmtInt(sumClk)} wk clicks`;
+      } else {
+        trendEl.textContent = chartTrendDefault;
+      }
+    }
+    updateInspector();
+  }
+
+  document.querySelectorAll(".mk-metric-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      chartMetric = btn.dataset.metric || "impr";
+      document.querySelectorAll(".mk-metric-btn").forEach((b) => b.classList.toggle("active", b === btn));
+      renderTelemetryChart();
+    });
+  });
+  renderTelemetryChart();
+
+  async function safeFetchJson(url) {
+    try {
+      const r = await fetch(url, { cache: "no-store" });
+      return r.ok ? await r.json() : null;
+    } catch { return null; }
+  }
+
+  (async function loadLiveMediaKit() {
+    const [gsc, player, rival, latest] = await Promise.all([
+      safeFetchJson("/data/gsc-stats.json"),
+      safeFetchJson("/data/ronaldo-data.json"),
+      safeFetchJson("/data/messi.json"),
+      safeFetchJson("/data/latest-goal.json")
+    ]);
+
+    if (gsc && gsc.primary) {
+      const p = gsc.primary;
+      const net = gsc.combined || { impressions: p.impressions + (gsc.partner?.impressions || 0) };
+      const set = (id, val) => { const el = document.getElementById(id); if (el && val != null) el.textContent = val; };
+      set("callout-combined", fmtInt(net.impressions));
+      set("gsc-period-lbl", p.periodLabel);
+      set("kpi-impr-lbl", (p.activeDays || 0) >= 21 ? "Monthly Impressions" : "Launch-Week Impressions");
+      set("kpi-impr", fmtInt(p.impressions));
+      set("kpi-impr-note", (p.activeDays || 0) >= 21 ? `${p.activeDays}-day organic Google Search` : `First ${p.activeDays || 6} active days in Search Console`);
+      set("kpi-clicks", fmtInt(p.clicks));
+      set("kpi-clicks-note", `${p.ctr}% avg CTR · matchday spikes`);
+      if (p.peakDay) {
+        set("kpi-peak", fmtInt(p.peakDay.impressions));
+        set("kpi-peak-note", `${p.peakDay.label} peak day (${fmtInt(p.peakDay.clicks)} clicks)`);
+      }
+      set("kpi-pos", String(p.avgPosition));
+      if (gsc.updatedAt) {
+        const dt = new Date(gsc.updatedAt);
+        const dtTxt = isNaN(dt.getTime()) ? "daily" : dt.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+        set("gsc-sync-label", `Auto-synced ${dtTxt} · GSC API`);
+      }
+      if (p.trendLabel) chartTrendDefault = p.trendLabel;
+      if (p.chartRangeLabel) set("chart-title", `${(p.activeDays || 0) >= 21 ? `${(p.daily || []).length}-Day Trajectory` : "Launch-Week Ramp"} (${p.chartRangeLabel})`);
+      if (Array.isArray(p.daily) && p.daily.length) {
+        chartRows = p.daily;
+        chartSelectedIdx = chartRows.reduce((bi, r, i, arr) => r.impressions > arr[bi].impressions ? i : bi, 0);
+        renderTelemetryChart();
+      }
+      if (Array.isArray(p.countries) && p.countries.length) {
+        const ctryEl = document.getElementById("mk-countries");
+        if (ctryEl) {
+          ctryEl.innerHTML = p.countries.map((c) =>
+            `<div class="mk-ctry"><span class="mk-ctry-name">${escHtml(c.name)}</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:${Number(c.pct) || 10}%"></div></div><span class="mk-ctry-meta">${fmtInt(c.impressions)} impr</span></div>`
+          ).join("");
+        }
+      }
+      if (Array.isArray(p.devices) && p.devices.length) {
+        const devEl = document.getElementById("mk-device-strip");
+        if (devEl) {
+          const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+          devEl.innerHTML = `<span>Device split (${(p.activeDays || 0) >= 21 ? `${p.activeDays}d` : "launch"}):</span><span class="mk-dev-pills">${p.devices.map((d) => `<span>${escHtml(cap(d.device))} ${d.sharePct}%</span>`).join(" · ")}</span>`;
+        }
+      }
+      set("tier-bundle-badge", `Best Reach · ${fmtCompact(net.impressions)} Impr`);
+      if (gsc.partner) {
+        set("sister-sub", `${fmtCompact(gsc.partner.impressions)} monthly impressions (${gsc.partner.domain}) · Single-site flat rate $65/mo (bundle both for $95/mo).`);
+      }
+    }
+
+    const goals = player?.totals?.combined?.goals;
+    const apps = player?.totals?.combined?.appearances;
+    const uclGoals = Array.isArray(player?.byCompetition)
+      ? (player.byCompetition.filter((c) => /champions league/i.test(c.competition) && !/afc/i.test(c.competition)).reduce((s, c) => s + (c.goals || 0), 0) || 140)
+      : 140;
+    const mGoals = rival?.goals || 937;
+    const lg = latest?.latestGoal;
+    if (goals && apps) {
+      PLACES.topbar.bodyHtml = `
+        <div class="mk-mock-zone">
+          <div><small style="display:block;font-size:.66rem;text-transform:uppercase;color:var(--accent);font-weight:700;">Top Sticky Bar Sponsor</small><strong>YOUR BRAND · Official Matchday Odds &amp; CR7 Kits</strong></div>
+          <span class="mk-mock-cta">Claim Offer →</span>
+        </div>
+        <div class="mk-mock-kpis">
+          <div class="mk-mock-kpi"><b>${fmtInt(goals)}</b><span>Goals</span></div>
+          <div class="mk-mock-kpi"><b>${fmtInt(apps)}</b><span>Apps</span></div>
+          <div class="mk-mock-kpi"><b>${fmtInt(uclGoals)}</b><span>UCL Goals</span></div>
+        </div>
+        <div class="mk-mock-skeleton">
+          <div class="mk-mock-line" style="width:70%"></div>
+          <div class="mk-mock-line" style="width:45%"></div>
+        </div>`;
+      PLACES.rivalry.bodyHtml = `
+        <div class="mk-mock-kpis">
+          <div class="mk-mock-kpi"><b>${fmtInt(goals)}</b><span>Ronaldo Goals</span></div>
+          <div class="mk-mock-kpi"><b>vs</b><span>H2H Archive</span></div>
+          <div class="mk-mock-kpi"><b>${fmtInt(mGoals)}</b><span>Messi Goals</span></div>
+        </div>
+        <div class="mk-mock-zone">
+          <div><small style="display:block;font-size:.66rem;text-transform:uppercase;color:var(--accent);font-weight:700;">Rivalry Hub Sponsor</small><strong>Official #7 &amp; #10 Collectible Jerseys</strong></div>
+          <span class="mk-mock-cta">Shop Now →</span>
+        </div>`;
+      const footEl = document.getElementById("foot-date");
+      if (footEl) footEl.textContent = `Cristiano Ronaldo: ${fmtInt(apps)} senior appearances, ${fmtInt(goals)} goals. Media Kit synced with live career & Search Console feeds.`;
+    }
+    if (lg && lg.goalNumber) {
+      const oppShort = escHtml(String(lg.opponent || "").replace(/ FC/g, ""));
+      const fin = escHtml(lg.finish || "Goal");
+      const dtParts = String(lg.formattedDate || lg.date || "").split(" ");
+      const dtShort = dtParts.length >= 3 ? `${escHtml(dtParts[1].slice(0, 3))} ${escHtml(dtParts[0])}` : escHtml(lg.date || "");
+      const yr = escHtml(dtParts[2] || "2026");
+      PLACES.match.bodyHtml = `
+        <div class="mk-mock-kpis">
+          <div class="mk-mock-kpi"><b>#${fmtInt(lg.goalNumber)}</b><span>vs ${oppShort}</span></div>
+          <div class="mk-mock-kpi"><b>${escHtml(lg.minute || "")}</b><span>${fin}</span></div>
+          <div class="mk-mock-kpi"><b>${dtShort}</b><span>${yr}</span></div>
+        </div>
+        <div class="mk-mock-zone">
+          <div><small style="display:block;font-size:.66rem;text-transform:uppercase;color:var(--accent);font-weight:700;">Presented By Your Brand</small><strong>Watch Live Highlights &amp; Matchday Odds</strong></div>
+          <span class="mk-mock-cta">Visit Partner →</span>
+        </div>
+        <div class="mk-mock-skeleton">
+          <div class="mk-mock-line" style="width:82%"></div>
+        </div>`;
+    }
+    renderPlace(activePlaceKey);
+  })();
 </script>
 <script src="/src/app.js" type="module"></script>
 </body>

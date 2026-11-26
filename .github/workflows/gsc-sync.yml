@@ -1,0 +1,59 @@
+name: Daily Google Search Console Telemetry Sync
+
+on:
+  schedule:
+    # Runs once daily at 08:25 UTC to refresh verified GSC impressions, clicks, bars & countries
+    - cron: '25 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gsc-telemetry-sync-ronaldo
+  cancel-in-progress: true
+
+jobs:
+  sync-gsc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Pull Search Console Stats
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          node scripts/sync-gsc-stats.mjs
+
+      - name: Commit & Push Updated Telemetry
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/gsc-stats.json
+          if git diff --cached --quiet; then
+            echo "GSC telemetry unchanged. Skipping commit and deployment."
+            exit 0
+          fi
+          git commit -m "chore(analytics): daily Search Console telemetry sync [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin ${{ github.ref_name }}; then
+              if git push origin HEAD:${{ github.ref }}; then
+                echo "Synced public/data/gsc-stats.json cleanly."
+                exit 0
+              fi
+            else
+              git rebase --abort || true
+            fi
+            echo "Retrying push (attempt $attempt)..."
+            sleep 5
+          done
+          exit 0
