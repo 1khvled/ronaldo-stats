@@ -52,11 +52,11 @@
 </script>
 <style>
   body[data-page="advertise"] .page { margin-right: 0 !important; padding-right: 0 !important; }
-  .adv-breadcrumbs { display:flex; align-items:center; gap:8px; font-size:.82rem; color:var(--muted); margin-bottom:14px; }
-  .adv-breadcrumbs a { color:var(--brand-ink); text-decoration:none; font-weight:600; }
-  .adv-breadcrumbs a:hover { text-decoration:underline; }
+  .mk-breadcrumbs { display:flex; align-items:center; gap:8px; font-size:.82rem; color:var(--muted); margin-bottom:14px; }
+  .mk-breadcrumbs a { color:var(--brand-ink); text-decoration:none; font-weight:600; }
+  .mk-breadcrumbs a:hover { text-decoration:underline; }
 
-  .adv-banner {
+  .mk-hero {
     position: relative;
     background-color: #102454;
     background-image: linear-gradient(118deg, #064427 0%, #102454 52%, #8e1116 100%);
@@ -68,64 +68,64 @@
     margin-bottom: 20px;
     overflow: hidden;
   }
-  [data-theme="dark"] .adv-banner {
+  [data-theme="dark"] .mk-hero {
     background-color: #0e0e10;
     background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 56px), linear-gradient(118deg, #141416 0%, #0d0d0f 58%, #1a0f12 100%);
     border-color: var(--line);
   }
-  .adv-banner::after {
+  .mk-hero::after {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.42) 100%);
     pointer-events: none;
   }
-  .adv-banner-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.35fr .65fr; gap: 20px; align-items: end; }
-  @media (max-width: 820px) { .adv-banner-inner { grid-template-columns: 1fr; } }
+  .mk-hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.35fr .65fr; gap: 20px; align-items: end; }
+  @media (max-width: 820px) { .mk-hero-inner { grid-template-columns: 1fr; } }
 
-  .adv-badge-row { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:10px; }
-  .adv-live-pill {
+  .mk-badge-row { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:10px; }
+  .mk-live-pill {
     display:inline-flex; align-items:center; gap:6px;
     font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
     padding:4px 9px; border-radius:var(--radius-pill);
     background:rgba(16,185,129,.22); border:1px solid rgba(52,211,153,.55); color:#a7f3d0;
   }
-  .adv-live-dot { width:7px; height:7px; border-radius:50%; background:#34d399; box-shadow:0 0 8px #34d399; }
-  .adv-net-pill {
+  .mk-live-dot { width:7px; height:7px; border-radius:50%; background:#34d399; box-shadow:0 0 8px #34d399; }
+  .mk-net-pill {
     font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
     padding:4px 9px; border-radius:var(--radius-pill);
     background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.26); color:#f4f4f5;
   }
-  .adv-banner h1 { font-family:var(--font-head); font-size:clamp(1.65rem, 3vw, 2.3rem); font-weight:700; line-height:1.15; margin:0 0 10px; color:#fff; letter-spacing:-0.02em; }
-  .adv-banner-lede { color:rgba(255,255,255,.88); font-size:.96rem; line-height:1.55; margin:0 0 16px; max-width:60ch; }
-  .adv-banner-actions { display:flex; flex-wrap:wrap; gap:10px; }
-  .adv-cta-primary {
+  .mk-hero h1 { font-family:var(--font-head); font-size:clamp(1.65rem, 3vw, 2.3rem); font-weight:700; line-height:1.15; margin:0 0 10px; color:#fff; letter-spacing:-0.02em; }
+  .mk-hero-lede { color:rgba(255,255,255,.88); font-size:.96rem; line-height:1.55; margin:0 0 16px; max-width:60ch; }
+  .mk-hero-actions { display:flex; flex-wrap:wrap; gap:10px; }
+  .mk-cta-primary {
     display:inline-flex; align-items:center; gap:8px;
     background:#10b981; color:#042f1c; border:1px solid #34d399;
     font-family:var(--font-head); font-weight:700; font-size:.88rem;
     padding:10px 16px; border-radius:var(--radius); text-decoration:none;
     box-shadow:2px 2px 0 rgba(0,0,0,.35); transition:transform .12s ease;
   }
-  .adv-cta-primary:hover { transform:translate(-1px,-1px); }
-  .adv-cta-ghost {
+  .mk-cta-primary:hover { transform:translate(-1px,-1px); }
+  .mk-cta-ghost {
     display:inline-flex; align-items:center; gap:8px;
     background:rgba(0,0,0,.55); color:#fff; border:1px solid rgba(255,255,255,.32);
     font-weight:700; font-size:.86rem; padding:10px 14px; border-radius:var(--radius);
     text-decoration:none; cursor:pointer;
   }
-  .adv-cta-ghost:hover { background:rgba(0,0,0,.8); }
+  .mk-cta-ghost:hover { background:rgba(0,0,0,.8); }
 
-  .adv-banner-callout {
+  .mk-hero-callout {
     background: rgba(0,0,0,.62);
     border: 1px solid rgba(255,255,255,.22);
     border-radius: var(--radius);
     padding: 14px 16px;
   }
-  .adv-callout-lbl { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#f2ce6b; margin-bottom:4px; }
-  .adv-callout-val { font-family:var(--font-head); font-size:1.65rem; font-weight:700; line-height:1.1; font-variant-numeric:tabular-nums; color:#fff; }
-  .adv-callout-sub { font-size:.8rem; color:rgba(255,255,255,.78); margin-top:4px; }
+  .mk-callout-lbl { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#f2ce6b; margin-bottom:4px; }
+  .mk-callout-val { font-family:var(--font-head); font-size:1.65rem; font-weight:700; line-height:1.1; font-variant-numeric:tabular-nums; color:#fff; }
+  .mk-callout-sub { font-size:.8rem; color:rgba(255,255,255,.78); margin-top:4px; }
 
-  .adv-section {
+  .mk-section {
     background: var(--surface);
     border: var(--hairline);
     border-radius: var(--radius-lg);
@@ -133,111 +133,113 @@
     box-shadow: var(--shadow);
     margin-bottom: 20px;
   }
-  .adv-sec-head { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:10px; border-bottom:1px solid var(--line-soft); padding-bottom:12px; margin-bottom:16px; }
-  .adv-sec-num { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--accent); display:block; margin-bottom:3px; }
-  .adv-sec-head h2 { font-family:var(--font-head); font-size:1.25rem; font-weight:700; margin:0; color:var(--ink); }
-  .adv-sec-note { font-size:.86rem; color:var(--muted); margin:0; }
+  .mk-sec-head { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:10px; border-bottom:1px solid var(--line-soft); padding-bottom:12px; margin-bottom:16px; }
+  .mk-sec-num { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--accent); display:block; margin-bottom:3px; }
+  .mk-sec-head h2 { font-family:var(--font-head); font-size:1.25rem; font-weight:700; margin:0; color:var(--ink); }
+  .mk-sec-note { font-size:.86rem; color:var(--muted); margin:0; }
 
-  .adv-kpis { margin-bottom: 18px; }
-  .adv-kpi-accent { color: var(--accent); }
-  .adv-kpi-gold { color: var(--gold); }
+  .mk-kpis { margin-bottom: 18px; }
+  .mk-kpi-accent { color: var(--accent); }
+  .mk-kpi-gold { color: var(--gold); }
 
-  .adv-data-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:16px; }
-  @media (max-width: 780px) { .adv-data-grid { grid-template-columns: 1fr; } }
+  .mk-data-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:16px; }
+  @media (max-width: 780px) { .mk-data-grid { grid-template-columns: 1fr; } }
 
-  .adv-subpanel {
+  .mk-subpanel {
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: var(--radius);
     padding: 16px;
   }
-  .adv-subpanel-head { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:14px; }
-  .adv-subpanel-title { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
-  .adv-trend-tag { font-size:.72rem; font-weight:700; padding:2px 7px; border-radius:var(--radius-pill); background:var(--accent-soft); color:var(--accent); font-variant-numeric:tabular-nums; }
+  .mk-subpanel-head { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:14px; }
+  .mk-subpanel-title { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
+  .mk-trend-tag { font-size:.72rem; font-weight:700; padding:2px 7px; border-radius:var(--radius-pill); background:var(--accent-soft); color:var(--accent); font-variant-numeric:tabular-nums; }
 
-  .adv-bars { display:flex; align-items:flex-end; gap:10px; height:142px; padding-top:18px; }
-  .adv-bar-col { flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; height:100%; justify-content:flex-end; cursor:default; }
-  .adv-bar-num { font-size:.72rem; font-weight:700; font-variant-numeric:tabular-nums; color:var(--ink-soft); }
-  .adv-bar {
-    width:100%; border-radius:2px 2px 0 0; min-height:4px;
+  .mk-chart { display:flex; align-items:flex-end; gap:10px; padding-top:8px; }
+  .mk-col { flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; cursor:default; }
+  .mk-col-num { font-size:.72rem; font-weight:700; font-variant-numeric:tabular-nums; color:var(--ink-soft); }
+  .mk-col-track { width:100%; height:96px; display:flex; align-items:flex-end; }
+  .mk-col-fill {
+    width:100%; border-radius:3px 3px 0 0; min-height:6px; display:block;
     background: linear-gradient(180deg, var(--accent) 0%, var(--brand) 100%);
     transition: opacity .15s ease, transform .15s ease;
   }
-  .adv-bar-col.is-peak .adv-bar { background: linear-gradient(180deg, #34d399 0%, #059669 100%); }
-  .adv-bar-col:hover .adv-bar { transform: scaleY(1.04); }
-  .adv-bar-dt { font-size:.7rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .mk-col.is-peak .mk-col-fill { background: linear-gradient(180deg, #34d399 0%, #059669 100%); }
+  .mk-col:hover .mk-col-fill { transform: scaleY(1.04); }
+  .mk-col-dt { font-size:.7rem; color:var(--muted); font-variant-numeric:tabular-nums; }
 
-  .adv-countries { display:flex; flex-direction:column; gap:10px; }
-  .adv-ctry { display:grid; grid-template-columns:145px 1fr 78px; align-items:center; gap:10px; font-size:.84rem; }
-  .adv-ctry-name { font-weight:700; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .adv-ctry-track { height:9px; border-radius:2px; background:var(--bg-3); border:1px solid var(--line-soft); overflow:hidden; }
-  .adv-ctry-fill { height:100%; background:var(--brand); }
-  .adv-ctry-meta { text-align:right; font-size:.78rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .mk-countries { display:flex; flex-direction:column; gap:10px; }
+  .mk-ctry { display:grid; grid-template-columns:145px 1fr 78px; align-items:center; gap:10px; font-size:.84rem; }
+  @media (max-width: 480px) { .mk-ctry { grid-template-columns:112px 1fr 68px; gap:8px; } }
+  .mk-ctry-name { font-weight:700; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .mk-ctry-track { height:9px; border-radius:2px; background:var(--bg-3); border:1px solid var(--line-soft); overflow:hidden; }
+  .mk-ctry-fill { height:100%; background:var(--brand); display:block; }
+  .mk-ctry-meta { text-align:right; font-size:.78rem; color:var(--muted); font-variant-numeric:tabular-nums; }
 
-  /* Interactive Ad Slot Simulator */
-  .adv-slot-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
-  .adv-slot-tab {
+  /* Interactive Placement Simulator */
+  .mk-place-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+  .mk-place-tab {
     background:var(--bg-3); color:var(--ink-soft); border:1px solid var(--line);
     border-radius:var(--radius); padding:8px 13px; font-size:.84rem; font-weight:700;
     cursor:pointer; transition:all .12s ease;
   }
-  .adv-slot-tab:hover { border-color:var(--brand); color:var(--brand-ink); }
-  .adv-slot-tab.active { background:var(--ink); color:var(--surface); border-color:var(--ink); }
+  .mk-place-tab:hover { border-color:var(--brand); color:var(--brand-ink); }
+  .mk-place-tab.active { background:var(--ink); color:var(--surface); border-color:var(--ink); }
 
-  .adv-preview-stage { display:grid; grid-template-columns:1.25fr .75fr; gap:16px; align-items:stretch; }
-  @media (max-width: 780px) { .adv-preview-stage { grid-template-columns: 1fr; } }
+  .mk-preview-stage { display:grid; grid-template-columns:1.25fr .75fr; gap:16px; align-items:stretch; }
+  @media (max-width: 780px) { .mk-preview-stage { grid-template-columns: 1fr; } }
 
-  .adv-browser {
+  .mk-browser {
     background: var(--bg-2);
     border: 1px solid var(--line);
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
   }
-  .adv-browser-bar {
+  .mk-browser-bar {
     display:flex; align-items:center; justify-content:space-between; gap:10px;
     padding:8px 12px; background:var(--bg-3); border-bottom:1px solid var(--line);
     font-size:.75rem; color:var(--muted);
   }
-  .adv-dots { display:flex; gap:5px; }
-  .adv-dots i { width:8px; height:8px; border-radius:50%; background:var(--line); display:block; }
-  .adv-url { font-family:monospace; font-size:.73rem; background:var(--surface); padding:2px 10px; border:1px solid var(--line-soft); border-radius:2px; color:var(--ink-soft); }
-  .adv-browser-body { padding:14px; display:flex; flex-direction:column; gap:10px; min-height:205px; }
+  .mk-dots { display:flex; gap:5px; }
+  .mk-dots i { width:8px; height:8px; border-radius:50%; background:var(--line); display:block; }
+  .mk-url { font-family:monospace; font-size:.73rem; background:var(--surface); padding:2px 10px; border:1px solid var(--line-soft); border-radius:2px; color:var(--ink-soft); }
+  .mk-browser-body { padding:14px; display:flex; flex-direction:column; gap:10px; min-height:205px; }
 
-  .adv-mock-slot {
+  .mk-mock-zone {
     border: 2px dashed var(--accent);
     background: var(--accent-soft);
     border-radius: var(--radius);
     padding: 10px 12px;
     display:flex; align-items:center; justify-content:space-between; gap:10px;
   }
-  .adv-mock-slot strong { font-size:.86rem; color:var(--ink); }
-  .adv-mock-cta { background:var(--accent); color:#042f1c; font-weight:700; font-size:.74rem; padding:5px 10px; border-radius:2px; white-space:nowrap; }
-  .adv-mock-skeleton { background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius); padding:10px 12px; }
-  .adv-mock-line { height:8px; background:var(--bg-3); border-radius:2px; margin-bottom:6px; }
-  .adv-mock-kpis { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
-  .adv-mock-kpi { background:var(--surface); border:1px solid var(--line-soft); padding:8px; border-radius:2px; text-align:center; }
-  .adv-mock-kpi b { display:block; font-size:1rem; font-family:var(--font-head); color:var(--ink); }
-  .adv-mock-kpi span { font-size:.68rem; color:var(--muted); }
+  .mk-mock-zone strong { font-size:.86rem; color:var(--ink); }
+  .mk-mock-cta { background:var(--accent); color:#042f1c; font-weight:700; font-size:.74rem; padding:5px 10px; border-radius:2px; white-space:nowrap; }
+  .mk-mock-skeleton { background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius); padding:10px 12px; }
+  .mk-mock-line { height:8px; background:var(--bg-3); border-radius:2px; margin-bottom:6px; }
+  .mk-mock-kpis { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .mk-mock-kpi { background:var(--surface); border:1px solid var(--line-soft); padding:8px; border-radius:2px; text-align:center; }
+  .mk-mock-kpi b { display:block; font-size:1rem; font-family:var(--font-head); color:var(--ink); }
+  .mk-mock-kpi span { font-size:.68rem; color:var(--muted); }
 
-  .adv-slot-specs { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:16px; display:flex; flex-direction:column; justify-content:space-between; gap:12px; }
-  .adv-spec-list { list-style:none; padding:0; margin:8px 0 0; display:flex; flex-direction:column; gap:8px; font-size:.86rem; color:var(--ink-soft); }
-  .adv-spec-list li { display:flex; justify-content:space-between; gap:8px; border-bottom:1px dashed var(--line-soft); padding-bottom:6px; }
-  .adv-spec-list li span:first-child { color:var(--muted); }
-  .adv-spec-list li strong { color:var(--ink); text-align:right; }
+  .mk-place-specs { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:16px; display:flex; flex-direction:column; justify-content:space-between; gap:12px; }
+  .mk-spec-list { list-style:none; padding:0; margin:8px 0 0; display:flex; flex-direction:column; gap:8px; font-size:.86rem; color:var(--ink-soft); }
+  .mk-spec-list li { display:flex; justify-content:space-between; gap:8px; border-bottom:1px dashed var(--line-soft); padding-bottom:6px; }
+  .mk-spec-list li span:first-child { color:var(--muted); }
+  .mk-spec-list li strong { color:var(--ink); text-align:right; }
 
   /* Interactive Pricing */
-  .adv-bill-row { display:flex; align-items:center; gap:8px; }
-  .adv-bill-btn {
+  .mk-bill-row { display:flex; align-items:center; gap:8px; }
+  .mk-bill-btn {
     border:1px solid var(--line); background:var(--bg-3); color:var(--ink-soft);
     padding:6px 12px; font-size:.8rem; font-weight:700; border-radius:var(--radius); cursor:pointer;
   }
-  .adv-bill-btn.active { background:var(--ink); color:var(--surface); border-color:var(--ink); }
+  .mk-bill-btn.active { background:var(--ink); color:var(--surface); border-color:var(--ink); }
 
-  .adv-pricing { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; }
-  @media (max-width: 820px) { .adv-pricing { grid-template-columns: 1fr; } }
+  .mk-pricing { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; }
+  @media (max-width: 820px) { .mk-pricing { grid-template-columns: 1fr; } }
 
-  .adv-tier {
+  .mk-tier {
     position:relative;
     background: var(--card);
     border: 1px solid var(--line);
@@ -247,26 +249,26 @@
     cursor: pointer;
     transition: border-color .14s ease, transform .12s ease;
   }
-  .adv-tier:hover { border-color: var(--brand); transform: translateY(-2px); }
-  .adv-tier.selected { border: 2px solid var(--accent); box-shadow: 3px 3px 0 var(--accent-soft); }
-  .adv-tier-badge {
+  .mk-tier:hover { border-color: var(--brand); transform: translateY(-2px); }
+  .mk-tier.selected { border: 2px solid var(--accent); box-shadow: 3px 3px 0 var(--accent-soft); }
+  .mk-tier-badge {
     display:inline-block; font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em;
     padding:3px 7px; border-radius:2px; background:var(--gold-soft); color:var(--gold); margin-bottom:6px;
   }
-  .adv-tier.selected .adv-tier-badge { background:var(--accent-soft); color:var(--accent); }
-  .adv-tier h3 { font-family:var(--font-head); font-size:1.05rem; margin:0 0 6px; color:var(--ink); }
-  .adv-price { font-family:var(--font-head); font-size:2rem; font-weight:700; font-variant-numeric:tabular-nums; color:var(--ink); line-height:1.05; }
-  .adv-price small { font-size:.82rem; font-weight:600; color:var(--muted); font-family:var(--font-body); }
-  .adv-tier ul { margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:.85rem; line-height:1.6; }
-  .adv-tier-btn {
+  .mk-tier.selected .mk-tier-badge { background:var(--accent-soft); color:var(--accent); }
+  .mk-tier h3 { font-family:var(--font-head); font-size:1.05rem; margin:0 0 6px; color:var(--ink); }
+  .mk-price { font-family:var(--font-head); font-size:2rem; font-weight:700; font-variant-numeric:tabular-nums; color:var(--ink); line-height:1.05; }
+  .mk-price small { font-size:.82rem; font-weight:600; color:var(--muted); font-family:var(--font-body); }
+  .mk-tier ul { margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:.85rem; line-height:1.6; }
+  .mk-tier-btn {
     width:100%; padding:9px 12px; font-weight:700; font-size:.84rem;
     border-radius:var(--radius); border:1px solid var(--line);
     background:var(--bg-3); color:var(--ink); text-align:center; cursor:pointer;
   }
-  .adv-tier.selected .adv-tier-btn { background:var(--accent); color:#042f1c; border-color:var(--accent); }
+  .mk-tier.selected .mk-tier-btn { background:var(--accent); color:#042f1c; border-color:var(--accent); }
 
   /* Interactive Booking Configurator */
-  .adv-composer {
+  .mk-composer {
     margin-top: 16px;
     background: var(--card);
     border: 2px solid var(--accent);
@@ -275,53 +277,53 @@
     box-shadow: 0 10px 26px rgba(16, 185, 129, 0.08);
     transition: box-shadow .2s ease, border-color .2s ease;
   }
-  .adv-composer.is-pulsing {
+  .mk-composer.is-pulsing {
     box-shadow: 0 0 0 4px var(--accent-soft), 0 12px 28px rgba(16, 185, 129, 0.16);
   }
-  .adv-comp-head {
+  .mk-comp-head {
     display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;
     padding-bottom: 12px; border-bottom: 1px solid var(--line-soft); margin-bottom: 14px;
   }
-  .adv-comp-title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin: 0; }
-  .adv-comp-total { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
-  .adv-comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
-  @media (max-width: 720px) { .adv-comp-grid { grid-template-columns: 1fr; } }
-  .adv-field { display: flex; flex-direction: column; gap: 6px; }
-  .adv-field label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
-  .adv-input {
+  .mk-comp-title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin: 0; }
+  .mk-comp-total { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .mk-comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  @media (max-width: 720px) { .mk-comp-grid { grid-template-columns: 1fr; } }
+  .mk-field { display: flex; flex-direction: column; gap: 6px; }
+  .mk-field label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .mk-input {
     width: 100%; padding: 9px 12px; border-radius: var(--radius);
     border: 1px solid var(--line); background: var(--surface); color: var(--ink);
     font-family: inherit; font-size: .88rem;
   }
-  .adv-input:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
-  .adv-slot-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-  .adv-slot-pill {
+  .mk-input:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+  .mk-place-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .mk-place-pill {
     padding: 7px 11px; border-radius: var(--radius); border: 1px solid var(--line);
     background: var(--bg-3); color: var(--ink-soft); font-size: .8rem; font-weight: 700; cursor: pointer;
   }
-  .adv-slot-pill.active { background: var(--accent); color: #042f1c; border-color: var(--accent); }
-  .adv-comp-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
-  .adv-comp-preview {
+  .mk-place-pill.active { background: var(--accent); color: #042f1c; border-color: var(--accent); }
+  .mk-comp-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+  .mk-comp-preview {
     font-size: .8rem; color: var(--muted); background: var(--bg-2); border: 1px solid var(--line-soft);
     border-radius: var(--radius); padding: 10px 12px; width: 100%; white-space: pre-wrap; line-height: 1.45;
   }
 
   /* Contact */
-  .adv-contact-grid { display:grid; grid-template-columns:1fr; gap:12px; }
-  .adv-email-card {
+  .mk-contact-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+  .mk-email-card {
     background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px;
     display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px;
   }
-  .adv-email-meta { display:flex; flex-direction:column; gap:4px; }
-  .adv-email-label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
-  .adv-email-addr { font-family:var(--font-head); font-size:1.18rem; font-weight:700; color:var(--ink); word-break:break-all; }
-  .adv-email-sub { font-size:.82rem; color:var(--muted); }
-  .adv-email-btns { display:flex; flex-wrap:wrap; gap:8px; }
-  .adv-copy-btn {
+  .mk-email-meta { display:flex; flex-direction:column; gap:4px; }
+  .mk-email-label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
+  .mk-email-addr { font-family:var(--font-head); font-size:1.18rem; font-weight:700; color:var(--ink); word-break:break-all; }
+  .mk-email-sub { font-size:.82rem; color:var(--muted); }
+  .mk-email-btns { display:flex; flex-wrap:wrap; gap:8px; }
+  .mk-copy-btn {
     padding:8px 12px; font-size:.82rem; font-weight:700; border-radius:var(--radius);
     border:1px solid var(--line); background:var(--bg-3); color:var(--ink); cursor:pointer;
   }
-  .adv-copy-btn:hover { border-color:var(--brand); }
+  .mk-copy-btn:hover { border-color:var(--brand); }
 </style>
 </head>
 <body data-page="advertise">
@@ -371,46 +373,46 @@
 
 <div class="page">
 <main class="wrap" id="main">
-  <nav class="adv-breadcrumbs" aria-label="Breadcrumb">
+  <nav class="mk-breadcrumbs" aria-label="Breadcrumb">
     <a href="/en">Home</a><span>/</span><span>Advertise &amp; Sponsor</span>
   </nav>
 
-  <header class="adv-banner">
-    <div class="adv-banner-inner">
+  <header class="mk-hero">
+    <div class="mk-hero-inner">
       <div>
-        <div class="adv-badge-row">
-          <span class="adv-live-pill"><i class="adv-live-dot"></i> Live Media Kit · Nov 2026</span>
-          <span class="adv-net-pill">7 Languages · 70 Indexed Pages</span>
+        <div class="mk-badge-row">
+          <span class="mk-live-pill"><i class="mk-live-dot"></i> Live Media Kit · Nov 2026</span>
+          <span class="mk-net-pill">7 Languages · 70 Indexed Pages</span>
         </div>
         <h1>Sponsor &amp; Advertise on RonaldoStats</h1>
-        <p class="adv-banner-lede">Reach global football fans tracking Cristiano Ronaldo's 987 career goals, Champions League records, and Ronaldo vs Messi head-to-head stats. Direct owner-operated placements with verified Search Console metrics.</p>
-        <div class="adv-banner-actions">
-          <a id="hero-book-btn" class="adv-cta-primary" href="mailto:1khvled.dev@gmail.com?subject=Sponsorship%20Inquiry%20-%20RonaldoStats">Book Sponsorship →</a>
-          <a class="adv-cta-ghost" href="#pricing-section">View Rates ($25–$95/mo)</a>
+        <p class="mk-hero-lede">Reach global football fans tracking Cristiano Ronaldo's 987 career goals, Champions League records, and Ronaldo vs Messi head-to-head stats. Direct owner-operated placements with verified Search Console metrics.</p>
+        <div class="mk-hero-actions">
+          <a id="hero-book-btn" class="mk-cta-primary" href="mailto:1khvled.dev@gmail.com?subject=Sponsorship%20Inquiry%20-%20RonaldoStats">Book Sponsorship →</a>
+          <a class="mk-cta-ghost" href="#pricing-section">View Rates ($25–$95/mo)</a>
         </div>
       </div>
-      <div class="adv-banner-callout">
-        <div class="adv-callout-lbl">Combined Two-Site Network</div>
-        <div class="adv-callout-val">131,235</div>
-        <div class="adv-callout-sub">Verified Google Search Console impressions across <strong>RonaldoStats + MessiStats</strong></div>
+      <div class="mk-hero-callout">
+        <div class="mk-callout-lbl">Combined Two-Site Network</div>
+        <div class="mk-callout-val">131,235</div>
+        <div class="mk-callout-sub">Verified Google Search Console impressions across <strong>RonaldoStats + MessiStats</strong></div>
       </div>
     </div>
   </header>
 
   <!-- 1. LIVE STATS -->
-  <section class="adv-section" aria-labelledby="stats-h">
-    <div class="adv-sec-head">
+  <section class="mk-section" aria-labelledby="stats-h">
+    <div class="mk-sec-head">
       <div>
-        <span class="adv-sec-num">01 · Verified Telemetry</span>
+        <span class="mk-sec-num">01 · Verified Telemetry</span>
         <h2 id="stats-h">Live Search Console Stats (Launch Week: Nov 21–26, 2026)</h2>
       </div>
-      <p class="adv-sec-note">Exported directly from Google Search Console · Screenshots available on request</p>
+      <p class="mk-sec-note">Exported directly from Google Search Console · Screenshots available on request</p>
     </div>
 
-    <div class="kpis kpis-4 adv-kpis">
+    <div class="kpis kpis-4 mk-kpis">
       <div class="kpi-card">
         <span class="kpi-label">Week-1 Impressions</span>
-        <div class="kpi-value tnum adv-kpi-accent">12,961</div>
+        <div class="kpi-value tnum mk-kpi-accent">12,961</div>
         <div class="kpi-note">First 6 days after launch</div>
       </div>
       <div class="kpi-card">
@@ -420,7 +422,7 @@
       </div>
       <div class="kpi-card">
         <span class="kpi-label">Peak Daily Volume</span>
-        <div class="kpi-value tnum adv-kpi-gold">5,516</div>
+        <div class="kpi-value tnum mk-kpi-gold">5,516</div>
         <div class="kpi-note">Nov 24 Goal #987 surge (39x jump)</div>
       </div>
       <div class="kpi-card">
@@ -430,184 +432,184 @@
       </div>
     </div>
 
-    <div class="adv-data-grid">
-      <div class="adv-subpanel">
-        <div class="adv-subpanel-head">
-          <span class="adv-subpanel-title">Launch-Week Ramp (Nov 21–25)</span>
-          <span class="adv-trend-tag">5.5K/day by Day 4</span>
+    <div class="mk-data-grid">
+      <div class="mk-subpanel">
+        <div class="mk-subpanel-head">
+          <span class="mk-subpanel-title">Launch-Week Ramp (Nov 21–25)</span>
+          <span class="mk-trend-tag">5.5K/day by Day 4</span>
         </div>
-        <div class="adv-bars" role="img" aria-label="Bar chart showing launch-week impressions jumping from 12 on Nov 21 to 5,516 on Nov 24 and 5,458 on Nov 25">
-          <div class="adv-bar-col"><span class="adv-bar-num">12</span><div class="adv-bar" style="height:4%"></div><span class="adv-bar-dt">Nov 21</span></div>
-          <div class="adv-bar-col"><span class="adv-bar-num">141</span><div class="adv-bar" style="height:7%"></div><span class="adv-bar-dt">Nov 22</span></div>
-          <div class="adv-bar-col"><span class="adv-bar-num">1.4K</span><div class="adv-bar" style="height:26%"></div><span class="adv-bar-dt">Nov 23</span></div>
-          <div class="adv-bar-col is-peak"><span class="adv-bar-num">5.5K</span><div class="adv-bar" style="height:100%"></div><span class="adv-bar-dt">Nov 24</span></div>
-          <div class="adv-bar-col is-peak"><span class="adv-bar-num">5.5K</span><div class="adv-bar" style="height:99%"></div><span class="adv-bar-dt">Nov 25</span></div>
+        <div class="mk-chart" role="img" aria-label="Bar chart showing launch-week impressions jumping from 12 on Nov 21 to 5,516 on Nov 24 and 5,458 on Nov 25">
+          <div class="mk-col"><span class="mk-col-num">12</span><div class="mk-col-track"><div class="mk-col-fill" style="height:4%"></div></div><span class="mk-col-dt">Nov 21</span></div>
+          <div class="mk-col"><span class="mk-col-num">141</span><div class="mk-col-track"><div class="mk-col-fill" style="height:7%"></div></div><span class="mk-col-dt">Nov 22</span></div>
+          <div class="mk-col"><span class="mk-col-num">1.4K</span><div class="mk-col-track"><div class="mk-col-fill" style="height:26%"></div></div><span class="mk-col-dt">Nov 23</span></div>
+          <div class="mk-col is-peak"><span class="mk-col-num">5.5K</span><div class="mk-col-track"><div class="mk-col-fill" style="height:100%"></div></div><span class="mk-col-dt">Nov 24</span></div>
+          <div class="mk-col is-peak"><span class="mk-col-num">5.5K</span><div class="mk-col-track"><div class="mk-col-fill" style="height:99%"></div></div><span class="mk-col-dt">Nov 25</span></div>
         </div>
       </div>
 
-      <div class="adv-subpanel">
-        <div class="adv-subpanel-head">
-          <span class="adv-subpanel-title">Top Visitor Countries (GSC)</span>
-          <span class="adv-trend-tag">Global + Tier-1</span>
+      <div class="mk-subpanel">
+        <div class="mk-subpanel-head">
+          <span class="mk-subpanel-title">Top Visitor Countries (GSC)</span>
+          <span class="mk-trend-tag">Global + Tier-1</span>
         </div>
-        <div class="adv-countries">
-          <div class="adv-ctry"><span class="adv-ctry-name">Brazil</span><div class="adv-ctry-track"><div class="adv-ctry-fill" style="width:100%"></div></div><span class="adv-ctry-meta">1,451 impr</span></div>
-          <div class="adv-ctry"><span class="adv-ctry-name">United States</span><div class="adv-ctry-track"><div class="adv-ctry-fill" style="width:45%"></div></div><span class="adv-ctry-meta">610 impr</span></div>
-          <div class="adv-ctry"><span class="adv-ctry-name">France</span><div class="adv-ctry-track"><div class="adv-ctry-fill" style="width:36%"></div></div><span class="adv-ctry-meta">450 impr</span></div>
-          <div class="adv-ctry"><span class="adv-ctry-name">Portugal</span><div class="adv-ctry-track"><div class="adv-ctry-fill" style="width:32%"></div></div><span class="adv-ctry-meta">380 impr</span></div>
-          <div class="adv-ctry"><span class="adv-ctry-name">Romania</span><div class="adv-ctry-track"><div class="adv-ctry-fill" style="width:72%"></div></div><span class="adv-ctry-meta">16 clicks</span></div>
-          <div class="adv-ctry"><span class="adv-ctry-name">Cameroon &amp; COD</span><div class="adv-ctry-track"><div class="adv-ctry-fill" style="width:40%"></div></div><span class="adv-ctry-meta">313 impr</span></div>
+        <div class="mk-countries">
+          <div class="mk-ctry"><span class="mk-ctry-name">Brazil</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:100%"></div></div><span class="mk-ctry-meta">1,451 impr</span></div>
+          <div class="mk-ctry"><span class="mk-ctry-name">United States</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:45%"></div></div><span class="mk-ctry-meta">610 impr</span></div>
+          <div class="mk-ctry"><span class="mk-ctry-name">France</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:36%"></div></div><span class="mk-ctry-meta">450 impr</span></div>
+          <div class="mk-ctry"><span class="mk-ctry-name">Portugal</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:32%"></div></div><span class="mk-ctry-meta">380 impr</span></div>
+          <div class="mk-ctry"><span class="mk-ctry-name">Romania</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:72%"></div></div><span class="mk-ctry-meta">16 clicks</span></div>
+          <div class="mk-ctry"><span class="mk-ctry-name">Cameroon &amp; COD</span><div class="mk-ctry-track"><div class="mk-ctry-fill" style="width:40%"></div></div><span class="mk-ctry-meta">313 impr</span></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 2. INTERACTIVE AD SLOTS -->
-  <section class="adv-section" aria-labelledby="slots-h">
-    <div class="adv-sec-head">
+  <section class="mk-section" aria-labelledby="slots-h">
+    <div class="mk-sec-head">
       <div>
-        <span class="adv-sec-num">02 · Placement Mockups</span>
+        <span class="mk-sec-num">02 · Placement Mockups</span>
         <h2 id="slots-h">Exact Ad Slots &amp; Live Wireframe Preview</h2>
       </div>
-      <p class="adv-sec-note">Click any slot below to preview where your logo &amp; CTA render inside RonaldoStats</p>
+      <p class="mk-sec-note">Click any slot below to preview where your logo &amp; CTA render inside RonaldoStats</p>
     </div>
 
-    <div class="adv-slot-tabs" role="tablist" aria-label="Ad slot preview">
-      <button type="button" class="adv-slot-tab active" data-slot="topbar" role="tab" aria-selected="true">1. Top Sticky Header Bar</button>
-      <button type="button" class="adv-slot-tab" data-slot="match" role="tab" aria-selected="false">2. Latest Goal / Next Match Card</button>
-      <button type="button" class="adv-slot-tab" data-slot="rivalry" role="tab" aria-selected="false">3. Rivalry &amp; Sidebar Partner</button>
+    <div class="mk-place-tabs" role="tablist" aria-label="Placement preview">
+      <button type="button" class="mk-place-tab active" data-place="topbar" role="tab" aria-selected="true">1. Top Sticky Header Bar</button>
+      <button type="button" class="mk-place-tab" data-place="match" role="tab" aria-selected="false">2. Latest Goal / Next Match Card</button>
+      <button type="button" class="mk-place-tab" data-place="rivalry" role="tab" aria-selected="false">3. Rivalry &amp; Sidebar Partner</button>
     </div>
 
-    <div class="adv-preview-stage">
-      <div class="adv-browser" aria-live="polite">
-        <div class="adv-browser-bar">
-          <div class="adv-dots"><i></i><i></i><i></i></div>
-          <span class="adv-url" id="preview-url">ronaldostats.site/en</span>
+    <div class="mk-preview-stage">
+      <div class="mk-browser" aria-live="polite">
+        <div class="mk-browser-bar">
+          <div class="mk-dots"><i></i><i></i><i></i></div>
+          <span class="mk-url" id="preview-url">ronaldostats.site/en</span>
           <span>Live Preview</span>
         </div>
-        <div class="adv-browser-body" id="preview-body"></div>
+        <div class="mk-browser-body" id="preview-body"></div>
       </div>
 
-      <div class="adv-slot-specs" id="preview-specs"></div>
+      <div class="mk-place-specs" id="preview-specs"></div>
     </div>
   </section>
 
   <!-- 3. SIMPLE PRICING -->
-  <section class="adv-section" id="pricing-section" aria-labelledby="pricing-h">
-    <div class="adv-sec-head">
+  <section class="mk-section" id="pricing-section" aria-labelledby="pricing-h">
+    <div class="mk-sec-head">
       <div>
-        <span class="adv-sec-num">03 · Transparent Launch Pricing</span>
+        <span class="mk-sec-num">03 · Transparent Launch Pricing</span>
         <h2 id="pricing-h">Introductory Flat Rates &amp; Hybrid Deals</h2>
       </div>
-      <div class="adv-bill-row" role="group" aria-label="Billing cycle">
-        <button type="button" class="adv-bill-btn active" data-bill="monthly">Monthly</button>
-        <button type="button" class="adv-bill-btn" data-bill="quarterly">Quarterly (-15%)</button>
+      <div class="mk-bill-row" role="group" aria-label="Billing cycle">
+        <button type="button" class="mk-bill-btn active" data-bill="monthly">Monthly</button>
+        <button type="button" class="mk-bill-btn" data-bill="quarterly">Quarterly (-15%)</button>
       </div>
     </div>
 
-    <div class="adv-pricing">
-      <div class="adv-tier" data-tier="hybrid" data-monthly="25" data-name="Hybrid Launch Deal">
+    <div class="mk-pricing">
+      <div class="mk-tier" data-tier="hybrid" data-monthly="25" data-name="Hybrid Launch Deal">
         <div>
-          <span class="adv-tier-badge">Performance + Base</span>
+          <span class="mk-tier-badge">Performance + Base</span>
           <h3>Hybrid Partner Deal</h3>
-          <div class="adv-price" id="price-hybrid">$25 <small>/ month + CPA</small></div>
+          <div class="mk-price" id="price-hybrid">$25 <small>/ month + CPA</small></div>
           <ul>
             <li>1 dedicated placement on RonaldoStats</li>
             <li>Low starter base + affiliate/CPA commission</li>
             <li>Ideal for sportsbooks, jerseys &amp; streaming</li>
           </ul>
         </div>
-        <button type="button" class="adv-tier-btn">Choose &amp; Configure →</button>
+        <button type="button" class="mk-tier-btn">Choose &amp; Configure →</button>
       </div>
 
-      <div class="adv-tier selected" data-tier="single" data-monthly="45" data-name="Single-Site Launch Rate">
+      <div class="mk-tier selected" data-tier="single" data-monthly="45" data-name="Single-Site Launch Rate">
         <div>
-          <span class="adv-tier-badge">Launch Tier</span>
+          <span class="mk-tier-badge">Launch Tier</span>
           <h3>Single-Site Launch Rate</h3>
-          <div class="adv-price" id="price-single">$45 <small>/ month</small></div>
+          <div class="mk-price" id="price-single">$45 <small>/ month</small></div>
           <ul>
             <li>Top Sticky Header Bar OR Latest Goal Card</li>
             <li>All 7 language editions (70 indexed pages)</li>
             <li>Early-launch rate locked in while scaling toward 5k–10k visits</li>
           </ul>
         </div>
-        <button type="button" class="adv-tier-btn">Selected · Configure Below ↓</button>
+        <button type="button" class="mk-tier-btn">Selected · Configure Below ↓</button>
       </div>
 
-      <div class="adv-tier" data-tier="bundle" data-monthly="95" data-name="RonaldoStats + MessiStats Bundle">
+      <div class="mk-tier" data-tier="bundle" data-monthly="95" data-name="RonaldoStats + MessiStats Bundle">
         <div>
-          <span class="adv-tier-badge">Best Reach · 131.2K Impr</span>
+          <span class="mk-tier-badge">Best Reach · 131.2K Impr</span>
           <h3>RonaldoStats + MessiStats</h3>
-          <div class="adv-price" id="price-bundle">$95 <small>/ month</small></div>
+          <div class="mk-price" id="price-bundle">$95 <small>/ month</small></div>
           <ul>
             <li>Full sponsor visibility on <strong>both sites</strong></li>
             <li>460+ indexed pages across CR7 &amp; Messi hubs</li>
             <li>Includes Rivalry Head-to-Head Spotlight</li>
           </ul>
         </div>
-        <button type="button" class="adv-tier-btn">Choose Network Bundle →</button>
+        <button type="button" class="mk-tier-btn">Choose Network Bundle →</button>
       </div>
     </div>
 
-    <div class="adv-composer" id="adv-composer">
-      <div class="adv-comp-head">
+    <div class="mk-composer" id="mk-composer">
+      <div class="mk-comp-head">
         <div>
-          <span class="adv-sec-num" style="margin-bottom:2px;">Live Booking Summary</span>
-          <h3 class="adv-comp-title" id="comp-plan-label">Single-Site Launch Rate · Monthly</h3>
+          <span class="mk-sec-num" style="margin-bottom:2px;">Live Booking Summary</span>
+          <h3 class="mk-comp-title" id="comp-plan-label">Single-Site Launch Rate · Monthly</h3>
         </div>
-        <div class="adv-comp-total" id="comp-price-label">$45 / month</div>
+        <div class="mk-comp-total" id="comp-price-label">$45 / month</div>
       </div>
 
-      <div class="adv-field" style="margin-bottom:12px;">
+      <div class="mk-field" style="margin-bottom:12px;">
         <label>Preferred Placement Slot</label>
-        <div class="adv-slot-pills" role="group" aria-label="Choose preferred placement">
-          <button type="button" class="adv-slot-pill active" data-pick-slot="Top Sticky Header Bar">1. Top Sticky Bar</button>
-          <button type="button" class="adv-slot-pill" data-pick-slot="Latest Goal / Next Match Card">2. Latest Goal Card</button>
-          <button type="button" class="adv-slot-pill" data-pick-slot="Rivalry &amp; Sidebar Partner">3. Rivalry Hub</button>
-          <button type="button" class="adv-slot-pill" data-pick-slot="Sitewide / Dual-Site Pack">4. Full Sitewide Pack</button>
+        <div class="mk-place-pills" role="group" aria-label="Choose preferred placement">
+          <button type="button" class="mk-place-pill active" data-pick-place="Top Sticky Header Bar">1. Top Sticky Bar</button>
+          <button type="button" class="mk-place-pill" data-pick-place="Latest Goal / Next Match Card">2. Latest Goal Card</button>
+          <button type="button" class="mk-place-pill" data-pick-place="Rivalry &amp; Sidebar Partner">3. Rivalry Hub</button>
+          <button type="button" class="mk-place-pill" data-pick-place="Sitewide / Dual-Site Pack">4. Full Sitewide Pack</button>
         </div>
       </div>
 
-      <div class="adv-comp-grid">
-        <div class="adv-field">
-          <label for="adv-brand-inp">Your Brand / Company (Optional)</label>
-          <input id="adv-brand-inp" class="adv-input" type="text" maxlength="80" placeholder="e.g. Acme Sportsbook / JerseyStore" />
+      <div class="mk-comp-grid">
+        <div class="mk-field">
+          <label for="mk-brand-inp">Your Brand / Company (Optional)</label>
+          <input id="mk-brand-inp" class="mk-input" type="text" maxlength="80" placeholder="e.g. Acme Sportsbook / JerseyStore" />
         </div>
-        <div class="adv-field">
-          <label for="adv-url-inp">Target Link / Notes (Optional)</label>
-          <input id="adv-url-inp" class="adv-input" type="text" maxlength="120" placeholder="e.g. https://yourbrand.com · EN + PT traffic" />
+        <div class="mk-field">
+          <label for="mk-url-inp">Target Link / Notes (Optional)</label>
+          <input id="mk-url-inp" class="mk-input" type="text" maxlength="120" placeholder="e.g. https://yourbrand.com · EN + PT traffic" />
         </div>
       </div>
 
-      <div class="adv-comp-preview" id="comp-preview-msg"></div>
+      <div class="mk-comp-preview" id="comp-preview-msg"></div>
 
-      <div class="adv-comp-actions" style="margin-top:12px;">
-        <a id="comp-send-btn" class="adv-cta-primary" href="mailto:1khvled.dev@gmail.com">Send Sponsorship Email →</a>
-        <button type="button" class="adv-copy-btn" id="comp-copy-brief-btn">Copy Full Inquiry Brief</button>
+      <div class="mk-comp-actions" style="margin-top:12px;">
+        <a id="comp-send-btn" class="mk-cta-primary" href="mailto:1khvled.dev@gmail.com">Send Sponsorship Email →</a>
+        <button type="button" class="mk-copy-btn" id="comp-copy-brief-btn">Copy Full Inquiry Brief</button>
       </div>
     </div>
   </section>
 
   <!-- 4. DIRECT CONTACT -->
-  <section class="adv-section" aria-labelledby="contact-h">
-    <div class="adv-sec-head">
+  <section class="mk-section" aria-labelledby="contact-h">
+    <div class="mk-sec-head">
       <div>
-        <span class="adv-sec-num">04 · Direct Owner Contact</span>
+        <span class="mk-sec-num">04 · Direct Owner Contact</span>
         <h2 id="contact-h">Book a Slot or Request Analytics Proof</h2>
       </div>
-      <p class="adv-sec-note">Fast response (&lt;24h) · Custom placements active within 2 hours</p>
+      <p class="mk-sec-note">Fast response (&lt;24h) · Custom placements active within 2 hours</p>
     </div>
 
-    <div class="adv-contact-grid">
-      <div class="adv-email-card">
-        <div class="adv-email-meta">
-          <span class="adv-email-label">Direct Founder / Owner Email</span>
-          <div class="adv-email-addr">1khvled.dev@gmail.com</div>
-          <span class="adv-email-sub">Direct line for both RonaldoStats.site &amp; MessiStats.com sponsorships, GSC screenshots &amp; custom deals.</span>
+    <div class="mk-contact-grid">
+      <div class="mk-email-card">
+        <div class="mk-email-meta">
+          <span class="mk-email-label">Direct Founder / Owner Email</span>
+          <div class="mk-email-addr">1khvled.dev@gmail.com</div>
+          <span class="mk-email-sub">Direct line for both RonaldoStats.site &amp; MessiStats.com sponsorships, GSC screenshots &amp; custom deals.</span>
         </div>
-        <div class="adv-email-btns">
-          <a id="cta-gmail-mail" class="adv-cta-primary" href="mailto:1khvled.dev@gmail.com?subject=Sponsorship%20Inquiry%20-%20RonaldoStats">Email 1khvled.dev@gmail.com →</a>
-          <button type="button" class="adv-copy-btn" data-copy="1khvled.dev@gmail.com">Copy Email</button>
+        <div class="mk-email-btns">
+          <a id="cta-gmail-mail" class="mk-cta-primary" href="mailto:1khvled.dev@gmail.com?subject=Sponsorship%20Inquiry%20-%20RonaldoStats">Email 1khvled.dev@gmail.com →</a>
+          <button type="button" class="mk-copy-btn" data-copy="1khvled.dev@gmail.com">Copy Email</button>
         </div>
       </div>
     </div>
@@ -683,7 +685,7 @@
 </div>
 
 <script>
-  const SLOTS = {
+  const PLACES = {
     topbar: {
       url: "ronaldostats.site/en · All 7 Languages",
       title: "Top Sticky Header Bar",
@@ -692,18 +694,18 @@
       format: "Logo + 1-line offer + tracked CTA",
       bestFor: "Brand awareness, sportsbooks, jerseys & apps",
       bodyHtml: `
-        <div class="adv-mock-slot">
+        <div class="mk-mock-zone">
           <div><small style="display:block;font-size:.66rem;text-transform:uppercase;color:var(--accent);font-weight:700;">Top Sticky Bar Sponsor</small><strong>YOUR BRAND · Official Matchday Odds &amp; CR7 Kits</strong></div>
-          <span class="adv-mock-cta">Claim Offer →</span>
+          <span class="mk-mock-cta">Claim Offer →</span>
         </div>
-        <div class="adv-mock-kpis">
-          <div class="adv-mock-kpi"><b>987</b><span>Goals</span></div>
-          <div class="adv-mock-kpi"><b>1,345</b><span>Apps</span></div>
-          <div class="adv-mock-kpi"><b>140</b><span>UCL Goals</span></div>
+        <div class="mk-mock-kpis">
+          <div class="mk-mock-kpi"><b>987</b><span>Goals</span></div>
+          <div class="mk-mock-kpi"><b>1,345</b><span>Apps</span></div>
+          <div class="mk-mock-kpi"><b>140</b><span>UCL Goals</span></div>
         </div>
-        <div class="adv-mock-skeleton">
-          <div class="adv-mock-line" style="width:70%"></div>
-          <div class="adv-mock-line" style="width:45%"></div>
+        <div class="mk-mock-skeleton">
+          <div class="mk-mock-line" style="width:70%"></div>
+          <div class="mk-mock-line" style="width:45%"></div>
         </div>`
     },
     match: {
@@ -714,17 +716,17 @@
       format: "Brand mark, headline, badge & button",
       bestFor: "Live streaming partners, fantasy & betting CPA",
       bodyHtml: `
-        <div class="adv-mock-kpis">
-          <div class="adv-mock-kpi"><b>#987</b><span>vs Al Sadd</span></div>
-          <div class="adv-mock-kpi"><b>13'</b><span>Penalty</span></div>
-          <div class="adv-mock-kpi"><b>Nov 24</b><span>2026</span></div>
+        <div class="mk-mock-kpis">
+          <div class="mk-mock-kpi"><b>#987</b><span>vs Al Sadd</span></div>
+          <div class="mk-mock-kpi"><b>13'</b><span>Penalty</span></div>
+          <div class="mk-mock-kpi"><b>Nov 24</b><span>2026</span></div>
         </div>
-        <div class="adv-mock-slot">
+        <div class="mk-mock-zone">
           <div><small style="display:block;font-size:.66rem;text-transform:uppercase;color:var(--accent);font-weight:700;">Presented By Your Brand</small><strong>Watch Live Highlights &amp; Matchday Odds</strong></div>
-          <span class="adv-mock-cta">Visit Partner →</span>
+          <span class="mk-mock-cta">Visit Partner →</span>
         </div>
-        <div class="adv-mock-skeleton">
-          <div class="adv-mock-line" style="width:82%"></div>
+        <div class="mk-mock-skeleton">
+          <div class="mk-mock-line" style="width:82%"></div>
         </div>`
     },
     rivalry: {
@@ -735,36 +737,36 @@
       format: "Persistent sponsor banner between tables",
       bestFor: "Merchandise stores, gaming & VPNs",
       bodyHtml: `
-        <div class="adv-mock-kpis">
-          <div class="adv-mock-kpi"><b>987</b><span>Ronaldo Goals</span></div>
-          <div class="adv-mock-kpi"><b>vs</b><span>H2H Archive</span></div>
-          <div class="adv-mock-kpi"><b>937</b><span>Messi Goals</span></div>
+        <div class="mk-mock-kpis">
+          <div class="mk-mock-kpi"><b>987</b><span>Ronaldo Goals</span></div>
+          <div class="mk-mock-kpi"><b>vs</b><span>H2H Archive</span></div>
+          <div class="mk-mock-kpi"><b>937</b><span>Messi Goals</span></div>
         </div>
-        <div class="adv-mock-slot">
+        <div class="mk-mock-zone">
           <div><small style="display:block;font-size:.66rem;text-transform:uppercase;color:var(--accent);font-weight:700;">Rivalry Hub Sponsor</small><strong>Official #7 &amp; #10 Collectible Jerseys</strong></div>
-          <span class="adv-mock-cta">Shop Now →</span>
+          <span class="mk-mock-cta">Shop Now →</span>
         </div>`
     }
   };
 
-  function renderSlot(key) {
-    const s = SLOTS[key];
+  function renderPlace(key) {
+    const s = PLACES[key];
     document.getElementById("preview-url").textContent = s.url;
     document.getElementById("preview-body").innerHTML = s.bodyHtml;
     document.getElementById("preview-specs").innerHTML = `
       <div>
         <strong style="font-size:1rem;color:var(--ink);">${s.title}</strong>
-        <ul class="adv-spec-list">
+        <ul class="mk-spec-list">
           <li><span>Dimensions</span><strong>${s.dimensions}</strong></li>
           <li><span>Placement</span><strong>${s.visibility}</strong></li>
           <li><span>Creative</span><strong>${s.format}</strong></li>
           <li><span>Best For</span><strong>${s.bestFor}</strong></li>
         </ul>
       </div>
-      <a class="adv-cta-primary" style="justify-content:center;" href="mailto:1khvled.dev@gmail.com?subject=${encodeURIComponent("Slot Inquiry: " + s.title + " - RonaldoStats")}">Reserve ${s.title} →</a>
+      <a class="mk-cta-primary" style="justify-content:center;" href="mailto:1khvled.dev@gmail.com?subject=${encodeURIComponent("Slot Inquiry: " + s.title + " - RonaldoStats")}">Reserve ${s.title} →</a>
     `;
   }
-  const SLOT_TITLE_BY_KEY = {
+  const PLACE_TITLE_BY_KEY = {
     topbar: "Top Sticky Header Bar",
     match: "Latest Goal / Next Match Card",
     rivalry: "Rivalry & Sidebar Partner"
@@ -772,22 +774,22 @@
 
   let billing = "monthly";
   let selectedTier = "single";
-  let pickedSlot = "Top Sticky Header Bar";
+  let pickedPlace = "Top Sticky Header Bar";
 
-  document.querySelectorAll(".adv-slot-tab").forEach(btn => {
+  document.querySelectorAll(".mk-place-tab").forEach(btn => {
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".adv-slot-tab").forEach(b => { b.classList.remove("active"); b.setAttribute("aria-selected","false"); });
+      document.querySelectorAll(".mk-place-tab").forEach(b => { b.classList.remove("active"); b.setAttribute("aria-selected","false"); });
       btn.classList.add("active"); btn.setAttribute("aria-selected","true");
-      renderSlot(btn.dataset.slot);
-      const mapped = SLOT_TITLE_BY_KEY[btn.dataset.slot];
+      renderPlace(btn.dataset.place);
+      const mapped = PLACE_TITLE_BY_KEY[btn.dataset.place];
       if (mapped) {
-        pickedSlot = mapped;
-        document.querySelectorAll(".adv-slot-pill").forEach(p => p.classList.toggle("active", p.dataset.pickSlot === pickedSlot));
+        pickedPlace = mapped;
+        document.querySelectorAll(".mk-place-pill").forEach(p => p.classList.toggle("active", p.dataset.pickPlace === pickedPlace));
         refreshPricing();
       }
     });
   });
-  renderSlot("topbar");
+  renderPlace("topbar");
 
   function refreshPricing() {
     const mult = billing === "quarterly" ? 0.85 : 1;
@@ -796,15 +798,15 @@
     document.getElementById("price-hybrid").innerHTML = `$${h} <small>${suffix} + CPA</small>`;
     document.getElementById("price-single").innerHTML = `$${s} <small>${suffix}</small>`;
     document.getElementById("price-bundle").innerHTML = `$${b} <small>${suffix}</small>`;
-    const card = document.querySelector(`.adv-tier[data-tier="${selectedTier}"]`);
+    const card = document.querySelector(`.mk-tier[data-tier="${selectedTier}"]`);
     const base = Number(card.dataset.monthly);
     const rate = Math.round(base * mult);
     const planName = card.dataset.name || card.querySelector("h3").textContent;
     const cpaNote = selectedTier === "hybrid" ? " + CPA" : "";
     const billLabel = billing === "quarterly" ? "Quarterly (-15%)" : "Monthly";
     const rateTxt = `$${rate}/mo${cpaNote} (${billLabel})`;
-    const brandVal = (document.getElementById("adv-brand-inp")?.value || "").trim() || "[Your Brand]";
-    const urlVal = (document.getElementById("adv-url-inp")?.value || "").trim() || "[Target URL & Languages]";
+    const brandVal = (document.getElementById("mk-brand-inp")?.value || "").trim() || "[Your Brand]";
+    const urlVal = (document.getElementById("mk-url-inp")?.value || "").trim() || "[Target URL & Languages]";
 
     const compPlan = document.getElementById("comp-plan-label");
     const compPrice = document.getElementById("comp-price-label");
@@ -818,7 +820,7 @@
 I would like to book a sponsorship slot on RonaldoStats:
 - Plan: ${planName}
 - Rate: $${rate}/mo${cpaNote} (${billLabel})
-- Placement: ${pickedSlot}
+- Placement: ${pickedPlace}
 - Brand: ${brandVal}
 - Website / Target: ${urlVal}
 
@@ -834,51 +836,51 @@ Please send availability and setup details.`;
     document.getElementById("hero-book-btn").href = mailHref;
   }
 
-  document.querySelectorAll(".adv-bill-btn").forEach(btn => {
+  document.querySelectorAll(".mk-bill-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       billing = btn.dataset.bill;
-      document.querySelectorAll(".adv-bill-btn").forEach(b => b.classList.toggle("active", b === btn));
+      document.querySelectorAll(".mk-bill-btn").forEach(b => b.classList.toggle("active", b === btn));
       refreshPricing();
     });
   });
 
-  document.querySelectorAll(".adv-tier").forEach(card => {
+  document.querySelectorAll(".mk-tier").forEach(card => {
     card.addEventListener("click", (e) => {
       selectedTier = card.dataset.tier;
-      document.querySelectorAll(".adv-tier").forEach(c => {
+      document.querySelectorAll(".mk-tier").forEach(c => {
         const on = c === card;
         c.classList.toggle("selected", on);
-        c.querySelector(".adv-tier-btn").textContent = on ? "Selected · Configure Below ↓" : "Choose & Configure →";
+        c.querySelector(".mk-tier-btn").textContent = on ? "Selected · Configure Below ↓" : "Choose & Configure →";
       });
       if (selectedTier === "bundle") {
-        pickedSlot = "Sitewide / Dual-Site Pack";
-        document.querySelectorAll(".adv-slot-pill").forEach(p => p.classList.toggle("active", p.dataset.pickSlot === pickedSlot));
+        pickedPlace = "Sitewide / Dual-Site Pack";
+        document.querySelectorAll(".mk-place-pill").forEach(p => p.classList.toggle("active", p.dataset.pickPlace === pickedPlace));
       }
       refreshPricing();
-      if (e.target.closest(".adv-tier-btn")) {
-        const comp = document.getElementById("adv-composer");
+      if (e.target.closest(".mk-tier-btn")) {
+        const comp = document.getElementById("mk-composer");
         if (comp) {
           comp.scrollIntoView({ behavior: "smooth", block: "center" });
           comp.classList.remove("is-pulsing");
           void comp.offsetWidth;
           comp.classList.add("is-pulsing");
           setTimeout(() => comp.classList.remove("is-pulsing"), 900);
-          document.getElementById("adv-brand-inp")?.focus({ preventScroll: true });
+          document.getElementById("mk-brand-inp")?.focus({ preventScroll: true });
         }
       }
     });
   });
 
-  document.querySelectorAll(".adv-slot-pill").forEach(pill => {
+  document.querySelectorAll(".mk-place-pill").forEach(pill => {
     pill.addEventListener("click", () => {
-      pickedSlot = pill.dataset.pickSlot;
-      document.querySelectorAll(".adv-slot-pill").forEach(p => p.classList.toggle("active", p === pill));
+      pickedPlace = pill.dataset.pickPlace;
+      document.querySelectorAll(".mk-place-pill").forEach(p => p.classList.toggle("active", p === pill));
       refreshPricing();
     });
   });
 
-  document.getElementById("adv-brand-inp")?.addEventListener("input", refreshPricing);
-  document.getElementById("adv-url-inp")?.addEventListener("input", refreshPricing);
+  document.getElementById("mk-brand-inp")?.addEventListener("input", refreshPricing);
+  document.getElementById("mk-url-inp")?.addEventListener("input", refreshPricing);
 
   document.getElementById("comp-copy-brief-btn")?.addEventListener("click", async (e) => {
     const msg = document.getElementById("comp-preview-msg")?.textContent || "1khvled.dev@gmail.com";
@@ -891,7 +893,7 @@ Please send availability and setup details.`;
 
   refreshPricing();
 
-  document.querySelectorAll(".adv-copy-btn").forEach(btn => {
+  document.querySelectorAll(".mk-copy-btn").forEach(btn => {
     btn.addEventListener("click", async () => {
       const email = btn.dataset.copy;
       try { await navigator.clipboard.writeText(email); } catch {}
