@@ -1,0 +1,43 @@
+{
+  "channel": "francedealsdz",
+  "channelUrl": "https://t.me/francedealsdz",
+  "updatedAt": "2026-11-27T19:07:23.622Z",
+  "deals": [
+    {
+      "id": "391",
+      "url": "https://t.me/francedealsdz/391",
+      "title": "HONOR 400 5G,EU Version, 5G",
+      "price": "226€",
+      "code": "11FRBF40",
+      "region": "FR",
+      "postedAt": "2026-11-27T19:03:39+00:00"
+    },
+    {
+      "id": "390",
+      "url": "https://t.me/francedealsdz/390",
+      "title": "Cafetera HiBREW 20 Bar Inox Semiautomática Super Slim",
+      "price": "94€",
+      "code": "ESBF10",
+      "region": "ES",
+      "postedAt": "2026-11-27T18:34:30+00:00"
+    },
+    {
+      "id": "389",
+      "url": "https://t.me/francedealsdz/389",
+      "title": "Móvil realme C100 5G Batería 6600mAh Pantalla 144Hz IP64 Doble",
+      "price": "100€",
+      "code": "ESBF20",
+      "region": "ES",
+      "postedAt": "2026-11-27T18:34:23+00:00"
+    },
+    {
+      "id": "388",
+      "url": "https://t.me/francedealsdz/388",
+      "title": "HONOR Pad 10, Versión EU, Pantalla de 12.1 Pulgadas 120Hz 2.5K",
+      "price": "160€",
+      "code": "ESBF20",
+      "region": "ES",
+      "postedAt": "2026-11-27T18:34:17+00:00"
+    }
+  ]
+}

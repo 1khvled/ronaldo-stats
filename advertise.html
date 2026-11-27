@@ -329,11 +329,36 @@
   .mk-email-addr { font-family:var(--font-head); font-size:1.18rem; font-weight:700; color:var(--ink); word-break:break-all; }
   .mk-email-sub { font-size:.82rem; color:var(--muted); }
   .mk-email-btns { display:flex; flex-wrap:wrap; gap:8px; }
-  .mk-copy-btn {
+  .mk-copy-btn, .mk-btn-secondary {
+    display:inline-flex; align-items:center; justify-content:center; gap:6px;
     padding:8px 12px; font-size:.82rem; font-weight:700; border-radius:var(--radius);
-    border:1px solid var(--line); background:var(--bg-3); color:var(--ink); cursor:pointer;
+    border:1px solid var(--line); background:var(--bg-3); color:var(--ink);
+    cursor:pointer; text-decoration:none;
   }
-  .mk-copy-btn:hover { border-color:var(--brand); }
+  .mk-copy-btn:hover, .mk-btn-secondary:hover { border-color:var(--brand); color:var(--brand-ink); }
+  .mk-gsc-details {
+    margin-top:14px; border:1px solid var(--line); border-radius:var(--radius);
+    background:var(--bg-2); overflow:hidden;
+  }
+  .mk-gsc-summary {
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px;
+    padding:10px 14px; cursor:pointer; font-size:.82rem; font-weight:700; color:var(--ink);
+    list-style:none;
+  }
+  .mk-gsc-summary::-webkit-details-marker { display:none; }
+  .mk-gsc-summary::before { content:"▸ "; color:var(--accent); font-weight:800; }
+  .mk-gsc-details[open] .mk-gsc-summary::before { content:"▾ "; }
+  .mk-bd-prop { font-family:var(--font-mono, ui-monospace, monospace); font-size:.72rem; font-weight:600; color:var(--muted); }
+  .mk-bd-table-wrap { overflow-x:auto; border-top:1px solid var(--line-soft); }
+  .mk-bd-table { width:100%; border-collapse:collapse; font-size:.8rem; font-variant-numeric:tabular-nums; }
+  .mk-bd-table th, .mk-bd-table td { padding:8px 12px; text-align:right; border-bottom:1px solid var(--line-soft); white-space:nowrap; }
+  .mk-bd-table th:first-child, .mk-bd-table td:first-child { text-align:left; font-weight:700; color:var(--ink); }
+  .mk-bd-table th { font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); background:var(--surface); }
+  .mk-bd-table tbody tr:last-child td { border-bottom:none; }
+  .mk-bd-table tr.is-peak-row td:first-child::after {
+    content:"PEAK"; margin-left:6px; font-size:.62rem; padding:1px 5px; border-radius:4px;
+    background:rgba(16,185,129,.14); color:#10b981; font-weight:800;
+  }
 </style>
 </head>
 <body data-page="advertise">
@@ -488,6 +513,24 @@
         </div>
       </div>
     </div>
+
+    <details class="mk-gsc-details" id="mk-breakdown-details">
+      <summary class="mk-gsc-summary">
+        <span>Verified Daily GSC Breakdown (<span id="mk-bd-range">Last Active Days</span>)</span>
+        <span class="mk-bd-prop" id="mk-bd-prop">sc-domain:ronaldostats.site</span>
+      </summary>
+      <div class="mk-bd-table-wrap">
+        <table class="mk-bd-table">
+          <thead>
+            <tr><th>Date</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Avg Pos</th></tr>
+          </thead>
+          <tbody id="mk-bd-rows">
+            <tr class="is-peak-row"><td>Nov 25</td><td>5,458</td><td>29</td><td>0.53%</td><td>8.2</td></tr>
+            <tr class="is-peak-row"><td>Nov 24</td><td>5,516</td><td>21</td><td>0.38%</td><td>7.9</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
   </section>
 
   <!-- 2. INTERACTIVE AD SLOTS -->
@@ -611,6 +654,7 @@
 
       <div class="mk-comp-actions" style="margin-top:12px;">
         <a id="comp-send-btn" class="mk-cta-primary" href="mailto:1khvled.dev@gmail.com">Send Sponsorship Email →</a>
+        <a id="comp-gmail-btn" class="mk-btn-secondary" href="https://mail.google.com/mail/?view=cm&fs=1&to=1khvled.dev@gmail.com" target="_blank" rel="noopener noreferrer">Open in Gmail Web ↗</a>
         <button type="button" class="mk-copy-btn" id="comp-copy-brief-btn">Copy Full Inquiry Brief</button>
       </div>
     </div>
@@ -635,6 +679,7 @@
         </div>
         <div class="mk-email-btns">
           <a id="cta-gmail-mail" class="mk-cta-primary" href="mailto:1khvled.dev@gmail.com?subject=Sponsorship%20Inquiry%20-%20RonaldoStats">Email 1khvled.dev@gmail.com →</a>
+          <a id="cta-gmail-web" class="mk-btn-secondary" href="https://mail.google.com/mail/?view=cm&fs=1&to=1khvled.dev@gmail.com&su=Sponsorship%20Inquiry%20-%20RonaldoStats" target="_blank" rel="noopener noreferrer">Open in Gmail Web ↗</a>
           <button type="button" class="mk-copy-btn" data-copy="1khvled.dev@gmail.com">Copy Email</button>
         </div>
       </div>
@@ -859,8 +904,13 @@ Please send availability and setup details.`;
     if (previewEl) previewEl.textContent = `To: 1khvled.dev@gmail.com\nSubject: ${subj}\n\n${bodyText}`;
 
     const mailHref = `mailto:1khvled.dev@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(bodyText)}`;
+    const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=1khvled.dev@gmail.com&su=${encodeURIComponent(subj)}&body=${encodeURIComponent(bodyText)}`;
     const compSend = document.getElementById("comp-send-btn");
     if (compSend) compSend.href = mailHref;
+    const compGmail = document.getElementById("comp-gmail-btn");
+    if (compGmail) compGmail.href = gmailHref;
+    const ctaWeb = document.getElementById("cta-gmail-web");
+    if (ctaWeb) ctaWeb.href = gmailHref;
     document.getElementById("cta-gmail-mail").href = mailHref;
     document.getElementById("hero-book-btn").href = mailHref;
   }
@@ -922,9 +972,10 @@ Please send availability and setup details.`;
 
   refreshPricing();
 
-  document.querySelectorAll(".mk-copy-btn").forEach(btn => {
+  document.querySelectorAll(".mk-copy-btn[data-copy]").forEach(btn => {
     btn.addEventListener("click", async () => {
       const email = btn.dataset.copy;
+      if (!email) return;
       try { await navigator.clipboard.writeText(email); } catch {}
       const orig = btn.textContent;
       btn.textContent = "Copied ✓";
@@ -1066,6 +1117,14 @@ Please send availability and setup details.`;
         }
       }
       set("tier-bundle-badge", `Best Reach · ${fmtCompact(net.impressions)} Impr`);
+      set("mk-bd-range", p.chartRangeLabel || p.periodLabel);
+      set("mk-bd-prop", p.siteUrl || "sc-domain:ronaldostats.site");
+      const bdRowsEl = document.getElementById("mk-bd-rows");
+      if (bdRowsEl && Array.isArray(p.daily) && p.daily.length) {
+        bdRowsEl.innerHTML = [...p.daily].reverse().map((d) =>
+          `<tr class="${d.isPeak ? "is-peak-row" : ""}"><td>${escHtml(d.label || d.date)}</td><td>${fmtInt(d.impressions)}</td><td>${fmtInt(d.clicks)}</td><td>${Number(d.ctr || 0).toFixed(2)}%</td><td>${Number(d.position || 0).toFixed(1)}</td></tr>`
+        ).join("");
+      }
       if (gsc.partner) {
         set("sister-sub", `${fmtCompact(gsc.partner.impressions)} monthly impressions (${gsc.partner.domain}) · Single-site flat rate $65/mo (bundle both for $95/mo).`);
       }

@@ -259,7 +259,7 @@ function initMonetizationUnits() {
     const target = e.target instanceof Element ? e.target : (e.target && e.target.parentElement);
     if (!target) return;
 
-    if (target.closest(".rail, .mobile-topbar, #cmd-palette, #lang-modal, #mobile-nav-drawer, .theme-toggle, .ad-anchor-close, [data-open-cmd], .eu-deals-backdrop, .eu-deals-strip")) {
+    if (target.closest(".rail, .mobile-topbar, #cmd-palette, #lang-modal, #mobile-nav-drawer, .theme-toggle, .ad-anchor-close, [data-open-cmd], .eu-deals-backdrop, .eu-deals-strip, .footer-eu-deals")) {
       return;
     }
 
@@ -331,11 +331,11 @@ function initMonetizationUnits() {
     (document.body || document.documentElement).appendChild(aside);
   }
 
-  // Arm both immediately without waiting for DOMContentLoaded (skip on B2B /advertise page)
-  if (document.body?.dataset?.page !== "advertise") {
-    armMobileAnchor();
-    armDesktopSkyscraper();
-  }
+  // Arm both immediately without waiting for DOMContentLoaded (disabled for AdSense Auto Ads parity with MessiStats)
+  // if (document.body?.dataset?.page !== "advertise") {
+  //   armMobileAnchor();
+  //   armDesktopSkyscraper();
+  // }
 }
 initMonetizationUnits();
 
@@ -7751,6 +7751,7 @@ load().then((d) => {
         headline: "Jusqu'à -70% sur AliExpress Europe — Codes Promo & Bons Plans",
         desc: "Chaque jour : baisses de prix vérifiées, codes réduction cumulables, astuces pièces et livraisons rapides depuis la France & l'UE.",
         perks: ["⚡ Offres Flash en direct", "🏷️ Codes Promo UE vérifiés", "🚚 Entrepôts Europe rapide"],
+        liveLabel: "🔥 Derniers bons plans en direct",
         sample: "🔥 Tech, Cafetières Expresso & Gadgets · Ex : HONOR Pad EU, HiBREW Barista — Remises PayPal & Pièces",
         joinBtn: "Rejoindre @francedealsdz Gratuitement →",
         skipBtn: "Passer · Retour aux stats",
@@ -7767,6 +7768,7 @@ load().then((d) => {
         headline: "Hasta -70% en AliExpress Europa — Cupones y Chollos Diarios",
         desc: "Descuentos verificados cada día, cupones acumulables, trucos con monedas y envío rápido desde almacenes en España y Europa.",
         perks: ["⚡ Chollos Flash en vivo", "🏷️ Códigos Promo UE", "🚚 Envío Rápido Europa"],
+        liveLabel: "🔥 Últimos chollos verificados",
         sample: "🔥 Tecnología, Cafeteras Express y Gadgets · Precios bajados y envío directo desde España / UE",
         joinBtn: "Unirme a @francedealsdz Gratis →",
         skipBtn: "Omitir · Volver a estadísticas",
@@ -7783,6 +7785,7 @@ load().then((d) => {
         headline: "Até -70% no AliExpress Europa — Cupões e Ofertas Flash",
         desc: "Todos os dias: quedas de preço reais, códigos promocionais acumuláveis e envios rápidos a partir de armazéns na Europa.",
         perks: ["⚡ Ofertas Flash ao vivo", "🏷️ Cupões UE verificados", "🚚 Envio Rápido Europa"],
+        liveLabel: "🔥 Últimas ofertas na UE",
         sample: "🔥 Tecnologia, Café & Gadgets · Descontos reais com envio direto da UE",
         joinBtn: "Entrar no @francedealsdz Grátis →",
         skipBtn: "Saltar · Voltar às estatísticas",
@@ -7799,6 +7802,7 @@ load().then((d) => {
         headline: "Până la -70% pe AliExpress Europa — Coduri Promo Zilnice",
         desc: "Reduceri reale verificate zilnic, cupoane cumulabile și livrare rapidă fără taxe vamale din depozite europene.",
         perks: ["⚡ Oferte Flash live", "🏷️ Coduri Promo UE", "🚚 Livrare Rapidă Europa"],
+        liveLabel: "🔥 Ultimele reduceri UE",
         sample: "🔥 Tech, Gadgeturi & Espresso — Reduceri zilnice cu livrare din depozite UE",
         joinBtn: "Alătură-te @francedealsdz Gratuit →",
         skipBtn: "Sari peste · Înapoi la statistici",
@@ -7808,6 +7812,74 @@ load().then((d) => {
         stripSub: "Reduceri zilnice verificate și cupoane UE pe @francedealsdz",
         stripCta: "Vezi oferte →"
       },
+      de: {
+        badge: "🇩🇪 NUR EUROPA · ALIEXPRESS DEALS",
+        title: "FRANCE DEALSCOUT",
+        handle: "@francedealsdz · Offizieller Telegram-Kanal",
+        headline: "Bis zu -70% auf AliExpress Europa — Gutscheine & Blitzdeals",
+        desc: "Jeden Tag geprüfte Preissenkungen, kombinierbare EU-Rabattcodes, Münzen-Tricks & schneller Versand aus europäischen Lagern.",
+        perks: ["⚡ Live Blitzangebote", "🏷️ Geprüfte EU-Codes", "🚚 Schneller EU-Versand"],
+        liveLabel: "🔥 Aktuelle Top-Deals (EU)",
+        sample: "🔥 Smartphones, Espressomaschinen & Technik-Deals direkt aus EU-Lagern",
+        joinBtn: "Kostenlos beitreten (@francedealsdz) →",
+        skipBtn: "Überspringen · Zurück zu den Stats",
+        footNote: "Kostenloser Telegram-Kanal · Nur Europa · Jederzeit kündbar",
+        closeAria: "Europa-Angebote schließen",
+        stripTitle: "AliExpress Europa Blitzdeals & geprüfte Gutscheincodes",
+        stripSub: "Tägliche Preissenkungen & EU-Rabatte auf @francedealsdz",
+        stripCta: "Deals ansehen →"
+      },
+      it: {
+        badge: "🇮🇹 SOLO EUROPA · OFFERTE ALIEXPRESS",
+        title: "FRANCE DEALSCOUT",
+        handle: "@francedealsdz · Canale Telegram Ufficiale",
+        headline: "Fino al -70% su AliExpress Europa — Codici Sconto & Offerte",
+        desc: "Ogni giorno ribassi verificati, coupon cumulabili, trucchi Monete e spedizione rapida dai magazzini europei senza dogana.",
+        perks: ["⚡ Offerte Flash Live", "🏷️ Codici Sconto UE", "🚚 Spedizione Rapida UE"],
+        liveLabel: "🔥 Ultime offerte verificate UE",
+        sample: "🔥 Smartphone, Macchine Espresso & Tech in offerta lampo da magazzini UE",
+        joinBtn: "Unisciti gratis a @francedealsdz →",
+        skipBtn: "Salta · Torna alle statistiche",
+        footNote: "Canale Telegram gratuito · Solo Europa · Esci quando vuoi",
+        closeAria: "Chiudi finestra offerte",
+        stripTitle: "Offerte e codici sconto AliExpress Europa su Telegram",
+        stripSub: "Ribassi giornalieri verificati e coupon UE su @francedealsdz",
+        stripCta: "Vedi offerte →"
+      },
+      nl: {
+        badge: "🇳🇱 ALLEEN EUROPA · ALIEXPRESS DEALS",
+        title: "FRANCE DEALSCOUT",
+        handle: "@francedealsdz · Officieel Telegram-kanaal",
+        headline: "Tot -70% op AliExpress Europa — Kortingscodes & Flashdeals",
+        desc: "Elke dag geverifieerde prijsdalingen, stapelbare EU-kortingscodes en snelle levering vanuit Europese magazijnen.",
+        perks: ["⚡ Live Flashdeals", "🏷️ EU Kortingscodes", "🚚 Snelle EU-verzending"],
+        liveLabel: "🔥 Nieuwste EU-aanbiedingen",
+        sample: "🔥 Tech, Espresso & Gadgets — Dagelijkse kortingen vanuit EU-magazijnen",
+        joinBtn: "Gratis lid worden (@francedealsdz) →",
+        skipBtn: "Overslaan · Terug naar statistieken",
+        footNote: "Gratis Telegram-kanaal · Alleen Europa · Altijd opzegbaar",
+        closeAria: "Sluit Europa-aanbieding",
+        stripTitle: "AliExpress Europa flitsaanbiedingen & EU-kortingscodes",
+        stripSub: "Dagelijkse prijsdalingen & exclusieve codes op @francedealsdz",
+        stripCta: "Bekijk deals →"
+      },
+      pl: {
+        badge: "🇵🇱 TYLKO EUROPA · OKAZJE ALIEXPRESS",
+        title: "FRANCE DEALSCOUT",
+        handle: "@francedealsdz · Oficjalny kanał Telegram",
+        headline: "Do -70% na AliExpress Europa — Kody Rabatowe i Okazje",
+        desc: "Codziennie sprawdzone obniżki cen, łączone kody rabatowe UE oraz szybka wysyłka z magazynów w Europie bez cła.",
+        perks: ["⚡ Okazje Flash na żywo", "🏷️ Kody Rabatowe UE", "🚚 Szybka wysyłka z UE"],
+        liveLabel: "🔥 Najnowsze okazje w UE",
+        sample: "🔥 Elektronika, ekspresy i gadżety w promocjach z magazynów UE",
+        joinBtn: "Dołącz za darmo (@francedealsdz) →",
+        skipBtn: "Pomiń · Wróć do statystyk",
+        footNote: "Darmowy kanał Telegram · Tylko dla Europy · Rezygnacja w każdej chwili",
+        closeAria: "Zamknij okno z okazjami",
+        stripTitle: "Okazje i kody rabatowe AliExpress Europa na Telegramie",
+        stripSub: "Codzienne spadki cen i kupony UE na @francedealsdz",
+        stripCta: "Zobacz okazje →"
+      },
       en: {
         badge: "🇪🇺 EUROPE ONLY · ALIEXPRESS DEALS",
         title: "FRANCE DEALSCOUT",
@@ -7815,6 +7887,7 @@ load().then((d) => {
         headline: "Up to 70% OFF AliExpress Europe — Daily Promo Codes",
         desc: "Curated European warehouse deals, verified stackable promo codes, Coins tricks, and instant flash price-drop alerts across the EU.",
         perks: ["⚡ Daily Flash Drops", "🏷️ Verified EU Promo Codes", "🚚 Fast EU Warehouse Shipping"],
+        liveLabel: "🔥 Latest live EU drops",
         sample: "🔥 Tech, Espresso & Home Flash Drops · PayPal & EU Warehouse Discounts Updated Daily",
         joinBtn: "Join Europe Deals (@francedealsdz) →",
         skipBtn: "Skip for now · Continue to stats",
@@ -7828,14 +7901,85 @@ load().then((d) => {
 
     function pickEuCopy(geo) {
       const pageLang = typeof getCurrentLangCode === "function" ? getCurrentLangCode() : "en";
-      if (COPY[pageLang] && pageLang !== "en") return COPY[pageLang];
+      if (COPY[pageLang] && pageLang !== "en") return Object.assign({ langKey: pageLang }, COPY[pageLang]);
       const c = String(geo?.country || "").toUpperCase();
       const nav = String(navigator.language || "").toLowerCase();
-      if (c === "FR" || c === "BE" || c === "MC" || nav.startsWith("fr")) return COPY.fr;
-      if (c === "ES" || nav.startsWith("es")) return COPY.es;
-      if (c === "PT" || nav.startsWith("pt")) return COPY.pt;
-      if (c === "RO" || nav.startsWith("ro")) return COPY.ro;
-      return COPY.en;
+      const navBase = nav.split("-")[0];
+      let key = "en";
+      if (c === "BE") {
+        key = navBase === "nl" ? "nl" : "fr";
+      } else if (c === "CH") {
+        key = navBase === "fr" ? "fr" : (navBase === "it" ? "it" : "de");
+      } else if (c === "FR" || c === "MC" || c === "LU") {
+        key = navBase === "de" ? "de" : "fr";
+      } else if (c === "ES") {
+        key = "es";
+      } else if (c === "PT") {
+        key = "pt";
+      } else if (c === "RO" || c === "MD") {
+        key = "ro";
+      } else if (c === "DE" || c === "AT" || c === "LI") {
+        key = "de";
+      } else if (c === "IT" || c === "SM" || c === "VA") {
+        key = "it";
+      } else if (c === "NL") {
+        key = "nl";
+      } else if (c === "PL") {
+        key = "pl";
+      } else if (COPY[navBase]) {
+        key = navBase;
+      }
+      return Object.assign({ langKey: key }, COPY[key] || COPY.en);
+    }
+
+    function escEuHtml(s) {
+      return String(s ?? "").replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+    }
+
+    function trackEuEvent(action, geo, langKey, extra = {}) {
+      try {
+        const payload = Object.assign({
+          action,
+          country: String(geo?.country || ""),
+          ui_lang: langKey || "en",
+        }, extra);
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "eu_deals_action", payload);
+        } else if (Array.isArray(window.dataLayer)) {
+          window.dataLayer.push(["event", "eu_deals_action", payload]);
+        }
+      } catch (_) {}
+    }
+
+    let cachedDealsPromise = null;
+    function loadLiveEuDeals() {
+      if (!cachedDealsPromise) {
+        cachedDealsPromise = fetch("/data/eu-deals.json", { cache: "no-store" })
+          .then((r) => (r.ok ? r.json() : null))
+          .then((data) => {
+            if (!data || !Array.isArray(data.deals)) return [];
+            return data.deals
+              .filter((d) => d && d.title && d.price && typeof d.url === "string" && d.url.startsWith(CHANNEL_URL) && !/dealscoutgreen/i.test(JSON.stringify(d)))
+              .slice(0, 3);
+          })
+          .catch(() => []);
+      }
+      return cachedDealsPromise;
+    }
+
+    function renderDealsHtml(deals, t) {
+      if (!Array.isArray(deals) || !deals.length) return escEuHtml(t.sample);
+      const rows = deals.map((d) => {
+        const regBadge = d.region ? `<span class="eu-deal-reg">${escEuHtml(d.region)}</span>` : "";
+        const codeBadge = d.code ? `<span class="eu-deal-code">${escEuHtml(d.code)}</span>` : "";
+        return (
+          `<a class="eu-deal-item" href="${escEuHtml(d.url)}" target="_blank" rel="noopener noreferrer" data-deal-id="${escEuHtml(d.id || "")}">` +
+            `<span class="eu-deal-left">${regBadge}<span class="eu-deal-title">${escEuHtml(d.title)}</span></span>` +
+            `<span class="eu-deal-right">${codeBadge}<strong class="eu-deal-price">${escEuHtml(d.price)}</strong></span>` +
+          `</a>`
+        );
+      }).join("");
+      return `<div class="eu-deal-feed-head">${escEuHtml(t.liveLabel)}</div><div class="eu-deal-list">${rows}</div>`;
     }
 
     function tgSvg() {
@@ -7889,13 +8033,39 @@ load().then((d) => {
       return true;
     }
 
-    function mountEuStrip(t) {
-      try {
-        if (!forcePreview && localStorage.getItem(STRIP_KEY) === "1") return;
-      } catch (_) {}
-      if (document.getElementById("eu-deals-strip")) return;
-      const footer = document.querySelector("footer.site-footer");
+    function mountEuStrip(t, geo) {
+      const footer = document.querySelector("footer.site-footer, .page > footer, footer");
       if (!footer || !footer.parentElement) return;
+      const socialBar = footer.querySelector(".footer-social-bar");
+
+      function ensureFooterChip() {
+        if (!socialBar || socialBar.querySelector(".footer-eu-deals")) return;
+        const chip = document.createElement("a");
+        chip.href = CHANNEL_URL;
+        chip.target = "_blank";
+        chip.rel = "noopener noreferrer";
+        chip.className = "footer-x-link footer-eu-deals";
+        chip.style.borderColor = "rgba(0,136,204,.5)";
+        chip.style.color = "#0088cc";
+        chip.style.fontWeight = "700";
+        chip.innerHTML = `${tgSvg()}<span>EU Deals (@francedealsdz)</span>`;
+        chip.addEventListener("click", () => trackEuEvent("footer_chip_click", geo, t.langKey));
+        socialBar.appendChild(chip);
+      }
+
+      let dismissed = false;
+      try {
+        dismissed = !forcePreview && localStorage.getItem(STRIP_KEY) === "1";
+      } catch (_) {}
+      if (dismissed) {
+        ensureFooterChip();
+        return;
+      }
+
+      if (socialBar) {
+        socialBar.querySelector(".footer-eu-deals")?.remove();
+      }
+      if (document.getElementById("eu-deals-strip")) return;
       const strip = document.createElement("aside");
       strip.id = "eu-deals-strip";
       strip.className = "eu-deals-strip";
@@ -7907,32 +8077,23 @@ load().then((d) => {
         `</div>` +
         `<a href="${CHANNEL_URL}" target="_blank" rel="noopener noreferrer" class="eu-deals-strip-cta">${tgSvg()}<span>${t.stripCta}</span></a>` +
         `<button type="button" class="eu-deals-strip-close" aria-label="${t.closeAria}" title="${t.closeAria}">&#10005;</button>`;
+      strip.querySelector(".eu-deals-strip-cta")?.addEventListener("click", () => {
+        trackEuEvent("strip_click", geo, t.langKey);
+      });
       strip.querySelector(".eu-deals-strip-close")?.addEventListener("click", () => {
         try { localStorage.setItem(STRIP_KEY, "1"); } catch (_) {}
+        trackEuEvent("strip_dismiss", geo, t.langKey);
         strip.remove();
+        ensureFooterChip();
       });
       footer.parentElement.insertBefore(strip, footer);
-
-      const socialBar = footer.querySelector(".footer-social-bar");
-      if (socialBar && !socialBar.querySelector(".footer-eu-deals")) {
-        const chip = document.createElement("a");
-        chip.href = CHANNEL_URL;
-        chip.target = "_blank";
-        chip.rel = "noopener noreferrer";
-        chip.className = "footer-x-link footer-eu-deals";
-        chip.style.borderColor = "rgba(0,136,204,.5)";
-        chip.style.color = "#0088cc";
-        chip.style.fontWeight = "700";
-        chip.innerHTML = `${tgSvg()}<span>EU Deals (@francedealsdz)</span>`;
-        socialBar.appendChild(chip);
-      }
     }
 
-    function openEuPopup(t) {
+    function openEuPopup(t, geo, initialDeals) {
       if (document.getElementById("eu-deals-modal")) return;
       if (document.hidden && !forcePreview) return;
       if (!forcePreview && (document.querySelector("#cmd-palette[open], #lang-modal[open], #mobile-nav-drawer[open]") || document.querySelector("#portugal-farewell-modal:not([hidden])"))) {
-        setTimeout(() => openEuPopup(t), 2200);
+        setTimeout(() => openEuPopup(t, geo, initialDeals), 2200);
         return;
       }
 
@@ -7958,7 +8119,7 @@ load().then((d) => {
             `<p class="eu-deals-headline">${t.headline}</p>` +
             `<p class="eu-deals-desc">${t.desc}</p>` +
             `<div class="eu-deals-perks">${t.perks.map((p) => `<span class="eu-deals-perk">${p}</span>`).join("")}</div>` +
-            `<div class="eu-deals-sample">${t.sample}</div>` +
+            `<div class="eu-deals-sample">${renderDealsHtml(initialDeals, t)}</div>` +
             `<div class="eu-deals-actions">` +
               `<a class="eu-deals-join" href="${CHANNEL_URL}" target="_blank" rel="noopener noreferrer">${tgSvg()}<span>${t.joinBtn}</span></a>` +
               `<button type="button" class="eu-deals-skip">${t.skipBtn}</button>` +
@@ -7978,30 +8139,94 @@ load().then((d) => {
         } catch (_) {}
         document.removeEventListener("keydown", onEsc);
         backdrop.remove();
-        mountEuStrip(t);
+        mountEuStrip(t, geo);
       }
 
-      const onEsc = (e) => { if (e.key === "Escape") dismiss("skip"); };
+      const onEsc = (e) => {
+        if (e.key === "Escape") {
+          trackEuEvent("skip", geo, t.langKey, { trigger: "escape" });
+          dismiss("skip");
+        }
+      };
       document.addEventListener("keydown", onEsc);
-      backdrop.addEventListener("click", (e) => { if (e.target === backdrop) dismiss("skip"); });
-      backdrop.querySelector(".eu-deals-close")?.addEventListener("click", () => dismiss("skip"));
-      backdrop.querySelector(".eu-deals-skip")?.addEventListener("click", () => dismiss("skip"));
+      backdrop.addEventListener("click", (e) => {
+        if (e.target === backdrop) {
+          trackEuEvent("skip", geo, t.langKey, { trigger: "backdrop" });
+          dismiss("skip");
+        }
+      });
+      backdrop.querySelector(".eu-deals-close")?.addEventListener("click", () => {
+        trackEuEvent("skip", geo, t.langKey, { trigger: "close_x" });
+        dismiss("skip");
+      });
+      backdrop.querySelector(".eu-deals-skip")?.addEventListener("click", () => {
+        trackEuEvent("skip", geo, t.langKey, { trigger: "skip_btn" });
+        dismiss("skip");
+      });
       backdrop.querySelector(".eu-deals-join")?.addEventListener("click", () => {
+        trackEuEvent("join", geo, t.langKey);
+        setTimeout(() => dismiss("join"), 120);
+      });
+      backdrop.querySelector(".eu-deals-sample")?.addEventListener("click", (e) => {
+        const item = e.target.closest(".eu-deal-item");
+        if (!item) return;
+        trackEuEvent("deal_click", geo, t.langKey, { deal_id: item.dataset.dealId || "" });
         setTimeout(() => dismiss("join"), 120);
       });
 
       try { sessionStorage.setItem(SESS_KEY, "1"); } catch (_) {}
       document.body.appendChild(backdrop);
+      trackEuEvent("view", geo, t.langKey);
+
+      if (!initialDeals || !initialDeals.length) {
+        loadLiveEuDeals().then((deals) => {
+          const sampleEl = backdrop.querySelector(".eu-deals-sample");
+          if (backdrop.isConnected && sampleEl && deals.length) {
+            sampleEl.innerHTML = renderDealsHtml(deals, t);
+          }
+        });
+      }
     }
 
     (async function run() {
+      const dealsPromise = loadLiveEuDeals();
       const geo = await detectEurope();
       if (!geo || !geo.isEurope) return;
       const t = pickEuCopy(geo);
-      mountEuStrip(t);
-      if (canShowPopup()) {
-        setTimeout(() => openEuPopup(t), forcePreview ? 150 : 2200);
+      mountEuStrip(t, geo);
+      if (!canShowPopup()) return;
+
+      let triggered = false;
+      async function showNow() {
+        if (triggered) return;
+        triggered = true;
+        window.removeEventListener("scroll", onInteract);
+        window.removeEventListener("pointerdown", onInteract);
+        window.removeEventListener("keydown", onInteract);
+        const deals = await Promise.race([
+          dealsPromise,
+          new Promise((res) => setTimeout(() => res([]), 450))
+        ]);
+        openEuPopup(t, geo, deals);
       }
+
+      if (forcePreview) {
+        setTimeout(showNow, 150);
+        return;
+      }
+
+      let interactTimer = null;
+      const fallbackTimer = setTimeout(showNow, 3800);
+      function onInteract() {
+        window.removeEventListener("scroll", onInteract);
+        window.removeEventListener("pointerdown", onInteract);
+        window.removeEventListener("keydown", onInteract);
+        clearTimeout(fallbackTimer);
+        if (!interactTimer) interactTimer = setTimeout(showNow, 1800);
+      }
+      window.addEventListener("scroll", onInteract, { passive: true, once: true });
+      window.addEventListener("pointerdown", onInteract, { passive: true, once: true });
+      window.addEventListener("keydown", onInteract, { passive: true, once: true });
     })();
   } catch (_) {}
 })();

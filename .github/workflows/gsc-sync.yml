@@ -32,18 +32,26 @@ jobs:
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
         run: |
-          node scripts/sync-gsc-stats.mjs
+          if [ -n "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            node scripts/sync-gsc-stats.mjs
+          else
+            echo "::warning::GSC_SERVICE_ACCOUNT_JSON secret is not set yet; skipping GSC sync."
+          fi
+
+      - name: Pull Latest EU Deals (@francedealsdz)
+        run: |
+          node scripts/sync-eu-deals.mjs || echo "::warning::EU deals sync skipped due to upstream fetch error."
 
       - name: Commit & Push Updated Telemetry
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/gsc-stats.json
+          git add public/data/gsc-stats.json public/data/eu-deals.json
           if git diff --cached --quiet; then
-            echo "GSC telemetry unchanged. Skipping commit and deployment."
+            echo "Telemetry and deals unchanged. Skipping commit and deployment."
             exit 0
           fi
-          git commit -m "chore(analytics): daily Search Console telemetry sync [skip ci]"
+          git commit -m "chore(analytics): daily GSC & EU deals sync [skip ci]"
           for attempt in 1 2 3; do
             if git pull --rebase --autostash origin ${{ github.ref_name }}; then
               if git push origin HEAD:${{ github.ref }}; then
