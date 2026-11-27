@@ -2752,7 +2752,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "The photograph is the listing's own image on Amazon  [Amazon prices and stock change, so the listing always shows the live price] —"
+  "ctx": "The photograph is the listing's own image on Amazon  [Amazon prices and stock change, so the listing always shows the live price] $71.73"
  },
  "Annual Goal Totals &amp; Cumulative Career Trajectory": {
   "count": 1,
@@ -3017,7 +3017,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "Apparel &amp; Fan Wear  [CR7 Baseball Cap] ★★★★★"
+  "ctx": "Apparel &amp; Fan Wear  [CR7 Baseball Cap] The photograph is the listing's own image on Amazon"
  },
  "CR7 Heavyweight Fleece Hoodie": {
   "count": 1,
@@ -3281,10 +3281,10 @@
   "pages": [
    "gear"
   ],
-  "ctx": "Check the listing for the price  [Check on Amazon ↗] ⭐ Tournament Kit"
+  "ctx": "Price checked on Amazon  [Check on Amazon ↗] ⭐ Tournament Kit"
  },
  "Check the listing for the price": {
-  "count": 4,
+  "count": 5,
   "pages": [
    "gear"
   ],
@@ -6682,7 +6682,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "Official Matchwear  [Portugal Home Jersey #7 Ronaldo] The photograph is the listing's own image on Amazon"
+  "ctx": "Official Matchwear  [Portugal Home Jersey #7 Ronaldo] ★★★★☆"
  },
  "Portugal National Team Goals Year by Year (2003–2026)": {
   "count": 1,
@@ -6803,11 +6803,11 @@
   "ctx": "3  [Premier League title; United reached the final] 2007/08"
  },
  "Price checked on Amazon": {
-  "count": 6,
+  "count": 5,
   "pages": [
    "gear"
   ],
-  "ctx": "$249.99  [Price checked on Amazon] Check on Amazon ↗"
+  "ctx": "$71.73  [Price checked on Amazon] Check on Amazon ↗"
  },
  "Primary": {
   "count": 10,
@@ -8328,7 +8328,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "Portugal Home Jersey #7 Ronaldo  [The photograph is the listing's own image on Amazon] Amazon prices and stock change, so the listing always shows the live price"
+  "ctx": "reviews  [The photograph is the listing's own image on Amazon] Amazon prices and stock change, so the listing always shows the live price"
  },
  "The record book — 987 goals in 1,345 senior appearances": {
   "count": 1,
@@ -9536,7 +9536,7 @@
   "pages": [
    "gear"
   ],
-  "ctx": "40  [reviews] The photograph is the listing's own image on Amazon"
+  "ctx": "18  [reviews] The photograph is the listing's own image on Amazon"
  },
  "ronaldo champions league, ronaldo ucl stats, ronaldo champions league goals, ronaldo champions league hat tricks, ronaldo champions league knockout goals, ronaldo ucl titles, ronaldo champions league appearances, ronaldo 140 champions league goals, ronaldo top scorer ucl, ronaldo champions league season by season, ronaldostat": {
   "count": 1,
