@@ -1,43 +1,43 @@
 {
   "channel": "francedealsdz",
   "channelUrl": "https://t.me/francedealsdz",
-  "updatedAt": "2026-11-27T19:07:23.622Z",
+  "updatedAt": "2026-11-28T17:01:37.718Z",
   "deals": [
     {
-      "id": "391",
-      "url": "https://t.me/francedealsdz/391",
-      "title": "HONOR 400 5G,EU Version, 5G",
-      "price": "226€",
-      "code": "11FRBF40",
+      "id": "417",
+      "url": "https://t.me/francedealsdz/417",
+      "title": "IScooter IX7 Pro-1, double moteur, 48V, 17.5Ah, vitesse de 25",
+      "price": "424€",
+      "code": "FRBF76",
       "region": "FR",
-      "postedAt": "2026-11-27T19:03:39+00:00"
+      "postedAt": "2026-11-28T15:26:08+00:00"
     },
     {
-      "id": "390",
-      "url": "https://t.me/francedealsdz/390",
-      "title": "Cafetera HiBREW 20 Bar Inox Semiautomática Super Slim",
-      "price": "94€",
-      "code": "ESBF10",
-      "region": "ES",
-      "postedAt": "2026-11-27T18:34:30+00:00"
+      "id": "413",
+      "url": "https://t.me/francedealsdz/413",
+      "title": "Kukirin M4 Max Electric Scooter for Adults",
+      "price": "288€",
+      "code": "11FRBF60",
+      "region": "FR",
+      "postedAt": "2026-11-28T15:10:56+00:00"
     },
     {
-      "id": "389",
-      "url": "https://t.me/francedealsdz/389",
-      "title": "Móvil realme C100 5G Batería 6600mAh Pantalla 144Hz IP64 Doble",
-      "price": "100€",
-      "code": "ESBF20",
-      "region": "ES",
-      "postedAt": "2026-11-27T18:34:23+00:00"
+      "id": "411",
+      "url": "https://t.me/francedealsdz/411",
+      "title": "Processeur AMD Ryzen 7 7800X3D, version boîte, pour jeux, 8",
+      "price": "194€",
+      "code": "FRBF40",
+      "region": "FR",
+      "postedAt": "2026-11-28T13:02:20+00:00"
     },
     {
-      "id": "388",
-      "url": "https://t.me/francedealsdz/388",
-      "title": "HONOR Pad 10, Versión EU, Pantalla de 12.1 Pulgadas 120Hz 2.5K",
-      "price": "160€",
-      "code": "ESBF20",
-      "region": "ES",
-      "postedAt": "2026-11-27T18:34:17+00:00"
+      "id": "410",
+      "url": "https://t.me/francedealsdz/410",
+      "title": "Aspirateur balai 2-en-1 Tineco Floor One S7 Stretch Ultra, 180°",
+      "price": "187€",
+      "code": null,
+      "region": "FR",
+      "postedAt": "2026-11-28T11:00:30+00:00"
     }
   ]
 }

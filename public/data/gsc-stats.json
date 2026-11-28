@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T19:07:28.219Z",
+  "updatedAt": "2026-11-28T17:01:37.080Z",
   "source": "Google Search Console API",
   "primary": {
     "domain": "ronaldostats.site",
@@ -8,8 +8,8 @@
     "periodStart": "2026-11-21",
     "periodEnd": "2026-11-27",
     "periodLabel": "Nov 21–27, 2026",
-    "chartRangeLabel": "Nov 21–26",
-    "impressions": 15439,
+    "chartRangeLabel": "Nov 21–27",
+    "impressions": 15446,
     "clicks": 73,
     "ctr": 0.47,
     "avgPosition": 8.4,
@@ -87,13 +87,24 @@
         "imprPct": 53,
         "clickPct": 38,
         "isPeak": false
+      },
+      {
+        "date": "2026-11-27",
+        "label": "Nov 27",
+        "impressions": 15,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 58.6,
+        "imprPct": 6,
+        "clickPct": 4,
+        "isPeak": false
       }
     ],
     "countries": [
       {
         "code": "bra",
         "name": "Brazil",
-        "impressions": 1707,
+        "impressions": 1708,
         "clicks": 4,
         "pct": 100
       },
@@ -107,7 +118,7 @@
       {
         "code": "usa",
         "name": "United States",
-        "impressions": 693,
+        "impressions": 694,
         "clicks": 3,
         "pct": 41
       },
@@ -128,7 +139,7 @@
       {
         "code": "esp",
         "name": "Spain",
-        "impressions": 399,
+        "impressions": 401,
         "clicks": 1,
         "pct": 23
       }
@@ -136,13 +147,13 @@
     "devices": [
       {
         "device": "mobile",
-        "impressions": 12735,
+        "impressions": 12739,
         "clicks": 60,
         "sharePct": 82
       },
       {
         "device": "desktop",
-        "impressions": 2337,
+        "impressions": 2340,
         "clicks": 13,
         "sharePct": 15
       },
@@ -158,34 +169,23 @@
     "domain": "messistat.com",
     "siteUrl": "https://www.messistat.com/",
     "activeDays": 28,
-    "periodStart": "2026-10-31",
-    "periodEnd": "2026-11-27",
-    "periodLabel": "Oct 31 – Nov 27, 2026",
-    "chartRangeLabel": "Nov 20–26",
-    "impressions": 121943,
-    "clicks": 567,
-    "ctr": 0.46,
-    "avgPosition": 7.8,
+    "periodStart": "2026-11-01",
+    "periodEnd": "2026-11-28",
+    "periodLabel": "Nov 1–28, 2026",
+    "chartRangeLabel": "Nov 21–27",
+    "impressions": 131543,
+    "clicks": 586,
+    "ctr": 0.45,
+    "avgPosition": 7.7,
     "peakDay": {
       "date": "2026-11-24",
       "label": "Nov 24",
       "impressions": 14176,
       "clicks": 39
     },
-    "wkGrowthPct": 369,
-    "trendLabel": "+369% wk/wk",
+    "wkGrowthPct": 342,
+    "trendLabel": "+342% wk/wk",
     "daily": [
-      {
-        "date": "2026-11-20",
-        "label": "Nov 20",
-        "impressions": 4851,
-        "clicks": 20,
-        "ctr": 0.41,
-        "position": 8.3,
-        "imprPct": 34,
-        "clickPct": 42,
-        "isPeak": false
-      },
       {
         "date": "2026-11-21",
         "label": "Nov 21",
@@ -244,12 +244,23 @@
       {
         "date": "2026-11-26",
         "label": "Nov 26",
-        "impressions": 11132,
+        "impressions": 11136,
         "clicks": 41,
         "ctr": 0.37,
         "position": 7,
         "imprPct": 79,
         "clickPct": 85,
+        "isPeak": true
+      },
+      {
+        "date": "2026-11-27",
+        "label": "Nov 27",
+        "impressions": 13689,
+        "clicks": 40,
+        "ctr": 0.29,
+        "position": 6.8,
+        "imprPct": 97,
+        "clickPct": 83,
         "isPeak": true
       }
     ],
@@ -257,70 +268,70 @@
       {
         "code": "usa",
         "name": "United States",
-        "impressions": 8183,
-        "clicks": 29,
+        "impressions": 8351,
+        "clicks": 28,
         "pct": 100
       },
       {
         "code": "ind",
         "name": "India",
-        "impressions": 6855,
-        "clicks": 22,
-        "pct": 84
+        "impressions": 7109,
+        "clicks": 23,
+        "pct": 85
       },
       {
         "code": "bra",
         "name": "Brazil",
-        "impressions": 5812,
-        "clicks": 22,
-        "pct": 71
+        "impressions": 6094,
+        "clicks": 24,
+        "pct": 73
       },
       {
         "code": "mex",
         "name": "Mexico",
-        "impressions": 4690,
+        "impressions": 5336,
         "clicks": 14,
-        "pct": 57
+        "pct": 64
+      },
+      {
+        "code": "idn",
+        "name": "Indonesia",
+        "impressions": 5125,
+        "clicks": 23,
+        "pct": 61
       },
       {
         "code": "egy",
         "name": "Egypt",
-        "impressions": 4225,
+        "impressions": 5071,
         "clicks": 6,
-        "pct": 52
-      },
-      {
-        "code": "esp",
-        "name": "Spain",
-        "impressions": 4020,
-        "clicks": 31,
-        "pct": 49
+        "pct": 61
       }
     ],
     "devices": [
       {
         "device": "mobile",
-        "impressions": 103151,
-        "clicks": 475,
+        "impressions": 111711,
+        "clicks": 495,
         "sharePct": 85
       },
       {
         "device": "desktop",
-        "impressions": 16389,
+        "impressions": 17202,
         "clicks": 81,
         "sharePct": 13
       },
       {
         "device": "tablet",
-        "impressions": 2403,
-        "clicks": 11,
+        "impressions": 2630,
+        "clicks": 10,
         "sharePct": 2
       }
     ]
   },
   "combined": {
-    "impressions": 137382,
-    "clicks": 640,
+    "impressions": 146989,
+    "clicks": 659,
     "properties": 2
   }
 }
